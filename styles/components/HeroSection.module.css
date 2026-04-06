@@ -1,0 +1,180 @@
+/* ===== HERO SECTION — Matching Realatte's sec_home_banner ===== */
+
+.hero {
+  height: 100vh;
+  min-height: 600px;
+  position: relative;
+  background: #00051d;
+  overflow: hidden;
+}
+
+.heroContentWrap {
+  position: relative;
+  width: 100%;
+  height: 90vh;
+  min-height: 560px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 3vw, 48px);
+}
+
+/* Two-column flex row — left 7/12, right 5/12 */
+.heroRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(24px, 3vw, 48px);
+}
+
+.heroLeft {
+  flex: 0 0 58%;
+  max-width: 58%;
+}
+
+.heroRight {
+  flex: 0 0 40%;
+  max-width: 40%;
+  padding: 0;
+}
+
+/* ===== Banner text content ===== */
+
+.homeBannerTitle {
+  font-family: var(--font-sora, Sora, serif);
+  font-size: clamp(28px, 2.2vw, 44px);
+  line-height: clamp(38px, 3vw, 58px);
+  font-weight: 700;
+  margin-bottom: 0;
+  color: #fff;
+}
+
+.subTitleWrap {
+  margin: clamp(16px, 2vw, 32px) 0;
+}
+
+.homeSubTitle {
+  color: #da0c89 !important;
+  font-weight: 600;
+  font-size: clamp(16px, 1.4vw, 26px);
+  line-height: 1.4;
+  margin-bottom: 0;
+  font-family: var(--font-sora, Sora, serif);
+}
+
+.bannerTxt {
+  margin-top: clamp(12px, 1.5vw, 20px);
+  font-size: clamp(14px, 1vw, 17px);
+  line-height: 1.7;
+  margin-bottom: clamp(20px, 2vw, 36px);
+  color: #959595;
+}
+
+/* ===== CTA Button ===== */
+
+.primaryCta {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+  border-radius: 50px;
+  padding: clamp(10px, 0.6vw, 14px) clamp(20px, 1.5vw, 32px);
+  background: linear-gradient(90deg, #da0c89 0%, #5e43ff 100%);
+  transition: opacity 0.2s ease;
+  text-decoration: none;
+}
+
+.primaryCta:hover {
+  opacity: 0.88;
+}
+
+.ctaColorWrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ctaIcon {
+  width: 24px;
+  height: auto;
+  flex-shrink: 0;
+}
+
+.ctaTxtColor {
+  font-size: clamp(13px, 1vw, 16px);
+  font-weight: 600;
+  color: #fff;
+  font-family: var(--font-poppins, Poppins, serif);
+}
+
+/* ===== Banner video ===== */
+
+.bannerVideo {
+  width: 100%;
+  height: auto;
+  border-radius: clamp(12px, 1.5vw, 24px);
+  display: block;
+  object-fit: cover;
+}
+
+/* ===== Glow decorative element ===== */
+
+.glowBox {
+  position: absolute;
+  left: 50%;
+  bottom: -100px;
+  transform: translateX(-50%);
+  width: 700px;
+  height: 300px;
+  background: radial-gradient(ellipse at center, rgba(218, 12, 137, 0.18) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ===== Mobile responsive ===== */
+
+@media (max-width: 900px) {
+  .heroRow {
+    flex-direction: column-reverse;
+    gap: 32px;
+  }
+
+  .heroLeft,
+  .heroRight {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .hero {
+    height: auto;
+    min-height: auto;
+  }
+
+  .heroContentWrap {
+    height: auto;
+    padding: 100px 0 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .heroContentWrap {
+    padding: 70px 0 32px;
+  }
+
+  .homeBannerTitle {
+    font-size: 26px;
+    line-height: 1.35;
+  }
+
+  .homeSubTitle {
+    font-size: 17px;
+  }
+}
+

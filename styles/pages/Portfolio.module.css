@@ -1,0 +1,114 @@
+.hero {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #fff 0%, #f9f9f9 100%);
+  border-bottom: 1px solid #e0e0e0;
+  text-align: center;
+}
+
+.title {
+  font-size: 64px;
+  margin-bottom: 16px;
+}
+
+.subtitle {
+  font-size: 20px;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.casesGrid {
+  padding: 80px 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.caseCard {
+  padding: 24px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background: #fff;
+  transition: all 0.3s ease;
+}
+
+.caseCard:hover {
+  border-color: #000;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+}
+
+.badge {
+  display: inline-block;
+  background: #f0f0f0;
+  color: #000;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.caseTitle {
+  font-size: 20px;
+  margin-bottom: 8px;
+  color: #000;
+}
+
+.location {
+  font-size: 14px;
+  color: #999;
+  margin-bottom: 12px;
+}
+
+.description {
+  font-size: 15px;
+  color: #666;
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.metric {
+  text-align: center;
+}
+
+.metric strong {
+  display: block;
+  font-size: 16px;
+  color: #000;
+}
+
+.metric span {
+  display: block;
+  font-size: 12px;
+  color: #999;
+  text-transform: capitalize;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 60px 0;
+  }
+
+  .title {
+    font-size: 40px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .metrics {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,187 @@
+.hero {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #fff 0%, #f9f9f9 100%);
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.badge {
+  display: inline-block;
+  background: #f0f0f0;
+  color: #000;
+  padding: 6px 16px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.title {
+  font-size: 56px;
+  margin-bottom: 16px;
+}
+
+.location {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 24px;
+}
+
+.description {
+  font-size: 18px;
+  color: #666;
+  max-width: 700px;
+  line-height: 1.8;
+}
+
+.metrics {
+  padding: 80px 0;
+  background: #fff;
+}
+
+.metrics h2 {
+  text-align: center;
+  margin-bottom: 48px;
+  font-size: 48px;
+}
+
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+}
+
+.metricCard {
+  text-align: center;
+  padding: 32px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+}
+
+.metricValue {
+  font-size: 40px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 8px;
+}
+
+.metricLabel {
+  font-size: 14px;
+  color: #999;
+  text-transform: capitalize;
+  font-weight: 600;
+}
+
+.highlights {
+  padding: 80px 0;
+  background: #f9f9f9;
+}
+
+.highlights h2 {
+  margin-bottom: 32px;
+  font-size: 48px;
+}
+
+.highlightsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.highlightsList li {
+  padding: 16px;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 16px;
+  color: #333;
+}
+
+.highlightsList li:before {
+  content: '✓ ';
+  font-weight: bold;
+  color: #000;
+}
+
+.strategy {
+  padding: 80px 0;
+  background: #fff;
+}
+
+.strategy h2 {
+  margin-bottom: 24px;
+  font-size: 48px;
+}
+
+.strategy > :nth-child(2) {
+  margin-bottom: 32px;
+  font-size: 18px;
+  color: #666;
+  line-height: 1.8;
+  max-width: 700px;
+}
+
+.strategyGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.strategyCard {
+  padding: 24px;
+  text-align: center;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background: #f9f9f9;
+  font-size: 16px;
+  font-weight: 500;
+  color: #000;
+}
+
+.cta {
+  padding: 80px 0;
+  background: #000;
+  color: #fff;
+  text-align: center;
+}
+
+.cta h2 {
+  color: #fff;
+  margin-bottom: 32px;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 60px 0;
+  }
+
+  .title {
+    font-size: 36px;
+  }
+
+  .metrics h2,
+  .highlights h2,
+  .strategy h2 {
+    font-size: 32px;
+  }
+
+  .metricsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .highlightsList {
+    grid-template-columns: 1fr;
+  }
+
+  .strategyGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .cta {
+    padding: 60px 0;
+  }
+}

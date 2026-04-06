@@ -1,0 +1,43 @@
+.statBlock {
+  text-align: center;
+  padding: 32px 16px;
+}
+
+.number {
+  font-size: 56px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 8px;
+}
+
+.label {
+  font-size: 16px;
+  color: #666;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.description {
+  font-size: 14px;
+  color: #999;
+  margin: 0;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .statBlock {
+    padding: 24px 12px;
+  }
+
+  .number {
+    font-size: 40px;
+  }
+
+  .label {
+    font-size: 14px;
+  }
+
+  .description {
+    font-size: 12px;
+  }
+}
