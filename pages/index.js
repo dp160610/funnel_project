@@ -14,21 +14,9 @@ import {
 import styles from '../styles/pages/Home.module.css'
 
 const awards = [
-  {
-    title: 'ADVERTISING AGENCY OF THE YEAR',
-    org: 'CONCLAVE & EXCELLENCE AWARDS',
-    year: '2025',
-  },
-  {
-    title: 'MOST INNOVATIVE USE OF MULTI-CHANNEL MARKETING',
-    org: 'CONCLAVE & EXCELLENCE AWARDS',
-    year: '2025',
-  },
-  {
-    title: 'OPEN WEB ROCKSTAR',
-    org: 'TABOOLA ROCKSTARS AWARDS',
-    year: '2024',
-  },
+  { title: 'ADVERTISING AGENCY OF THE YEAR', org: 'Conclave & Excellence Awards · 2025' },
+  { title: 'MOST INNOVATIVE USE OF MULTI-CHANNEL MARKETING', org: 'Conclave & Excellence Awards · 2025' },
+  { title: 'OPEN WEB ROCKSTAR', org: 'Taboola Rockstars Awards · 2024' },
 ]
 
 const cities = ['Mumbai', 'Pune', 'Delhi', 'Jaipur', 'Kolkata', 'Bengaluru', 'Chennai', 'Hyderabad', 'Coimbatore', 'Ahmedabad']
@@ -94,9 +82,23 @@ export default function Home() {
             <div className={styles.awardsGrid}>
               {awards.map((award, i) => (
                 <div key={i} className={styles.awardCard}>
-                  <p className={styles.awardYear}>Year &ndash; {award.year}</p>
-                  <h3 className={styles.awardTitle}>{award.title}</h3>
-                  <p className={styles.awardOrg}>{award.org}</p>
+                  <div className={styles.awardImgWrap}>
+                    <svg className={styles.awardIcon} viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <defs>
+                        <linearGradient id={`asg${i}`} x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+                          <stop offset="0%" stopColor="#f6d365" />
+                          <stop offset="100%" stopColor="#da0c89" />
+                        </linearGradient>
+                      </defs>
+                      <path d="M32 4l5 15.5H53L40.5 28l5 15.5L32 35l-13.5 8.5 5-15.5L11 19.5H27L32 4z" fill={`url(#asg${i})`} />
+                      <rect x="30" y="45" width="4" height="9" fill="rgba(218,12,137,0.6)" />
+                      <rect x="21" y="54" width="22" height="4" rx="2" fill="rgba(218,12,137,0.6)" />
+                    </svg>
+                  </div>
+                  <div className={styles.awardTxtWrap}>
+                    <h3 className={styles.awardTitle}>{award.title}</h3>
+                    <p className={styles.awardOrg}>{award.org}</p>
+                  </div>
                 </div>
               ))}
             </div>

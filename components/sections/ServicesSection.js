@@ -15,12 +15,12 @@ const stages = [
       'Influencer-Led Realty Reviews',
     ],
     media: [
-      { img: 'https://backend.realatte.com/uploads/3_6a38fe5cc5.jpg', label: 'Dosti Greater Thane' },
-      { img: 'https://backend.realatte.com/uploads/4_33b5fed058.jpg', label: 'Runwal Gardens Dombivli' },
-      { img: 'https://backend.realatte.com/uploads/1_4f177a8438.jpg', label: 'Hiranandani Empress Hill' },
-      { img: 'https://backend.realatte.com/uploads/8_bb003c72e3.jpg', label: 'Alcove New Kolkata' },
-      { img: 'https://backend.realatte.com/uploads/2_7be8cfd73b.jpg', label: 'Piramal Mahalaxmi' },
-      { img: 'https://backend.realatte.com/uploads/22_e54f9006af.jpg', label: 'AR Homes Rise' },
+      { video: 'https://backend.realatte.com/uploads/ASG_Diwali_Ad_Film_1_3ad1f56599.mp4', label: 'Sheth Realty Diwali Wish' },
+      { video: 'https://backend.realatte.com/uploads/Ashvin_Sheth_7b005daabc.mp4', label: 'Ashvin Sheth Campaign' },
+      { video: 'https://backend.realatte.com/uploads/Atul_Projects_NAREDCO_AV_Video_1_186ba6d305.mp4', label: 'Atul Projects NAREDCO' },
+      { video: 'https://backend.realatte.com/uploads/Bhavisha_Ad_Film_with_Logo_1_83287c87e9.mp4', label: 'Bhavisha Ad Film' },
+      { video: 'https://backend.realatte.com/uploads/bhuj_0a5743369b.mp4', label: 'Bhuj Campaign' },
+      { video: 'https://backend.realatte.com/uploads/reel5_b8d40ef4dd.mp4', label: 'Property Edge Reel' },
     ],
   },
   {
@@ -36,12 +36,12 @@ const stages = [
       'Google My Business & Maps Optimization',
     ],
     media: [
-      { img: 'https://backend.realatte.com/uploads/15_c6d094f2cc.jpg', label: 'Assetz Sora & Saki' },
-      { img: 'https://backend.realatte.com/uploads/16_90ec95291c.jpg', label: 'Concorde Equity' },
-      { img: 'https://backend.realatte.com/uploads/13_cf573b5b89.jpg', label: 'Century Built Rare' },
-      { img: 'https://backend.realatte.com/uploads/19_49876c029b.jpg', label: 'Dosti Greenscapes' },
-      { img: 'https://backend.realatte.com/uploads/5_17c5a246f8.jpg', label: 'Dosti Eden' },
-      { img: 'https://backend.realatte.com/uploads/20_22adfe3ea3.jpg', label: 'Hiranandani Chennai' },
+      { video: 'https://backend.realatte.com/uploads/reel3_f6e0b54c15.mp4', label: 'Dosti Realty' },
+      { video: 'https://backend.realatte.com/uploads/7_ddca22818c.mp4', label: 'Ashwin Sheth Group' },
+      { video: 'https://backend.realatte.com/uploads/71_722845dbde.mp4', label: 'Property Edge Reel' },
+      { video: 'https://backend.realatte.com/uploads/78_a0010e35eb.mp4', label: 'Realty Campaign' },
+      { video: 'https://backend.realatte.com/uploads/72_2bd2c36cbc.mp4', label: 'Brand Reel' },
+      { video: 'https://backend.realatte.com/uploads/70_dcfe2bd074.mp4', label: 'Portfolio Reel' },
     ],
   },
   {
@@ -74,7 +74,7 @@ export default function ServicesSection() {
   return (
     <section id="services" className={styles.section}>
       <div className={styles.inner}>
-        <div className={styles.header}>
+        <div className={`sec_title_wrap ${styles.header}`}>
           <div className="title_top_wrap">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="https://realatte.com/images/headericon.svg" alt="" width={28} height={12} className="logo_gap" />
@@ -123,9 +123,31 @@ export default function ServicesSection() {
             <div className={styles.mediaGrid}>
               {current.media.map((item, i) => (
                 <div key={i} className={styles.mediaItem}>
-                  <div className={styles.mediaCard}>
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={item.img} alt={item.label} className={styles.mediaImg} />
+                  <div
+                    className={styles.mediaCard}
+                    onMouseEnter={(e) => {
+                      const v = e.currentTarget.querySelector('video')
+                      if (v) v.play()
+                    }}
+                    onMouseLeave={(e) => {
+                      const v = e.currentTarget.querySelector('video')
+                      if (v) { v.pause(); v.currentTime = 0 }
+                    }}
+                  >
+                    {item.video ? (
+                      // eslint-disable-next-line jsx-a11y/media-has-caption
+                      <video
+                        src={item.video}
+                        className={styles.mediaImg}
+                        muted
+                        loop
+                        playsInline
+                        preload="metadata"
+                      />
+                    ) : (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img src={item.img} alt={item.label} className={styles.mediaImg} />
+                    )}
                     <div className={styles.mediaOverlay}>
                       <button className={styles.mediaPlay} aria-label="View">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="white">

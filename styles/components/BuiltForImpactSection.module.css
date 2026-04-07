@@ -62,7 +62,6 @@
   text-align: center;
   font-size: clamp(14px, 1vw, 17px);
   line-height: 1.8;
-  width: min(80%, 700px);
   margin: clamp(16px, 2vw, 28px) auto clamp(32px, 3vw, 48px);
   color: #555;
 }

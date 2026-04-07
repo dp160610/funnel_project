@@ -31,9 +31,7 @@ export default function BuiltForImpactSection() {
 
         {/* Description */}
         <p className={styles.expertTxt}>
-          When it comes to real estate, we don&apos;t just market — we master it. We are India&apos;s #1 real
-          estate digital marketing agency, combining cutting-edge technology with deep market expertise
-          to deliver results that actually move inventory.
+         When it comes to real estate, we don’t just market, we dominate. From razor-sharp branding to high-converting performance campaigns, we turn clicks into leads and leads into sold-out projects. SEO, SEM, Social, Creatives, Strategy, we do it all, and we do it best.
         </p>
 
         {/* Counter stats */}

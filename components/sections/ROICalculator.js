@@ -1,5 +1,5 @@
 import styles from '../../styles/components/ROICalculator.module.css'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 
 // Base values matching Realatte defaults:
 // Residential / Launch / South Mumbai / 2 BHK / TextAds+StaticBanners+Reels / 50+ Units / 6 Months
@@ -58,6 +58,78 @@ export default function ROICalculator() {
   const [mounted, setMounted] = useState(false)
   useEffect(() => setMounted(true), [])
 
+  const canvasRef = useRef(null)
+
+  const drawChart = useCallback((canvas, data) => {
+    const ctx = canvas.getContext('2d')
+    const dpr = window.devicePixelRatio || 1
+    const W = canvas.parentElement.getBoundingClientRect().width || canvas.parentElement.offsetWidth || 480
+    const H = 220
+    canvas.width = W * dpr
+    canvas.height = H * dpr
+    canvas.style.width = W + 'px'
+    canvas.style.height = H + 'px'
+    ctx.scale(dpr, dpr)
+    ctx.clearRect(0, 0, W, H)
+
+    // Cross-browser rounded rectangle (no ctx.roundRect dependency)
+    const rr = (x, y, w, h, r) => {
+      if (r > w / 2) r = w / 2
+      if (r > h / 2) r = h / 2
+      ctx.beginPath()
+      ctx.moveTo(x + r, y)
+      ctx.lineTo(x + w - r, y)
+      ctx.quadraticCurveTo(x + w, y, x + w, y + r)
+      ctx.lineTo(x + w, y + h - r)
+      ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h)
+      ctx.lineTo(x + r, y + h)
+      ctx.quadraticCurveTo(x, y + h, x, y + h - r)
+      ctx.lineTo(x, y + r)
+      ctx.quadraticCurveTo(x, y, x + r, y)
+      ctx.closePath()
+    }
+
+    const left = 72
+    const right = W - 90
+    const trackW = right - left
+    const barH = 30
+    const gap = 22
+    const rows = data.length
+    const totalH = rows * barH + (rows - 1) * gap
+    const startY = (H - totalH) / 2
+
+    data.forEach(({ label, val, pct }, i) => {
+      const y = startY + i * (barH + gap)
+      const fillW = Math.max(0, trackW * pct)
+
+      // Track background
+      ctx.fillStyle = 'rgba(121, 80, 255, 0.10)'
+      rr(left, y, trackW, barH, 8)
+      ctx.fill()
+
+      // Gradient fill
+      if (fillW > 4) {
+        const grad = ctx.createLinearGradient(left, 0, left + fillW, 0)
+        grad.addColorStop(0, '#7950ff')
+        grad.addColorStop(1, '#da0c89')
+        ctx.fillStyle = grad
+        rr(left, y, fillW, barH, 8)
+        ctx.fill()
+      }
+
+      // Label (left)
+      ctx.fillStyle = '#7047f6'
+      ctx.font = `600 12px Sora, system-ui, sans-serif`
+      ctx.textAlign = 'right'
+      ctx.textBaseline = 'middle'
+      ctx.fillText(label, left - 10, y + barH / 2)
+
+      // Value (right)
+      ctx.textAlign = 'left'
+      ctx.fillText(val, right + 10, y + barH / 2)
+    })
+  }, [])
+
   const calc = () => {
     const m =
       PROPERTY_TYPE_MULT[inputs.propertyType] *
@@ -90,6 +162,21 @@ export default function ROICalculator() {
 
   const set = (key, val) => setInputs((prev) => ({ ...prev, [key]: val }))
 
+  useEffect(() => {
+    if (!mounted || !canvasRef.current) return
+    const data = [
+      { label: 'Leads',    val: fmt(r.leads),    pct: Math.min(1, r.leads / BASE.leads) },
+      { label: 'QL',       val: fmt(r.ql),        pct: Math.min(1, r.ql / BASE.ql) },
+      { label: 'SV',       val: fmt(r.sv),        pct: Math.min(1, r.sv / BASE.sv) },
+      { label: 'Bookings', val: fmt(r.bookings),  pct: Math.min(1, r.bookings / BASE.bookings) },
+    ]
+    // rAF ensures the container has a layout width before we read it
+    const raf = requestAnimationFrame(() => {
+      if (canvasRef.current) drawChart(canvasRef.current, data)
+    })
+    return () => cancelAnimationFrame(raf)
+  }, [mounted, r, drawChart])
+
   return (
     <section className={styles.section}>
       <div className={styles.inner}>
@@ -100,108 +187,107 @@ export default function ROICalculator() {
             <span className="top_title">ROI Calculator</span>
           </div>
           <h3 className={`${styles.heading} title black`}>
-            <span className="black_gradient">Let&apos;s Show You Just </span>
-            <span className="pink_gradient">How Far Your Growth Can Go</span>
+            <span className="black_gradient">Let&apos;s Show You Just How Far Your Growth Can Go</span>
+            <span className="pink_gradient"> With Us</span>
           </h3>
         </div>
         <p className={styles.subheading}>Input your data, and let our ROI-driven strategies show you the scalable growth we can deliver. Precise, data-backed insights to fuel your next big move.</p>
 
         <div className={styles.calculator}>
-          <div className={styles.inputs}>
-            <p className={styles.inputsLabel}>Your Plan</p>
+          <div className={styles.formCard}>
+            <div className={styles.inputs}>
+              <p className={styles.inputsLabel}>Your Plan</p>
 
-            <div className={styles.formGroup}>
-              <label>Property Type</label>
-              <select value={inputs.propertyType} onChange={(e) => set('propertyType', e.target.value)}>
-                {Object.keys(PROPERTY_TYPE_MULT).map((v) => <option key={v}>{v}</option>)}
-              </select>
-            </div>
+              <div className={styles.formGroup}>
+                <label>Property Type</label>
+                <select value={inputs.propertyType} onChange={(e) => set('propertyType', e.target.value)}>
+                  {Object.keys(PROPERTY_TYPE_MULT).map((v) => <option key={v}>{v}</option>)}
+                </select>
+              </div>
 
-            <div className={styles.formGroup}>
-              <label>Unit Launch / Sustenance</label>
-              <select value={inputs.campaign} onChange={(e) => set('campaign', e.target.value)}>
-                {Object.keys(CAMPAIGN_MULT).map((v) => <option key={v}>{v}</option>)}
-              </select>
-            </div>
+              <div className={styles.formGroup}>
+                <label>Unit Launch / Sustenance</label>
+                <select value={inputs.campaign} onChange={(e) => set('campaign', e.target.value)}>
+                  {Object.keys(CAMPAIGN_MULT).map((v) => <option key={v}>{v}</option>)}
+                </select>
+              </div>
 
-            <div className={styles.formGroup}>
-              <label>Micro Market</label>
-              <select value={inputs.market} onChange={(e) => set('market', e.target.value)}>
-                {Object.keys(MARKET_MULT).map((v) => <option key={v}>{v}</option>)}
-              </select>
-            </div>
+              <div className={styles.formGroup}>
+                <label>Micro Market</label>
+                <select value={inputs.market} onChange={(e) => set('market', e.target.value)}>
+                  {Object.keys(MARKET_MULT).map((v) => <option key={v}>{v}</option>)}
+                </select>
+              </div>
 
-            <div className={styles.formGroup}>
-              <label>Unit Type</label>
-              <select value={inputs.unitType} onChange={(e) => set('unitType', e.target.value)}>
-                {Object.keys(UNIT_MULT).map((v) => <option key={v}>{v}</option>)}
-              </select>
-            </div>
+              <div className={styles.formGroup}>
+                <label>Unit Type</label>
+                <select value={inputs.unitType} onChange={(e) => set('unitType', e.target.value)}>
+                  {Object.keys(UNIT_MULT).map((v) => <option key={v}>{v}</option>)}
+                </select>
+              </div>
 
-            <div className={styles.formGroup}>
-              <label>Ad Type</label>
-              <select value={inputs.adType} onChange={(e) => set('adType', e.target.value)}>
-                {Object.keys(AD_MULT).map((v) => <option key={v}>{v}</option>)}
-              </select>
-            </div>
+              <div className={styles.formGroup}>
+                <label>Ad Type</label>
+                <select value={inputs.adType} onChange={(e) => set('adType', e.target.value)}>
+                  {Object.keys(AD_MULT).map((v) => <option key={v}>{v}</option>)}
+                </select>
+              </div>
 
-            <div className={styles.formGroup}>
-              <label>Goal</label>
-              <select value={inputs.goal} onChange={(e) => set('goal', e.target.value)}>
-                {Object.keys(GOAL_MULT).map((v) => <option key={v}>{v}</option>)}
-              </select>
-            </div>
+              <div className={styles.formGroup}>
+                <label>Goal</label>
+                <select value={inputs.goal} onChange={(e) => set('goal', e.target.value)}>
+                  {Object.keys(GOAL_MULT).map((v) => <option key={v}>{v}</option>)}
+                </select>
+              </div>
 
-            <div className={styles.formGroup}>
-              <label>Campaign Duration</label>
-              <select value={inputs.duration} onChange={(e) => set('duration', e.target.value)}>
-                {Object.keys(DURATION_MULT).map((v) => <option key={v}>{v}</option>)}
-              </select>
+              <div className={styles.formGroup}>
+                <label>Campaign Duration</label>
+                <select value={inputs.duration} onChange={(e) => set('duration', e.target.value)}>
+                  {Object.keys(DURATION_MULT).map((v) => <option key={v}>{v}</option>)}
+                </select>
+              </div>
+
+              <p className={styles.disclaimer}>Disclaimer: The data presented is based on past experience and is provided for informational purposes only.</p>
             </div>
           </div>
 
-          <div className={styles.results}>
-            <div className={styles.budgetRow}>
-              <span className={styles.budgetLabel}>Total Budget</span>
-              <span className={styles.budgetValue}>₹{fmt(r.budget)}</span>
-            </div>
-
-            <div className={styles.resultsGrid}>
+          <div className={styles.resultsPanel}>
+            <div className={styles.resultBox}>
               <div className={styles.resultItem}>
-                <div className={styles.value}>{fmt(r.leads)}</div>
-                <div className={styles.label}>Leads</div>
+                <p className={styles.resultTitle}>{fmt(r.leads)}</p>
+                <p className={styles.resultTxt}>Leads</p>
+                <br />
+                <p className={styles.resultTitle}>₹{fmt(r.cpl)}</p>
+                <p className={styles.resultTxt}>CPL</p>
               </div>
               <div className={styles.resultItem}>
-                <div className={styles.value}>₹{fmt(r.cpl)}</div>
-                <div className={styles.label}>CPL</div>
+                <p className={styles.resultTitle}>{fmt(r.ql)}</p>
+                <p className={styles.resultTxt}>QL</p>
+                <br />
+                <p className={styles.resultTitle}>₹{fmt(r.cpql)}</p>
+                <p className={styles.resultTxt}>CPQL</p>
               </div>
               <div className={styles.resultItem}>
-                <div className={styles.value}>{fmt(r.ql)}</div>
-                <div className={styles.label}>QL</div>
+                <p className={styles.resultTitle}>{fmt(r.sv)}</p>
+                <p className={styles.resultTxt}>SV</p>
+                <br />
+                <p className={styles.resultTitle}>₹{fmt(r.cpsv)}</p>
+                <p className={styles.resultTxt}>CPSV</p>
               </div>
               <div className={styles.resultItem}>
-                <div className={styles.value}>₹{fmt(r.cpql)}</div>
-                <div className={styles.label}>CPQL</div>
-              </div>
-              <div className={styles.resultItem}>
-                <div className={styles.value}>{fmt(r.sv)}</div>
-                <div className={styles.label}>Site Visits</div>
-              </div>
-              <div className={styles.resultItem}>
-                <div className={styles.value}>₹{fmt(r.cpsv)}</div>
-                <div className={styles.label}>CPSV</div>
-              </div>
-              <div className={styles.resultItem}>
-                <div className={styles.value}>{fmt(r.bookings)}</div>
-                <div className={styles.label}>Bookings</div>
-              </div>
-              <div className={styles.resultItem}>
-                <div className={styles.value}>₹{fmt(r.cpb)}</div>
-                <div className={styles.label}>CPB</div>
+                <p className={styles.resultTitle}>{fmt(r.bookings)}</p>
+                <p className={styles.resultTxt}>Bookings</p>
+                <br />
+                <p className={styles.resultTitle}>₹{fmt(r.cpb)}</p>
+                <p className={styles.resultTxt}>CPB</p>
               </div>
             </div>
-
-            <p className={styles.disclaimer}>Disclaimer: The data presented is based on past experience and is provided for informational purposes only.</p>
+            <div className={styles.chartWrap}>
+              <p className={styles.totalBudget}>Total Budget: ₹{fmt(r.budget)}</p>
+              <div className={styles.canvasContainer}>
+                <canvas ref={canvasRef} role="img" aria-label="ROI metrics chart" />
+              </div>
+            </div>
           </div>
         </div>
       </div>

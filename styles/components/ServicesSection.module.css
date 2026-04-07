@@ -15,18 +15,20 @@
 }
 
 .sectionTitle {
-  font-size: clamp(28px, 3.5vw, 52px);
+  font-size: clamp(28px, 3vw, 50px);
   font-weight: 700;
-  line-height: 1.15;
-  margin: 16px 0 20px;
+  color: #fff;
+  line-height: 1.3;
+  margin: 16px 0 16px;
   font-family: var(--font-sora, Sora, sans-serif);
 }
 
 .subheading {
-  font-size: clamp(14px, 1vw, 16px);
-  color: var(--text-muted, #959595);
+  font-size: clamp(13px, 0.9vw, 16px);
+  color: #d0d0d0;
   margin: 0;
-  font-weight: 300;
+  font-weight: 200;
+  line-height: 1.5;
 }
 
 /* ── Tabs ─────────────────────────────────────────────────── */
@@ -44,18 +46,18 @@
 }
 
 .tab {
-  padding: clamp(8px, 0.7vw, 12px) clamp(16px, 1vw, 20px);
+  padding: clamp(8px, 0.7vw, 12px) clamp(14px, 1vw, 20px);
   font-size: clamp(11px, 0.75vw, 13px);
   font-weight: 300;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.45);
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 50px;
+  color: #a7228e;
+  background: rgba(164, 33, 140, 0.1);
+  border: 1px solid hsla(0, 0%, 100%, 0.04);
+  border-radius: 6px;
   cursor: pointer;
   white-space: nowrap;
-  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  transition: color 0.2s ease, background 0.2s ease;
   font-family: inherit;
   display: inline-flex;
   align-items: center;
@@ -63,21 +65,21 @@
 }
 
 .tab:hover {
-  color: rgba(255, 255, 255, 0.75);
-  border-color: rgba(255, 255, 255, 0.35);
+  color: #fff;
+  background: rgba(164, 33, 140, 0.2);
 }
 
 .activeTab {
   color: #fff;
-  border-color: transparent;
-  background: linear-gradient(90deg, #df48c3, #953db4 50.5%, #3700d4);
+  background: #000a1d;
+  border-color: hsla(0, 0%, 100%, 0.08);
 }
 
 /* ── Content layout ───────────────────────────────────────── */
 .content {
   display: grid;
-  grid-template-columns: 1fr 1.4fr;
-  gap: clamp(40px, 5vw, 80px);
+  grid-template-columns: 1fr 2fr;
+  gap: clamp(32px, 4vw, 64px);
   align-items: start;
 }
 
@@ -165,7 +167,8 @@
   cursor: pointer;
 }
 
-.mediaImg {
+.mediaImg,
+.mediaImg video {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -174,7 +177,8 @@
   transition: transform 0.4s ease;
 }
 
-.mediaCard:hover .mediaImg {
+.mediaCard:hover .mediaImg,
+.mediaCard:hover video {
   transform: scale(1.05);
 }
 
@@ -289,6 +293,17 @@
   .mediaGrid {
     grid-template-columns: repeat(3, 1fr);
     gap: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mediaGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .content {
+    gap: 28px;
   }
 }
 

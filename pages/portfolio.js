@@ -1,82 +1,107 @@
+import Link from 'next/link'
 import { NextSeo } from 'next-seo'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import { Container, Button, Card } from '../components/common'
+import { Container } from '../components/common'
 import styles from '../styles/pages/Portfolio.module.css'
 
-// Sample case studies data
 const caseStudies = [
   {
     id: 1,
-    title: 'Dosti Greater Thane',
-    category: 'Residential',
-    location: 'Greater Thane, Mumbai',
-    metrics: { bookings: 500, leads: 35999, roi: '3.2x' },
-    description: 'Complete digital marketing overhaul for premium residential project using multi-channel strategy.',
-    fullDescription: 'Dosti Greater Thane is a premium residential project in the heart of Thane. We executed a comprehensive digital marketing campaign spanning awareness, consideration, and conversion stages. Our integrated approach combined geo-targeted ads, influencer partnerships, and retargeting campaigns.',
-    highlights: [
-      '500+ Unit Bookings',
-      '35,999 Total Leads',
-      '₹3.2x ROI',
-      'Done in 6 months'
-    ],
-    strategy: ['Geo-Targeted Ads', 'Social Media Campaigns', 'Performance Marketing', 'Influencer Partnerships']
+    title: 'Rustomjee Taps Into Performance Max To Drive Qualified Leads',
+    brand: 'RUSTOMJEE',
+    tag: 'Performance Marketing',
+    img: 'https://backend.realatte.com/uploads/09_c56a134e80.jpg',
+    slug: 'rustomjee-taps-into-performance-max-to-drive-qualified-leads',
   },
   {
     id: 2,
-    title: 'Runwal Gardens Dombivli',
-    category: 'Residential',
-    location: 'Dombivli, Mumbai',
-    metrics: { bookings: 250, leads: 18500, roi: '2.8x' },
-    description: 'Strategic performance marketing that drove qualified leads and exceeded sales targets.',
-    fullDescription: 'For Runwal Gardens Dombivli, we focused on high-intent lead generation through search marketing and dynamic retargeting.',
-    highlights: ['250+ Unit Bookings', '18,500 Qualified Leads', '₹2.8x ROI', 'Completed in 5 months'],
-    strategy: ['Search Marketing', 'Dynamic Retargeting', 'Landing Pages', 'Email Campaigns']
+    title: 'AWFIS — From Lost Leads to High-Intent Clicks',
+    brand: 'AWFIS',
+    tag: 'SEO',
+    img: 'https://backend.realatte.com/uploads/06_7a9a2b03d4.jpg',
+    slug: 'awfis',
   },
   {
     id: 3,
-    title: 'Hiranandani Empress Hill',
-    category: 'Premium Residential',
-    location: 'Chennai',
-    metrics: { bookings: 180, leads: 12400, roi: '2.5x' },
-    description: 'Premium positioning strategy for luxury residential project targeting NRI and HNI audience.',
-    fullDescription: 'Positioned as a luxury offering, we crafted premium-focused campaigns targeting high-net-worth individuals and NRI buyers.',
-    highlights: ['180+ Unit Bookings', '12,400 Premium Leads', '₹2.5x ROI', 'Premium positioning achieved'],
-    strategy: ['Premium Targeting', 'LinkedIn Campaigns', 'Luxury Content', 'WhatsApp Lead Nurturing']
+    title: 'Brigade Group Engages Global NRI Audience with Taboola',
+    brand: 'BRIGADE HOME',
+    tag: 'Performance Marketing',
+    img: 'https://backend.realatte.com/uploads/07_1ae822ac56.jpg',
+    slug: 'brigade-group-engages-global-nri-audience-with-taboola',
   },
   {
     id: 4,
-    title: 'Alcove New Kolkata',
-    category: 'Residential',
-    location: 'Kolkata',
-    metrics: { bookings: 320, leads: 22100, roi: '3.1x' },
-    description: 'Multi-channel campaign leveraging SEO, SEM, and social media to dominate local market.',
-    fullDescription: 'Alcove New Kolkata campaign combined hyperlocal SEO with integrated online and offline strategies to capture market share.',
-    highlights: ['320+ Unit Bookings', '22,100 Total Leads', '₹3.1x ROI', 'Market leader position'],
-    strategy: ['SEO & SEM', 'Local Marketing', 'Community Building', 'Geo-fence Targeting']
+    title: 'Brigade Group Taps Influencers to Boost REELs Engagement',
+    brand: 'BRIGADE GROUP',
+    tag: 'Influence Marketing',
+    img: 'https://backend.realatte.com/uploads/11_219942570a.jpg',
+    slug: 'brigade-group-taps-influencers-to-boost-ree-ls-engagement',
   },
   {
     id: 5,
-    title: 'Piramal Mahalaxmi',
-    category: 'Luxury Commercial',
-    location: 'South Mumbai',
-    metrics: { bookings: 450, leads: 31200, roi: '3.5x' },
-    description: 'Premium luxury project marketing with integrated brand building and performance campaigns.',
-    fullDescription: 'For this iconic luxury project, we combined brand storytelling with performance-driven lead generation.',
-    highlights: ['450+ Unit Bookings', '31,200 Leads', '₹3.5x ROI Achieved', 'Icon status established'],
-    strategy: ['Brand Storytelling', 'Premium Events', 'Influencer Partnerships', 'Performance Marketing']
+    title: 'Atharv Lifestyle Optimizes for the Right Buyer, Right Time',
+    brand: 'ATHARV LIFESTYLE',
+    tag: 'SEO',
+    img: 'https://backend.realatte.com/uploads/02_b879a9b6b0.jpg',
+    slug: 'atharv-lifestyle',
   },
   {
     id: 6,
-    title: 'AR Homes Rise',
-    category: 'Mid-Range Residential',
-    location: 'Bengaluru',
-    metrics: { bookings: 290, leads: 19800, roi: '2.9x' },
-    description: 'Volume-focused campaign targeting middle-class homebuyers with scalable marketing approach.',
-    fullDescription: 'Mid-range project requiring volume and speed. We deployed scalable digital tactics focused on affordability messaging.',
-    highlights: ['290+ Unit Bookings', '19,800 Qualified Leads', '₹2.9x ROI', 'Rapid sales achieved'],
-    strategy: ['Affordability Messaging', 'DTC Campaigns', 'Affiliate Marketing', 'Community Engagement']
-  }
+    title: 'Primus Senior Living Finds Its Perfect Audience — 50% Less Cost',
+    brand: 'THE WADHWA GROUP',
+    tag: 'Performance Marketing',
+    img: 'https://backend.realatte.com/uploads/02_356fe2f9f1.jpg',
+    slug: 'primus-senior-living-finds-its-perfect-audience-50-less-cost-100-more-impact',
+  },
+  {
+    id: 7,
+    title: 'Piramal Realty Boosts High-Quality Leads by 30% Using Taboola Motion Ads',
+    brand: 'PIRAMAL REALTY',
+    tag: 'Performance Marketing',
+    img: 'https://backend.realatte.com/uploads/08_521a67d699.jpg',
+    slug: 'piramal-realty-boosts-high-quality-leads-by-30-using-taboola-motion-ads',
+  },
+  {
+    id: 8,
+    title: 'Puraniks Drives Awareness & Conversions with YouTube for Action',
+    brand: 'PURANICS',
+    tag: 'Performance Marketing',
+    img: 'https://backend.realatte.com/uploads/03_20948a00b7.jpg',
+    slug: 'puraniks-drives-awareness-and-conversions-with-you-tube-for-action',
+  },
+  {
+    id: 9,
+    title: 'M3M Scales Search Visibility Using YouTube Masthead + Discovery & Display',
+    brand: 'M3M',
+    tag: 'Performance Marketing',
+    img: 'https://backend.realatte.com/uploads/04_80c3881f40.jpg',
+    slug: 'm3-m-scales-search-visibility-using-you-tube-masthead-discovery-and-display',
+  },
+  {
+    id: 10,
+    title: 'Hiranandani Communities Cuts CPL by 25% with Meta CAPI',
+    brand: 'HIRANANDANI',
+    tag: 'Performance Marketing',
+    img: 'https://backend.realatte.com/uploads/06_f7ee2161c2.jpg',
+    slug: 'hiranandani-communities-cuts-cpl-by-25-with-meta-capi',
+  },
+  {
+    id: 11,
+    title: 'Smartworld Boosts Conversions by 30% with CAPI Configured Events',
+    brand: 'SMART WORLD',
+    tag: 'Performance Marketing',
+    img: 'https://backend.realatte.com/uploads/05_34dce22160.jpg',
+    slug: 'smartworld-boosts-conversions-by-30-with-capi-configured-events',
+  },
+  {
+    id: 12,
+    title: 'Abil Group — 325% More Impressions, 238% More Clicks',
+    brand: 'ABIL GROUP',
+    tag: 'SEO',
+    img: 'https://backend.realatte.com/uploads/01_eb5798aee5.jpg',
+    slug: 'abil-group',
+  },
 ]
 
 export default function PortfolioPage() {
@@ -100,26 +125,23 @@ export default function PortfolioPage() {
         <section className={styles.casesGrid}>
           <Container>
             <div className={styles.grid}>
-              {caseStudies.map((caseStudy) => (
-                <Card key={caseStudy.id} className={styles.caseCard}>
-                  <span className={styles.badge}>{caseStudy.category}</span>
-                  <h3 className={styles.caseTitle}>{caseStudy.title}</h3>
-                  <p className={styles.location}>{caseStudy.location}</p>
-                  <p className={styles.description}>{caseStudy.description}</p>
-                  
-                  <div className={styles.metrics}>
-                    {Object.entries(caseStudy.metrics).map(([key, value]) => (
-                      <div key={key} className={styles.metric}>
-                        <strong>{value}</strong>
-                        <span>{key.replace(/([A-Z])/g, ' $1').trim()}</span>
-                      </div>
-                    ))}
+              {caseStudies.map((c) => (
+                <Link
+                  key={c.id}
+                  href={`https://realatte.com/case-studies/${c.slug}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.caseCard}
+                >
+                  <div className={styles.imgWrap}>
+                    <img src={c.img} alt={c.title} className={styles.cardImg} />
                   </div>
-
-                  <Button href={`/portfolio/${caseStudy.id}`} variant="secondary">
-                    View Case Study →
-                  </Button>
-                </Card>
+                  <div className={styles.cardBody}>
+                    <span className={styles.badge}>{c.tag}</span>
+                    <h3 className={styles.caseTitle}>{c.title}</h3>
+                    <p className={styles.cardBrand}>{c.brand}</p>
+                  </div>
+                </Link>
               ))}
             </div>
           </Container>

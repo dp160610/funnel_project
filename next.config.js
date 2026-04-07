@@ -1,7 +1,8 @@
 /** @type {import('next').NextConfig} */
+const isGithubActions = process.env.GITHUB_ACTIONS === 'true'
+
 const nextConfig = {
-  output: 'export',
-  basePath: '/funnel_project',
+  ...(isGithubActions ? { output: 'export', basePath: '/funnel_project' } : {}),
   reactStrictMode: true,
   images: {
     unoptimized: true,
