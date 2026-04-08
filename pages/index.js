@@ -14,9 +14,9 @@ import {
 import styles from '../styles/pages/Home.module.css'
 
 const awards = [
-  { title: 'ADVERTISING AGENCY OF THE YEAR', org: 'Conclave & Excellence Awards · 2025' },
-  { title: 'MOST INNOVATIVE USE OF MULTI-CHANNEL MARKETING', org: 'Conclave & Excellence Awards · 2025' },
-  { title: 'OPEN WEB ROCKSTAR', org: 'Taboola Rockstars Awards · 2024' },
+  { title: 'BEST REAL ESTATE MARKETING AGENCY', org: 'PropTech India Summit · 2025' },
+  { title: 'MOST EFFECTIVE PERFORMANCE CAMPAIGN OF THE YEAR', org: 'Real Estate Marketing Awards · 2025' },
+  { title: 'TOP DIGITAL GROWTH PARTNER — REAL ESTATE', org: 'Growth100 India · 2024' },
 ]
 
 const cities = ['Mumbai', 'Pune', 'Delhi', 'Jaipur', 'Kolkata', 'Bengaluru', 'Chennai', 'Hyderabad', 'Coimbatore', 'Ahmedabad']
@@ -77,7 +77,7 @@ export default function Home() {
               <span className="pink_gradient">Property Edge.</span>
             </h3>
             <p className={styles.sectionSub}>
-              Our work doesn&apos;t just drive results&mdash;it sets benchmarks. Backed by industry accolades and the trust of leading brands, we continue to push the boundaries of digital excellence.
+              Winning isn&apos;t a goal — it&apos;s a habit. Every campaign we run is built to outperform, and the industry has taken notice. These accolades reflect the trust our clients place in us and the standards we refuse to lower.
             </p>
             <div className={styles.awardsGrid}>
               {awards.map((award, i) => (
@@ -115,8 +115,8 @@ export default function Home() {
                 <span className="top_title">Our Clients</span>
               </div>
               <h3 className={`${styles.sectionHeading} title black`}>
-                <span className="black_gradient">Hear from Those </span>
-                <span className="pink_gradient">Who Know Us Best</span>
+                <span className="black_gradient">Trusted by the Developers </span>
+                <span className="pink_gradient">Who Build India</span>
               </h3>
             </div>
             <div className={styles.cityTabs}>
@@ -148,14 +148,14 @@ export default function Home() {
             <div className="title_top_wrap" style={{ background: 'rgba(218, 12, 137, 0.1)' }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="https://realatte.com/images/headericon.svg" alt="" width={28} height={12} className="logo_gap" />
-              <span className="top_title">Inside Property Edge</span>
+              <span className="top_title">Life at Property Edge</span>
             </div>
             <h3 className={`${styles.sectionHeading} title`}>
-              <span className="white_gradient">Our Culture </span>
-              <span className="pink_gradient">of Growth</span>
+              <span className="white_gradient">People Who </span>
+              <span className="pink_gradient">Obsess Over Results</span>
             </h3>
             <p className={styles.sectionSub}>
-              Our work culture values growth, expertise, and partnership. We&apos;ve cultivated an environment where innovation thrives, and we&apos;re all committed to delivering unparalleled performance for our clients.
+              Great marketing starts with great people. At Property Edge, we hire curious minds, train relentlessly, and build teams that actually care about the outcome — not just the output. This is the engine behind every campaign we run.
             </p>
             <div className={styles.cultureGrid}>
               {culturePhotos.map((n) => (

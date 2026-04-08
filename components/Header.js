@@ -1,4 +1,5 @@
 ﻿import Link from 'next/link'
+import Image from 'next/image'
 import { useState } from 'react'
 
 export default function Header() {
@@ -8,14 +9,14 @@ export default function Header() {
     <header className="site-header">
       <div className="site-header-inner">
         <Link href="/" className="site-brand" onClick={() => setOpen(false)}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="https://realatte.com/images/logo-2.png"
+          <Image
+            src="/assets/images/logo.png"
             alt="Property Edge"
+            height={36}
+            width={160}
             style={{ height: '36px', width: 'auto' }}
-            onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.nextSibling.style.display = 'inline'; }}
+            priority
           />
-          <span style={{ display: 'none', color: '#fff', fontWeight: 800, fontSize: '20px' }}>Property Edge</span>
         </Link>
         <nav>
           <ul className="nav-links">

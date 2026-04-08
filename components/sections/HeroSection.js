@@ -11,21 +11,22 @@ export default function HeroSection() {
             <div className={styles.heroLeft}>
               <div className={styles.homeBannerWrap}>
                 <h2 className={styles.homeBannerTitle}>
-                  <span className="white_gradient">Sit Back, Sell Out, And Let Us Own Your</span>{' '}
-                  <span className="pink_gradient">Digital Game</span>
+                  <span className="white_gradient">Your Property Deserves More Than</span>{' '}
+                  <span className="pink_gradient">Just Visibility</span>
                 </h2>
                 <div className={styles.subTitleWrap}>
-                  <h3 className={styles.homeSubTitle}>#1 Digital Marketing Agency For Real Estate</h3>
+                  <h3 className={styles.homeSubTitle}>India&apos;s specialist real estate growth agency</h3>
                 </div>
                 <p className={styles.bannerTxt}>
-                  From crafting a powerhouse brand identity to executing high-impact performance
-                  marketing, we handle every click, lead, and sale with precision, so you don&apos;t have to.
+                  We don&apos;t run ads — we engineer buyer journeys. From brand positioning to
+                  precision performance campaigns, Property Edge converts attention into
+                  site visits and site visits into booked units.
                 </p>
                 <Link href="/contact" className={styles.primaryCta}>
                   <span className={styles.ctaColorWrap}>
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src="https://realatte.com/images/cta_icon.png" alt="" width={24} height={10} className={styles.ctaIcon} />
-                    <span className={styles.ctaTxtColor}>Let&apos;s Talk Real Estate</span>
+                    <span className={styles.ctaTxtColor}>Start Growing Today</span>
                   </span>
                 </Link>
               </div>

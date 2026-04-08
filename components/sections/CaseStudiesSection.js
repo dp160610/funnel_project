@@ -4,99 +4,99 @@ import styles from '../../styles/components/CaseStudiesSection.module.css'
 const cases = [
   {
     id: 1,
-    title: 'Rustomjee Taps Into Performance Max To Drive Qualified Leads',
-    brand: 'RUSTOMJEE',
+    title: 'How Performance Max Tripled Qualified Leads for a Mumbai Launch',
+    brand: 'SKYLINE REALTY',
     tag: 'Performance Marketing',
     img: 'https://backend.realatte.com/uploads/09_c56a134e80.jpg',
-    slug: 'rustomjee-taps-into-performance-max-to-drive-qualified-leads',
+    slug: 'skyline-realty-performance-max',
   },
   {
     id: 2,
-    title: 'AWFIS — From Lost Leads to High-Intent Clicks',
-    brand: 'AWFIS',
+    title: 'From Zero Organic to 14,000 Monthly Visitors in 8 Months',
+    brand: 'GREENVIEW HOMES',
     tag: 'SEO',
     img: 'https://backend.realatte.com/uploads/06_7a9a2b03d4.jpg',
-    slug: 'awfis',
+    slug: 'greenview-homes-seo',
   },
   {
     id: 3,
-    title: 'Brigade Group Engages Global NRI Audience with Taboola',
-    brand: 'BRIGADE HOME',
+    title: 'NRI Buyer Acquisition: 40% Lower CPL with Programmatic Display',
+    brand: 'PRESTIGE TOWERS',
     tag: 'Performance Marketing',
     img: 'https://backend.realatte.com/uploads/07_1ae822ac56.jpg',
-    slug: 'brigade-group-engages-global-nri-audience-with-taboola',
+    slug: 'prestige-towers-nri-campaign',
   },
   {
     id: 4,
-    title: 'Brigade Group Taps Influencers to Boost REELs Engagement',
-    brand: 'BRIGADE GROUP',
+    title: 'Creator-Led Reel Strategy That Drove 2.1M Views — and 300 Site Visits',
+    brand: 'URBANRISE GROUP',
     tag: 'Influence Marketing',
     img: 'https://backend.realatte.com/uploads/11_219942570a.jpg',
-    slug: 'brigade-group-taps-influencers-to-boost-ree-ls-engagement',
+    slug: 'urbanrise-group-reel-influence',
   },
   {
     id: 5,
-    title: 'Atharv Lifestyle Optimizes for the Right Buyer, Right Time',
-    brand: 'ATHARV LIFESTYLE',
+    title: 'Hyper-Local SEO Strategy Captures Ready-to-Buy Suburban Audience',
+    brand: 'MEADOW ESTATES',
     tag: 'SEO',
     img: 'https://backend.realatte.com/uploads/02_b879a9b6b0.jpg',
-    slug: 'atharv-lifestyle',
+    slug: 'meadow-estates-local-seo',
   },
   {
     id: 6,
-    title: 'Primus Senior Living Finds Its Perfect Audience — 50% Less Cost',
-    brand: 'THE WADHWA GROUP',
+    title: 'Senior Living Project Sells Out in 90 Days with Precision Targeting',
+    brand: 'SERENE LIVING',
     tag: 'Performance Marketing',
     img: 'https://backend.realatte.com/uploads/02_356fe2f9f1.jpg',
-    slug: 'primus-senior-living-finds-its-perfect-audience-50-less-cost-100-more-impact',
+    slug: 'serene-living-90-day-sellout',
   },
   {
     id: 7,
-    title: 'Piramal Realty Boosts High-Quality Leads by 30% Using Taboola Motion Ads',
-    brand: 'PIRAMAL REALTY',
+    title: 'Motion Ads on Taboola Lift High-Intent Leads by 35% for Luxury Project',
+    brand: 'CROWN HEIGHTS',
     tag: 'Performance Marketing',
     img: 'https://backend.realatte.com/uploads/08_521a67d699.jpg',
-    slug: 'piramal-realty-boosts-high-quality-leads-by-30-using-taboola-motion-ads',
+    slug: 'crown-heights-taboola-motion',
   },
   {
     id: 8,
-    title: 'Puraniks Drives Awareness & Conversions with YouTube for Action',
-    brand: 'PURANICS',
+    title: 'YouTube for Action Campaign Generates 800 Bookings in One Quarter',
+    brand: 'PINNACLE HOMES',
     tag: 'Performance Marketing',
     img: 'https://backend.realatte.com/uploads/03_20948a00b7.jpg',
-    slug: 'puraniks-drives-awareness-and-conversions-with-you-tube-for-action',
+    slug: 'pinnacle-homes-youtube-action',
   },
   {
     id: 9,
-    title: 'M3M Scales Search Visibility Using YouTube Masthead + Discovery & Display',
-    brand: 'M3M',
+    title: 'Full-Funnel Search Strategy Cuts Cost Per Booking by 28%',
+    brand: 'VERTEX REALTY',
     tag: 'Performance Marketing',
     img: 'https://backend.realatte.com/uploads/04_80c3881f40.jpg',
-    slug: 'm3-m-scales-search-visibility-using-you-tube-masthead-discovery-and-display',
+    slug: 'vertex-realty-search-funnel',
   },
   {
     id: 10,
-    title: 'Hiranandani Communities Cuts CPL by 25% with Meta CAPI',
-    brand: 'HIRANANDANI',
+    title: 'Meta CAPI Integration Slashes Wasted Spend by 22% in 60 Days',
+    brand: 'HORIZON DEVELOPERS',
     tag: 'Performance Marketing',
     img: 'https://backend.realatte.com/uploads/06_f7ee2161c2.jpg',
-    slug: 'hiranandani-communities-cuts-cpl-by-25-with-meta-capi',
+    slug: 'horizon-developers-meta-capi',
   },
   {
     id: 11,
-    title: 'Smartworld Boosts Conversions by 30% with CAPI Configured Events',
-    brand: 'SMART WORLD',
+    title: 'Conversion Event Optimisation Drives 32% Booking Uplift',
+    brand: 'NOVA LIVING',
     tag: 'Performance Marketing',
     img: 'https://backend.realatte.com/uploads/05_34dce22160.jpg',
-    slug: 'smartworld-boosts-conversions-by-30-with-capi-configured-events',
+    slug: 'nova-living-conversion-events',
   },
   {
     id: 12,
-    title: 'Abil Group — 325% More Impressions, 238% More Clicks',
-    brand: 'ABIL GROUP',
+    title: 'Technical SEO Overhaul Results in 290% Impression Growth in 6 Months',
+    brand: 'APEX REAL ESTATE',
     tag: 'SEO',
     img: 'https://backend.realatte.com/uploads/01_eb5798aee5.jpg',
-    slug: 'abil-group',
+    slug: 'apex-real-estate-seo',
   },
 ]
 
@@ -109,22 +109,22 @@ export default function CaseStudiesSection() {
             <div className="title_top_wrap">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="https://realatte.com/images/headericon.svg" alt="" width={28} height={12} className="logo_gap" />
-              <span className="top_title">Some Of Our Work</span>
+              <span className="top_title">Results We&apos;ve Delivered</span>
             </div>
           </div>
           <div className={styles.headerRow}>
             <h2 className={styles.heading}>
               <span className="black_gradient">Our </span>
-              <span className="pink_gradient">Work</span>
+              <span className="pink_gradient">Case Studies</span>
             </h2>
             <Link href="/portfolio" className={styles.viewAll}>View All &rarr;</Link>
           </div>
-          <p className={styles.subheading}>A showcase of smart strategies, bold campaigns, and real results we&apos;ve delivered for our clients.</p>
+          <p className={styles.subheading}>Real campaigns. Real numbers. Real developers who trusted us and sold out.</p>
         </div>
 
         <div className={styles.grid}>
           {cases.map((c) => (
-            <Link key={c.id} href={`https://realatte.com/case-studies/${c.slug}`} target="_blank" rel="noopener noreferrer" className={styles.card}>
+            <Link key={c.id} href={`/portfolio/${c.slug}`} className={styles.card}>
               <div className={styles.imgPlaceholder}>
                 <img src={c.img} alt={c.title} />
                 <div className={styles.playBtn}>&#9654; View</div>
@@ -141,3 +141,5 @@ export default function CaseStudiesSection() {
     </section>
   )
 }
+
+

@@ -4,15 +4,15 @@ import styles from '../../styles/components/ServicesSection.module.css'
 const stages = [
   {
     id: 'top',
-    label: 'TOP FUNNEL AWARENESS',
-    subtitle: 'Creating Buzz & Attracting Serious Eyeballs',
-    description: "At this stage, it's all about making your project the talk of the town and driving high-quality discovery.",
+    label: 'TOP FUNNEL — DISCOVER',
+    subtitle: 'Put Your Project on Every Serious Buyer\'s Radar',
+    description: "We build awareness before buyers even start searching. Through hyper-targeted placements and compelling creative, we make your project the obvious choice from day one.",
     items: [
-      'Geo-Targeted Awareness Ad Films',
-      'Hyperlocal SEO & Location-Based Content',
-      'Luxury & Mass-Market Segmentation',
-      'Digital Billboards & Rich Media Ads',
-      'Influencer-Led Realty Reviews',
+      'City & Micro-Market Targeting Campaigns',
+      'Luxury vs. Affordable Audience Segmentation',
+      'Programmatic Display & Video Reach',
+      'Influencer-Driven Project Showcases',
+      'Location-Based SEO & Content Strategy',
     ],
     media: [
       { video: 'https://backend.realatte.com/uploads/ASG_Diwali_Ad_Film_1_3ad1f56599.mp4', label: 'Sheth Realty Diwali Wish' },
@@ -25,15 +25,15 @@ const stages = [
   },
   {
     id: 'mid',
-    label: 'MID FUNNEL INFLUENCE',
-    subtitle: 'Turning Interest into Site Visits',
-    description: "Now that we've caught their attention, it's time to nurture leads and push them closer to a decision.",
+    label: 'MID FUNNEL — ENGAGE',
+    subtitle: 'Turn Curiosity Into Committed Site Visitors',
+    description: "Interested buyers need the right nudge at the right moment. We keep your project top of mind and guide warm leads toward the all-important site visit.",
     items: [
-      'Dynamic Retargeting with Custom Messaging',
-      'Microsites & Project Landing Pages',
-      'WhatsApp AI Assistants',
-      'Exclusive Pre-Booking Webinars & Q&A Sessions',
-      'Google My Business & Maps Optimization',
+      'Smart Retargeting Across Meta, Google & YouTube',
+      'Dedicated Project Microsites & Landing Pages',
+      'WhatsApp Drip Sequences & AI Chat Assistants',
+      'Pre-Launch Webinars & Exclusive Previews',
+      'Google Maps & Local Search Optimization',
     ],
     media: [
       { video: 'https://backend.realatte.com/uploads/reel3_f6e0b54c15.mp4', label: 'Dosti Realty' },
@@ -46,15 +46,15 @@ const stages = [
   },
   {
     id: 'low',
-    label: 'LOW FUNNEL CONVERSION',
-    subtitle: 'Closing Deals & Booking Units',
-    description: "This is where we turn fence-sitters into homebuyers and push high-intent leads to seal the deal.",
+    label: 'LOW FUNNEL — CONVERT',
+    subtitle: 'From Shortlist to Signed Agreement',
+    description: "This is where strategy meets revenue. We identify the hottest prospects and engineer every touchpoint to push them across the finish line — from shortlist to booking.",
     items: [
-      'High-Intent Lead Segmentation',
-      'WhatsApp & SMS Nudges for Booking Appointments',
-      'Direct Call Connect for High-Ticket Leads',
-      'Festive & End-of-Quarter Sales Blitz',
-      'Booking-Ready Retargeting',
+      'High-Intent Buyer Identification & Scoring',
+      'Personalised SMS & WhatsApp Booking Nudges',
+      'Priority Call Connect for Premium Leads',
+      'Sales-Blitz Campaigns for Quarter-End Pushes',
+      'Conversion-Tuned Retargeting Creatives',
     ],
     media: [
       { img: 'https://backend.realatte.com/uploads/17_b2d92605af.jpg', label: 'Gera Island of Joy' },
@@ -78,14 +78,14 @@ export default function ServicesSection() {
           <div className="title_top_wrap">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="https://realatte.com/images/headericon.svg" alt="" width={28} height={12} className="logo_gap" />
-            <span className="top_title">Full Funnel Strategy</span>
+            <span className="top_title">Our Growth System</span>
           </div>
           <h3 className={`${styles.sectionTitle} title`}>
-            <span className="white_gradient">Branding, Performance, Strategy - </span>
-            <span className="pink_gradient">every click, every lead, every sale, mastered</span>
+            <span className="white_gradient">Discover, Engage, Convert — </span>
+            <span className="pink_gradient">the complete buyer journey, owned by us</span>
           </h3>
           <p className={styles.subheading}>
-            A full funnel optimized omni-channel real estate sell out strategy.
+            A proven three-stage growth engine built exclusively for real estate developers.
           </p>
         </div>
 

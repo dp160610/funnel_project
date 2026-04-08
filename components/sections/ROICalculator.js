@@ -187,11 +187,11 @@ export default function ROICalculator() {
             <span className="top_title">ROI Calculator</span>
           </div>
           <h3 className={`${styles.heading} title black`}>
-            <span className="black_gradient">Let&apos;s Show You Just How Far Your Growth Can Go</span>
-            <span className="pink_gradient"> With Us</span>
+            <span className="black_gradient">See the Numbers Before You Sign</span>
+            <span className="pink_gradient"> a Single Brief</span>
           </h3>
         </div>
-        <p className={styles.subheading}>Input your data, and let our ROI-driven strategies show you the scalable growth we can deliver. Precise, data-backed insights to fuel your next big move.</p>
+        <p className={styles.subheading}>Tell us about your project and we&apos;ll model exactly what your marketing investment can return — leads, site visits, bookings, and cost per outcome, no guesswork.</p>
 
         <div className={styles.calculator}>
           <div className={styles.formCard}>

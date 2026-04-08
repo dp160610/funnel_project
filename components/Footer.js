@@ -58,7 +58,7 @@ export default function Footer() {
       </div>
       <div className="footer-seo">
         <div className="footer-seo-inner">
-          <p>At Property Edge, we are a results-driven real estate marketing agency committed to helping developers succeed online. As a leading real estate digital marketing agency, Property Edge delivers high-impact digital marketing for real estate that includes everything from real estate social media marketing to strategic real estate lead generation. Recognized among the best digital marketing agencies for real estate, our team specializes in custom solutions tailored to your brand.</p>
+          <p>Property Edge is a specialist real estate marketing agency that partners with developers, builders, and property brands to fill booking pipelines faster. From brand positioning and creative storytelling to high-performance digital campaigns, we offer end-to-end marketing solutions built exclusively for the real estate sector. Our work spans SEO, paid media, influencer activation, and conversion optimization — all engineered to reduce your cost per booking and accelerate project sell-outs. Whether you are launching a new residential tower, a commercial complex, or a township, Property Edge brings the strategy, technology, and execution muscle to make it a market success.</p>
         </div>
       </div>
       <div className="footer-bottom">
