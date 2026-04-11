@@ -1,16 +1,18 @@
 ﻿import Link from 'next/link'
 import Image from 'next/image'
 import { useState } from 'react'
+import { useRouter } from 'next/router'
 
 export default function Header() {
   const [open, setOpen] = useState(false)
+  const { basePath } = useRouter()
 
   return (
     <header className="site-header">
       <div className="site-header-inner">
         <Link href="/" className="site-brand" onClick={() => setOpen(false)}>
           <Image
-            src="/assets/images/logo.png"
+            src={`${basePath}/assets/images/logo.png`}
             alt="Property Edge"
             width={195}
             height={60}
