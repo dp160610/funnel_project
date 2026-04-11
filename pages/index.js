@@ -4,168 +4,187 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import {
   HeroSection,
-  LogoSliderSection,
   BuiltForImpactSection,
-  VideoBgSection,
   ServicesSection,
   CaseStudiesSection,
-  ROICalculator,
 } from '../components/sections'
 import styles from '../styles/pages/Home.module.css'
 
-const awards = [
-  { title: 'BEST REAL ESTATE MARKETING AGENCY', org: 'PropTech India Summit · 2025' },
-  { title: 'MOST EFFECTIVE PERFORMANCE CAMPAIGN OF THE YEAR', org: 'Real Estate Marketing Awards · 2025' },
-  { title: 'TOP DIGITAL GROWTH PARTNER — REAL ESTATE', org: 'Growth100 India · 2024' },
+const truths = [
+  {
+    num: '01',
+    heading: 'Your Best Closers Are Working on Your Worst Leads',
+    body: 'Without lead scoring, your top sales executives spend 70% of their day chasing people who are curious, not committed. Funnel engineering ends this by filtering intent before a lead ever reaches the floor.',
+    italic: 'Your sales team\'s time is your most expensive resource. We stop wasting it.',
+    stat: 'Lead scoring consistently doubles average close rates.',
+  },
+  {
+    num: '02',
+    heading: 'You\'re Celebrating a CPL That\'s Quietly Killing You',
+    body: 'A ₹400 CPL feels like a win. It isn\'t — not when only 1 in 80 leads produces a booking. Your real cost of sale is your CPB. Most developers have never calculated it. We put it on a dashboard on day one.',
+    italic: 'The metric you track determines the outcome you get. You\'re tracking the wrong one.',
+    stat: 'Industry CPB averages 80–150× CPL.',
+  },
+  {
+    num: '03',
+    heading: 'Your Buyer Is Ready in 8 Weeks. Your System Forgot Them in 8 Days.',
+    body: 'Real estate decisions take 6–12 weeks. Without structured nurturing, an interested buyer goes cold and your CPL becomes a write-off. The funnel keeps them warm while your team focuses on closures.',
+    italic: 'You didn\'t lose that lead to a competitor. You lost them to silence.',
+    stat: 'Average real estate decision cycle: 6–12 weeks.',
+  },
+  {
+    num: '04',
+    heading: 'You Can\'t Cut What You\'ve Never Measured',
+    body: 'If you cannot trace a booking back to the campaign that produced it, you are funding three things: what works, what doesn\'t, and what you have no idea about. Attribution alone reduces effective CPB by 20–35%.',
+    italic: 'Unattributed marketing isn\'t a strategy. It\'s a donation with a logo on it.',
+    stat: 'Closed-loop attribution reduces CPB by 20–35%.',
+  },
 ]
 
-const cities = ['Mumbai', 'Pune', 'Delhi', 'Jaipur', 'Kolkata', 'Bengaluru', 'Chennai', 'Hyderabad', 'Coimbatore', 'Ahmedabad']
+const cities = ['Mumbai', 'Pune', 'Delhi NCR', 'Bengaluru', 'Hyderabad', 'Chennai', 'Jaipur', 'Kolkata']
+const clientLogos = ['Lodha', 'Godrej', 'Rustomjee', 'Runwal', 'Piramal', 'Oberoi', 'Mahindra', 'Kalpataru', 'Hiranandani', 'Dosti', 'Ashvin Sheth', 'Esbee']
 
-// Mumbai client logo image numbers from Realatte CDN
-const brandLogoNums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 18, 20, 21, 22, 26, 31, 34, 41, 43, 50, 58, 65]
-
-const culturePhotos = Array.from({ length: 11 }, (_, i) => i + 1)
+const tickerItems = ['Funnel Engineering', 'Branding', 'Influence', 'RealTech', 'Performance Media', 'Lead Nurture', 'Site Visit Campaigns', 'Booking Attribution', 'OOH & Mainline', 'Video Production', 'Creator Marketing', 'CRM & Automation']
 
 export default function Home() {
   return (
     <>
       <NextSeo
-        title="Property Edge - Real Estate Marketing Agency"
-        description="Transform your real estate projects into sold-out successes with strategic digital marketing. Full funnel strategies, branding, performance campaigns, and real results."
+        title="Property Edge — Real Estate Marketing Agency"
+        description="We engineer real estate funnels that close. Every stage tracked, every booking attributed. The only agency in India that answers to your cost per booking."
         canonical="https://propertyedge.com"
         openGraph={{
           type: 'website',
           url: 'https://propertyedge.com',
-          title: 'Property Edge - Real Estate Marketing Agency',
-          description: 'Real estate marketing strategies that drive results',
+          title: 'Property Edge — Real Estate Marketing Agency',
+          description: 'Real estate marketing engineered to close.',
         }}
       />
 
       <Header />
 
       <main>
-        {/* 1. Hero — dark navy, two-column layout with autoplay video */}
+        {/* 1. Hero */}
         <HeroSection />
 
-        {/* 2. Logo Slider — rotated marquee strip of client logos */}
-        <LogoSliderSection />
+        {/* 2. Ticker strip */}
+        <div className={styles.ticker}>
+          <div className={styles.tickerTrack}>
+            {[...tickerItems, ...tickerItems].map((item, i) => (
+              <span key={i} className={styles.tickerItem}>
+                {item}
+                <span className={styles.tickerDot}>·</span>
+              </span>
+            ))}
+          </div>
+        </div>
 
-        {/* 3. Built For Impact — white background, stats section */}
+        {/* 3. Hash block */}
+        <section className={styles.hashSection}>
+          <div className={styles.hashInner}>
+            <div className={styles.hashBlk}>
+              <div className={styles.hashTag}>#TheAgencyThatStopsAtBookings</div>
+              <h2 className={styles.hashH}>
+                Your Campaigns Are Live.<br />
+                <em>Which Ad Sold That Flat?</em>
+              </h2>
+              <p className={styles.hashP}>
+                That silence in the room — when your MD asks which campaign produced which booking and nobody has a clean answer — is not a data problem. It&apos;s a funnel problem. It means every stage of your buyer&apos;s journey is running disconnected, unmeasured, and unaccountable. We fix the structure. We engineer the stages. We close the loop.
+              </p>
+              <Link href="/contact" className={styles.hashCta}>
+                End the Boardroom Silence. Build My Funnel. →
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* 4. Five Disciplines */}
         <BuiltForImpactSection />
 
-        {/* 3. Video Background — white background with floating dark card */}
-        <VideoBgSection />
+        {/* 5. The Uncomfortable Truth */}
+        <section className={styles.truthSection}>
+          <div className={styles.secInner}>
+            <div className={styles.kk}>The Uncomfortable Truth</div>
+            <h2 className={styles.sh}>
+              Your Funnel Isn&apos;t Leaking<br />
+              Because the Market Is Hard.<br />
+              <em>It&apos;s Leaking Because Nobody Built It.</em>
+            </h2>
+            <p className={styles.ss}>
+              Most real estate marketing isn&apos;t engineered — it&apos;s assembled. Here&apos;s what&apos;s actually happening in your acquisition pipeline right now.
+            </p>
+            <div className={styles.truthGrid}>
+              {truths.map((t) => (
+                <div key={t.num} className={styles.truthItem}>
+                  <div className={styles.truthN}>{t.num}</div>
+                  <div className={styles.truthH}>{t.heading}</div>
+                  <p className={styles.truthP}>{t.body}</p>
+                  <div className={styles.truthItalic}>{t.italic}</div>
+                  <div className={styles.truthNum}>{t.stat}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
 
-        {/* 4. Services / Full Funnel Strategy — dark background */}
+        {/* 6. Funnel Pipeline */}
         <ServicesSection />
 
-        {/* 5. Performance Case Studies — dark background */}
+        {/* 7. Case Studies */}
         <CaseStudiesSection />
-        {/* 6. ROI Calculator — white background */}
-        <ROICalculator />
 
-        {/* 7. Awards Section — dark background, matching Realatte */}
-        <section className={styles.awardsSection}>
-          <div className={styles.sectionInner}>
-            <div className="title_top_wrap">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="https://realatte.com/images/headericon.svg" alt="" width={28} height={12} className="logo_gap" />
-              <span className="top_title">Awards</span>
+        {/* 8. Trusted By */}
+        <section className={styles.trustedSection}>
+          <div className={styles.secInner}>
+            <div className={styles.kk}>Trusted By</div>
+            <h2 className={styles.sh}>
+              Developers Across 18 Cities<br />
+              <em>Who Stopped Counting Leads.</em>
+            </h2>
+            <div className={styles.cityRow}>
+              {cities.map((c) => (
+                <span key={c} className={styles.cityTab}>{c}</span>
+              ))}
             </div>
-            <h3 className={`${styles.sectionHeading} title`}>
-              <span className="white_gradient">Recognized. Respected. </span>
-              <span className="pink_gradient">Property Edge.</span>
-            </h3>
-            <p className={styles.sectionSub}>
-              Winning isn&apos;t a goal — it&apos;s a habit. Every campaign we run is built to outperform, and the industry has taken notice. These accolades reflect the trust our clients place in us and the standards we refuse to lower.
-            </p>
-            <div className={styles.awardsGrid}>
-              {awards.map((award, i) => (
-                <div key={i} className={styles.awardCard}>
-                  <div className={styles.awardImgWrap}>
-                    <svg className={styles.awardIcon} viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <defs>
-                        <linearGradient id={`asg${i}`} x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
-                          <stop offset="0%" stopColor="#f6d365" />
-                          <stop offset="100%" stopColor="#da0c89" />
-                        </linearGradient>
-                      </defs>
-                      <path d="M32 4l5 15.5H53L40.5 28l5 15.5L32 35l-13.5 8.5 5-15.5L11 19.5H27L32 4z" fill={`url(#asg${i})`} />
-                      <rect x="30" y="45" width="4" height="9" fill="rgba(218,12,137,0.6)" />
-                      <rect x="21" y="54" width="22" height="4" rx="2" fill="rgba(218,12,137,0.6)" />
-                    </svg>
-                  </div>
-                  <div className={styles.awardTxtWrap}>
-                    <h3 className={styles.awardTitle}>{award.title}</h3>
-                    <p className={styles.awardOrg}>{award.org}</p>
-                  </div>
-                </div>
+            <div className={styles.clientLogos}>
+              {clientLogos.map((logo) => (
+                <div key={logo} className={styles.clientLogo}>{logo}</div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* 8. Brands / Clients Section — white background, matching Realatte */}
-        <section className={styles.brandsSection}>
-          <div className={styles.sectionInner}>
-            <div className="sec_title_wrap for_white_bg">
-              <div className="title_top_wrap">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="https://realatte.com/images/headericon.svg" alt="" width={28} height={12} className="logo_gap" />
-                <span className="top_title">Our Clients</span>
+        {/* 9. CTA Block */}
+        <section className={styles.ctaSection}>
+          <div className={styles.secInner}>
+            <div className={styles.ctaBlk}>
+              <div className={styles.ctaLeft}>
+                <div className={styles.ctaKk}>#IfItDoesntCloseItDoesntCount</div>
+                <div className={styles.ctaBig}>Property Edge</div>
+                <h2 className={styles.ctaH2}>
+                  You Don&apos;t Have a Marketing Problem.<br />
+                  You Have a Funnel That Was Never Built.
+                </h2>
+                <p className={styles.ctaDesc}>
+                  Most developers don&apos;t need more leads. They need a system that knows what to do with the ones they already have. Tell us your project — we&apos;ll show you the leak in 72 hours.
+                </p>
+                <div className={styles.ctaBtns}>
+                  <Link href="/contact" className={styles.ctaBtnR}>
+                    Audit My Funnel. Give Me the Uncomfortable Truth. →
+                  </Link>
+                  <Link href="/performance" className={styles.ctaBtnG}>
+                    I Want to See How This Works First
+                  </Link>
+                </div>
+                <p className={styles.ctaFine}>
+                  We work exclusively in real estate. We answer exclusively to your cost per booking. Everything else is noise.
+                </p>
               </div>
-              <h3 className={`${styles.sectionHeading} title black`}>
-                <span className="black_gradient">Trusted by the Developers </span>
-                <span className="pink_gradient">Who Build India</span>
-              </h3>
-            </div>
-            <div className={styles.cityTabs}>
-              {cities.map((city) => (
-                <span key={city} className={styles.cityTab}>{city}</span>
-              ))}
-            </div>
-            <div className={styles.brandsGrid}>
-              {brandLogoNums.map((n, i) => (
-                <div key={i} className={styles.brandCard}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={`https://realatte.com/images/clientslogo/Mumbai/${n}.png`}
-                    alt=""
-                    className={styles.brandLogo}
-                    width={120}
-                    height={50}
-                    loading="lazy"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* 9. Culture Section — dark background */}
-        <section className={styles.cultureSection}>
-          <div className={styles.sectionInner}>
-            <div className="title_top_wrap" style={{ background: 'rgba(218, 12, 137, 0.1)' }}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="https://realatte.com/images/headericon.svg" alt="" width={28} height={12} className="logo_gap" />
-              <span className="top_title">Life at Property Edge</span>
-            </div>
-            <h3 className={`${styles.sectionHeading} title`}>
-              <span className="white_gradient">People Who </span>
-              <span className="pink_gradient">Obsess Over Results</span>
-            </h3>
-            <p className={styles.sectionSub}>
-              Great marketing starts with great people. At Property Edge, we hire curious minds, train relentlessly, and build teams that actually care about the outcome — not just the output. This is the engine behind every campaign we run.
-            </p>
-            <div className={styles.cultureGrid}>
-              {culturePhotos.map((n) => (
-                <div key={n} className={styles.culturePhoto}>
-                  <img
-                    src={`https://realatte.com/images/companyphotos/${n}.png`}
-                    alt={`Property Edge team photo ${n}`}
-                  />
-                </div>
-              ))}
+              <div className={styles.ctaBadge}>
+                <div className={styles.ctaBadgeN}>72hr</div>
+                <div className={styles.ctaBadgeL}>Funnel audit<br />turnaround</div>
+                <div className={styles.ctaBadgeD}>No cost. No lock-in.</div>
+              </div>
             </div>
           </div>
         </section>

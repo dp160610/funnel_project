@@ -4,50 +4,46 @@ import styles from '../../styles/components/HeroSection.module.css'
 export default function HeroSection() {
   return (
     <section className={styles.hero}>
-      <div className={styles.heroContentWrap}>
-        <div className={styles.container}>
-          <div className={styles.heroRow}>
-            {/* LEFT COLUMN — text content */}
-            <div className={styles.heroLeft}>
-              <div className={styles.homeBannerWrap}>
-                <h2 className={styles.homeBannerTitle}>
-                  <span className="white_gradient">Your Property Deserves More Than</span>{' '}
-                  <span className="pink_gradient">Just Visibility</span>
-                </h2>
-                <div className={styles.subTitleWrap}>
-                  <h3 className={styles.homeSubTitle}>India&apos;s specialist real estate growth agency</h3>
-                </div>
-                <p className={styles.bannerTxt}>
-                  We don&apos;t run ads — we engineer buyer journeys. From brand positioning to
-                  precision performance campaigns, Property Edge converts attention into
-                  site visits and site visits into booked units.
-                </p>
-                <Link href="/contact" className={styles.primaryCta}>
-                  <span className={styles.ctaColorWrap}>
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src="https://realatte.com/images/cta_icon.png" alt="" width={24} height={10} className={styles.ctaIcon} />
-                    <span className={styles.ctaTxtColor}>Start Growing Today</span>
-                  </span>
-                </Link>
-              </div>
-            </div>
-
-            {/* RIGHT COLUMN — autoplay video */}
-            <div className={styles.heroRight}>
-              <video
-                className={styles.bannerVideo}
-                loop
-                muted
-                playsInline
-                autoPlay
-                preload="auto"
-                src="https://backend.realatte.com/uploads/videobanner2_603c643007.mp4"
-              />
-            </div>
+      <div className={styles.container}>
+        <div className={styles.badge}>
+          <span className={styles.badgeDot} />
+          Real Estate Marketing That Answers To One Number. Your Bookings.
+        </div>
+        <h1 className={styles.h1}>
+          Where Data Turns<br />Leads Into <em>Closures.</em>
+        </h1>
+        <p className={styles.sub}>
+          Most developers are sitting on ₹30–50L in monthly ad spend with no clear answer to the one question
+          that matters — <strong>which campaign closed which flat?</strong> We built Property Edge to end that conversation permanently.
+        </p>
+        <div className={styles.hbtns}>
+          <Link href="/contact" className={styles.btnR}>Tear My Funnel Apart. I Want to See Where It Bleeds. →</Link>
+          <Link href="/performance" className={styles.btnG}>Show Me What Funnel Engineering Looks Like</Link>
+        </div>
+        <div className={styles.statsRow}>
+          <div className={styles.stat}>
+            <span className={styles.sn}>₹760Cr+</span>
+            <span className={styles.sl}>Ad Spend. Every Rupee Tracked.</span>
+            <div className={styles.sbar} style={{ width: '92%' }} />
+          </div>
+          <div className={styles.stat}>
+            <span className={styles.sn}>86L+</span>
+            <span className={styles.sl}>Conversions. Not Just Clicks.</span>
+            <div className={styles.sbar} style={{ width: '78%' }} />
+          </div>
+          <div className={styles.stat}>
+            <span className={styles.sn}>500+</span>
+            <span className={styles.sl}>Projects Launched and Sold.</span>
+            <div className={styles.sbar} style={{ width: '65%' }} />
+          </div>
+          <div className={styles.stat}>
+            <span className={styles.sn}>25%</span>
+            <span className={styles.sl}>CPL Reduction. Delivered.</span>
+            <div className={styles.sbar} style={{ width: '55%' }} />
           </div>
         </div>
       </div>
-      <div className={styles.glowBox} />
     </section>
   )
 }
+

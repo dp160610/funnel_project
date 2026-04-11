@@ -1,0 +1,638 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+body,html{font-family:'Inter',sans-serif;background:#080808;color:#fff;-webkit-font-smoothing:antialiased}
+.page{background:#080808;min-height:100vh}
+
+/* NAV */
+nav{background:rgba(8,8,8,0.97);border-bottom:1px solid #1c1c1c;padding:0 5%;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;backdrop-filter:blur(12px)}
+.logo{color:#fff;font-size:20px;font-weight:900;letter-spacing:-0.5px;padding:18px 0}
+.logo span{color:#dc1919}
+.nav-links{display:flex;gap:0}
+.nav-links a{color:#666;font-size:13px;font-weight:500;text-decoration:none;padding:20px 15px;border-bottom:2px solid transparent;transition:all 0.2s;letter-spacing:0.2px}
+.nav-links a:hover{color:#fff}
+.nav-links a.active{color:#fff;border-bottom:2px solid #dc1919}
+.nav-cta{background:#dc1919;color:#fff;font-size:13px;font-weight:700;padding:10px 22px;border-radius:6px;text-decoration:none;letter-spacing:0.3px;transition:background 0.2s}
+.nav-cta:hover{background:#b91414}
+
+/* HERO */
+.hero{background:#080808;padding:110px 5% 90px;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;top:-200px;right:-200px;width:700px;height:700px;background:radial-gradient(circle,rgba(220,25,25,0.08) 0%,transparent 65%);pointer-events:none}
+.hero::before{content:'';position:absolute;bottom:-100px;left:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(220,25,25,0.05) 0%,transparent 65%);pointer-events:none}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:#120404;border:1px solid #3c1010;color:#dc1919;font-size:10px;font-weight:800;letter-spacing:2.5px;padding:8px 18px;border-radius:4px;margin-bottom:32px;text-transform:uppercase}
+.hero-tag-dot{width:6px;height:6px;background:#dc1919;border-radius:50%;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.2}}
+.hero h1{font-size:clamp(46px,7.5vw,96px);font-weight:900;line-height:0.97;letter-spacing:-4px;margin-bottom:20px;color:#fff}
+.hero h1 .red{color:#dc1919;font-style:italic}
+.hero h1 .block{display:block}
+.hero-desc{font-size:17px;color:#555;max-width:560px;line-height:1.65;margin-bottom:40px;font-weight:400}
+.hero-desc strong{color:#999;font-weight:500}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:80px}
+.btn-red{background:#dc1919;color:#fff;font-size:14px;font-weight:700;padding:16px 34px;border-radius:6px;text-decoration:none;letter-spacing:0.2px;transition:background 0.2s;display:inline-block}
+.btn-red:hover{background:#b91414}
+.btn-outline{background:transparent;color:#fff;font-size:14px;font-weight:600;padding:16px 32px;border-radius:6px;text-decoration:none;border:1px solid #2a2a2a;letter-spacing:0.2px;transition:all 0.2s;display:inline-block}
+.btn-outline:hover{border-color:#555;background:#111}
+.hero-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#161616;border:1px solid #161616;border-radius:10px;overflow:hidden}
+.bar-stat{background:#0e0e0e;padding:30px 24px;text-align:center;position:relative}
+.bar-stat::after{content:'';position:absolute;top:50%;right:0;transform:translateY(-50%);width:1px;height:40%;background:#1c1c1c}
+.bar-stat:last-child::after{display:none}
+.bar-val{font-size:34px;font-weight:900;color:#fff;letter-spacing:-1.5px;line-height:1}
+.bar-val em{color:#dc1919;font-style:normal}
+.bar-label{font-size:10px;color:#444;font-weight:600;text-transform:uppercase;letter-spacing:1.8px;margin-top:8px}
+
+/* SECTIONS */
+section{padding:90px 5%}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;color:#dc1919;font-size:10px;font-weight:800;letter-spacing:3px;text-transform:uppercase;margin-bottom:20px}
+.eyebrow::before{content:'';width:24px;height:1px;background:#dc1919;flex-shrink:0}
+.sec-h{font-size:clamp(30px,4.5vw,56px);font-weight:900;line-height:1.05;letter-spacing:-2px;color:#fff;margin-bottom:16px}
+.sec-h em{color:#dc1919;font-style:normal}
+.sec-p{font-size:15px;color:#555;line-height:1.7;max-width:580px}
+.white-text{color:#ccc}
+.muted{color:#555}
+
+/* WHY BRANDING — split */
+.why-section{background:#080808;border-bottom:1px solid #161616}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.why-right{display:grid;gap:3px}
+.why-card{background:#0d0d0d;border:1px solid #161616;border-radius:0;padding:28px 28px;border-left:0;transition:all 0.3s;cursor:default;position:relative}
+.why-card:first-child{border-radius:10px 10px 0 0}
+.why-card:last-child{border-radius:0 0 10px 10px}
+.why-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:#dc1919;border-radius:3px 0 0 3px;transform:scaleY(0);transition:transform 0.3s;transform-origin:bottom}
+.why-card:hover::before{transform:scaleY(1)}
+.why-card:hover{background:#111;padding-left:32px}
+.why-card h4{font-size:15px;font-weight:800;color:#fff;margin-bottom:8px;letter-spacing:-0.2px}
+.why-card p{font-size:13px;color:#555;line-height:1.65}
+.stat-callout{background:#120404;border:1px solid #3c1010;border-radius:10px;padding:28px;margin-top:28px;display:flex;gap:20px;align-items:center}
+.callout-num{font-size:48px;font-weight:900;color:#dc1919;letter-spacing:-2px;line-height:1;flex-shrink:0}
+.callout-text{font-size:13px;color:#666;line-height:1.6}
+.callout-text strong{color:#aaa;display:block;margin-bottom:4px;font-size:14px}
+
+/* WHAT WE DO IN BRANDING — process */
+.process-section{background:#060606;border-bottom:1px solid #161616}
+.process-intro{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;margin-bottom:64px}
+.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;background:#161616;border:1px solid #161616;border-radius:10px;overflow:hidden}
+.proc-step{background:#0c0c0c;padding:32px 24px;position:relative;transition:background 0.3s;cursor:default}
+.proc-step:hover{background:#111}
+.proc-num{font-size:52px;font-weight:900;color:#161616;line-height:1;margin-bottom:16px;letter-spacing:-2px}
+.proc-step:hover .proc-num{color:#1c0404}
+.proc-icon-line{width:100%;height:1px;background:#1c1c1c;margin-bottom:20px;position:relative}
+.proc-icon-line::before{content:'';position:absolute;left:0;top:-2px;width:0%;height:5px;background:#dc1919;border-radius:3px;transition:width 0.4s}
+.proc-step:hover .proc-icon-line::before{width:40%}
+.proc-title{font-size:16px;font-weight:800;color:#fff;margin-bottom:10px;letter-spacing:-0.2px;line-height:1.2}
+.proc-body{font-size:12px;color:#555;line-height:1.65}
+.proc-cta{margin-top:16px;font-size:11px;font-weight:700;color:#dc1919;letter-spacing:0.5px;display:flex;align-items:center;gap:6px;transition:gap 0.2s}
+.proc-step:hover .proc-cta{gap:10px}
+
+/* SERVICES */
+.services-section{background:#080808;border-bottom:1px solid #161616}
+.services-intro{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:end;margin-bottom:56px}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.svc-card{background:#0c0c0c;border:1px solid #161616;border-radius:10px;padding:36px 28px;transition:all 0.3s;cursor:default;position:relative;overflow:hidden}
+.svc-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:#dc1919;transform:scaleX(0);transition:transform 0.4s;transform-origin:left}
+.svc-card:hover{border-color:#3c1010;background:#0e0e0e;transform:translateY(-4px)}
+.svc-card:hover::after{transform:scaleX(1)}
+.svc-idx{font-size:64px;font-weight:900;color:#111;letter-spacing:-3px;position:absolute;top:16px;right:20px;line-height:1;transition:color 0.3s}
+.svc-card:hover .svc-idx{color:#1a0505}
+.svc-icon{width:44px;height:44px;background:#120404;border:1px solid #3c1010;border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:22px}
+.svc-icon svg{width:20px;height:20px;stroke:#dc1919;fill:none;stroke-width:1.8}
+.svc-title{font-size:19px;font-weight:800;color:#fff;margin-bottom:12px;letter-spacing:-0.3px;line-height:1.2}
+.svc-body{font-size:13px;color:#555;line-height:1.7;margin-bottom:20px}
+.svc-cta{font-size:12px;font-weight:700;color:#dc1919;letter-spacing:0.3px;display:flex;align-items:center;gap:6px;transition:gap 0.2s}
+.svc-card:hover .svc-cta{gap:10px}
+
+/* BRAND POSITIONING */
+.position-section{background:#060606;border-bottom:1px solid #161616}
+.position-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:64px;align-items:center}
+.position-right{display:grid;gap:16px}
+.pos-item{background:#0c0c0c;border:1px solid #161616;border-radius:8px;padding:24px;display:grid;grid-template-columns:48px 1fr;gap:16px;align-items:start;transition:all 0.3s}
+.pos-item:hover{border-color:#3c1010;background:#111}
+.pos-num{width:36px;height:36px;background:#120404;border:1px solid #3c1010;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:#dc1919;flex-shrink:0;margin-top:2px}
+.pos-item h4{font-size:14px;font-weight:800;color:#fff;margin-bottom:6px;letter-spacing:-0.1px}
+.pos-item p{font-size:12px;color:#555;line-height:1.6}
+.position-visual{background:#0c0c0c;border:1px solid #161616;border-radius:12px;padding:40px;text-align:center;margin-bottom:20px}
+.pv-ring{width:180px;height:180px;border-radius:50%;border:2px solid #dc1919;display:flex;align-items:center;justify-content:center;margin:0 auto;position:relative}
+.pv-ring::before{content:'';position:absolute;inset:12px;border-radius:50%;border:1px solid #3c1010}
+.pv-ring::after{content:'';position:absolute;inset:24px;border-radius:50%;background:#120404}
+.pv-center{position:relative;z-index:1;font-size:13px;font-weight:800;color:#dc1919;letter-spacing:1px;text-transform:uppercase}
+.pv-tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:20px}
+.pv-tag{background:#0e0e0e;border:1px solid #1c1c1c;color:#444;font-size:10px;font-weight:600;padding:5px 12px;border-radius:20px;letter-spacing:0.5px;text-transform:uppercase}
+.pv-tag.active{background:#120404;border-color:#3c1010;color:#dc1919}
+
+/* PORTFOLIO */
+.portfolio-section{background:#080808;border-bottom:1px solid #161616}
+.port-tabs{display:flex;gap:8px;margin-bottom:40px;flex-wrap:wrap}
+.port-tab{background:#0e0e0e;border:1px solid #1c1c1c;color:#444;font-size:11px;font-weight:700;padding:8px 18px;border-radius:4px;cursor:pointer;letter-spacing:1px;text-transform:uppercase;transition:all 0.2s}
+.port-tab:hover{border-color:#555;color:#888}
+.port-tab.active{background:#120404;border-color:#dc1919;color:#dc1919}
+.port-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;background:#161616;border:1px solid #161616;border-radius:10px;overflow:hidden}
+.port-item{background:#0c0c0c;aspect-ratio:1;display:flex;align-items:center;justify-content:center;position:relative;cursor:pointer;transition:background 0.3s;overflow:hidden}
+.port-item:hover{background:#111}
+.port-placeholder{font-size:11px;font-weight:700;color:#222;letter-spacing:2px;text-transform:uppercase;text-align:center;padding:16px}
+.port-overlay{position:absolute;inset:0;background:rgba(220,25,25,0.85);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 0.3s}
+.port-item:hover .port-overlay{opacity:1}
+.port-overlay span{color:#fff;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase}
+
+/* INDUSTRIES */
+.industries-section{background:#060606;border-bottom:1px solid #161616}
+.ind-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:3px;background:#161616;border:1px solid #161616;border-radius:10px;overflow:hidden;margin-top:48px}
+.ind-card{background:#0c0c0c;padding:28px 20px;text-align:center;transition:background 0.3s;cursor:default}
+.ind-card:hover{background:#111}
+.ind-icon{font-size:28px;margin-bottom:12px;filter:grayscale(1);transition:filter 0.3s}
+.ind-card:hover .ind-icon{filter:none}
+.ind-title{font-size:12px;font-weight:700;color:#444;letter-spacing:0.5px;transition:color 0.3s;text-transform:uppercase}
+.ind-card:hover .ind-title{color:#dc1919}
+.ind-body{font-size:11px;color:#333;line-height:1.5;margin-top:6px}
+
+/* DIFFERENTIATORS */
+.diff-section{background:#080808;border-bottom:1px solid #161616}
+.diff-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px;background:#161616;border:1px solid #161616;border-radius:10px;overflow:hidden;margin-top:48px}
+.diff-card{background:#0c0c0c;padding:40px 36px;transition:background 0.3s}
+.diff-card:hover{background:#0f0f0f}
+.diff-card.featured{background:#120404;border-bottom:3px solid #dc1919}
+.diff-tag{font-size:10px;font-weight:800;color:#dc1919;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
+.diff-title{font-size:22px;font-weight:900;color:#fff;margin-bottom:12px;letter-spacing:-0.5px;line-height:1.2}
+.diff-body{font-size:13px;color:#555;line-height:1.65}
+.diff-list{margin-top:16px;display:grid;gap:8px}
+.diff-li{display:flex;align-items:start;gap:10px;font-size:12px;color:#555;line-height:1.5}
+.diff-li::before{content:'';width:4px;height:4px;background:#dc1919;border-radius:50%;flex-shrink:0;margin-top:5px}
+
+/* CLIENTS */
+.clients-section{background:#060606;border-bottom:1px solid #161616}
+.city-row{display:flex;gap:8px;flex-wrap:wrap;margin:28px 0 40px}
+.city-btn{background:#0e0e0e;border:1px solid #161616;color:#444;font-size:11px;font-weight:600;padding:7px 16px;border-radius:20px;cursor:pointer;transition:all 0.2s;letter-spacing:0.3px}
+.city-btn:hover,.city-btn.active{background:#120404;border-color:#3c1010;color:#dc1919}
+.logo-wall{display:flex;flex-wrap:wrap;gap:10px}
+.logo-box{background:#0c0c0c;border:1px solid #161616;border-radius:6px;width:80px;height:48px;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:800;color:#252525;letter-spacing:1.5px;text-transform:uppercase;transition:all 0.3s}
+.logo-box:hover{border-color:#3c1010;background:#111}
+
+/* BOTTOM CTA */
+.cta-bottom{background:#dc1919;padding:90px 5%;text-align:center;position:relative;overflow:hidden}
+.cta-bottom::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:800px;height:400px;background:radial-gradient(ellipse,rgba(255,255,255,0.07) 0%,transparent 70%)}
+.cta-bottom h2{font-size:clamp(28px,4.5vw,60px);font-weight:900;color:#fff;letter-spacing:-2.5px;margin-bottom:16px;line-height:1.05}
+.cta-bottom p{font-size:16px;color:rgba(255,255,255,0.65);margin-bottom:40px;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.6}
+.btn-white{background:#fff;color:#dc1919;font-size:14px;font-weight:800;padding:17px 38px;border-radius:6px;text-decoration:none;display:inline-block;letter-spacing:0.2px;transition:transform 0.2s}
+.btn-white:hover{transform:scale(1.02)}
+.btn-white-ghost{background:transparent;color:#fff;font-size:14px;font-weight:600;padding:17px 32px;border-radius:6px;text-decoration:none;border:2px solid rgba(255,255,255,0.35);display:inline-block;letter-spacing:0.2px;margin-left:12px;transition:border-color 0.2s}
+.btn-white-ghost:hover{border-color:rgba(255,255,255,0.7)}
+
+/* FOOTER */
+footer{background:#040404;border-top:1px solid #161616;padding:64px 5% 40px}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.4fr;gap:48px;margin-bottom:48px}
+.foot-brand-name{font-size:20px;font-weight:900;color:#fff;margin-bottom:16px}
+.foot-brand-name span{color:#dc1919}
+.foot-brand-desc{font-size:12px;color:#3a3a3a;line-height:1.7;max-width:280px}
+.foot-col h5{font-size:10px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:#dc1919;margin-bottom:20px}
+.foot-col a{display:block;font-size:13px;color:#3a3a3a;text-decoration:none;margin-bottom:10px;transition:color 0.2s}
+.foot-col a:hover{color:#fff}
+.foot-bottom{display:flex;justify-content:space-between;align-items:center;border-top:1px solid #141414;padding-top:28px}
+.foot-bottom p{font-size:11px;color:#2a2a2a}
+.foot-bottom span{color:#dc1919}
+
+@media(max-width:900px){
+  .why-grid,.process-intro,.services-intro,.position-grid{grid-template-columns:1fr}
+  .hero-bar{grid-template-columns:1fr 1fr}
+  .process-steps,.svc-grid{grid-template-columns:1fr}
+  .ind-grid{grid-template-columns:1fr 1fr}
+  .diff-grid,.foot-grid{grid-template-columns:1fr}
+  .port-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+
+<div class="page">
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Property<span>Edge</span></div>
+  <div class="nav-links">
+    <a href="#" class="active">Branding</a>
+    <a href="#">Influence</a>
+    <a href="#">Performance</a>
+    <a href="#">RealTech</a>
+    <a href="#">Gifting</a>
+    <a href="#">About Us</a>
+  </div>
+  <a href="#" class="nav-cta">Let's Talk →</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag"><span class="hero-tag-dot"></span>Brand Strategy & Identity</div>
+  <h1>
+    <span class="block">A Brand Isn't</span>
+    <span class="block">What You Say.</span>
+    <span class="block">It's What They <em>Remember.</em></span>
+  </h1>
+  <p class="hero-desc">In real estate, the brand you build today determines the price premium you command tomorrow. We position developers and builders as <strong>the only logical choice</strong> — not just another option — in the minds of their buyers.</p>
+  <div class="hero-btns">
+    <a href="#" class="btn-red">Position My Brand to Lead the Market →</a>
+    <a href="#" class="btn-outline">See Our Branding Work</a>
+  </div>
+  <div class="hero-bar">
+    <div class="bar-stat">
+      <div class="bar-val"><em>300</em>+</div>
+      <div class="bar-label">Brands Built</div>
+    </div>
+    <div class="bar-stat">
+      <div class="bar-val"><em>18</em>+</div>
+      <div class="bar-label">Cities Across India</div>
+    </div>
+    <div class="bar-stat">
+      <div class="bar-val"><em>₹40K</em>Cr+</div>
+      <div class="bar-label">Developer Inventory Branded</div>
+    </div>
+    <div class="bar-stat">
+      <div class="bar-val"><em>12</em>x</div>
+      <div class="bar-label">Avg Brand Recall Lift</div>
+    </div>
+  </div>
+</div>
+
+<!-- WHY BRANDING -->
+<section class="why-section">
+  <div class="why-grid">
+    <div>
+      <div class="eyebrow">Why Branding is Non-Negotiable</div>
+      <h2 class="sec-h">Buyers don't buy<br>property. They buy<br><em>belief.</em></h2>
+      <p class="sec-p" style="margin-bottom:24px">In a market where two projects can be 500 metres apart, same price point, same configuration — the one with the stronger brand always wins. Not by a little. By a lot. Brand is the reason someone drives past one site board and stops at yours.</p>
+      <p class="sec-p" style="margin-bottom:32px">Without deliberate brand positioning, you're leaving your pricing power, your buyer quality, and your booking velocity entirely to chance. We don't let that happen.</p>
+      <a href="#" class="btn-red">Diagnose My Brand Gap →</a>
+      <div class="stat-callout">
+        <div class="callout-num">73%</div>
+        <div class="callout-text">
+          <strong>of home buyers shortlist on brand trust alone</strong>
+          before visiting a site. Your brand is your sales team's most powerful warm-up act — or their biggest obstacle.
+        </div>
+      </div>
+    </div>
+    <div class="why-right">
+      <div class="why-card">
+        <h4>Your brand is your first price negotiation</h4>
+        <p>A strong brand commands price premiums of 8–22% over comparable unbranded inventory in the same micro-market. Branding isn't a cost — it's your highest-leverage pricing strategy.</p>
+      </div>
+      <div class="why-card">
+        <h4>Brand equity shortens your sales cycle</h4>
+        <p>Buyers who already trust your brand arrive at the site office pre-sold. They ask fewer objections, spend less time in due diligence, and close 40% faster than cold prospects.</p>
+      </div>
+      <div class="why-card">
+        <h4>A brand that's remembered costs less to market</h4>
+        <p>Every rupee you invest in brand equity today lowers your future cost of acquisition. Recognised brands require 30–50% less paid media spend to generate the same volume of qualified leads.</p>
+      </div>
+      <div class="why-card">
+        <h4>Your second project sells itself on your first one's reputation</h4>
+        <p>Developers who build brand equity don't start from zero on every launch. Each project compounds the value of the last. We build brands that scale across your entire portfolio — not just the current project.</p>
+      </div>
+      <div class="why-card">
+        <h4>Without brand, you're competing on price. Always.</h4>
+        <p>Price competition is a race to the bottom. The only sustainable escape from it is a brand so well-positioned that the comparison becomes irrelevant. We build that escape route.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE DO IN BRANDING -->
+<section class="process-section">
+  <div class="process-intro">
+    <div>
+      <div class="eyebrow">Our Branding Process</div>
+      <h2 class="sec-h">Brand-building<br>isn't creative.<br>It's <em>strategic.</em></h2>
+    </div>
+    <div>
+      <p class="sec-p" style="margin-bottom:20px">Before we design a single logo or write a single tagline, we do the work that most agencies skip: understanding your buyer's psychology, your competitive landscape, and the specific emotional territory your brand must own.</p>
+      <p class="sec-p">Every output — every visual, every word, every campaign — flows from this strategy. That's what makes our work convert, not just look good.</p>
+      <a href="#" class="btn-red" style="margin-top:24px">Walk Me Through Your Process →</a>
+    </div>
+  </div>
+  <div class="process-steps">
+    <div class="proc-step">
+      <div class="proc-num">01</div>
+      <div class="proc-icon-line"></div>
+      <div class="proc-title">Brand Discovery & Market Audit</div>
+      <p class="proc-body">We map your competitive set, identify the white space in your buyer's mind, and audit what your current brand communicates vs. what it should. This is where the strategy is born — not in a mood board, but in a market analysis.</p>
+      <div class="proc-cta">Start With Discovery →</div>
+    </div>
+    <div class="proc-step">
+      <div class="proc-num">02</div>
+      <div class="proc-icon-line"></div>
+      <div class="proc-title">Positioning & Identity Architecture</div>
+      <p class="proc-body">We define your brand positioning statement, buyer archetype, emotional territory, and the single most important thing your brand must make people feel. Every creative decision that follows is anchored to this document.</p>
+      <div class="proc-cta">See a Brand Architecture →</div>
+    </div>
+    <div class="proc-step">
+      <div class="proc-num">03</div>
+      <div class="proc-icon-line"></div>
+      <div class="proc-title">Visual Identity & Brand System</div>
+      <p class="proc-body">Logo, typography, colour palette, imagery style, iconography — built as a cohesive system, not a collection of assets. Every element is designed to communicate your positioning without saying a word. And every element is documented for consistent execution.</p>
+      <div class="proc-cta">Explore Our Identity Work →</div>
+    </div>
+    <div class="proc-step">
+      <div class="proc-num">04</div>
+      <div class="proc-icon-line"></div>
+      <div class="proc-title">Brand Rollout & Market Activation</div>
+      <p class="proc-body">We take the brand live — across digital touchpoints, OOH, sales centres, collateral, and performance campaigns. Not just a handover of files, but a coordinated market launch designed to create immediate brand salience at scale.</p>
+      <div class="proc-cta">Plan My Brand Launch →</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-section">
+  <div class="services-intro">
+    <div>
+      <div class="eyebrow">Branding Solutions We Offer</div>
+      <h2 class="sec-h">Six disciplines.<br>One <em>cohesive</em><br>brand story.</h2>
+    </div>
+    <div>
+      <p class="sec-p">Each service we offer connects to a specific brand-building objective — not just a deliverable. We don't produce assets. We produce brand equity, one touchpoint at a time.</p>
+      <a href="#" class="btn-red" style="margin-top:28px">See Which Services You Need →</a>
+    </div>
+  </div>
+  <div class="svc-grid">
+
+    <div class="svc-card">
+      <div class="svc-idx">01</div>
+      <div class="svc-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+      </div>
+      <h3 class="svc-title">Brand Launch & Strategic Repositioning</h3>
+      <p class="svc-body">For new developers entering the market and established ones who've outgrown their current identity. We define your category, your differentiator, and your brand voice — then bring it to life with an identity system built to own mindshare in your specific micro-market. Because a first impression in real estate is worth crores.</p>
+      <span class="svc-cta">Launch My Brand Right →</span>
+    </div>
+
+    <div class="svc-card">
+      <div class="svc-idx">02</div>
+      <div class="svc-icon">
+        <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+      </div>
+      <h3 class="svc-title">Social Media Brand Management</h3>
+      <p class="svc-body">Your Instagram and Facebook presence is your brand's storefront — visited by buyers who've already seen your ads and want to verify if you're credible. We manage it as a trust-building instrument: consistent visual identity, strategic content cadence, and community engagement that turns passive scrollers into active prospects.</p>
+      <span class="svc-cta">Activate My Social Presence →</span>
+    </div>
+
+    <div class="svc-card">
+      <div class="svc-idx">03</div>
+      <div class="svc-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+      </div>
+      <h3 class="svc-title">Strategic Copywriting & Brand Voice</h3>
+      <p class="svc-body">Words sell what visuals can't. We craft the taglines, project narratives, website copy, brochure content, and ad scripts that make a buyer feel like this project was made for them. From a single headline that stops the scroll to a complete brand voice guide that every future communication follows.</p>
+      <span class="svc-cta">Write Words That Close →</span>
+    </div>
+
+    <div class="svc-card">
+      <div class="svc-idx">04</div>
+      <div class="svc-icon">
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <h3 class="svc-title">Visual Identity & Graphic Design System</h3>
+      <p class="svc-body">Logo design. Brand guidelines. Typography systems. Colour architecture. Marketing collateral. Sales kit design. Site hoarding artwork. Every visual asset, built as part of a unified design system — so your brand looks instantly recognisable whether it's on a 60×40 hoarding or a 5-inch phone screen.</p>
+      <span class="svc-cta">Build My Visual Identity →</span>
+    </div>
+
+    <div class="svc-card">
+      <div class="svc-idx">05</div>
+      <div class="svc-icon">
+        <svg viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+      </div>
+      <h3 class="svc-title">Ad Films, Reels & Motion Brand Content</h3>
+      <p class="svc-body">Video is the closest thing to physically walking a buyer through your project before they've booked a site visit. We produce brand films, property walkthroughs, testimonial cuts, Instagram Reels, and animated content that builds desire — and keeps your project top-of-mind throughout a 90-day decision cycle.</p>
+      <span class="svc-cta">Make My Project Unmissable →</span>
+    </div>
+
+    <div class="svc-card">
+      <div class="svc-idx">06</div>
+      <div class="svc-icon">
+        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </div>
+      <h3 class="svc-title">Print, OOH & Mainline Advertising</h3>
+      <p class="svc-body">Site hoardings that command the skyline. Brochures that people keep. Newspaper jackets that double as brand statements. Direct mailers that get opened. We design mainline brand touchpoints that make your project visible in the physical world — where your buyer lives, commutes, and makes decisions.</p>
+      <span class="svc-cta">Dominate My Local Market →</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- BRAND POSITIONING -->
+<section class="position-section">
+  <div class="position-grid">
+    <div>
+      <div class="eyebrow">Brand Positioning Framework</div>
+      <h2 class="sec-h">We don't design<br>brands. We <em>engineer</em><br>buyer perception.</h2>
+      <p class="sec-p" style="margin-bottom:32px">Brand positioning is the art and science of occupying a specific, valuable space in your buyer's mind — before they've ever spoken to your sales team. We use a proprietary 6-layer positioning framework, built exclusively for real estate, that defines exactly what your brand stands for and exactly who it speaks to.</p>
+      <p class="sec-p" style="margin-bottom:36px">The result: a brand that doesn't just look premium — it feels like the obvious choice for the right buyer, every single time they encounter it.</p>
+      <a href="#" class="btn-red">Get My Brand Positioned →</a>
+    </div>
+    <div class="position-right">
+      <div class="pos-item">
+        <div class="pos-num">01</div>
+        <div>
+          <h4>Buyer Archetype Definition</h4>
+          <p>We build a precise profile of your ideal buyer — not demographics, but psychographics. What they aspire to. What they're afraid of. What makes them sign.</p>
+        </div>
+      </div>
+      <div class="pos-item">
+        <div class="pos-num">02</div>
+        <div>
+          <h4>Competitive White Space Mapping</h4>
+          <p>We audit every competitor brand in your category and identify the specific positioning territory they've left unoccupied — then plant your flag in it.</p>
+        </div>
+      </div>
+      <div class="pos-item">
+        <div class="pos-num">03</div>
+        <div>
+          <h4>Emotional Brand Territory</h4>
+          <p>Logic drives shortlisting. Emotion drives booking. We define the precise emotional feeling your brand must create — and build every creative expression around it.</p>
+        </div>
+      </div>
+      <div class="pos-item">
+        <div class="pos-num">04</div>
+        <div>
+          <h4>Brand Promise & Proof Architecture</h4>
+          <p>Your brand promise is the commitment you make to your buyer. We pair it with a credibility architecture — proof points, testimonials, and trust signals — that makes the promise believable.</p>
+        </div>
+      </div>
+      <div class="pos-item">
+        <div class="pos-num">05</div>
+        <div>
+          <h4>Voice, Tone & Message Hierarchy</h4>
+          <p>We document exactly how your brand speaks — what it says first, what it emphasises, what it never says — so every communication, by every team, reinforces the same positioning.</p>
+        </div>
+      </div>
+      <div class="pos-item">
+        <div class="pos-num">06</div>
+        <div>
+          <h4>Portfolio Brand Architecture</h4>
+          <p>For developers with multiple projects: we design a brand hierarchy that lets each project have a distinct identity while compounding the equity of the master developer brand.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIFFERENTIATORS -->
+<section class="diff-section">
+  <div style="text-align:center;max-width:700px;margin:0 auto 56px">
+    <div class="eyebrow" style="justify-content:center">Why Property Edge for Branding</div>
+    <h2 class="sec-h" style="text-align:center">Every agency will<br>tell you they're different.<br><em>Here's our proof.</em></h2>
+  </div>
+  <div class="diff-grid">
+    <div class="diff-card featured">
+      <div class="diff-tag">Our Core Difference</div>
+      <h3 class="diff-title">We only do real estate. Which means we only do what works in real estate.</h3>
+      <p class="diff-body">Generic marketing agencies bring you brand thinking designed for FMCG, hospitality, or consumer tech — then wonder why it doesn't convert real estate buyers. We've spent years understanding the psychology, the sales cycle, and the category dynamics of property purchases. Our brand strategies are built for the way real estate buyers actually think.</p>
+      <div class="diff-list">
+        <div class="diff-li">Every brand system is built for both digital and on-ground activation</div>
+        <div class="diff-li">All creative is tested against real estate buyer psychology benchmarks</div>
+        <div class="diff-li">Brand strategy connects directly to your media and sales funnel</div>
+        <div class="diff-li">Portfolio-level thinking — every project strengthens your master brand</div>
+      </div>
+    </div>
+    <div style="display:grid;gap:3px">
+      <div class="diff-card">
+        <div class="diff-tag">Strategy Before Aesthetics</div>
+        <h3 class="diff-title" style="font-size:17px">We write your brand strategy before we open a design tool</h3>
+        <p class="diff-body">Most agencies reverse this. They design first and explain the strategy after. We do the hard thinking first — positioning, buyer archetype, competitive mapping — so every design decision has a strategic reason behind it.</p>
+      </div>
+      <div class="diff-card">
+        <div class="diff-tag">End-to-End Execution</div>
+        <h3 class="diff-title" style="font-size:17px">From brand strategy document to OOH hoardings in one team</h3>
+        <p class="diff-body">No vendor management. No briefing an external print agency. No briefing a separate digital team. Strategy, design, copy, video, print, and digital — all under one roof, all briefed to the same positioning document.</p>
+      </div>
+      <div class="diff-card">
+        <div class="diff-tag">Performance-Connected Branding</div>
+        <h3 class="diff-title" style="font-size:17px">Your brand assets are built to perform in paid media — not just look good</h3>
+        <p class="diff-body">Because our branding and performance teams sit together, your brand visuals and copy are designed to work as ad creatives from day one — optimised for thumb-stop performance on Meta and Google, not just print.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="portfolio-section">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;margin-bottom:48px">
+    <div>
+      <div class="eyebrow">Our Branding Work</div>
+      <h2 class="sec-h">Logos, Ad Films<br>& <em>Mainline Creatives</em></h2>
+    </div>
+    <div>
+      <p class="sec-p">From new developer identities to complete project rebrands — across 300+ brands, 18+ cities, and every ticket size from affordable housing to ultra-luxury.</p>
+      <a href="#" class="btn-red" style="margin-top:24px">See Full Portfolio →</a>
+    </div>
+  </div>
+  <div class="port-tabs">
+    <span class="port-tab active">All Work</span>
+    <span class="port-tab">Brand Identities</span>
+    <span class="port-tab">Ad Films</span>
+    <span class="port-tab">Mainline Ads</span>
+    <span class="port-tab">Social Creatives</span>
+    <span class="port-tab">OOH & Print</span>
+  </div>
+  <div class="port-grid">
+    <div class="port-item"><div class="port-placeholder">Brand Identity<br>Case 01</div><div class="port-overlay"><span>View Project</span></div></div>
+    <div class="port-item"><div class="port-placeholder">Ad Film<br>Campaign 01</div><div class="port-overlay"><span>View Project</span></div></div>
+    <div class="port-item"><div class="port-placeholder">OOH Creative<br>Series 01</div><div class="port-overlay"><span>View Project</span></div></div>
+    <div class="port-item"><div class="port-placeholder">Brand Identity<br>Case 02</div><div class="port-overlay"><span>View Project</span></div></div>
+    <div class="port-item"><div class="port-placeholder">Social Creative<br>Series 01</div><div class="port-overlay"><span>View Project</span></div></div>
+    <div class="port-item"><div class="port-placeholder">Mainline Ad<br>Campaign 01</div><div class="port-overlay"><span>View Project</span></div></div>
+    <div class="port-item"><div class="port-placeholder">Brand Identity<br>Case 03</div><div class="port-overlay"><span>View Project</span></div></div>
+    <div class="port-item"><div class="port-placeholder">Ad Film<br>Campaign 02</div><div class="port-overlay"><span>View Project</span></div></div>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section class="industries-section">
+  <div style="text-align:center;max-width:600px;margin:0 auto">
+    <div class="eyebrow" style="justify-content:center">Segments We Brand</div>
+    <h2 class="sec-h" style="text-align:center">Every segment.<br>Every <em>ticket size.</em></h2>
+    <p class="sec-p" style="margin:0 auto;text-align:center">Our brand thinking adapts to the psychological and aspirational context of each buyer segment — from first-home affordable to ultra-luxury.</p>
+  </div>
+  <div class="ind-grid">
+    <div class="ind-card">
+      <div class="ind-icon">🏠</div>
+      <div class="ind-title">Affordable Housing</div>
+      <div class="ind-body">₹25L–60L. First-home buyers. Aspiration-led branding that makes the purchase feel like a life milestone.</div>
+    </div>
+    <div class="ind-card">
+      <div class="ind-icon">🏢</div>
+      <div class="ind-title">Mid-Segment Residential</div>
+      <div class="ind-body">₹60L–1.5Cr. Lifestyle upgraders. Branding that signals quality, community, and a step-up in living standards.</div>
+    </div>
+    <div class="ind-card">
+      <div class="ind-icon">🌆</div>
+      <div class="ind-title">Premium & Luxury</div>
+      <div class="ind-body">₹1.5Cr–5Cr. Discerning buyers. Positioning built on exclusivity, craft, and the emotional prestige of the address.</div>
+    </div>
+    <div class="ind-card">
+      <div class="ind-icon">💎</div>
+      <div class="ind-title">Ultra Luxury & HNI</div>
+      <div class="ind-body">₹5Cr+. Investment-grade buyers. Brand storytelling that justifies pricing through heritage, scarcity, and lifestyle elevation.</div>
+    </div>
+    <div class="ind-card">
+      <div class="ind-icon">🏗️</div>
+      <div class="ind-title">Commercial & Plots</div>
+      <div class="ind-body">Office, retail, plotted development. ROI-led brand narratives that speak to investors and owner-occupiers differently.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTS -->
+<section class="clients-section">
+  <div class="eyebrow">Our Clients</div>
+  <h2 class="sec-h">Developers who turned<br>their brand into their<br><em>best sales asset.</em></h2>
+  <div class="city-row">
+    <span class="city-btn active">Mumbai</span>
+    <span class="city-btn">Pune</span>
+    <span class="city-btn">Delhi NCR</span>
+    <span class="city-btn">Bengaluru</span>
+    <span class="city-btn">Hyderabad</span>
+    <span class="city-btn">Chennai</span>
+    <span class="city-btn">Ahmedabad</span>
+    <span class="city-btn">Jaipur</span>
+    <span class="city-btn">Kolkata</span>
+    <span class="city-btn">Coimbatore</span>
+  </div>
+  <div class="logo-wall">
+    <div class="logo-box">CLIENT</div><div class="logo-box">CLIENT</div><div class="logo-box">CLIENT</div><div class="logo-box">CLIENT</div><div class="logo-box">CLIENT</div><div class="logo-box">CLIENT</div><div class="logo-box">CLIENT</div><div class="logo-box">CLIENT</div><div class="logo-box">CLIENT</div><div class="logo-box">CLIENT</div><div class="logo-box">CLIENT</div><div class="logo-box">CLIENT</div><div class="logo-box">CLIENT</div><div class="logo-box">CLIENT</div><div class="logo-box">CLIENT</div>
+  </div>
+</section>
+
+<!-- BOTTOM CTA -->
+<div class="cta-bottom">
+  <h2>Your next project deserves<br>a brand that precedes it.</h2>
+  <p>Tell us about your project, your buyer, and your market. We'll come back with a brand positioning brief — in 72 hours, at no cost.</p>
+  <a href="#" class="btn-white">Start My Brand Strategy Session</a>
+  <a href="#" class="btn-white-ghost">See Our Process First</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-grid">
+    <div>
+      <div class="foot-brand-name">Property<span>Edge</span></div>
+      <p class="foot-brand-desc">A specialist real estate marketing agency. Brand strategy, visual identity, performance marketing, and technology — built exclusively for developers, builders, and property brands across India.</p>
+    </div>
+    <div class="foot-col">
+      <h5>Services</h5>
+      <a href="#">Branding</a><a href="#">Influence</a><a href="#">Performance</a><a href="#">RealTech</a><a href="#">Gifting</a>
+    </div>
+    <div class="foot-col">
+      <h5>Company</h5>
+      <a href="#">Our Story</a><a href="#">Our Work</a><a href="#">Meet the Team</a><a href="#">Blogs</a><a href="#">Contact Us</a>
+    </div>
+    <div class="foot-col">
+      <h5>Head Office</h5>
+      <a href="#">Premier IT Park, First Floor</a><a href="#">Road No. 11, Marol MIDC</a><a href="#">Andheri East, Mumbai 400069</a><a href="mailto:connect@propertyedge.com">connect@propertyedge.com</a><a href="tel:+919987130371">+91 99871 30371</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <p>© 2025 Property Edge. All Rights Reserved. Built for Real Estate. <span>Driven by Results.</span></p>
+    <p style="color:#2a2a2a">Brand Strategy · Visual Identity · Market Positioning</p>
+  </div>
+</footer>
+</div>
+
+<script>
+document.querySelectorAll('.city-btn').forEach(b=>{b.addEventListener('click',function(){document.querySelectorAll('.city-btn').forEach(x=>x.classList.remove('active'));this.classList.add('active')})});
+document.querySelectorAll('.port-tab').forEach(b=>{b.addEventListener('click',function(){document.querySelectorAll('.port-tab').forEach(x=>x.classList.remove('active'));this.classList.add('active')})});
+document.querySelectorAll('.why-card').forEach(c=>{c.addEventListener('mouseenter',function(){this.style.paddingLeft='32px'});c.addEventListener('mouseleave',function(){this.style.paddingLeft='28px'})});
+</script>

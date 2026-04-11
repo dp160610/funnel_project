@@ -1,66 +1,59 @@
 ﻿import Link from 'next/link'
 import styles from '../../styles/components/BuiltForImpactSection.module.css'
 
+const disciplines = [
+  {
+    num: '01',
+    title: 'Funnel Engineering',
+    desc: 'The only agency in India that architects your entire buyer journey — from first impression to signed booking — as a single connected, measured, optimised system.',
+    link: 'Because a sold-out project isn\'t luck. It\'s what a properly engineered funnel produces →',
+    href: '/performance',
+  },
+  {
+    num: '02',
+    title: 'Branding',
+    desc: 'The brand you build before your campaign goes live determines the CPL you\'ll pay after it does. Identity, story, and creative — starting from a position of trust, not obscurity.',
+    link: 'Strong brands don\'t just look better. They convert cheaper →',
+    href: '/branding',
+  },
+  {
+    num: '03',
+    title: 'Influence',
+    desc: 'Reels, creators, social optimisation, SEO. The layer of organic credibility that paid campaigns will never manufacture alone — and once built, keeps working after the budget runs out.',
+    link: 'Make your project the one people talk about before you ask them to →',
+    href: '/influence',
+  },
+  {
+    num: '04',
+    title: 'RealTech',
+    desc: 'CRM, lead scoring, WhatsApp automation, attribution dashboards. The infrastructure that turns campaign data into commercial intelligence you can act on in real time.',
+    link: 'The system that makes your funnel visible from end to end →',
+    href: '/tech',
+  },
+]
+
 export default function BuiltForImpactSection() {
   return (
     <section className={styles.section}>
-      <div className={styles.container}>
-
-        {/* Section title */}
-        <div className={`${styles.secTitleWrap} ${styles.center} ${styles.forWhiteBg}`}>
-          <div className={styles.titleTopWrap}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="https://realatte.com/images/headericon.svg"
-              alt=""
-              className={styles.logoGap}
-              width={28}
-              height={12}
-            />
-            <h2 className={styles.topTitle}>Built For Closings</h2>
-          </div>
-          <h1 className={styles.title}>
-            <span className="black_gradient">Strategy, Storytelling, Scale — every</span>{' '}
-            <span className="pink_gradient">developer</span>
-            <span className="black_gradient">, every </span>
-            <span className="pink_gradient">launch</span>
-            <span className="black_gradient">, every </span>
-            <span className="pink_gradient">unit, sold</span>
-          </h1>
-        </div>
-
-        {/* Description */}
-        <p className={styles.expertTxt}>
-          Real estate is not just property — it&apos;s people&apos;s biggest life decision. We treat every campaign with that weight. From brand identity that commands trust to data-led performance marketing that fills booking pipelines, Property Edge is the growth partner serious developers choose when they need results — not reports.
+      <div className={styles.inner}>
+        <div className={styles.kk}>Five Disciplines</div>
+        <h2 className={styles.sh}>
+          Five Disciplines. Zero Silos.<br /><em>One Project Sold Out.</em>
+        </h2>
+        <p className={styles.ss}>
+          Every service at Property Edge is a spoke in the same wheel. Branding builds the trust that lowers your CPL. Influence builds the credibility that raises your site visit rate. Performance builds the machine that converts both into bookings.
         </p>
-
-        {/* Counter stats */}
-        <div className={styles.counterWrap}>
-          <div className={styles.counterRow}>
-            <div className={styles.counterBox}>
-              <h2 className={styles.counterTitle}>800+</h2>
-              <p className={styles.counterTxt}>Projects Delivered</p>
+        <div className={styles.grid}>
+          {disciplines.map((d) => (
+            <div key={d.num} className={styles.card}>
+              <div className={styles.cardBar} />
+              <div className={styles.cardN}>{d.num}</div>
+              <h3 className={styles.cardH}>{d.title}</h3>
+              <p className={styles.cardP}>{d.desc}</p>
+              <Link href={d.href} className={styles.cardL}>{d.link}</Link>
             </div>
-            <div className={styles.counterBox}>
-              <h2 className={styles.counterTitle}>320+</h2>
-              <p className={styles.counterTxt}>Growth Experts</p>
-            </div>
-            <div className={styles.counterBox}>
-              <h2 className={styles.counterTitle}>600+ Cr</h2>
-              <p className={styles.counterTxt}>Ad Spend Managed</p>
-            </div>
-          </div>
+          ))}
         </div>
-
-        {/* Know More CTA */}
-        <div className={styles.ctaWrap}>
-          <Link href="/about" className={styles.primaryCta}>
-            <span className={styles.colorWrap}>
-              <span className={styles.txtColor}>Discover Our Approach →</span>
-            </span>
-          </Link>
-        </div>
-
       </div>
     </section>
   )

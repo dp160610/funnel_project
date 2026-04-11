@@ -1,0 +1,734 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--r:#C8102E;--rd:#9B0015;--rl:rgba(200,16,46,0.1);--k:#0A0A0A;--k2:#131313;--k3:#1c1c1c;--g5:rgba(255,255,255,0.48);--g3:rgba(255,255,255,0.24);--g2:rgba(255,255,255,0.09);--g1:rgba(255,255,255,0.04);--w:#fff}
+body{font-family:'Inter','Helvetica Neue',Arial,sans-serif;background:var(--k);color:var(--w);font-size:14px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.site{max-width:960px;margin:0 auto}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideInLeft{from{opacity:0;transform:translateX(-24px)}to{opacity:1;transform:translateX(0)}}
+@keyframes countUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes barGrow{from{width:0}to{width:100%}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+@keyframes tickerScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+.anim-fade-up{animation:fadeUp .6s ease both}
+.anim-fade{animation:fadeIn .5s ease both}
+.anim-slide-left{animation:slideInLeft .5s ease both}
+.d1{animation-delay:.1s}.d2{animation-delay:.2s}.d3{animation-delay:.3s}.d4{animation-delay:.4s}.d5{animation-delay:.5s}.d6{animation-delay:.6s}
+
+/* NAV */
+.nav{display:flex;align-items:center;justify-content:space-between;padding:0 32px;height:58px;background:var(--k);border-bottom:1px solid var(--g2);position:sticky;top:0;z-index:99}
+.logo{font-size:17px;font-weight:900;color:var(--w);letter-spacing:-.4px;cursor:pointer;display:flex;align-items:center;gap:8px}
+.logo b{color:var(--r)}
+.logo-dot{width:6px;height:6px;background:var(--r);border-radius:50%;animation:pulse 2s infinite}
+.nav-tabs{display:flex}
+.nt{background:transparent;border:none;color:var(--g3);font-size:12px;font-weight:700;padding:0 14px;height:58px;cursor:pointer;border-bottom:3px solid transparent;letter-spacing:.3px;transition:color .15s,border-color .15s}
+.nt:hover{color:var(--w)}
+.nt.on{color:var(--r);border-bottom-color:var(--r)}
+.nav-cta{background:var(--r);color:var(--w);border:none;padding:9px 18px;font-size:12px;font-weight:800;cursor:pointer;letter-spacing:.4px;transition:background .15s}
+.nav-cta:hover{background:var(--rd)}
+
+/* PAGES */
+.page{display:none}
+.page.show{display:block}
+
+/* SHARED ATOMS */
+.sec{padding:64px 32px;border-bottom:1px solid var(--g2)}
+.kk{font-size:10px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:var(--r);margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.kk::before{content:'';width:20px;height:2px;background:var(--r)}
+.sh{font-size:32px;font-weight:900;letter-spacing:-1px;line-height:1.1;color:var(--w);margin-bottom:12px}
+.sh em{color:var(--r);font-style:normal}
+.ss{font-size:13px;color:var(--g5);max-width:560px;line-height:1.82;margin-bottom:32px}
+.gbg{display:grid;gap:2px;background:var(--g2);border:1px solid var(--g2)}
+.btn-r{background:var(--r);color:var(--w);border:none;padding:13px 26px;font-size:13px;font-weight:800;cursor:pointer;letter-spacing:.3px;transition:background .15s,transform .1s}
+.btn-r:hover{background:var(--rd);transform:translateY(-1px)}
+.btn-g{background:transparent;color:var(--g5);border:1px solid var(--g2);padding:12px 22px;font-size:13px;font-weight:600;cursor:pointer;transition:all .15s}
+.btn-g:hover{border-color:var(--g5);color:var(--w)}
+.hbtns{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:48px}
+
+/* HERO */
+.hero{padding:72px 32px 56px;border-bottom:3px solid var(--r);overflow:hidden;position:relative}
+.hero-eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:22px}
+.h-lbl{font-size:24px;font-weight:900;color:var(--r)}
+.h-sep{width:1px;height:24px;background:var(--g2)}
+.h-tag-sm{font-size:10px;font-weight:700;color:var(--g3);letter-spacing:2px;text-transform:uppercase;align-self:flex-end;padding-bottom:2px}
+.h1{font-size:50px;font-weight:900;line-height:1.05;letter-spacing:-2.5px;color:var(--w);max-width:680px;margin-bottom:14px}
+.h1 em{color:var(--r);font-style:normal}
+.h-sub{font-size:14px;color:var(--g3);margin-bottom:34px;line-height:1.7;max-width:560px}
+.h-sub b{color:var(--g5)}
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--g2)}
+.stat{padding:22px 18px;border-right:1px solid var(--g2);text-align:center}
+.stat:last-child{border-right:none}
+.sn{font-size:26px;font-weight:900;color:var(--r);letter-spacing:-1.5px;display:block;line-height:1}
+.sl{font-size:10px;color:var(--g3);text-transform:uppercase;letter-spacing:.8px;margin-top:6px;display:block;line-height:1.4}
+
+/* TICKER */
+.ticker{background:var(--r);overflow:hidden;padding:11px 0}
+.ticker-track{display:flex;gap:0;white-space:nowrap;animation:tickerScroll 22s linear infinite}
+.tk-item{font-size:11px;font-weight:800;color:var(--w);letter-spacing:1px;padding:0 28px;opacity:.9;flex-shrink:0}
+.tk-dot{color:rgba(255,255,255,.35);padding:0 6px}
+
+/* HOME HERO */
+.hh{background:var(--k);padding:80px 32px 64px;border-bottom:3px solid var(--r);position:relative;overflow:hidden}
+.hh-bg{position:absolute;right:-20px;top:0;font-size:220px;font-weight:900;color:rgba(255,255,255,.018);letter-spacing:-12px;line-height:1;pointer-events:none;user-select:none}
+.hh-badge{display:inline-flex;align-items:center;gap:8px;background:var(--rl);border:1px solid rgba(200,16,46,.3);padding:8px 14px;font-size:11px;font-weight:800;color:var(--r);letter-spacing:.5px;margin-bottom:24px}
+.hh-badge-dot{width:6px;height:6px;background:var(--r);border-radius:50%;animation:pulse 1.8s infinite}
+.hh-h{font-size:54px;font-weight:900;line-height:1.04;letter-spacing:-2.8px;color:var(--w);max-width:720px;margin-bottom:14px}
+.hh-h em{color:var(--r);font-style:normal}
+.hh-sub{font-size:15px;color:var(--g3);max-width:580px;line-height:1.75;margin-bottom:40px}
+.hh-sub b{color:var(--g5)}
+.hh-stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--g2);margin-top:52px}
+.hhs{padding:24px 18px;border-right:1px solid var(--g2);text-align:center;position:relative}
+.hhs:last-child{border-right:none}
+.hhs-n{font-size:28px;font-weight:900;color:var(--r);letter-spacing:-1.5px;display:block;line-height:1}
+.hhs-l{font-size:10px;color:var(--g3);text-transform:uppercase;letter-spacing:.8px;margin-top:6px;display:block;line-height:1.4}
+.hhs-bar{position:absolute;bottom:0;left:0;height:2px;background:var(--r);animation:barGrow 1.2s ease .6s both}
+
+/* SECTION 2 — HASHTAG BLOCK */
+.hash-blk{background:var(--k2);border:1px solid var(--g2);padding:52px 40px;border-left:4px solid var(--r)}
+.hash-tag{font-size:13px;font-weight:800;color:var(--r);letter-spacing:.5px;margin-bottom:20px}
+.hash-h{font-size:28px;font-weight:900;color:var(--w);letter-spacing:-1px;line-height:1.15;margin-bottom:20px}
+.hash-h em{color:var(--r);font-style:normal}
+.hash-p{font-size:13px;color:var(--g5);line-height:1.85;max-width:640px;margin-bottom:28px}
+.hash-cta{background:var(--r);color:var(--w);border:none;padding:14px 28px;font-size:13px;font-weight:800;cursor:pointer;letter-spacing:.3px}
+.hash-cta:hover{background:var(--rd)}
+
+/* SERVICES OVERVIEW */
+.svc-grid{grid-template-columns:1fr 1fr}
+.svo{background:var(--k2);padding:30px 26px;position:relative;overflow:hidden;cursor:pointer;transition:background .18s}
+.svo:hover{background:var(--k3)}
+.svo-bar{position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--r)}
+.svo-n{font-size:38px;font-weight:900;color:var(--r);opacity:.12;letter-spacing:-3px;line-height:1;margin-bottom:10px}
+.svo h3{font-size:17px;font-weight:900;color:var(--w);margin-bottom:8px;letter-spacing:-.4px;line-height:1.2}
+.svo p{font-size:12px;color:var(--g5);line-height:1.75;margin-bottom:14px}
+.svo-l{font-size:11px;font-weight:800;color:var(--r)}
+
+/* WHY STRIP */
+.why-strip{grid-template-columns:repeat(3,1fr)}
+.ws{background:var(--k2);padding:26px 22px}
+.ws-big{font-size:34px;font-weight:900;color:var(--r);letter-spacing:-2px;opacity:.22;line-height:1;margin-bottom:8px}
+.ws h4{font-size:14px;font-weight:900;color:var(--w);margin-bottom:7px;line-height:1.25}
+.ws p{font-size:12px;color:var(--g5);line-height:1.72}
+
+/* UNCOMFORTABLE TRUTH */
+.truth-grid{grid-template-columns:1fr 1fr}
+.truth-item{background:var(--k2);padding:28px 24px;position:relative}
+.truth-item::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--r)}
+.truth-n{font-size:11px;font-weight:800;color:var(--r);letter-spacing:1.5px;margin-bottom:12px}
+.truth-h{font-size:16px;font-weight:900;color:var(--w);margin-bottom:10px;line-height:1.3;letter-spacing:-.2px}
+.truth-p{font-size:12px;color:var(--g5);line-height:1.78;margin-bottom:14px}
+.truth-italic{font-size:12px;color:rgba(255,255,255,.35);font-style:italic;margin-bottom:10px;line-height:1.65}
+.truth-num{font-size:11px;font-weight:800;color:var(--r);padding:6px 10px;background:var(--rl);display:inline-block}
+
+/* FUNNEL STAGES */
+.f-nav{display:flex;border:1px solid var(--g2);overflow:hidden;margin-bottom:2px}
+.fn{flex:1;padding:13px 6px;font-size:10px;font-weight:800;text-align:center;border:none;background:var(--k2);color:var(--g3);cursor:pointer;border-right:1px solid var(--g2);line-height:1.3;transition:background .15s}
+.fn:last-child{border-right:none}
+.fn.on{background:var(--r);color:var(--w)}
+.fn:hover:not(.on){background:var(--k3);color:var(--g5)}
+.fn-name{display:block;font-size:11px;font-weight:700;margin-top:2px}
+.fn-cost{display:block;font-size:10px;color:var(--r);margin-top:3px}
+.fn.on .fn-cost{color:rgba(255,255,255,.65)}
+.fpanel{display:none;background:var(--k2);border:1px solid var(--g2);border-top:none;padding:30px;grid-template-columns:1fr 180px;gap:24px}
+.fpanel.on{display:grid;animation:fadeIn .25s ease}
+.fp-lbl{font-size:10px;font-weight:800;letter-spacing:1.8px;text-transform:uppercase;color:var(--r);background:var(--rl);padding:5px 10px;display:inline-block;margin-bottom:14px}
+.fp-h{font-size:20px;font-weight:900;color:var(--w);letter-spacing:-.5px;line-height:1.2;margin-bottom:10px}
+.fp-p{font-size:13px;color:var(--g5);line-height:1.8;margin-bottom:14px}
+.fp-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:16px}
+.ftg{background:var(--g1);color:var(--g3);font-size:11px;font-weight:600;padding:4px 9px;border:1px solid var(--g2)}
+.fp-cta{background:var(--r);color:var(--w);border:none;padding:10px 18px;font-size:12px;font-weight:800;cursor:pointer;transition:background .15s}
+.fp-cta:hover{background:var(--rd)}
+.fp-metrics{display:flex;flex-direction:column;gap:5px}
+.fpm{background:var(--g1);border:1px solid var(--g2);padding:14px}
+.fpm-v{font-size:18px;font-weight:900;color:var(--r);letter-spacing:-.5px}
+.fpm-l{font-size:10px;color:var(--g3);text-transform:uppercase;letter-spacing:.6px;margin-top:3px}
+
+/* COST LADDER */
+.lrung{display:grid;grid-template-columns:40px 1fr auto;border:1px solid var(--g2);margin-bottom:3px;transition:border-color .15s}
+.lrung:hover{border-color:rgba(200,16,46,.4)}
+.lrung:last-child{border-color:var(--r);border-width:2px}
+.ln{background:var(--r);display:flex;align-items:center;justify-content:center}
+.ln span{font-size:9px;font-weight:800;color:var(--w);letter-spacing:1.5px;text-transform:uppercase;writing-mode:vertical-rl;transform:rotate(180deg)}
+.lb{padding:18px 20px}
+.lb h4{font-size:14px;font-weight:900;color:var(--w);margin-bottom:4px}
+.lb p{font-size:12px;color:var(--g5);line-height:1.65}
+.lv{padding:18px 20px;border-left:1px solid var(--g2);text-align:right;min-width:120px;background:var(--k2)}
+.lrung:last-child .lv{background:var(--rl)}
+.lvn{font-size:20px;font-weight:900;color:var(--r);letter-spacing:-.8px}
+.lvl{font-size:10px;color:var(--g3);text-transform:uppercase;letter-spacing:.5px;margin-top:3px}
+.larr{text-align:center;padding:3px;color:var(--r);font-size:13px}
+
+/* CARDS */
+.c3{grid-template-columns:repeat(3,1fr)}
+.c2{grid-template-columns:1fr 1fr}
+.card{background:var(--k2);padding:24px 20px;transition:background .18s;position:relative}
+.card:hover{background:var(--k3)}
+.card-bar{position:absolute;top:0;left:0;right:0;height:2px;background:var(--r)}
+.card-n{font-size:11px;font-weight:800;color:var(--r);letter-spacing:1.5px;margin-bottom:12px}
+.card-h{font-size:15px;font-weight:900;color:var(--w);margin-bottom:8px;line-height:1.25;letter-spacing:-.2px}
+.card-p{font-size:12px;color:var(--g5);line-height:1.75;margin-bottom:12px}
+.card-l{font-size:11px;font-weight:800;color:var(--r)}
+.card-big-n{font-size:28px;font-weight:900;color:var(--r);opacity:.18;letter-spacing:-2px;line-height:1;margin-bottom:8px}
+
+/* PLATFORM TABS */
+.ptabs{display:flex;border:1px solid var(--g2);overflow:hidden;margin-bottom:2px}
+.ptab{flex:1;padding:12px 8px;font-size:12px;font-weight:800;text-align:center;border:none;background:var(--k2);color:var(--g3);cursor:pointer;border-right:1px solid var(--g2);transition:background .15s}
+.ptab:last-child{border-right:none}
+.ptab.on{background:var(--r);color:var(--w)}
+.ptab:hover:not(.on){background:var(--k3);color:var(--g5)}
+.ppanel{display:none;grid-template-columns:1fr 190px;gap:2px;background:var(--g2);border:1px solid var(--g2);border-top:none}
+.ppanel.on{display:grid;animation:fadeIn .25s ease}
+.pi{background:var(--k2);padding:26px 24px}
+.pi-h{font-size:18px;font-weight:900;color:var(--w);margin-bottom:10px;letter-spacing:-.4px}
+.pi-p{font-size:13px;color:var(--g5);line-height:1.8;margin-bottom:16px}
+.pi-tag{font-size:10px;font-weight:800;color:var(--r);letter-spacing:1px;text-transform:uppercase;margin-bottom:10px}
+.pi-feat{display:flex;gap:8px;align-items:flex-start;padding:7px 0;border-bottom:1px solid var(--g2)}
+.pi-feat:last-child{border-bottom:none}
+.pi-feat-dot{width:4px;height:4px;background:var(--r);border-radius:50%;flex-shrink:0;margin-top:6px}
+.pi-feat-txt{font-size:12px;color:var(--g5);line-height:1.6}
+.pi-cta{background:var(--r);color:var(--w);border:none;padding:11px 18px;font-size:12px;font-weight:800;cursor:pointer;margin-top:16px;display:block}
+.pnums{background:var(--k3);padding:20px;display:flex;flex-direction:column;gap:2px}
+.pnum{background:var(--k2);padding:14px;border:1px solid var(--g2)}
+.pnv{font-size:20px;font-weight:900;color:var(--r);letter-spacing:-.8px}
+.pnl{font-size:11px;color:var(--g3);margin-top:3px;line-height:1.4}
+
+/* QUOTE BLOCK */
+.quote-blk{background:var(--k2);border-left:4px solid var(--r);padding:36px 32px;position:relative}
+.q-mark{font-size:64px;font-weight:900;color:var(--r);opacity:.2;line-height:1;margin-bottom:8px}
+.q-body{font-size:16px;color:rgba(255,255,255,.7);line-height:1.82;font-style:italic;margin-bottom:20px;max-width:640px}
+.q-attr{font-size:12px;font-weight:800;color:var(--w)}
+.q-role{font-size:11px;color:var(--r);margin-top:3px;font-weight:600}
+
+/* CTA BLOCK */
+.cta-blk{background:var(--k2);border-top:3px solid var(--r);padding:52px 36px;display:grid;grid-template-columns:1fr auto;gap:36px;align-items:center}
+.ck{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--r);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.ck::before{content:'';width:16px;height:2px;background:var(--r)}
+.c-tag-lbl{font-size:11px;font-weight:800;color:var(--r);letter-spacing:.5px;margin-bottom:8px}
+.c-big{font-size:32px;font-weight:900;color:var(--r);letter-spacing:-1.5px;line-height:1;margin-bottom:8px}
+.c-h2{font-size:24px;font-weight:900;color:var(--w);letter-spacing:-.8px;line-height:1.18;margin-bottom:10px}
+.c-desc{font-size:13px;color:var(--g5);line-height:1.75;margin-bottom:24px;max-width:420px}
+.c-fine{font-size:11px;color:var(--g3);font-style:italic;margin-top:14px}
+.cbtns{display:flex;gap:10px;flex-wrap:wrap}
+.cbadge{border:1px solid rgba(200,16,46,.3);padding:28px 22px;text-align:center;background:var(--rl);min-width:152px}
+.cbn{font-size:40px;font-weight:900;color:var(--r);letter-spacing:-2px;line-height:1}
+.cbl{font-size:12px;color:var(--g3);margin-top:7px;line-height:1.5}
+.cbd{font-size:10px;color:var(--g3);margin-top:10px;text-transform:uppercase;letter-spacing:1px}
+
+/* Q STRIP */
+.qstrip{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--g2);border:1px solid var(--g2);border-top:none;margin-top:2px}
+.qs{background:var(--k3);padding:18px 22px;display:flex;justify-content:space-between;align-items:center;gap:12px;cursor:pointer;transition:background .15s}
+.qs:hover{background:var(--rl)}
+.qs h4{font-size:13px;font-weight:800;color:var(--w);margin-bottom:3px}
+.qs p{font-size:11px;color:var(--g5)}
+.qa{font-size:18px;color:var(--r);flex-shrink:0}
+
+/* TEAM */
+.team-grid{grid-template-columns:repeat(4,1fr)}
+.tm{background:var(--k2);padding:22px 18px}
+.tm-init{width:44px;height:44px;background:var(--r);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;color:var(--w);margin-bottom:12px}
+.tm h4{font-size:14px;font-weight:900;color:var(--w);margin-bottom:3px}
+.tm-role{font-size:11px;color:var(--r);font-weight:700;margin-bottom:6px}
+.tm-p{font-size:12px;color:var(--g5);line-height:1.65}
+
+/* CITY / LOGOS */
+.city-row{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:18px}
+.ctab{background:var(--k2);color:var(--g3);font-size:11px;font-weight:700;padding:6px 12px;border:1px solid var(--g2);cursor:pointer;transition:all .15s}
+.ctab.on{background:var(--r);color:var(--w);border-color:var(--r)}
+.ctab:hover:not(.on){color:var(--w)}
+.clogos{display:grid;grid-template-columns:repeat(6,1fr);gap:5px}
+.clogo{background:var(--k2);border:1px solid var(--g2);padding:12px 8px;font-size:11px;font-weight:700;color:var(--g3);text-transform:uppercase;text-align:center;transition:all .15s}
+.clogo:hover{border-color:var(--r);color:var(--w)}
+
+/* FOOTER */
+.footer{padding:44px 32px 22px;border-top:1px solid var(--g2)}
+.ft-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;margin-bottom:28px}
+.ft-logo{font-size:15px;font-weight:900;color:var(--w);margin-bottom:4px}
+.ft-logo b{color:var(--r)}
+.ft-tagline{font-size:11px;color:var(--r);font-weight:700;letter-spacing:.3px;margin-bottom:10px}
+.ft-d{font-size:12px;color:var(--g3);line-height:1.8;max-width:240px;margin-bottom:10px}
+.ft-c a{display:block;font-size:12px;color:var(--g3);text-decoration:none;margin-bottom:4px}
+.ft-c a:hover{color:var(--w)}
+.ft-h{font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.16);margin-bottom:10px}
+.ft-l{list-style:none}
+.ft-l li{margin-bottom:6px}
+.ft-l a{font-size:12px;color:var(--g3);text-decoration:none;cursor:pointer}
+.ft-l a:hover{color:var(--w)}
+.ft-bot{border-top:1px solid var(--g2);padding-top:14px;display:flex;justify-content:space-between;align-items:center;font-size:11px;color:rgba(255,255,255,.16)}
+.ft-badge{background:var(--r);color:var(--w);font-size:9px;font-weight:800;padding:3px 8px;letter-spacing:.8px}
+
+/* PROCESS */
+.proc{grid-template-columns:repeat(5,1fr)}
+.ps{background:var(--k2);padding:22px 16px;transition:background .15s}
+.ps:hover{background:var(--k3)}
+.ps.act{background:var(--r)}
+.ps-n{font-size:30px;font-weight:900;color:var(--r);opacity:.15;letter-spacing:-2px;line-height:1;margin-bottom:8px}
+.ps.act .ps-n{color:var(--w);opacity:.25}
+.ps h4{font-size:13px;font-weight:900;color:var(--w);margin-bottom:5px;line-height:1.2}
+.ps p{font-size:11px;color:var(--g5);line-height:1.65}
+.ps.act p{color:rgba(255,255,255,.65)}
+
+@media(max-width:700px){
+  .nav{padding:0 14px}.nav-tabs .nt{padding:0 9px;font-size:10px}
+  .hh,.hero,.sec{padding:40px 16px}
+  .hh-h{font-size:30px;letter-spacing:-1.5px}.hh-bg{display:none}.h1{font-size:30px;letter-spacing:-1.5px}
+  .hh-stats,.stats-row,.c3,.c2,.why-strip,.truth-grid,.team-grid,.proc,.clogos,.ft-top,.cta-blk,.qstrip{grid-template-columns:1fr}
+  .svc-grid,.gbg{grid-template-columns:1fr}
+  .hhs:nth-child(even),.stat:nth-child(even){border-right:none}
+  .fpanel.on,.ppanel.on{grid-template-columns:1fr}
+  .sh{font-size:24px}.cbadge{display:none}
+}
+</style>
+
+<div class="site">
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="logo" onclick="go('home')">Property<b>Edge</b><span class="logo-dot"></span></div>
+  <div class="nav-tabs">
+    <button class="nt on" onclick="go('home')">Home</button>
+    <button class="nt" onclick="go('branding')">Branding</button>
+    <button class="nt" onclick="go('influence')">Influence</button>
+    <button class="nt" onclick="go('funnel')">Funnel Engineering</button>
+    <button class="nt" onclick="go('realtech')">RealTech</button>
+    <button class="nt" onclick="go('about')">About Us</button>
+  </div>
+  <button class="nav-cta">Let's Talk</button>
+</nav>
+
+<!-- ══════════ HOME ══════════ -->
+<div class="page show" id="pg-home">
+
+  <div class="hh">
+    <div class="hh-bg">PE</div>
+    <div class="hh-badge anim-fade-up"><span class="hh-badge-dot"></span>Real Estate Marketing That Answers To One Number. Your Bookings.</div>
+    <div class="hh-h anim-fade-up d2">Sold Units Don't Come<br>From Better Ads.<br>They Come From a<br><em>Better Engineered Funnel.</em></div>
+    <div class="hh-sub anim-fade-up d3">Most developers are sitting on ₹30–50L in monthly ad spend with <b>no clear answer to the one question that matters — which campaign closed which flat?</b> We built Property Edge to end that conversation permanently.</div>
+    <div class="hbtns anim-fade-up d4">
+      <button class="btn-r" onclick="go('funnel')">Tear My Funnel Apart. I Want to See Where It Bleeds. →</button>
+      <button class="btn-g" onclick="go('funnel')">Show Me What Funnel Engineering Looks Like</button>
+    </div>
+    <div class="hh-stats anim-fade-up d5">
+      <div class="hhs"><span class="hhs-n">₹760Cr+</span><span class="hhs-l">Ad Spend. Every Rupee Tracked.</span><div class="hhs-bar" style="width:92%"></div></div>
+      <div class="hhs"><span class="hhs-n">86L+</span><span class="hhs-l">Conversions. Not Just Clicks.</span><div class="hhs-bar" style="width:78%"></div></div>
+      <div class="hhs"><span class="hhs-n">500+</span><span class="hhs-l">Projects Launched and Sold.</span><div class="hhs-bar" style="width:65%"></div></div>
+      <div class="hhs"><span class="hhs-n">25%</span><span class="hhs-l">CPL Reduction. Delivered.</span><div class="hhs-bar" style="width:55%"></div></div>
+    </div>
+  </div>
+
+  <div class="ticker">
+    <div class="ticker-track">
+      <span class="tk-item">Funnel Engineering</span><span class="tk-dot">·</span>
+      <span class="tk-item">Branding</span><span class="tk-dot">·</span>
+      <span class="tk-item">Influence</span><span class="tk-dot">·</span>
+      <span class="tk-item">RealTech</span><span class="tk-dot">·</span>
+      <span class="tk-item">Performance Media</span><span class="tk-dot">·</span>
+      <span class="tk-item">Lead Nurture</span><span class="tk-dot">·</span>
+      <span class="tk-item">Site Visit Campaigns</span><span class="tk-dot">·</span>
+      <span class="tk-item">Booking Attribution</span><span class="tk-dot">·</span>
+      <span class="tk-item">OOH &amp; Mainline</span><span class="tk-dot">·</span>
+      <span class="tk-item">Video Production</span><span class="tk-dot">·</span>
+      <span class="tk-item">Creator Marketing</span><span class="tk-dot">·</span>
+      <span class="tk-item">CRM &amp; Automation</span><span class="tk-dot">·</span>
+      <span class="tk-item">Funnel Engineering</span><span class="tk-dot">·</span>
+      <span class="tk-item">Branding</span><span class="tk-dot">·</span>
+      <span class="tk-item">Influence</span><span class="tk-dot">·</span>
+      <span class="tk-item">RealTech</span><span class="tk-dot">·</span>
+      <span class="tk-item">Performance Media</span><span class="tk-dot">·</span>
+      <span class="tk-item">Lead Nurture</span><span class="tk-dot">·</span>
+      <span class="tk-item">Site Visit Campaigns</span><span class="tk-dot">·</span>
+      <span class="tk-item">Booking Attribution</span><span class="tk-dot">·</span>
+    </div>
+  </div>
+
+  <section class="sec">
+    <div class="hash-blk anim-fade-up">
+      <div class="hash-tag">#TheAgencyThatStopsAtBookings</div>
+      <div class="hash-h">Your Campaigns Are Live.<br>Your Team Is Calling.<br>Your Budget Is Burning.<br>And Your Boardroom Still Can't<br>Answer — <em>Which Ad Sold That Flat?</em></div>
+      <p class="hash-p">That silence in the room — when your MD asks which campaign produced which booking and nobody has a clean answer — is not a data problem. It's a funnel problem. It means every stage of your buyer's journey is running disconnected, unmeasured, and unaccountable. We fix the structure. We engineer the stages. We close the loop. And we make sure the next time that question gets asked in a boardroom, the answer is sitting in a dashboard — sharp, sourced, and indisputable.</p>
+      <button class="hash-cta">End the Boardroom Silence. Build My Funnel. →</button>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="kk anim-slide-left">Five Disciplines</div>
+    <div class="sh anim-fade-up d1">Five Disciplines. Zero Silos.<br><em>One Project Sold Out.</em></div>
+    <p class="ss anim-fade-up d2">Every service at Property Edge is a spoke in the same wheel. Branding builds the trust that lowers your CPL. Influence builds the credibility that raises your site visit rate. Performance builds the machine that converts both into bookings.</p>
+    <div class="gbg svc-grid" style="border:1px solid var(--g2)">
+      <div class="svo anim-fade-up d1" onclick="go('funnel')"><div class="svo-bar"></div><div class="svo-n">01</div><h3>Funnel Engineering</h3><p>The only agency in India that architects your entire buyer journey — from first impression to signed booking — as a single connected, measured, optimised system.</p><div class="svo-l">Because a sold-out project isn't luck. It's what a properly engineered funnel produces →</div></div>
+      <div class="svo anim-fade-up d2" onclick="go('branding')"><div class="svo-bar"></div><div class="svo-n">02</div><h3>Branding</h3><p>The brand you build before your campaign goes live determines the CPL you'll pay after it does. Identity, story, and creative — starting from a position of trust, not obscurity.</p><div class="svo-l">Strong brands don't just look better. They convert cheaper →</div></div>
+      <div class="svo anim-fade-up d3" onclick="go('influence')"><div class="svo-bar"></div><div class="svo-n">03</div><h3>Influence</h3><p>Reels, creators, social optimisation, SEO. The layer of organic credibility that paid campaigns will never manufacture alone — and once built, keeps working after the budget runs out.</p><div class="svo-l">Make your project the one people talk about before you ask them to →</div></div>
+      <div class="svo anim-fade-up d4" onclick="go('realtech')"><div class="svo-bar"></div><div class="svo-n">04</div><h3>RealTech</h3><p>CRM, lead scoring, WhatsApp automation, attribution dashboards. The infrastructure that turns campaign data into commercial intelligence you can act on in real time.</p><div class="svo-l">The system that makes your funnel visible from end to end →</div></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="kk">The Uncomfortable Truth</div>
+    <div class="sh">Your Funnel Isn't Leaking<br>Because the Market Is Hard.<br><em>It's Leaking Because Nobody Built It.</em></div>
+    <p class="ss">Most real estate marketing isn't engineered — it's assembled. Here's what's actually happening in your acquisition pipeline right now.</p>
+    <div class="gbg truth-grid" style="border:1px solid var(--g2)">
+      <div class="truth-item anim-fade-up d1"><div class="truth-n">01</div><div class="truth-h">Your Best Closers Are Working on Your Worst Leads</div><p class="truth-p">Without lead scoring, your top sales executives spend 70% of their day chasing people who are curious, not committed. Funnel engineering ends this by filtering intent before a lead ever reaches the floor.</p><div class="truth-italic">Your sales team's time is your most expensive resource. We stop wasting it.</div><div class="truth-num">Lead scoring consistently doubles average close rates.</div></div>
+      <div class="truth-item anim-fade-up d2"><div class="truth-n">02</div><div class="truth-h">You're Celebrating a CPL That's Quietly Killing You</div><p class="truth-p">A ₹400 CPL feels like a win. It isn't — not when only 1 in 80 leads produces a booking. Your real cost of sale is your CPB. Most developers have never calculated it. We put it on a dashboard on day one.</p><div class="truth-italic">The metric you track determines the outcome you get. You're tracking the wrong one.</div><div class="truth-num">Industry CPB averages 80–150× CPL.</div></div>
+      <div class="truth-item anim-fade-up d3"><div class="truth-n">03</div><div class="truth-h">Your Buyer Is Ready in 8 Weeks. Your System Forgot Them in 8 Days.</div><p class="truth-p">Real estate decisions take 6–12 weeks. Without structured nurturing, an interested buyer goes cold and your CPL becomes a write-off. The funnel keeps them warm while your team focuses on closures.</p><div class="truth-italic">You didn't lose that lead to a competitor. You lost them to silence.</div><div class="truth-num">Average real estate decision cycle: 6–12 weeks.</div></div>
+      <div class="truth-item anim-fade-up d4"><div class="truth-n">04</div><div class="truth-h">You Can't Cut What You've Never Measured</div><p class="truth-p">If you cannot trace a booking back to the campaign that produced it, you are funding three things: what works, what doesn't, and what you have no idea about. Attribution alone reduces effective CPB by 20–35%.</p><div class="truth-italic">Unattributed marketing isn't a strategy. It's a donation with a logo on it.</div><div class="truth-num">Closed-loop attribution reduces CPB by 20–35%.</div></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="kk">Trusted By</div>
+    <div class="sh">Developers Across 18 Cities<br><em>Who Stopped Counting Leads.</em></div>
+    <div class="city-row">
+      <button class="ctab on" onclick="ct(this)">Mumbai</button><button class="ctab" onclick="ct(this)">Pune</button><button class="ctab" onclick="ct(this)">Delhi NCR</button><button class="ctab" onclick="ct(this)">Bengaluru</button><button class="ctab" onclick="ct(this)">Hyderabad</button><button class="ctab" onclick="ct(this)">Chennai</button><button class="ctab" onclick="ct(this)">Jaipur</button><button class="ctab" onclick="ct(this)">Kolkata</button>
+    </div>
+    <div class="clogos">
+      <div class="clogo">Lodha</div><div class="clogo">Godrej</div><div class="clogo">Rustomjee</div><div class="clogo">Runwal</div><div class="clogo">Piramal</div><div class="clogo">Oberoi</div><div class="clogo">Mahindra</div><div class="clogo">Kalpataru</div><div class="clogo">Hiranandani</div><div class="clogo">Dosti</div><div class="clogo">Ashvin Sheth</div><div class="clogo">Esbee</div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-bottom:0">
+    <div class="cta-blk">
+      <div>
+        <div class="ck">#IfItDoesntCloseItDoesntCount</div>
+        <div class="c-big">Property Edge</div>
+        <div class="c-h2">You Don't Have a Marketing Problem.<br>You Have a Funnel That Was Never Built.</div>
+        <p class="c-desc">Most developers don't need more leads. They need a system that knows what to do with the ones they already have. Tell us your project — we'll show you the leak in 72 hours.</p>
+        <div class="cbtns">
+          <button class="btn-r">Audit My Funnel. Give Me the Uncomfortable Truth. →</button>
+          <button class="btn-g">I Want to See How This Works First</button>
+        </div>
+        <div class="c-fine">We work exclusively in real estate. We answer exclusively to your cost per booking. Everything else is noise.</div>
+      </div>
+      <div class="cbadge"><div class="cbn">72hr</div><div class="cbl">Funnel audit<br>turnaround</div><div class="cbd">No cost. No lock-in.</div></div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════ BRANDING ══════════ -->
+<div class="page" id="pg-branding">
+  <div class="hero">
+    <div class="hero-eyebrow anim-fade-up"><span class="h-lbl">Branding</span><span class="h-sep"></span><span class="h-tag-sm">Property Edge</span></div>
+    <div class="h1 anim-fade-up d2">A Brand That Sells<br>Before Your Sales<br>Team <em>Even Dials.</em></div>
+    <div class="h-sub anim-fade-up d3">Perception precedes conversation. <b>We engineer what buyers feel before they ever call.</b></div>
+    <div class="hbtns anim-fade-up d4"><button class="btn-r">Build a Brand That Closes →</button><button class="btn-g">See Our Portfolio</button></div>
+    <div class="stats-row anim-fade-up d5">
+      <div class="stat"><span class="sn">500+</span><span class="sl">Brand Projects</span></div>
+      <div class="stat"><span class="sn">120+</span><span class="sl">Developers Branded</span></div>
+      <div class="stat"><span class="sn">18+</span><span class="sl">Cities</span></div>
+      <div class="stat"><span class="sn">92%</span><span class="sl">Client Retention</span></div>
+    </div>
+  </div>
+  <section class="sec">
+    <div class="kk">Why It Matters</div>
+    <div class="sh">Two Projects. Same Price.<br><em>One Sells. One Doesn't.</em></div>
+    <p class="ss">The difference is never the product — it's the perception. Brand equity isn't a marketing line. It's a balance sheet item that shows up in your cost-per-booking, pricing power, and walkoff rate.</p>
+    <div class="gbg c2" style="border:1px solid var(--g2)">
+      <div class="card"><div class="card-bar"></div><div class="card-big-n">01</div><div class="card-h">First Impression Compounds Every Time</div><p class="card-p">A buyer forms a brand perception in 3 seconds. That moment either builds credibility or costs you the conversation entirely.</p></div>
+      <div class="card"><div class="card-bar"></div><div class="card-big-n">02</div><div class="card-h">Brand Equity Cuts Your Acquisition Cost</div><p class="card-p">Recognised developer brands generate inbound enquiries, referrals, and repeat buyers — at zero incremental ad spend.</p></div>
+      <div class="card"><div class="card-bar"></div><div class="card-big-n">03</div><div class="card-h">It Closes the Enquiry-to-Visit Gap Faster</div><p class="card-p">A buyer who trusts your brand arrives pre-sold on your credibility. You don't need 7 follow-up calls to get them on-site.</p></div>
+      <div class="card"><div class="card-bar"></div><div class="card-big-n">04</div><div class="card-h">Strong Brand = Stronger Pricing Power</div><p class="card-p">Premium brand equity commands better per-sqft rates, fewer walkoffs, and faster closures across every project you launch.</p></div>
+    </div>
+  </section>
+  <section class="sec">
+    <div class="kk">What We Do</div>
+    <div class="sh">Every Touchpoint Your Buyer<br><em>Sees, Feels, and Remembers.</em></div>
+    <div class="gbg c3" style="border:1px solid var(--g2)">
+      <div class="card"><div class="card-bar"></div><div class="card-n">01</div><div class="card-h">Brand Identity &amp; Positioning</div><p class="card-p">Name, logo, visual language, brand voice — built around your buyer's psychology. A position in their mind they can't vacate.</p><div class="card-l">Own the position, not just the logo →</div></div>
+      <div class="card"><div class="card-bar"></div><div class="card-n">02</div><div class="card-h">New Launch &amp; Rebranding</div><p class="card-p">First-time developers or legacy builders repositioning — rebuilt from insight up. What you stand for, who you're for.</p><div class="card-l">Launch with an unforgettable first frame →</div></div>
+      <div class="card"><div class="card-bar"></div><div class="card-n">03</div><div class="card-h">Content &amp; Copywriting</div><p class="card-p">Words that build desire before price is discussed. Copy written around your buyer's aspiration, not your amenity list.</p><div class="card-l">Write what makes buyers stop scrolling →</div></div>
+      <div class="card"><div class="card-bar"></div><div class="card-n">04</div><div class="card-h">Social Media Management</div><p class="card-p">Consistent brand presence across Instagram, Facebook, LinkedIn — top of mind every single day.</p><div class="card-l">Turn followers into site visit appointments →</div></div>
+      <div class="card"><div class="card-bar"></div><div class="card-n">05</div><div class="card-h">Ad Film &amp; Video Production</div><p class="card-p">Brand films, launch reels, testimonial videos — crafted to move people emotionally before they've stepped on-site.</p><div class="card-l">Make them feel it before they see it →</div></div>
+      <div class="card"><div class="card-bar"></div><div class="card-n">06</div><div class="card-h">Print, OOH &amp; Mainline</div><p class="card-p">Hoardings that own micro-markets. Brochures that don't go in the bin. Designed for attention first, conversion second.</p><div class="card-l">Command the market before they search →</div></div>
+      <div class="card"><div class="card-bar"></div><div class="card-n">07</div><div class="card-h">Graphic Design &amp; Visual Identity</div><p class="card-p">Design systems and templated assets built to signal premium and build instant recognition everywhere your brand appears.</p><div class="card-l">Look like the category leader →</div></div>
+      <div class="card"><div class="card-bar"></div><div class="card-n">08</div><div class="card-h">Sales Collateral &amp; Enablement</div><p class="card-p">Brochures, decks, site-office branding, and CP kits — physical touchpoints your team carries into every room.</p><div class="card-l">Give your team an unfair advantage →</div></div>
+      <div class="card"><div class="card-bar"></div><div class="card-n">09</div><div class="card-h">Photography &amp; Visual Storytelling</div><p class="card-p">Lifestyle shoots and architectural photography that make a half-built project look like a fully-lived aspiration.</p><div class="card-l">Shoot the dream, not the building →</div></div>
+    </div>
+  </section>
+  <section class="sec">
+    <div class="kk">How We Work</div>
+    <div class="sh">From Brief to Brand —<br><em>In Five Moves.</em></div>
+    <div class="gbg proc" style="border:1px solid var(--g2)">
+      <div class="ps"><div class="ps-n">01</div><h4>Discovery &amp; Audit</h4><p>Dissect project, buyer, market, competition. No guesswork — only insight.</p></div>
+      <div class="ps"><div class="ps-n">02</div><h4>Positioning Strategy</h4><p>Define what you stand for and what no competitor can claim.</p></div>
+      <div class="ps act"><div class="ps-n">03</div><h4>Identity Creation</h4><p>Logo, visual language, typography — all built from the positioning.</p></div>
+      <div class="ps"><div class="ps-n">04</div><h4>Ecosystem Build</h4><p>Collateral, digital, OOH, and video across every buyer touchpoint.</p></div>
+      <div class="ps"><div class="ps-n">05</div><h4>Launch &amp; Scale</h4><p>Market entry, campaign integration, and brand governance.</p></div>
+    </div>
+  </section>
+  <section class="sec" style="padding-bottom:0">
+    <div class="cta-blk">
+      <div><div class="ck">Start the Conversation</div><div class="c-big">Branding</div><div class="c-h2">Your Next Project Deserves a Brand That Works Harder Than Your Ads.</div><p class="c-desc">Tell us your project, segment, and market. We'll tell you exactly what your brand needs to own that space before your competitors notice you're there.</p><div class="cbtns"><button class="btn-r">Get a Free Brand Audit →</button><button class="btn-g">Talk to a Brand Strategist</button></div></div>
+      <div class="cbadge"><div class="cbn">7 Days</div><div class="cbl">Brand strategy<br>turnaround</div><div class="cbd">No fluff. No lock-in.</div></div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════ INFLUENCE ══════════ -->
+<div class="page" id="pg-influence">
+  <div class="hero">
+    <div class="hero-eyebrow anim-fade-up"><span class="h-lbl">Influence</span><span class="h-sep"></span><span class="h-tag-sm">Property Edge</span></div>
+    <div class="h1 anim-fade-up d2">Make Your Project<br>the One <em>Everyone's</em><br>Already Talking About.</div>
+    <div class="h-sub anim-fade-up d3">Social proof at scale. <b>We turn creators into your most credible sales channel — the one your paid campaigns can never replicate.</b></div>
+    <div class="hbtns anim-fade-up d4"><button class="btn-r">Build My Influence Campaign →</button><button class="btn-g">See Creator Network</button></div>
+    <div class="stats-row anim-fade-up d5">
+      <div class="stat"><span class="sn">2,000+</span><span class="sl">Creators Network</span></div>
+      <div class="stat"><span class="sn">180M+</span><span class="sl">Audience Reach</span></div>
+      <div class="stat"><span class="sn">320+</span><span class="sl">Campaigns Executed</span></div>
+      <div class="stat"><span class="sn">4.8×</span><span class="sl">Avg Engagement Lift</span></div>
+    </div>
+  </div>
+  <section class="sec">
+    <div class="kk">Why Influence Works</div>
+    <div class="sh">An Ad Tells Buyers You're Good.<br><em>A Creator Tells Them It's Worth Betting Their Savings On.</em></div>
+    <p class="ss">Trust travels faster than any campaign you'll ever run. Before a lead fills your form, they've already lived inside your brand — your reels, your reviews, your creator coverage. That invisible research window decides everything.</p>
+    <div class="gbg c3" style="border:1px solid var(--g2)">
+      <div class="card"><div class="card-bar"></div><div class="card-n">01</div><div class="card-h">Creator-Led Property Walkthroughs</div><p class="card-p">Verified lifestyle and real estate creators touring your project — authentic, unscripted, and built to drive qualified enquiries from their follower base.</p><div class="card-l">Turn a walkthrough into a waitlist →</div></div>
+      <div class="card"><div class="card-bar"></div><div class="card-n">02</div><div class="card-h">Hyperlocal Micro-Influencer Network</div><p class="card-p">Creators in your exact micro-market — the ones your buyers already follow — activated to talk about your project in their native voice.</p><div class="card-l">Own the neighbourhood conversation →</div></div>
+      <div class="card"><div class="card-bar"></div><div class="card-n">03</div><div class="card-h">Launch Event Amplification</div><p class="card-p">Creator coverage at project launches and site events — extending your physical event into a digital moment that reaches a million people in 48 hours.</p><div class="card-l">Make the launch echo beyond the room →</div></div>
+      <div class="card"><div class="card-bar"></div><div class="card-n">04</div><div class="card-h">Long-Form YouTube &amp; Reels Content</div><p class="card-p">Deep-dive project explainers, lifestyle narratives, and comparison videos designed to rank, get shared, and pull qualified buyers actively researching.</p><div class="card-l">Let content do the follow-up call →</div></div>
+      <div class="card"><div class="card-bar"></div><div class="card-n">05</div><div class="card-h">Influencer Retargeting Integration</div><p class="card-p">Creator content viewers retargeted on Meta and Google — bridging organic influence with paid acquisition for the lowest possible blended CPL.</p><div class="card-l">From watch to enquiry in one system →</div></div>
+      <div class="card"><div class="card-bar"></div><div class="card-n">06</div><div class="card-h">Campaign Analytics &amp; Attribution</div><p class="card-p">Every creator campaign tracked to enquiry volume, CPL, and site visit lift — so influence stops being a soft metric and starts being a P&amp;L line.</p><div class="card-l">Measure influence like you measure ads →</div></div>
+    </div>
+  </section>
+  <section class="sec" style="padding-bottom:0">
+    <div class="cta-blk">
+      <div><div class="ck">Launch Your Campaign</div><div class="c-big">Influence</div><div class="c-h2">Stop Hoping People Talk About Your Project. Engineer It.</div><p class="c-desc">Tell us your project and launch timeline. We'll build a creator campaign that puts your property in 10 million feeds before the booking window opens.</p><div class="cbtns"><button class="btn-r">Build My Influence Campaign →</button><button class="btn-g">See Our Creator Network</button></div></div>
+      <div class="cbadge"><div class="cbn">48hr</div><div class="cbl">Campaign brief<br>turnaround</div><div class="cbd">Creators ready to deploy.</div></div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════ FUNNEL ENGINEERING ══════════ -->
+<div class="page" id="pg-funnel">
+  <div class="hero">
+    <div class="hero-eyebrow anim-fade-up"><span class="h-lbl">Funnel Engineering</span><span class="h-sep"></span><span class="h-tag-sm">Property Edge</span></div>
+    <div class="h1 anim-fade-up d2">Every Rupee. Every Lead.<br>Every Step — <em>Engineered.</em></div>
+    <div class="h-sub anim-fade-up d3">Not a campaign. Not a dashboard. <b>A precision acquisition system built stage by stage, rupee by rupee, booking by booking.</b></div>
+    <div class="hbtns anim-fade-up d4"><button class="btn-r">Show Me Where My Funnel Bleeds →</button><button class="btn-g">See the Full Pipeline</button></div>
+    <div class="stats-row anim-fade-up d5">
+      <div class="stat"><span class="sn">₹760Cr+</span><span class="sl">Ad Spend Managed</span></div>
+      <div class="stat"><span class="sn">86L+</span><span class="sl">Conversions Tracked</span></div>
+      <div class="stat"><span class="sn">3×</span><span class="sl">Higher Site Visit CVR</span></div>
+      <div class="stat"><span class="sn">25%</span><span class="sl">CPL Reduction Delivered</span></div>
+    </div>
+  </div>
+
+  <section class="sec">
+    <div class="kk">The Methodology</div>
+    <div class="sh">Every Agency Stops at the Lead.<br><em>We Don't Stop Until It's a Booking.</em></div>
+    <p class="ss">Funnel Engineering is not a service. It is a philosophy — the belief that every stage of a real estate buyer's journey deserves its own strategy, its own budget, its own KPI, and its own accountability.</p>
+    <div class="quote-blk anim-fade-up">
+      <div class="q-mark">"</div>
+      <div class="q-body">Before Property Edge, we were generating 600 leads a month and converting fewer than 8. After funnel engineering, we generate 300 leads and convert 26. Better leads. Lower cost. Faster sell-out.</div>
+      <div class="q-attr">Head of Marketing, Mid-Segment Developer</div>
+      <div class="q-role">Mumbai — Residential Project Launch</div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="kk">The Acquisition Pipeline</div>
+    <div class="sh">Five Stages. Every One<br><em>Accountable.</em></div>
+    <p class="ss">Select any stage. See what it costs, how we manage it, and what we do to compress unit economics at each checkpoint.</p>
+    <div class="f-nav">
+      <button class="fn on" onclick="sf(0,this)"><span>ToFu</span><span class="fn-name">Awareness</span><span class="fn-cost">₹8–18 CPM</span></button>
+      <button class="fn" onclick="sf(1,this)"><span>MoFu</span><span class="fn-name">Nurture</span><span class="fn-cost">₹80–220 / lead</span></button>
+      <button class="fn" onclick="sf(2,this)"><span>BoFu</span><span class="fn-name">Conversion</span><span class="fn-cost">₹400–900 / qlead</span></button>
+      <button class="fn" onclick="sf(3,this)"><span>L→SV</span><span class="fn-name">Site Visit</span><span class="fn-cost">₹10K–15K / visit</span></button>
+      <button class="fn" onclick="sf(4,this)"><span>SV→C</span><span class="fn-name">Closure</span><span class="fn-cost">₹20K–50K / booking</span></button>
+    </div>
+    <div class="fpanel on" id="fp0"><div><div class="fp-lbl">ToFu — Awareness &amp; Reach</div><div class="fp-h">Before they search. Before they compare. Before they decide. We put you in their mind before anyone else does.</div><p class="fp-p">90% of real estate buyers start on Instagram and YouTube — passively consuming weeks before they type anything into Google. We place your brand at that earliest touchpoint with hyper-targeted, sequenced awareness campaigns that build recall and feed a warm retargeting pool for every stage below.</p><div class="fp-tags"><span class="ftg">Meta Video</span><span class="ftg">YouTube Pre-Roll</span><span class="ftg">Display Prospecting</span><span class="ftg">Lookalike Modelling</span><span class="ftg">Geo-Fencing</span></div><button class="fp-cta">How we build your audience pool →</button></div><div class="fp-metrics"><div class="fpm"><div class="fpm-v">₹8–18</div><div class="fpm-l">CPM range</div></div><div class="fpm"><div class="fpm-v">3–4%</div><div class="fpm-l">Video view rate</div></div><div class="fpm"><div class="fpm-v">60–90d</div><div class="fpm-l">Buyer window</div></div></div></div>
+    <div class="fpanel" id="fp1"><div><div class="fp-lbl">MoFu — Lead Generation</div><div class="fp-h">The moment interest becomes intent. We convert warm audiences into traceable, measurable, qualified leads.</div><p class="fp-p">Someone watched your reel and moved on. They're not gone — they're warming. We re-engage with sequenced retargeting built around where they are in their decision: social proof for skeptics, pricing anchors for fence-sitters, urgency triggers for the near-ready. Every message is behaviour-triggered, not scheduled.</p><div class="fp-tags"><span class="ftg">Sequential Retargeting</span><span class="ftg">WhatsApp Drip Flows</span><span class="ftg">Behaviour Automation</span><span class="ftg">Lead Scoring</span></div><button class="fp-cta">See the nurture sequence →</button></div><div class="fp-metrics"><div class="fpm"><div class="fpm-v">₹80–220</div><div class="fpm-l">Cost per engage</div></div><div class="fpm"><div class="fpm-v">4–7×</div><div class="fpm-l">Touchpoints</div></div><div class="fpm"><div class="fpm-v">38%</div><div class="fpm-l">Re-engage rate</div></div></div></div>
+    <div class="fpanel" id="fp2"><div><div class="fp-lbl">BoFu — Qualification &amp; Site Visits</div><div class="fp-h">Where most funnels leak and most budgets disappear. We score, nurture, and walk your best leads to a confirmed site visit.</div><p class="fp-p">When a buyer searches "2BHK in Bandra under 2 crore" — that's not a click, that's a hand raise. We make sure your project answers first, answers best, and lands on a page built to convert. Every word on that landing page is there because the data said it should be.</p><div class="fp-tags"><span class="ftg">High-Intent Search</span><span class="ftg">Competitor Bidding</span><span class="ftg">Conversion Landing Pages</span><span class="ftg">Lead Quality Filtering</span></div><button class="fp-cta">What a qualified lead looks like →</button></div><div class="fp-metrics"><div class="fpm"><div class="fpm-v">₹400–900</div><div class="fpm-l">Qualified CPL</div></div><div class="fpm"><div class="fpm-v">12–18%</div><div class="fpm-l">Landing CVR</div></div><div class="fpm"><div class="fpm-v">72hr</div><div class="fpm-l">Response SLA</div></div></div></div>
+    <div class="fpanel" id="fp3"><div><div class="fp-lbl">Lead → Site Visit</div><div class="fp-h">A form fill is not a pipeline. A visit is. This is where most developers haemorrhage money without realising it.</div><p class="fp-p">A site visit in real estate costs ₹10,000–₹15,000 to generate. We treat it like the asset it is. CRM-triggered re-engagement, tele-validation, visit-incentive campaigns, and WhatsApp sequences that keep the property alive until they walk through your gate.</p><div class="fp-tags"><span class="ftg">Lead Validation</span><span class="ftg">Tele-Qualification</span><span class="ftg">Visit Incentive Campaigns</span><span class="ftg">CRM Automations</span></div><button class="fp-cta">How we move leads off the fence →</button></div><div class="fp-metrics"><div class="fpm"><div class="fpm-v">₹10K–15K</div><div class="fpm-l">Cost per visit</div></div><div class="fpm"><div class="fpm-v">20–30%</div><div class="fpm-l">Lead-to-visit rate</div></div><div class="fpm"><div class="fpm-v">48hr</div><div class="fpm-l">Booking SLA</div></div></div></div>
+    <div class="fpanel" id="fp4"><div><div class="fp-lbl">Closure — EOI, Token &amp; Booking</div><div class="fp-h">Not just a booking. A booking with a source, a cost, and a campaign behind it. Every rupee answerable to a result.</div><p class="fp-p">Post-visit buyers who go quiet are the most expensive kind of lost — you've already spent ₹10,000+ to get them there. We run post-visit retargeting, urgency campaigns, and social proof sequences that support your sales team until the agreement is signed. CPB: the only metric we answer to.</p><div class="fp-tags"><span class="ftg">Post-Visit Retargeting</span><span class="ftg">Urgency Campaigns</span><span class="ftg">Social Proof Ads</span><span class="ftg">Full Booking Attribution</span></div><button class="fp-cta">See the full closure model →</button></div><div class="fp-metrics"><div class="fpm"><div class="fpm-v">₹20K–50K</div><div class="fpm-l">Cost per booking</div></div><div class="fpm"><div class="fpm-v">8–14%</div><div class="fpm-l">Visit-to-close</div></div><div class="fpm"><div class="fpm-v">100%</div><div class="fpm-l">Attributed</div></div></div></div>
+  </section>
+
+  <section class="sec">
+    <div class="kk">Performance Marketing</div>
+    <div class="sh">Any Agency Can Spend Your Budget.<br><em>Only One Will Answer For Every Rupee of It.</em></div>
+    <p class="ss">We don't launch campaigns and send you a CPL report at month end. We architect a multi-stage media machine where every platform has a defined role, every rupee has a defined target, and every lead has a defined next step.</p>
+    <div class="ptabs">
+      <button class="ptab on" onclick="sp(0,this)">Meta</button>
+      <button class="ptab" onclick="sp(1,this)">Google</button>
+      <button class="ptab" onclick="sp(2,this)">YouTube</button>
+      <button class="ptab" onclick="sp(3,this)">LinkedIn</button>
+      <button class="ptab" onclick="sp(4,this)">WhatsApp</button>
+    </div>
+    <div class="ppanel on" id="pp0"><div class="pi"><div class="pi-tag">TOFU + MOFU</div><div class="pi-h">Meta — Where Intent Is Built</div><p class="pi-p">Where intent is built, interest is captured, and audiences are seeded at scale. Unmatched for awareness and consideration — income-band targeting, lookalike modelling, and sequential storytelling across a 90-day research window.</p><div class="pi-feat"><div class="pi-feat-dot"></div><div class="pi-feat-txt">Hyper-local and pin-code level targeting</div></div><div class="pi-feat"><div class="pi-feat-dot"></div><div class="pi-feat-txt">Income and lifestyle signal layering</div></div><div class="pi-feat"><div class="pi-feat-dot"></div><div class="pi-feat-txt">Sequential retargeting from video views &amp; site traffic</div></div><div class="pi-feat"><div class="pi-feat-dot"></div><div class="pi-feat-txt">Lead form optimisation for quality, not volume</div></div><button class="pi-cta">Build Me a Meta Campaign That Reports on Bookings →</button></div><div class="pnums"><div class="pnum"><div class="pnv">₹120–350</div><div class="pnl">Typical CPL on Meta</div></div><div class="pnum"><div class="pnv">40–65%</div><div class="pnl">Lead volume share</div></div><div class="pnum"><div class="pnv">3.8×</div><div class="pnl">Avg ROAS achieved</div></div></div></div>
+    <div class="ppanel" id="pp1"><div class="pi"><div class="pi-tag">MOFU + BOFU</div><div class="pi-h">Google — Where High-Intent Buyers Raise Their Hand</div><p class="pi-p">Where high-intent buyers raise their hand. We're there when they search. Precision keyword architecture, competitive ad copy, and landing pages built for the lowest possible CPA — so when a buyer types your project's location, you answer first.</p><div class="pi-feat"><div class="pi-feat-dot"></div><div class="pi-feat-txt">High-intent keyword segmentation by ticket &amp; location</div></div><div class="pi-feat"><div class="pi-feat-dot"></div><div class="pi-feat-txt">Competitor brand bidding strategy</div></div><div class="pi-feat"><div class="pi-feat-dot"></div><div class="pi-feat-txt">Responsive search ads — 8+ variant testing</div></div><div class="pi-feat"><div class="pi-feat-dot"></div><div class="pi-feat-txt">Performance Max with asset-level optimisation</div></div><button class="pi-cta">Capture High-Intent Search Before Competitors Do →</button></div><div class="pnums"><div class="pnum"><div class="pnv">₹250–600</div><div class="pnl">Typical CPL on Google</div></div><div class="pnum"><div class="pnv">+18%</div><div class="pnl">Higher quality vs Meta</div></div><div class="pnum"><div class="pnv">6.2%</div><div class="pnl">Avg search CTR</div></div></div></div>
+    <div class="ppanel" id="pp2"><div class="pi"><div class="pi-tag">TOFU</div><div class="pi-h">YouTube — Where Trust Is Earned Before a Click</div><p class="pi-p">Where trust is earned before a click ever happens. Nobody buys a flat because of a floor plan — they buy it because something made them picture their life inside it. YouTube creates that something, at scale, before they're even searching.</p><div class="pi-feat"><div class="pi-feat-dot"></div><div class="pi-feat-txt">In-stream skippable &amp; bumper ad formats</div></div><div class="pi-feat"><div class="pi-feat-dot"></div><div class="pi-feat-txt">Project walkthrough &amp; lifestyle storytelling</div></div><div class="pi-feat"><div class="pi-feat-dot"></div><div class="pi-feat-txt">Audience crossover retargeting to Meta &amp; Display</div></div><div class="pi-feat"><div class="pi-feat-dot"></div><div class="pi-feat-txt">Director mix for personalised delivery at scale</div></div><button class="pi-cta">Show Them the Life. The Square Footage Sells Itself →</button></div><div class="pnums"><div class="pnum"><div class="pnv">₹8–18</div><div class="pnl">CPM on YouTube</div></div><div class="pnum"><div class="pnv">4.2×</div><div class="pnl">Visit lift for touched buyers</div></div><div class="pnum"><div class="pnv">2.8%</div><div class="pnl">View-through CVR</div></div></div></div>
+    <div class="ppanel" id="pp3"><div class="pi"><div class="pi-tag">TOFU + MOFU</div><div class="pi-h">LinkedIn — Where HNI Buyers and NRI Investors Live</div><p class="pi-p">Where HNI buyers, NRI investors, and corporate decision-makers live. For commercial real estate, luxury residential, and NRI-targeted campaigns — professional-context placements reach the right buyer in a high-attention, distraction-free environment.</p><div class="pi-feat"><div class="pi-feat-dot"></div><div class="pi-feat-txt">Designation, industry &amp; company-size targeting</div></div><div class="pi-feat"><div class="pi-feat-dot"></div><div class="pi-feat-txt">NRI geo-targeting: UAE, UK, USA &amp; Singapore</div></div><div class="pi-feat"><div class="pi-feat-dot"></div><div class="pi-feat-txt">Thought leadership content amplification</div></div><div class="pi-feat"><div class="pi-feat-dot"></div><div class="pi-feat-txt">OTT placements — Hotstar, JioCinema &amp; SonyLIV</div></div><button class="pi-cta">Reach the Buyer Your Competitors Can't Get To →</button></div><div class="pnums"><div class="pnum"><div class="pnv">3.2×</div><div class="pnl">Higher ticket — LinkedIn leads</div></div><div class="pnum"><div class="pnv">₹480Cr+</div><div class="pnl">NRI inventory managed</div></div><div class="pnum"><div class="pnv">8 cities</div><div class="pnl">Active OTT footprint</div></div></div></div>
+    <div class="ppanel" id="pp4"><div class="pi"><div class="pi-tag">BOFU</div><div class="pi-h">WhatsApp — Where Warm Leads Get Walked to a Site Visit</div><p class="pi-p">Where warm leads get nurtured, scored, and walked to a site visit. The buyer who fills your form at 9:47pm and doesn't hear from you until 11am the next morning has already shortlisted three other projects. Our system responds in under 60 seconds. Every time.</p><div class="pi-feat"><div class="pi-feat-dot"></div><div class="pi-feat-txt">Automated response in under 60 seconds</div></div><div class="pi-feat"><div class="pi-feat-dot"></div><div class="pi-feat-txt">Behaviour-triggered nurture sequences</div></div><div class="pi-feat"><div class="pi-feat-dot"></div><div class="pi-feat-txt">CRM sync and lead scoring integration</div></div><div class="pi-feat"><div class="pi-feat-dot"></div><div class="pi-feat-txt">Visit booking and appointment confirmation flows</div></div><button class="pi-cta">The Follow-Up That Never Sleeps and Never Misses →</button></div><div class="pnums"><div class="pnum"><div class="pnv">&lt;60sec</div><div class="pnl">First response time</div></div><div class="pnum"><div class="pnv">3.4×</div><div class="pnl">Visit conversion lift</div></div><div class="pnum"><div class="pnv">24/7</div><div class="pnl">Always on, never silent</div></div></div></div>
+  </section>
+
+  <section class="sec">
+    <div class="kk">Cost Transparency</div>
+    <div class="sh">The Full Cost Ladder —<br><em>Nothing Hidden.</em></div>
+    <p class="ss">Every stage has a cost. Every cost has a reason. We show you both — and what we're doing to bring each number down.</p>
+    <div class="lrung"><div class="ln"><span>S1</span></div><div class="lb"><h4>Raw Cost Per Lead (CPL)</h4><p>Volume-level form fills. A baseline only — not a success metric. Most agencies optimise here and stop. We use it as a starting point.</p></div><div class="lv"><div class="lvn">₹180–500</div><div class="lvl">Raw CPL</div></div></div>
+    <div class="larr">↓</div>
+    <div class="lrung"><div class="ln"><span>S2</span></div><div class="lb"><h4>Qualified Cost Per Lead (CPQ)</h4><p>After income validation, location match, and intent scoring. First number that reflects real pipeline health. Most developers have never seen this number.</p></div><div class="lv"><div class="lvn">₹800–1,400</div><div class="lvl">Qualified CPL</div></div></div>
+    <div class="larr">↓</div>
+    <div class="lrung"><div class="ln"><span>S3</span></div><div class="lb"><h4>Cost Per Site Visit (CPSV)</h4><p>Highest-attrition stage. We treat a ₹10,000–₹15,000 site visit like the asset it is — closed with tele-validation, incentive campaigns, and CRM-triggered re-engagement.</p></div><div class="lv"><div class="lvn">₹10K–15K</div><div class="lvl">Cost per visit</div></div></div>
+    <div class="larr">↓</div>
+    <div class="lrung"><div class="ln"><span>S4</span></div><div class="lb"><h4>Cost Per Booking (CPB)</h4><p>The only metric we answer to. Every booking attributed to its source — channel, audience, creative. Your MD will know exactly which campaign produced which flat.</p></div><div class="lv"><div class="lvn">₹20K–50K</div><div class="lvl">Cost per booking</div></div></div>
+  </section>
+
+  <section class="sec" style="padding-bottom:0">
+    <div class="cta-blk">
+      <div><div class="ck">#IfItDoesntCloseItDoesntCount</div><div class="c-big">Funnel Engineering</div><div class="c-h2">My Next Launch Can't Afford a Broken Funnel. Let's Fix It Now.</div><p class="c-desc">Share your project — ticket size, market, current CPL. We'll return a stage-by-stage cost audit in 72 hours. No cost. No commitment. Just the uncomfortable truth about where your funnel is bleeding.</p><div class="cbtns"><button class="btn-r">I Want a Funnel That Reports on Bookings. Not Impressions. →</button><button class="btn-g">Talk to a Strategist First</button></div></div>
+      <div class="cbadge"><div class="cbn">72hr</div><div class="cbl">Funnel audit<br>turnaround</div><div class="cbd">No cost. No commitment.</div></div>
+    </div>
+    <div class="qstrip">
+      <div class="qs" onclick="sendPrompt('How does Property Edge build hyper-local audience targeting for a real estate campaign?')"><div><h4>How do you find our exact buyer?</h4><p>Income signals, intent data &amp; geo-layering explained</p></div><div class="qa">→</div></div>
+      <div class="qs" onclick="sendPrompt('What does a Property Edge media plan look like for a mid-segment residential project?')"><div><h4>What does a media plan actually look like?</h4><p>Channel mix, phased budgets &amp; launch sequence</p></div><div class="qa">→</div></div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════ REALTECH ══════════ -->
+<div class="page" id="pg-realtech">
+  <div class="hero">
+    <div class="hero-eyebrow anim-fade-up"><span class="h-lbl">RealTech</span><span class="h-sep"></span><span class="h-tag-sm">Property Edge</span></div>
+    <div class="h1 anim-fade-up d2">Your Data Should Be<br>Your Best Sales Tool.<br><em>Right Now It Isn't.</em></div>
+    <div class="h-sub anim-fade-up d3">Technology that makes every campaign faster, every lead smarter, <b>and every rupee answerable to a booking.</b></div>
+    <div class="hbtns anim-fade-up d4"><button class="btn-r">Audit My Tech Stack →</button><button class="btn-g">See What's Possible</button></div>
+    <div class="stats-row anim-fade-up d5">
+      <div class="stat"><span class="sn">100%</span><span class="sl">Attribution Tracked</span></div>
+      <div class="stat"><span class="sn">48hr</span><span class="sl">CRM Setup Time</span></div>
+      <div class="stat"><span class="sn">3×</span><span class="sl">Faster Lead Response</span></div>
+      <div class="stat"><span class="sn">Zero</span><span class="sl">Data Black Boxes</span></div>
+    </div>
+  </div>
+  <section class="sec">
+    <div class="kk">What We Build</div>
+    <div class="sh">Technology That Turns Your Pipeline<br><em>From a Spreadsheet Into a System.</em></div>
+    <div class="gbg c3" style="border:1px solid var(--g2)">
+      <div class="card"><div class="card-bar"></div><div class="card-n">01</div><div class="card-h">CRM Integration &amp; Setup</div><p class="card-p">Connect lead sources, campaigns, and sales team into a single real-time pipeline — so nothing falls through and every follow-up is triggered automatically.</p><div class="card-l">Build a pipeline that closes itself →</div></div>
+      <div class="card"><div class="card-bar"></div><div class="card-n">02</div><div class="card-h">Lead Management Dashboard</div><p class="card-p">A single view of every lead — source, stage, quality score, last touchpoint, follow-up status. Your sales team knows exactly who to call and when.</p><div class="card-l">Stop guessing who's hot →</div></div>
+      <div class="card"><div class="card-bar"></div><div class="card-n">03</div><div class="card-h">Automated Nurture Flows</div><p class="card-p">Behaviour-triggered WhatsApp, email, and SMS sequences that keep leads warm between sales calls — without a single manual touchpoint from your team.</p><div class="card-l">Nurture at scale, without the headcount →</div></div>
+      <div class="card"><div class="card-bar"></div><div class="card-n">04</div><div class="card-h">Campaign Attribution Engine</div><p class="card-p">Every booking traced back to originating channel, audience, creative, and keyword. You'll know exactly what drove the sale — and where to put more money.</p><div class="card-l">Attribute every rupee to a result →</div></div>
+      <div class="card"><div class="card-bar"></div><div class="card-n">05</div><div class="card-h">Lead Scoring &amp; Qualification</div><p class="card-p">AI-assisted lead scoring that surfaces highest-intent prospects in real time — so your sales team spends time on buyers who are ready, not browsers who aren't.</p><div class="card-l">Let data pick your next call →</div></div>
+      <div class="card"><div class="card-bar"></div><div class="card-n">06</div><div class="card-h">Reporting &amp; Analytics</div><p class="card-p">Daily pulse, weekly breakdown, monthly full attribution — in a dashboard your MD can read and your marketing team can act on. No waiting for agency reports.</p><div class="card-l">Know your numbers before your agency does →</div></div>
+    </div>
+  </section>
+  <section class="sec" style="padding-bottom:0">
+    <div class="cta-blk">
+      <div><div class="ck">Build Your Stack</div><div class="c-big">RealTech</div><div class="c-h2">Your Next Project Should Run on Data. Not Instinct.</div><p class="c-desc">Tell us your current setup. We'll map the gaps, build the integrations, and have your pipeline running on full attribution within 48 hours.</p><div class="cbtns"><button class="btn-r">Audit My Tech Stack — Free →</button><button class="btn-g">Talk to a Tech Strategist</button></div></div>
+      <div class="cbadge"><div class="cbn">48hr</div><div class="cbl">CRM setup<br>turnaround</div><div class="cbd">Zero data lost.</div></div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════ ABOUT ══════════ -->
+<div class="page" id="pg-about">
+  <div class="hero">
+    <div class="hero-eyebrow anim-fade-up"><span class="h-lbl">About Us</span><span class="h-sep"></span><span class="h-tag-sm">Property Edge</span></div>
+    <div class="h1 anim-fade-up d2">We Were Built for<br>One Industry.<br><em>This One.</em></div>
+    <div class="h-sub anim-fade-up d3">No generalist agency playbook. No borrowed frameworks. <b>Every insight earned in real estate, over a decade of closures.</b></div>
+    <div class="hbtns anim-fade-up d4"><button class="btn-r">Work With Us →</button><button class="btn-g">See Our Work</button></div>
+    <div class="stats-row anim-fade-up d5">
+      <div class="stat"><span class="sn">10+</span><span class="sl">Years in Real Estate</span></div>
+      <div class="stat"><span class="sn">120+</span><span class="sl">Developer Partners</span></div>
+      <div class="stat"><span class="sn">18+</span><span class="sl">Cities</span></div>
+      <div class="stat"><span class="sn">100%</span><span class="sl">Real Estate Focus</span></div>
+    </div>
+  </div>
+  <section class="sec">
+    <div class="kk">Our Story</div>
+    <div class="sh">Built Out of Frustration<br><em>With Generic Agencies.</em></div>
+    <div class="gbg c2" style="border:1px solid var(--g2)">
+      <div style="background:var(--k2);padding:32px 28px">
+        <p style="font-size:14px;color:var(--g5);line-height:1.85;margin-bottom:18px">Property Edge was founded because real estate developers kept getting sold generic digital marketing — campaigns built on consumer brand frameworks, reported with metrics that had no relationship to bookings, managed by account managers who'd never seen a real estate micro-market.</p>
+        <p style="font-size:14px;color:var(--g5);line-height:1.85;margin-bottom:18px">We built an agency from the ground up around a single, specific problem: the gap between a developer's ad budget and their booking rate. Every service, every tool, and every hire at Property Edge exists to close that gap.</p>
+        <p style="font-size:14px;color:var(--g5);line-height:1.85">Today we work with 120+ developers across 18 cities. The only thing we don't do is work with anyone outside real estate.</p>
+      </div>
+      <div style="background:var(--k3);padding:32px 28px;display:flex;flex-direction:column;gap:16px">
+        <div style="border-left:3px solid var(--r);padding:14px 18px;background:var(--rl)"><div style="font-size:28px;font-weight:900;color:var(--r);letter-spacing:-2px;line-height:1">₹760Cr+</div><div style="font-size:12px;color:var(--g5);margin-top:5px">in ad spend managed with full attribution</div></div>
+        <div style="border-left:3px solid var(--r);padding:14px 18px;background:var(--rl)"><div style="font-size:28px;font-weight:900;color:var(--r);letter-spacing:-2px;line-height:1">86L+</div><div style="font-size:12px;color:var(--g5);margin-top:5px">qualified leads generated across all markets</div></div>
+        <div style="border-left:3px solid var(--r);padding:14px 18px;background:var(--rl)"><div style="font-size:28px;font-weight:900;color:var(--r);letter-spacing:-2px;line-height:1">500+</div><div style="font-size:12px;color:var(--g5);margin-top:5px">brand projects and campaigns delivered</div></div>
+      </div>
+    </div>
+  </section>
+  <section class="sec">
+    <div class="kk">Three Values</div>
+    <div class="sh">Three Things We Never<br><em>Compromise On.</em></div>
+    <div class="gbg why-strip" style="border:1px solid var(--g2)">
+      <div class="ws"><div class="ws-big">01</div><h4>Transparency Before Comfort</h4><p>We show you everything — including what didn't work and why we changed it. Opacity is how agencies protect bad performance. We don't operate that way.</p></div>
+      <div class="ws"><div class="ws-big">02</div><h4>Outcomes Before Activity</h4><p>We never report impressions as a success metric. Every number we present is traceable to an enquiry, a visit, or a booking. Activity without outcome is noise.</p></div>
+      <div class="ws"><div class="ws-big">03</div><h4>Real Estate, Only</h4><p>We have turned down larger mandates from other industries. Our edge is built entirely on real estate depth. Diluting that focus would dilute every result we deliver.</p></div>
+    </div>
+  </section>
+  <section class="sec">
+    <div class="kk">The Team</div>
+    <div class="sh">People Who've Spent<br><em>Careers in This One Industry.</em></div>
+    <div class="gbg team-grid" style="border:1px solid var(--g2)">
+      <div class="tm"><div class="tm-init">AK</div><h4>Aditya Kumar</h4><div class="tm-role">Founder &amp; CEO</div><p class="tm-p">12 years in real estate marketing. Built campaigns for 40+ developer launches across Mumbai, Pune, and Bengaluru.</p></div>
+      <div class="tm"><div class="tm-init">PS</div><h4>Priya Shah</h4><div class="tm-role">Head of Funnel Engineering</div><p class="tm-p">Former performance lead at a top-5 real estate portal. Manages ₹200Cr+ in annual ad spend across all client accounts.</p></div>
+      <div class="tm"><div class="tm-init">RM</div><h4>Rahul Mehta</h4><div class="tm-role">Head of Branding</div><p class="tm-p">Led brand identity for 150+ real estate projects. Specialises in luxury positioning and new market entry strategy.</p></div>
+      <div class="tm"><div class="tm-init">NP</div><h4>Neha Patel</h4><div class="tm-role">Head of Influence &amp; Content</div><p class="tm-p">Manages Property Edge's 2,000+ creator network. Built creator-led campaigns driving 10M+ views per launch.</p></div>
+    </div>
+  </section>
+  <section class="sec" style="padding-bottom:0">
+    <div class="cta-blk">
+      <div><div class="ck">One Industry. One Obsession.</div><div class="c-big">Property Edge</div><div class="c-h2">Tell Us Your Biggest Acquisition Challenge.<br>We'll Tell You What It's Costing You in Bookings.</div><p class="c-desc">We work exclusively in real estate. We answer exclusively to your cost per booking. Everything else is noise.</p><div class="cbtns"><button class="btn-r">Start the Conversation →</button><button class="btn-g">See Our Work First</button></div></div>
+      <div class="cbadge"><div class="cbn">Mumbai</div><div class="cbl">Head Office,<br>Andheri East</div><div class="cbd">connect@propertyedge.com</div></div>
+    </div>
+  </section>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="ft-top">
+    <div>
+      <div class="ft-logo">Property<b>Edge</b></div>
+      <div class="ft-tagline">Built for Real Estate. Answerable to Every Booking.</div>
+      <div class="ft-d">Premier IT Park, First Floor, Road No. 11, Marol MIDC, Andheri East, Mumbai 400069</div>
+      <div class="ft-c"><a href="mailto:connect@propertyedge.com">connect@propertyedge.com</a><a href="tel:+919987130371">+91 99871 30371</a></div>
+    </div>
+    <div><div class="ft-h">Services</div><ul class="ft-l"><li><a onclick="go('funnel')">Funnel Engineering</a></li><li><a onclick="go('branding')">Branding</a></li><li><a onclick="go('influence')">Influence</a></li><li><a onclick="go('realtech')">RealTech</a></li></ul></div>
+    <div><div class="ft-h">Company</div><ul class="ft-l"><li><a onclick="go('about')">About Us</a></li><li><a onclick="go('about')">Our Team</a></li><li><a>Our Work</a></li><li><a>Blogs</a></li><li><a>Contact</a></li></ul></div>
+    <div><div class="ft-h">Contact</div><div style="font-size:12px;color:var(--g3);line-height:1.9">connect@propertyedge.com<br>+91 99871 30371<br>Andheri East,<br>Mumbai 400069</div></div>
+  </div>
+  <div class="ft-bot"><span>© 2025 Property Edge. All Rights Reserved. Built for Real Estate. Driven by Bookings.</span><span class="ft-badge">Built for Real Estate</span></div>
+</div>
+
+</div>
+
+<script>
+var pages=['home','branding','influence','funnel','realtech','about'];
+function go(id){
+  document.querySelectorAll('.page').forEach(function(p){p.classList.remove('show')});
+  document.querySelectorAll('.nt').forEach(function(b){b.classList.remove('on')});
+  var pg=document.getElementById('pg-'+id);
+  if(pg){
+    pg.classList.add('show');
+    pg.querySelectorAll('.anim-fade-up,.anim-fade,.anim-slide-left').forEach(function(el){
+      el.style.animation='none';
+      el.offsetHeight;
+      el.style.animation='';
+    });
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  var idx=pages.indexOf(id);
+  var tabs=document.querySelectorAll('.nt');
+  if(tabs[idx])tabs[idx].classList.add('on');
+}
+function sf(i,btn){
+  for(var j=0;j<5;j++){var p=document.getElementById('fp'+j);if(p)p.classList.remove('on')}
+  document.querySelectorAll('.fn').forEach(function(b){b.classList.remove('on')});
+  var fp=document.getElementById('fp'+i);if(fp)fp.classList.add('on');
+  btn.classList.add('on');
+}
+function sp(i,btn){
+  for(var j=0;j<5;j++){var p=document.getElementById('pp'+j);if(p)p.classList.remove('on')}
+  document.querySelectorAll('.ptab').forEach(function(b){b.classList.remove('on')});
+  var pp=document.getElementById('pp'+i);if(pp)pp.classList.add('on');
+  btn.classList.add('on');
+}
+function ct(btn){
+  document.querySelectorAll('.ctab').forEach(function(b){b.classList.remove('on')});
+  btn.classList.add('on');
+}
+</script>
