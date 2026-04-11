@@ -14,7 +14,6 @@ export default function Header() {
             alt="Property Edge"
             height={36}
             width={160}
-            style={{ height: '36px', width: 'auto' }}
             priority
           />
         </Link>
