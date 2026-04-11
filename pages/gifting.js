@@ -65,7 +65,7 @@ export default function GiftingPage() {
               <span className="white_gradient">Beyond Being</span>{' '}
               <span className="pink_gradient">Just a Gift</span>
             </h1>
-            <p style={{ color: '#aaa', fontSize: '18px', marginBottom: '32px', maxWidth: '600px', lineHeight: '1.7' }}>
+            <p style={{ color: '#666', fontSize: '18px', marginBottom: '32px', maxWidth: '600px', lineHeight: '1.7' }}>
               Beyond just a gift, it&apos;s a statement of appreciation and excellence. Thoughtfully curated hampers that celebrate new beginnings and strengthen valuable partnerships.
             </p>
             <Link href="/contact" className={styles.heroCta}>
@@ -132,7 +132,7 @@ export default function GiftingPage() {
                   <div className={styles.serviceCardBody}>
                     <h3 className={styles.serviceCardTitle}>{h.name} — {h.price}</h3>
                     <p className={styles.serviceCardDesc}>Includes: {h.includes}</p>
-                    <Link href="/contact" style={{ display: 'inline-block', marginTop: '12px', padding: '8px 20px', background: 'linear-gradient(88deg, #090edb -15.78%, #e73dc4 102.06%)', borderRadius: '100px', fontSize: '12px', fontWeight: 700, color: '#fff' }}>
+                    <Link href="/contact" style={{ display: 'inline-block', marginTop: '12px', padding: '8px 20px', background: '#C8102E', fontSize: '12px', fontWeight: 700, color: '#fff' }}>
                       Buy Now
                     </Link>
                   </div>
@@ -143,7 +143,7 @@ export default function GiftingPage() {
         </section>
 
         {/* Customize CTA */}
-        <section style={{ background: 'var(--bg-alt, #000a1d)', padding: 'clamp(40px, 5vw, 60px) 0' }}>
+        <section style={{ background: '#fff', borderTop: '1px solid #e5e5e5', padding: 'clamp(40px, 5vw, 60px) 0' }}>
           <div className={styles.sectionInner}>
             <div className={styles.ctaBanner}>
               <h2 className={styles.ctaBannerTitle}>

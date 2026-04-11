@@ -4,40 +4,98 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import styles from '../styles/pages/ServicePage.module.css'
 
+const stats = [
+  { num: '2,400+', label: 'Reels Produced' },
+  { num: '180+', label: 'Influencer Collaborations' },
+  { num: '340Cr+', label: 'Organic Impressions' },
+  { num: '3.2x', label: 'Trust Lift vs Paid Ads' },
+]
+
+const trustGap = [
+  {
+    title: 'The Trust Deficit in Real Estate Marketing',
+    desc: 'Buyers in the Rs50L to Rs5Cr range consume multiple third-party content pieces before visiting a site. Ads create awareness, but recommendations create conviction.',
+  },
+  {
+    title: 'What Influence Marketing Actually Solves',
+    desc: 'Influence closes the credibility gap by placing your project through voices buyers already trust, turning passive awareness into action-ready demand.',
+  },
+]
+
+const reasons = [
+  {
+    title: 'Buyers Research Before They Respond',
+    desc: 'Before buyers call, they have already watched location, builder and project content. If those stories are not yours, a competitor owns the narrative.',
+  },
+  {
+    title: 'Ad Fatigue Is Real',
+    desc: 'Paid impressions are everywhere. Influence content earns attention because it is consumed as opinion and education, not interruption.',
+  },
+  {
+    title: 'NRI and HNI Discovery Is Curated',
+    desc: 'Affluent and non-resident buyers often rely on trusted creators and experts for shortlisting decisions.',
+  },
+  {
+    title: 'Organic Reach Compounds',
+    desc: 'Influence assets keep working long after launch and continue to build trust over time.',
+  },
+  {
+    title: 'Launch Windows Are Non-Negotiable',
+    desc: 'The first 60 to 90 days define sales velocity. Influence creates concentrated credibility when timing matters most.',
+  },
+  {
+    title: 'Reputation Is Built in Public',
+    desc: 'Buyers search your project and builder online before decisions. Influence helps ensure what they find supports conversion.',
+  },
+]
+
 const services = [
   {
-    title: 'SEO',
-    desc: 'From hyper-local targeting to industry-wide visibility, we ensure your real estate brand dominates search rankings and drives high-intent traffic.',
+    title: 'Influencer Discovery & Fit Mapping',
+    desc: 'Creator shortlisting by city relevance, audience quality, content format fit, and buyer-stage alignment.',
     img: 'https://realatte.com/images/influence/img1.png',
   },
   {
-    title: 'Influence Marketing',
-    desc: 'We leverage industry thought leaders, local tastemakers, and digital powerhouses to create a buzz that translates into tangible leads.',
+    title: 'Campaign Narrative & Content Strategy',
+    desc: 'Story architecture for pre-launch buzz, social proof, walkthrough credibility, and conversion nudges.',
     img: 'https://realatte.com/images/influence/img2.png',
   },
   {
-    title: 'Film Production, AVs & Photography',
-    desc: 'From cinematic property films to crisp, high-converting visuals, we craft content that captivates, convinces, and converts.',
+    title: 'Creator Collaboration Management',
+    desc: 'End-to-end coordination from briefing and scripting to shooting, publishing cadence, and compliance.',
     img: 'https://realatte.com/images/influence/img3.png',
   },
   {
-    title: 'Model-Based Reels',
-    desc: 'We create aspirational, lifestyle-driven reels featuring professional models to make your property feel like home before buyers even step in.',
+    title: 'Amplification with Paid + Organic',
+    desc: 'Top-performing creator assets are extended via paid media to improve reach efficiency and sustained engagement.',
     img: 'https://realatte.com/images/influence/img4.png',
   },
   {
-    title: 'Social Media Optimization',
-    desc: 'Strategic content planning, profile optimization, and AI-enabled content intelligence for measurable business outcomes.',
+    title: 'Social Media Optimisation',
+    desc: 'Profile optimisation, content cadence, and engagement operations to convert visibility into trust and enquiries.',
     img: 'https://realatte.com/images/influence/img1.png',
   },
   {
-    title: 'Hyperlocal Campaigns',
-    desc: 'Geo-targeted execution, paid media amplification, and hyperlocal content strategies for scalable reach in target micro-markets.',
+    title: 'Attribution & Influence Reporting',
+    desc: 'Visibility, engagement, inquiry quality, and funnel movement reporting tied back to campaign objectives.',
     img: 'https://realatte.com/images/influence/img2.png',
   },
 ]
 
-const reelNums = [86, 84, 83, 82, 81, 80, 79, 78, 77, 76, 75, 74]
+const tiers = [
+  { title: 'Nano', range: '5K-25K', use: 'Hyper-local credibility' },
+  { title: 'Micro', range: '25K-100K', use: 'Strong engagement and trust' },
+  { title: 'Mid Tier', range: '100K-500K', use: 'Balanced scale and authority' },
+  { title: 'Macro', range: '500K+', use: 'High reach and launch visibility' },
+]
+
+const process = [
+  'Audience and buyer-stage mapping',
+  'Creator shortlist and fit scoring',
+  'Narrative, scripting and briefs',
+  'Publishing, amplification and moderation',
+  'Performance review and optimisation',
+]
 
 const brandLogoNums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 18, 20, 21, 22, 26, 31, 34, 41, 43, 50, 58, 65]
 const cities = ['Mumbai', 'Pune', 'Delhi', 'Jaipur', 'Kolkata', 'Bengaluru', 'Chennai', 'Hyderabad', 'Coimbatore', 'Ahmedabad']
@@ -47,71 +105,102 @@ export default function InfluencePage() {
     <>
       <NextSeo
         title="Influence - Property Edge"
-        description="Strategic influence for market domination. We craft influence-driven strategies that turn properties into must-have investments."
+        description="Real estate influence ecosystems designed to build trust, create conviction, and accelerate conversion timelines."
         canonical="https://propertyedge.com/influence"
       />
 
       <Header />
 
       <main>
-        {/* Hero */}
         <section className={styles.hero}>
           <div className={styles.heroInner}>
-            <span className={styles.heroTag}>#CredibilityThroughCreativity</span>
+            <span className={styles.heroTag}>#CredibilityAtScale</span>
             <h1 className={styles.heroTitle}>
-              <span className="white_gradient">Strategic Influence for</span>{' '}
-              <span className="pink_gradient">Market Domination</span>
+              <span className="white_gradient">Real Estate Doesn't Get Sold.</span>{' '}
+              <span className="pink_gradient">It Gets Believed.</span>
             </h1>
-            <Link href="/contact" className={styles.heroCta}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="https://realatte.com/images/cta_icon.png" alt="" className={styles.ctaIcon} />
-              Let&apos;s Talk Real Estate
-            </Link>
+            <p className={styles.sectionSub} style={{ maxWidth: '760px', marginBottom: '32px' }}>
+              Buyers trust people more than ads. We build influence ecosystems that place your project in front of the right audiences through voices they already follow.
+            </p>
+            <Link href="/contact" className={styles.heroCta}>Build My Influence Strategy</Link>
           </div>
         </section>
 
-        {/* Overview */}
+        <section className={styles.statsSection}>
+          <div className={styles.sectionInner}>
+            <div className={styles.statsRow}>
+              {stats.map((s, i) => (
+                <div key={i} className={styles.statItem}>
+                  <div className={styles.statNum}>{s.num}</div>
+                  <div className={styles.statLabel}>{s.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section className={styles.overviewSection}>
           <div className={styles.sectionInner}>
             <div className="title_top_wrap">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="https://realatte.com/images/headericon.svg" alt="" width={28} height={12} className="logo_gap" />
-              <span className="top_title">Overview</span>
+              <span className="top_title">The Problem with Ads Alone</span>
             </div>
             <h2 className={styles.sectionHeading}>
-              <span className="white_gradient">Why Influence Matters </span>
-              <span className="pink_gradient">in Real Estate</span>
+              <span className="white_gradient">Buyers Ignore Ads.</span>{' '}
+              <span className="pink_gradient">They Listen to People.</span>
             </h2>
-            <div className={styles.overviewGrid}>
-              <p className={styles.overviewDesc}>
-                In an industry where trust drives transactions, the right influence can elevate brands, amplify reach, and accelerate sales. Buyers don&apos;t just invest in properties — they invest in the stories, aspirations, and credibility behind them. Our influence marketing strategies ensure that the right people talk, engage, and advocate — turning your project into the next big thing.
-              </p>
-              <div className={styles.overviewImageGrid}>
-                <img src="https://realatte.com/images/influence/img1.png" alt="" className={styles.overviewImg} loading="lazy" />
-                <img src="https://realatte.com/images/influence/img2.png" alt="" className={styles.overviewImg} loading="lazy" />
-                <img src="https://realatte.com/images/influence/img3.png" alt="" className={styles.overviewImg} loading="lazy" />
-                <img src="https://realatte.com/images/influence/img4.png" alt="" className={styles.overviewImg} loading="lazy" />
-              </div>
+            <p className={styles.sectionSub}>
+              In a high-ticket category, trust and validation drive decisions. Influence creates recommendation-led conviction where paid media alone cannot.
+            </p>
+            <div className={styles.servicesGrid} style={{ marginTop: '40px' }}>
+              {trustGap.map((item) => (
+                <div key={item.title} className={styles.serviceCard}>
+                  <div className={styles.serviceCardBody}>
+                    <h3 className={styles.serviceCardTitle}>{item.title}</h3>
+                    <p className={styles.serviceCardDesc}>{item.desc}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* Services */}
         <section className={styles.servicesSection}>
           <div className={styles.sectionInner}>
             <div className="title_top_wrap">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="https://realatte.com/images/headericon.svg" alt="" width={28} height={12} className="logo_gap" />
-              <span className="top_title">Services</span>
+              <span className="top_title">Why Builders Need Influence</span>
             </div>
             <h2 className={styles.sectionHeading}>
-              <span className="white_gradient">Influence Solutions </span>
-              <span className="pink_gradient">We Offer</span>
+              <span className="white_gradient">Six Reasons Influence Should Be</span>{' '}
+              <span className="pink_gradient">Core to Your Launch</span>
+            </h2>
+            <div className={styles.servicesGrid}>
+              {reasons.map((item) => (
+                <div key={item.title} className={styles.serviceCard}>
+                  <div className={styles.serviceCardBody}>
+                    <h3 className={styles.serviceCardTitle}>{item.title}</h3>
+                    <p className={styles.serviceCardDesc}>{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className={styles.overviewSection}>
+          <div className={styles.sectionInner}>
+            <div className="title_top_wrap">
+              <img src="https://realatte.com/images/headericon.svg" alt="" width={28} height={12} className="logo_gap" />
+              <span className="top_title">Influence Solutions</span>
+            </div>
+            <h2 className={styles.sectionHeading}>
+              <span className="white_gradient">Complete Influence Stack</span>{' '}
+              <span className="pink_gradient">for Real Estate</span>
             </h2>
             <div className={styles.servicesGrid}>
               {services.map((s, i) => (
                 <div key={i} className={styles.serviceCard}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={s.img} alt={s.title} className={styles.serviceImg} loading="lazy" />
                   <div className={styles.serviceCardBody}>
                     <h3 className={styles.serviceCardTitle}>{s.title}</h3>
@@ -123,46 +212,47 @@ export default function InfluencePage() {
           </div>
         </section>
 
-        {/* Reels Work */}
-        <section className={styles.workSection}>
+        <section className={styles.caseSection}>
           <div className={styles.sectionInner}>
             <div className="title_top_wrap">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="https://realatte.com/images/headericon.svg" alt="" width={28} height={12} className="logo_gap" />
-              <span className="top_title">Social Media Optimization</span>
+              <span className="top_title">Creator Tiers + Process</span>
             </div>
             <h2 className={styles.sectionHeading}>
-              <span className="white_gradient">Optimized Engagement </span>
-              <span className="pink_gradient">for Real Growth</span>
+              <span className="white_gradient">Right Creator Mix.</span>{' '}
+              <span className="pink_gradient">Right Buying Stage.</span>
             </h2>
-            <div className={styles.workGrid}>
-              {reelNums.map((n) => (
-                <div key={n} className={styles.workCard}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={`https://realatte.com/images/reels/${n}.mp4`} alt="" className={styles.workImg} loading="lazy"
-                    onError={(e) => { e.currentTarget.src = 'https://realatte.com/images/influence/img1.png' }}
-                  />
-                  <div className={styles.workOverlay}>
-                    <span className={styles.workPlay}>&#9654; View</span>
+            <div className={styles.servicesGrid}>
+              {tiers.map((item) => (
+                <div key={item.title} className={styles.serviceCard}>
+                  <div className={styles.serviceCardBody}>
+                    <h3 className={styles.serviceCardTitle}>{item.title}</h3>
+                    <p className={styles.serviceCardDesc}>{item.range} followers</p>
+                    <p className={styles.serviceCardDesc}>Best for: {item.use}</p>
                   </div>
                 </div>
+              ))}
+            </div>
+            <div className={styles.workTabs} style={{ marginTop: '28px' }}>
+              {process.map((step, i) => (
+                <button key={step} className={`${styles.workTab} ${i === 0 ? styles.activeTab : ''}`} type="button">
+                  {step}
+                </button>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Brands */}
         <section className={styles.brandsSection}>
           <div className={styles.sectionInner}>
             <div className="sec_title_wrap for_white_bg">
               <div className="title_top_wrap">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src="https://realatte.com/images/headericon.svg" alt="" width={28} height={12} className="logo_gap" />
                 <span className="top_title">Our Clients</span>
               </div>
               <h2 className={`${styles.sectionHeading} title black`}>
-                <span className="black_gradient">Hear from Those </span>
-                <span className="pink_gradient">Who Know Us Best</span>
+                <span className="black_gradient">Trusted by Developers Across</span>{' '}
+                <span className="pink_gradient">India</span>
               </h2>
             </div>
             <div className={styles.cityTabs}>
@@ -173,7 +263,6 @@ export default function InfluencePage() {
             <div className={styles.brandsGrid}>
               {brandLogoNums.map((n, i) => (
                 <div key={i} className={styles.brandCard}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={`https://realatte.com/images/clientslogo/Mumbai/${n}.png`} alt="" className={styles.brandLogo} width={110} height={40} loading="lazy" />
                 </div>
               ))}

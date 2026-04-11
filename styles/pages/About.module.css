@@ -19,14 +19,15 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(164, 33, 140, 0.1);
-  border-radius: 50px;
+  background: rgba(200,16,46,0.08);
+  border: 1px solid rgba(200,16,46,0.2);
+  border-radius: 0;
   padding: 8px 16px;
   margin-bottom: clamp(12px, 1.2vw, 20px);
 }
 
 .topTitle {
-  color: var(--primary-color, #da0c89);
+  color: #C8102E;
   font-size: clamp(12px, 0.8vw, 14px);
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -34,15 +35,12 @@
 }
 
 .pinkGrad {
-  background: linear-gradient(88deg, #090edb -15.78%, #e73dc4 102.06%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #C8102E;
 }
 
 /* ── Hero Banner ───────────────────────────────────────────── */
 .heroBanner {
-  background: var(--bg, #00051d);
+  background: #fff;
   min-height: 65vh;
   display: flex;
   align-items: center;
@@ -51,6 +49,7 @@
   padding: clamp(120px, 14vw, 180px) 0 clamp(60px, 7vw, 100px);
   position: relative;
   overflow: hidden;
+  border-bottom: 1px solid #e5e5e5;
 }
 
 .heroContent {
@@ -63,12 +62,13 @@
 
 .heroTag {
   display: inline-block;
-  background: rgba(164, 33, 140, 0.1);
-  border-radius: 50px;
+  background: rgba(200,16,46,0.08);
+  border: 1px solid rgba(200,16,46,0.2);
+  border-radius: 0;
   padding: 6px 18px;
   font-size: clamp(11px, 0.75vw, 13px);
   font-weight: 600;
-  color: var(--primary-color, #da0c89);
+  color: #C8102E;
   letter-spacing: 0.08em;
   margin-bottom: clamp(16px, 1.5vw, 24px);
 }
@@ -77,55 +77,52 @@
   font-family: var(--font-sora, Sora, serif);
   font-size: clamp(32px, 4.5vw, 72px);
   line-height: 1.12;
-  color: #fff;
+  color: #0a0a0a;
   margin-bottom: clamp(20px, 2vw, 32px);
   font-weight: 700;
 }
 
 .heroTitleLine {
-  color: #fff;
+  color: #0a0a0a;
 }
 
 .heroPink {
-  background: linear-gradient(88deg, #090edb -15.78%, #e73dc4 102.06%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #C8102E;
 }
 
 .heroDesc {
   font-size: clamp(14px, 1.1vw, 18px);
   line-height: 1.7;
-  color: var(--text-dim, #c7c7c7);
+  color: #666;
   max-width: 640px;
   margin: 0 auto clamp(28px, 3vw, 44px);
 }
 
 /* Hero CTA — primary_cta3 style */
 .heroCta {
-  border-radius: 50px;
+  border-radius: 0;
   position: relative;
   font-size: clamp(13px, 0.8vw, 16px);
-  font-weight: 300;
-  background: linear-gradient(90deg, #df48c3, #953db4 50.5%, #3700d4);
+  font-weight: 700;
+  background: #C8102E;
   display: inline-flex;
-  padding: 1px;
+  padding: 12px 24px;
   text-decoration: none;
   cursor: pointer;
-  transition: opacity 0.2s ease;
+  transition: background 0.2s ease;
 }
 
 .heroCta:hover {
-  opacity: 0.88;
+  background: #9B0015;
 }
 
 .heroCtaInner {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: clamp(10px, 0.8vw, 14px) clamp(16px, 1.4vw, 24px);
-  background: #fff;
-  border-radius: 50px;
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
   gap: 10px;
 }
 
@@ -137,25 +134,23 @@
 
 .heroCtaTxt {
   font-family: var(--font-poppins, Poppins, serif);
-  font-weight: 600;
-  background: linear-gradient(88deg, #090edb -15.78%, #e73dc4 102.06%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  color: #fff;
 }
 
 /* ── Overview Section ──────────────────────────────────────── */
 .overviewSec {
-  background: var(--bg-alt, #000a1d);
+  background: #fff;
   padding: clamp(60px, 8vw, 110px) 0;
   position: relative;
+  border-bottom: 1px solid #e5e5e5;
 }
 
 .overviewTitle {
   font-family: var(--font-sora, Sora, serif);
   font-size: clamp(28px, 3.5vw, 56px);
   line-height: 1.15;
-  color: #fff;
+  color: #0a0a0a;
   text-align: center;
   margin-bottom: clamp(16px, 1.5vw, 24px);
 }
@@ -163,7 +158,7 @@
 .overviewTxt {
   font-size: clamp(14px, 1vw, 17px);
   line-height: 1.8;
-  color: var(--text-dim, #c7c7c7);
+  color: #666;
   text-align: center;
   max-width: 820px;
   margin: 0 auto clamp(40px, 5vw, 70px);
@@ -186,34 +181,29 @@
   font-size: clamp(28px, 3vw, 48px);
   line-height: 1;
   margin-bottom: 10px;
-  background: linear-gradient(180deg, #000 62.61%, #999 87.71%);
-  /* on dark bg we invert since the realatte counter uses dark gradient on white bg */
-  background: linear-gradient(180deg, #fff 40%, #888 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #C8102E;
 }
 
 .counterLbl {
   font-size: clamp(13px, 0.9vw, 15px);
   font-weight: 300;
-  color: var(--text-muted, #959595);
+  color: #888;
   margin: 0;
 }
 
 /* What Drives Us */
 .drivesWrap {
-  border: 0.4vw solid var(--border, #101132);
-  background: var(--bg-card, #0c1528);
+  border: 1px solid #e5e5e5;
+  background: #fff;
   backdrop-filter: blur(8px);
-  border-radius: 2vw;
+  border-radius: 0;
   padding: clamp(24px, 3vw, 48px);
 }
 
 .drivesTitle {
   font-family: var(--font-sora, Sora, serif);
   font-size: clamp(18px, 1.5vw, 26px);
-  color: #fff;
+  color: #0a0a0a;
   margin-bottom: clamp(20px, 2vw, 32px);
   font-weight: 400;
 }
@@ -229,18 +219,18 @@
   align-items: flex-start;
   gap: 14px;
   padding: clamp(20px, 2vw, 32px) clamp(16px, 1.5vw, 24px);
-  border-bottom: 1px solid rgba(149, 61, 180, 0.25);
-  border-right: 1px solid rgba(149, 61, 180, 0.25);
+  border-bottom: 1px solid #e5e5e5;
+  border-right: 1px solid #e5e5e5;
   transition: background 0.3s ease;
 }
 
 .driveCard:hover {
-  background: linear-gradient(90deg, #df48c3, #953db4 50.5%, #3700d4);
+  background: #fafafa;
 }
 
 .driveCard:hover .driveLabel,
 .driveCard:hover .driveDesc {
-  color: #fff !important;
+  color: inherit !important;
 }
 
 .driveCard:nth-child(3),
@@ -260,13 +250,13 @@
   object-fit: contain;
   flex-shrink: 0;
   margin-top: 2px;
-  filter: brightness(0) invert(1);
+  filter: none;
 }
 
 .driveLabel {
   font-size: clamp(13px, 0.9vw, 15px);
   font-weight: 600;
-  color: #fff;
+  color: #0a0a0a;
   display: block;
   margin-bottom: 4px;
   transition: color 0.3s;
@@ -274,7 +264,7 @@
 
 .driveDesc {
   font-size: clamp(12px, 0.8vw, 14px);
-  color: var(--text-muted, #959595);
+  color: #666;
   margin: 0;
   line-height: 1.5;
   transition: color 0.3s;
@@ -282,15 +272,16 @@
 
 /* ── Workflow Section ──────────────────────────────────────── */
 .workflowSec {
-  background: var(--bg, #00051d);
+  background: #fff;
   padding: clamp(60px, 8vw, 110px) 0;
+  border-bottom: 1px solid #e5e5e5;
 }
 
 .sectionHeading {
   font-family: var(--font-sora, Sora, serif);
   font-size: clamp(26px, 3vw, 48px);
   line-height: 1.15;
-  color: #fff;
+  color: #0a0a0a;
   margin: 0;
 }
 
@@ -302,9 +293,9 @@
 }
 
 .processCard {
-  background: #020202;
-  border: 1.058px solid #df48c3;
-  border-radius: 21px;
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 0;
   padding: clamp(70px, 7vw, 110px) clamp(20px, 2vw, 30px) clamp(20px, 2vw, 30px);
   position: relative;
   transition: all 0.3s ease;
@@ -312,7 +303,7 @@
 
 .processCard:hover {
   transform: translateY(-4px);
-  box-shadow: 6px 2px 8px 0 rgba(66, 186, 235, 0.12);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
 }
 
 .processIconWrap {
@@ -327,27 +318,28 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
-  filter: brightness(0) invert(1);
+  filter: none;
 }
 
 .processTitle {
   font-family: var(--font-sora, Sora, serif);
   font-size: clamp(20px, 2vw, 32px);
-  color: #fff;
+  color: #0a0a0a;
   margin-bottom: 14px;
 }
 
 .processDesc {
   font-size: clamp(13px, 0.9vw, 15px);
-  color: var(--text-dim, #c7c7c7);
+  color: #666;
   line-height: 1.7;
   margin: 0;
 }
 
 /* ── Directors Section ─────────────────────────────────────── */
 .directorsSec {
-  background: var(--bg-alt, #000a1d);
+  background: #fff;
   padding: clamp(60px, 8vw, 110px) 0;
+  border-bottom: 1px solid #e5e5e5;
 }
 
 .directorsGrid {
@@ -358,9 +350,9 @@
 }
 
 .directorCard {
-  background: var(--bg-card, #0c1528);
-  border: 1px solid var(--border, #101132);
-  border-radius: 16px;
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 0;
   overflow: hidden;
   transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
@@ -396,20 +388,20 @@
 .directorName {
   font-family: var(--font-sora, Sora, serif);
   font-size: clamp(16px, 1.1vw, 20px);
-  color: #fff;
+  color: #0a0a0a;
   margin-bottom: 4px;
 }
 
 .directorRole {
   font-size: clamp(12px, 0.8vw, 14px);
-  color: var(--primary-color, #da0c89);
+  color: #C8102E;
   margin: 0 0 10px;
   font-weight: 500;
 }
 
 .directorDesc {
   font-size: clamp(12px, 0.8vw, 13px);
-  color: var(--text-muted, #959595);
+  color: #666;
   line-height: 1.6;
   margin: 0 0 14px;
 }
@@ -419,28 +411,30 @@
   align-items: center;
   gap: 6px;
   font-size: clamp(12px, 0.75vw, 13px);
-  color: #fff;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 50px;
+  color: #555;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 0;
   padding: 6px 14px;
   text-decoration: none;
   transition: background 0.2s ease;
 }
 
 .linkedinBtn:hover {
-  background: rgba(255, 255, 255, 0.18);
+  color: #0a0a0a;
+  border-color: #999;
 }
 
 /* ── Team Section ──────────────────────────────────────────── */
 .teamSec {
-  background: var(--bg, #00051d);
+  background: #fff;
   padding: clamp(60px, 8vw, 110px) 0;
+  border-bottom: 1px solid #e5e5e5;
 }
 
 .teamSubtitle {
   font-size: clamp(14px, 1vw, 17px);
-  color: var(--text-dim, #c7c7c7);
+  color: #666;
   max-width: 640px;
   margin: 16px auto 0;
   line-height: 1.7;
@@ -457,21 +451,21 @@
 .teamCard {
   text-align: center;
   padding: clamp(20px, 2vw, 32px) clamp(12px, 1.5vw, 20px);
-  background: var(--bg-card, #0c1528);
-  border: 1px solid var(--border, #101132);
-  border-radius: 12px;
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 0;
   transition: border-color 0.2s ease;
 }
 
 .teamCard:hover {
-  border-color: rgba(223, 72, 195, 0.4);
+  border-color: #C8102E;
 }
 
 .teamAvatar {
   width: clamp(48px, 3.5vw, 64px);
   height: clamp(48px, 3.5vw, 64px);
   border-radius: 50%;
-  background: linear-gradient(135deg, #df48c3, #3700d4);
+  background: #C8102E;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -484,13 +478,13 @@
 .teamName {
   font-family: var(--font-sora, Sora, serif);
   font-size: clamp(13px, 0.9vw, 15px);
-  color: #fff;
+  color: #0a0a0a;
   margin-bottom: 4px;
 }
 
 .teamRole {
   font-size: clamp(11px, 0.75vw, 13px);
-  color: var(--text-muted, #959595);
+  color: #666;
   margin: 0;
 }
 
@@ -558,29 +552,30 @@
 
 .ctaSection {
   padding: 100px 0;
-  background: #000;
-  color: #fff;
+  background: #fff;
+  color: #0a0a0a;
   text-align: center;
+  border-top: 1px solid #e5e5e5;
 }
 
 .ctaSection h2 {
   font-size: 48px;
-  color: #fff;
+  color: #0a0a0a;
   margin-bottom: 16px;
 }
 
 .ctaSection p {
   font-size: 18px;
-  color: #ccc;
+  color: #666;
   margin-bottom: 32px;
 }
 
 .ctaButton {
   display: inline-block;
-  background: #fff;
-  color: #000;
+  background: #C8102E;
+  color: #fff;
   padding: 14px 32px;
-  border-radius: 6px;
+  border-radius: 0;
   font-size: 16px;
   font-weight: 600;
   text-decoration: none;
@@ -588,7 +583,7 @@
 }
 
 .ctaButton:hover {
-  background: #f5f5f5;
+  background: #9B0015;
   transform: translateY(-2px);
 }
 
