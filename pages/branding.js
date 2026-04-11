@@ -57,34 +57,53 @@ const services = [
   {
     title: 'Brand Launch & Strategic Repositioning',
     desc: 'For new developers entering the market and established ones who have outgrown their current identity. We define your category, your differentiator, and your brand voice — then bring it to life with an identity system built to own mindshare in your specific micro-market.',
-    img: 'https://realatte.com/images/branding/logos/1.jpg',
+    icon: 'launch',
   },
   {
     title: 'Social Media Brand Management',
     desc: 'Your social presence is your trust storefront. We manage it as a brand system with strategic cadence, visual consistency, and community handling that supports conversion.',
-    img: 'https://realatte.com/images/branding/logos/3.jpg',
+    icon: 'social',
   },
   {
     title: 'Strategic Copywriting & Brand Voice',
     desc: 'Taglines, narratives, project messaging, and ad scripts that make the right buyer feel the project was built for them.',
-    img: 'https://realatte.com/images/branding/logos/5.jpg',
+    icon: 'copy',
   },
   {
     title: 'Visual Identity & Graphic Design System',
     desc: 'Logo, brand guidelines, typography, color architecture, collateral, site hoardings, and sales kit design as one coherent visual system.',
-    img: 'https://realatte.com/images/branding/logos/7.jpg',
+    icon: 'identity',
   },
   {
     title: 'Ad Films, Reels & Motion Brand Content',
     desc: 'Brand films, walkthroughs, testimonials, and short-form content that create desire before the site visit.',
-    img: 'https://realatte.com/images/branding/logos/9.jpg',
+    icon: 'video',
   },
   {
     title: 'Print, OOH & Mainline Advertising',
     desc: 'Site hoardings, brochures, jackets, and direct mailers that dominate the physical market where your buyer lives and commutes.',
-    img: 'https://realatte.com/images/branding/mainline/1.jpg',
+    icon: 'mainline',
   },
 ]
+
+function renderBrandingIcon(icon) {
+  if (icon === 'launch') {
+    return <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" /><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" /></svg>
+  }
+  if (icon === 'social') {
+    return <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" /><path d="M8 21h8M12 17v4" /></svg>
+  }
+  if (icon === 'copy') {
+    return <svg viewBox="0 0 24 24"><path d="M12 20h9" /><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z" /></svg>
+  }
+  if (icon === 'identity') {
+    return <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
+  }
+  if (icon === 'video') {
+    return <svg viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7" /><rect x="1" y="5" width="15" height="14" rx="2" /></svg>
+  }
+  return <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" /><polyline points="9 22 9 12 15 12 15 22" /></svg>
+}
 
 const positioning = [
   {
@@ -217,8 +236,8 @@ export default function BrandingPage() {
             <div className={styles.servicesGrid}>
               {services.map((s) => (
                 <div key={s.title} className={styles.serviceCard}>
-                  <img src={s.img} alt={s.title} className={styles.serviceImg} loading="lazy" />
                   <div className={styles.serviceCardBody}>
+                    <div className={styles.serviceIconBox}>{renderBrandingIcon(s.icon)}</div>
                     <h3 className={styles.serviceCardTitle}>{s.title}</h3>
                     <p className={styles.serviceCardDesc}>{s.desc}</p>
                   </div>

@@ -157,6 +157,25 @@
   padding: 22px;
 }
 
+.serviceIconBox {
+  width: 44px;
+  height: 44px;
+  background: rgba(200,16,46,0.08);
+  border: 1px solid rgba(200,16,46,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.serviceIconBox svg {
+  width: 20px;
+  height: 20px;
+  stroke: #C8102E;
+  fill: none;
+  stroke-width: 1.8;
+}
+
 .cardKicker {
   font-size: 10px;
   text-transform: uppercase;
