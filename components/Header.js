@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 
+// Simple header with logo and nav links. On mobile, shows a hamburger that opens a drawer.
 export default function Header() {
   const [open, setOpen] = useState(false)
   const { basePath } = useRouter()
