@@ -162,29 +162,34 @@ const portfolioItems = [
 
 const industries = [
   {
+    icon: '🏠',
     title: 'Affordable Housing',
     desc: 'Rs25L to Rs60L. First-home buyers. Aspiration-led branding that makes the purchase feel like a life milestone.',
   },
   {
+    icon: '🏢',
     title: 'Mid-Segment Residential',
     desc: 'Rs60L to Rs1.5Cr. Lifestyle upgraders. Branding that signals quality, community, and a step-up in living standards.',
   },
   {
+    icon: '🌆',
     title: 'Premium & Luxury',
     desc: 'Rs1.5Cr to Rs5Cr. Discerning buyers. Positioning built on exclusivity, craft, and the emotional prestige of the address.',
   },
   {
+    icon: '💎',
     title: 'Ultra Luxury & HNI',
     desc: 'Rs5Cr+. Investment-grade buyers. Brand storytelling that justifies pricing through heritage, scarcity, and lifestyle elevation.',
   },
   {
+    icon: '🏗️',
     title: 'Commercial & Plots',
     desc: 'Office, retail, plotted development. ROI-led brand narratives that speak to investors and owner-occupiers differently.',
   },
 ]
 
-const brandLogoNums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 18, 20, 21, 22, 26, 31, 34, 41, 43, 50, 58, 65]
 const cities = ['Mumbai', 'Pune', 'Delhi NCR', 'Bengaluru', 'Hyderabad', 'Chennai', 'Ahmedabad', 'Jaipur', 'Kolkata', 'Coimbatore']
+const clientPlaceholders = Array.from({ length: 15 }, (_, i) => `CLIENT ${i + 1}`)
 
 export default function BrandingPage() {
   return (
@@ -358,6 +363,7 @@ export default function BrandingPage() {
               {industries.map((item) => (
                 <div key={item.title} className={styles.serviceCard}>
                   <div className={styles.serviceCardBody}>
+                    <div style={{ fontSize: '28px', marginBottom: '10px', lineHeight: 1 }}>{item.icon}</div>
                     <h3 className={styles.serviceCardTitle}>{item.title}</h3>
                     <p className={styles.serviceCardDesc}>{item.desc}</p>
                   </div>
@@ -382,9 +388,9 @@ export default function BrandingPage() {
               ))}
             </div>
             <div className={styles.brandsGrid}>
-              {brandLogoNums.map((n, i) => (
+              {clientPlaceholders.map((label, i) => (
                 <div key={i} className={styles.brandCard}>
-                  <img src={`https://realatte.com/images/clientslogo/Mumbai/${n}.png`} alt="" className={styles.brandLogo} width={110} height={40} loading="lazy" />
+                  <span style={{ fontSize: '9px', fontWeight: 700, color: '#333', letterSpacing: '1px' }}>{label}</span>
                 </div>
               ))}
             </div>
