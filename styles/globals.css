@@ -271,9 +271,9 @@ p {
   padding: 0 clamp(16px, 3vw, 48px);
   height: clamp(60px, 4vw, 72px);
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
-  gap: 32px;
+  gap: 24px;
 }
 
 .site-brand {
@@ -282,14 +282,24 @@ p {
   color: #0a0a0a;
   letter-spacing: -0.5px;
   flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  min-width: 170px;
+}
+
+.site-header-inner nav {
+  flex: 1;
+  display: flex;
+  justify-content: center;
 }
 
 .nav-links {
   display: flex;
-  gap: 0;
+  gap: 2px;
   margin: 0;
   padding: 0;
   list-style: none;
+  align-items: center;
 }
 
 .nav-link {
