@@ -64,8 +64,8 @@ p {
 /* ===== TEXT UTILITIES ===== */
 
 .white_gradient {
-  color: #fff;
-  -webkit-text-fill-color: #fff;
+  color: #0a0a0a;
+  -webkit-text-fill-color: #0a0a0a;
 }
 
 .pink_gradient {
@@ -344,7 +344,7 @@ p {
   display: block;
   width: 22px;
   height: 2px;
-  background: #fff;
+  background: #0a0a0a;
   border-radius: 2px;
   transition: transform 0.25s ease, opacity 0.25s ease;
 }
@@ -361,10 +361,11 @@ p {
 
 /* ===== MOBILE NAV DRAWER ===== */
 .mobile-nav {
-  background: rgba(10,10,10,0.98);
+  background: #fff;
   backdrop-filter: blur(12px);
-  border-top: 1px solid rgba(255,255,255,0.08);
+  border-top: 1px solid #e5e5e5;
   padding: 16px 0 24px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
 }
 
 .mobile-nav ul {
@@ -374,7 +375,7 @@ p {
 }
 
 .mobile-nav ul li {
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid #e8e8e8;
 }
 
 .mobile-nav ul li:last-child {

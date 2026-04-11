@@ -1,9 +1,9 @@
 /* ===== SHARED SECTION ATOMS ===== */
 
 .secInner {
-  max-width: 960px;
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 64px clamp(16px, 3vw, 32px);
+  padding: 80px clamp(16px, 3vw, 48px);
 }
 
 .kk {
@@ -91,7 +91,7 @@
 }
 
 .hashInner {
-  max-width: 960px;
+  max-width: 1280px;
   margin: 0 auto;
   padding: 64px clamp(16px, 3vw, 32px);
 }

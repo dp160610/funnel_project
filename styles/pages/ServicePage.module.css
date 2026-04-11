@@ -40,17 +40,18 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: linear-gradient(88deg, #090edb -15.78%, #e73dc4 102.06%);
-  padding: 14px 28px;
-  border-radius: 100px;
-  font-size: 14px;
-  font-weight: 600;
+  background: #C8102E;
+  padding: 13px 26px;
+  font-size: 13px;
+  font-weight: 800;
   color: #fff;
-  transition: opacity 0.2s ease;
+  letter-spacing: 0.3px;
+  transition: background 0.15s ease, transform 0.1s ease;
 }
 
 .heroCta:hover {
-  opacity: 0.88;
+  background: #9B0015;
+  transform: translateY(-1px);
 }
 
 .ctaIcon {
@@ -82,7 +83,7 @@
 
 .overviewDesc {
   font-size: 16px;
-  color: #aaa;
+  color: #555;
   line-height: 1.8;
 }
 
@@ -111,7 +112,7 @@
 
 .sectionSub {
   font-size: 16px;
-  color: #aaa;
+  color: #666;
   max-width: 640px;
   line-height: 1.7;
   margin-bottom: 0;
@@ -131,15 +132,17 @@
 }
 
 .serviceCard {
-  background: #0c1528;
-  border: 1px solid #1a2540;
-  border-radius: 14px;
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 0;
   overflow: hidden;
-  transition: border-color 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .serviceCard:hover {
-  border-color: var(--primary-color, #da0c89);
+  border-color: #C8102E;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
   transform: translateY(-4px);
 }
 
@@ -157,14 +160,14 @@
 .serviceCardTitle {
   font-size: 17px;
   font-weight: 700;
-  color: #fff;
+  color: #0a0a0a;
   margin-bottom: 10px;
   font-family: var(--font-sora, Sora, sans-serif);
 }
 
 .serviceCardDesc {
   font-size: 14px;
-  color: #888;
+  color: #666;
   line-height: 1.6;
 }
 
@@ -179,7 +182,7 @@
   gap: 8px;
   flex-wrap: wrap;
   margin: 32px 0;
-  border-bottom: 1px solid #1e1e1e;
+  border-bottom: 1px solid #e5e5e5;
   padding-bottom: 0;
 }
 
@@ -254,10 +257,10 @@
 
 /* ─── Stats Bar ─── */
 .statsSection {
-  background: var(--bg-alt, #000a1d);
+  background: #f8f8f8;
   padding: clamp(40px, 5vw, 60px) 0;
-  border-top: 1px solid #1a2540;
-  border-bottom: 1px solid #1a2540;
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
 }
 
 .statsRow {
@@ -275,19 +278,15 @@
 .statNum {
   font-size: clamp(32px, 4vw, 56px);
   font-weight: 800;
-  color: #fff;
+  color: #C8102E;
   font-family: var(--font-sora, Sora, sans-serif);
   line-height: 1;
   margin-bottom: 6px;
-  background: linear-gradient(88deg, #090edb -15.78%, #e73dc4 102.06%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
 .statLabel {
-  font-size: 13px;
-  color: #666;
+  font-size: 12px;
+  color: #888;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   font-weight: 600;
@@ -362,15 +361,17 @@
 }
 
 .caseCard {
-  border-radius: 12px;
+  border-radius: 0;
   overflow: hidden;
-  background: #0c1528;
-  border: 1px solid #1a2540;
-  transition: border-color 0.2s;
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .caseCard:hover {
-  border-color: var(--primary-color, #da0c89);
+  border-color: #C8102E;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
 }
 
 .caseImg {
@@ -396,15 +397,16 @@
 .caseTitle {
   font-size: 16px;
   font-weight: 700;
-  color: #fff;
+  color: #0a0a0a;
   font-family: var(--font-sora, Sora, sans-serif);
 }
 
 /* ─── CTA Banner ─── */
 .ctaBanner {
-  background: linear-gradient(135deg, #000a1d 0%, #0c0040 50%, #000a1d 100%);
-  border: 1px solid #1a2540;
-  border-radius: 20px;
+  background: #f8f8f8;
+  border: 1px solid #e5e5e5;
+  border-top: 3px solid #C8102E;
+  border-radius: 0;
   margin: 48px 0;
   padding: clamp(40px, 5vw, 72px);
   display: flex;
@@ -417,7 +419,7 @@
 .ctaBannerTitle {
   font-size: clamp(24px, 3vw, 40px);
   font-weight: 700;
-  color: #fff;
+  color: #0a0a0a;
   font-family: var(--font-sora, Sora, sans-serif);
   max-width: 500px;
 }
