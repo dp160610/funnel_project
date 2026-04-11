@@ -32,6 +32,8 @@ jobs:
 
       - name: Build (static export)
         run: npm run build
+        env:
+          NEXT_PUBLIC_APPS_SCRIPT_URL: ${{ secrets.APPS_SCRIPT_URL }}
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3

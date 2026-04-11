@@ -22,25 +22,32 @@ export default function ContactPage() {
     setFormData(prev => ({ ...prev, [name]: value }))
   }
 
+  const SHEET_URL = process.env.NEXT_PUBLIC_APPS_SCRIPT_URL
+
   const handleSubmit = async (e) => {
     e.preventDefault()
     setStatus('loading')
     setErrorMessage('')
 
+    if (!SHEET_URL) {
+      setStatus('error')
+      setErrorMessage('Form endpoint not configured. Please contact us directly.')
+      return
+    }
+
     try {
-      const response = await fetch('/api/contact', {
+      // Use no-cors so the request works cross-origin from the static site.
+      // The response will be opaque (unreadable) but the data is written to the sheet.
+      await fetch(SHEET_URL, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain' },
+        body: JSON.stringify({ ...formData, timestamp: new Date().toISOString() })
       })
 
-      if (response.ok) {
-        setStatus('success')
-        setFormData({ name: '', email: '', phone: '', company: '', projectType: '', message: '' })
-        setTimeout(() => setStatus('idle'), 5000)
-      } else {
-        throw new Error('Failed to send message')
-      }
+      setStatus('success')
+      setFormData({ name: '', email: '', phone: '', company: '', projectType: '', message: '' })
+      setTimeout(() => setStatus('idle'), 5000)
     } catch (error) {
       setStatus('error')
       setErrorMessage('Failed to send message. Please try again or contact us directly.')
