@@ -6,7 +6,6 @@ import {
   HeroSection,
   BuiltForImpactSection,
   ServicesSection,
-  CaseStudiesSection,
 } from '../components/sections'
 import styles from '../styles/pages/Home.module.css'
 
@@ -39,6 +38,23 @@ const truths = [
     italic: 'Unattributed marketing isn\'t a strategy. It\'s a donation with a logo on it.',
     stat: 'Closed-loop attribution reduces CPB by 20–35%.',
   },
+]
+
+const services = [
+  { num: '01', title: 'Performance Media Planning', body: 'Before a single rupee is placed, we build a full channel mix model — what percentage of your budget goes to awareness, acquisition, retargeting, and defence. Every allocation backed by category benchmarks and project-specific data.', link: 'Optimise My Media Mix →' },
+  { num: '02', title: 'Strategic Media Buying: Google, Meta & Beyond', body: 'Hyper-local targeting on Meta for geography-first buyers. High-intent search on Google for active researchers. Cross-platform synergy across YouTube, Display, and programmatic networks.', link: 'See My Platform Strategy →' },
+  { num: '03', title: 'Conversion-Engineered Landing Pages', body: 'A landing page is a conversion instrument, not a brochure. Single-purpose intent — persuasive architecture, social proof layering, micro-commitment flows, and heat-map-informed CTA placement.', link: 'Audit My Landing Page →' },
+  { num: '04', title: 'Performance-First Creative Production', body: "Creative is the last unfair advantage. Every static, video, carousel, and reel is built with a specific funnel stage in mind. We A/B test relentlessly until we find the variant that wins.", link: 'See Creative That Converts →' },
+  { num: '05', title: 'Programmatic Advertising & DSP Buying', body: 'Reach in-market buyers across thousands of premium publishers — the news sites, property portals, and financial platforms they read every day — with precision targeting and real-time bidding.', link: 'Expand My Reach Strategically →' },
+  { num: '06', title: 'Lead Nurture & CRM Automation', body: '80% of bookings happen after the 5th touchpoint. We build automated nurture sequences — WhatsApp, email, retargeting — timed to buying behaviour signals. Your team only calls when the buyer is already warm.', link: 'Engineer My Nurture Flow →' },
+]
+
+const costRungs = [
+  { title: 'Raw Lead (Cost Per Lead)', desc: 'Any person who submits a form or calls. Unfiltered, unscored, unverified. This is what most agencies report as their headline metric.', val: '₹190–800', unit: 'Per Lead' },
+  { title: 'Qualified Lead (Scored & Verified)', desc: 'A buyer within budget range, relevant geography, and an active purchase timeline. Phone-verified and intent-scored. This is where your sales team\'s time should start.', val: '₹500–1,400', unit: 'Qualified Lead' },
+  { title: 'Cost Per Site Visit', desc: 'The moment a qualified prospect physically arrives at your site office. The most expensive and most valuable conversion event before the booking.', val: '₹1,300–3,500', unit: 'Per Site Visit' },
+  { title: 'Media Planning & Execution', desc: 'Strategic media allocation, channel-mix modelling, pacing reports, and continuous optimisation across all active platforms. The intelligence layer above execution.', val: '₹20K–80K', unit: 'Per Month' },
+  { title: 'Cost Per Booking (Full Funnel)', desc: 'The true north. Total marketing spend divided by total bookings — accounting for every touchpoint, channel, creative, and nurture sequence that contributed.', val: '₹25K–80K', unit: 'Per Booking' },
 ]
 
 const cities = ['Mumbai', 'Pune', 'Delhi NCR', 'Bengaluru', 'Hyderabad', 'Chennai', 'Jaipur', 'Kolkata']
@@ -79,36 +95,44 @@ export default function Home() {
           </div>
         </div>
 
-        {/* 3. Hash block */}
-        <section className={styles.hashSection}>
-          <div className={styles.hashInner}>
-            <div className={styles.hashBlk}>
-              <div className={styles.hashTag}>#TheAgencyThatStopsAtBookings</div>
-              <h2 className={styles.hashH}>
-                Your Campaigns Are Live.<br />
-                <em>Which Ad Sold That Flat?</em>
-              </h2>
-              <p className={styles.hashP}>
-                That silence in the room — when your MD asks which campaign produced which booking and nobody has a clean answer — is not a data problem. It&apos;s a funnel problem. It means every stage of your buyer&apos;s journey is running disconnected, unmeasured, and unaccountable. We fix the structure. We engineer the stages. We close the loop.
-              </p>
-              <Link href="/contact" className={styles.hashCta}>
-                End the Boardroom Silence. Build My Funnel. →
-              </Link>
+        {/* 3. Four Disciplines — "Most agencies hand you leads" */}
+        <BuiltForImpactSection />
+
+        {/* 4. Five Stages funnel pipeline */}
+        <ServicesSection />
+
+        {/* 5. Every Service Tracks Back to a Booking Metric — 3×2 service grid */}
+        <section className={styles.svcSection}>
+          <div className={styles.secInner}>
+            <div className={styles.kk}>What We Deploy</div>
+            <h2 className={styles.sh}>
+              Every Service Tracks Back<br />
+              <em>to a Booking Metric.</em>
+            </h2>
+            <p className={styles.ss}>
+              Six specialised disciplines. One unified strategy. Every service connects directly to a stage of your pipeline — and a number on your P&amp;L.
+            </p>
+            <div className={styles.svcGrid}>
+              {services.map((s) => (
+                <div key={s.num} className={styles.svcCard}>
+                  <div className={styles.svcCardTop} />
+                  <div className={styles.svcNum}>{s.num}</div>
+                  <div className={styles.svcTitle}>{s.title}</div>
+                  <p className={styles.svcBody}>{s.body}</p>
+                  <Link href="/performance" className={styles.svcLink}>{s.link}</Link>
+                </div>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* 4. Five Disciplines */}
-        <BuiltForImpactSection />
-
-        {/* 5. The Uncomfortable Truth */}
+        {/* 6. The Uncomfortable Truth — dark section */}
         <section className={styles.truthSection}>
           <div className={styles.secInner}>
             <div className={styles.kk}>The Uncomfortable Truth</div>
             <h2 className={styles.sh}>
-              Your Funnel Isn&apos;t Leaking<br />
-              Because the Market Is Hard.<br />
-              <em>It&apos;s Leaking Because Nobody Built It.</em>
+              Right Channel. Right Stage.<br />
+              <em>Right Spend.</em>
             </h2>
             <p className={styles.ss}>
               Most real estate marketing isn&apos;t engineered — it&apos;s assembled. Here&apos;s what&apos;s actually happening in your acquisition pipeline right now.
@@ -127,29 +151,67 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 6. Funnel Pipeline */}
-        <ServicesSection />
-
-        {/* 7. Case Studies */}
-        <CaseStudiesSection />
-
-        {/* 8. Trusted By */}
-        <section className={styles.trustedSection}>
+        {/* 7. The Full Cost Ladder */}
+        <section className={styles.costSection}>
           <div className={styles.secInner}>
-            <div className={styles.kk}>Trusted By</div>
+            <div className={styles.kk}>The Full Cost Ladder</div>
             <h2 className={styles.sh}>
-              Developers Across 18 Cities<br />
-              <em>Who Stopped Counting Leads.</em>
+              CPL to Cost-per-Booking.<br />
+              <em>Nothing Hidden.</em>
             </h2>
-            <div className={styles.cityRow}>
-              {cities.map((c) => (
-                <span key={c} className={styles.cityTab}>{c}</span>
+            <p className={styles.ss}>
+              We show you the cost at every stage of your pipeline — not just your CPL. Because the gap between ₹350 CPL and ₹45,000 cost-per-booking is where most budgets disappear without explanation.
+            </p>
+            <div className={styles.costLadder}>
+              {costRungs.map((r, i) => (
+                <div key={i} className={styles.costRung}>
+                  <div className={styles.costLeft}>
+                    <h4>{r.title}</h4>
+                    <p>{r.desc}</p>
+                  </div>
+                  <div className={styles.costRight}>
+                    <div className={styles.costVal}>{r.val}</div>
+                    <div className={styles.costUnit}>{r.unit}</div>
+                  </div>
+                </div>
               ))}
             </div>
-            <div className={styles.clientLogos}>
-              {clientLogos.map((logo) => (
-                <div key={logo} className={styles.clientLogo}>{logo}</div>
-              ))}
+            <div className={styles.costDisclaimer}>
+              <p><strong>Note:</strong> These are category benchmarks across Mumbai, Pune, Bengaluru, Hyderabad, Delhi NCR, and Tier-2 markets. Actual numbers vary by ticket size, project stage, brand recognition, and city. We provide project-specific benchmarks in our first onboarding call.</p>
+            </div>
+          </div>
+        </section>
+
+        {/* 8. You Should Know Where Every Rupee Went — dark reporting */}
+        <section className={styles.reportSection}>
+          <div className={styles.secInner}>
+            <div className={styles.kk}>Reporting & Transparency</div>
+            <h2 className={styles.sh}>
+              You Should Know Where<br />
+              <em>Every Rupee Went.</em>
+            </h2>
+            <p className={styles.ss}>
+              Opacity is how agencies hide bad performance. We give you access to every number, at every stage, at every frequency — before you think to ask.
+            </p>
+            <div className={styles.reportGrid}>
+              <div className={styles.reportCard}>
+                <div className={styles.reportFreq}>Daily</div>
+                <div className={styles.reportUnit}>Campaign Pulse</div>
+                <div className={styles.reportTitle}>Spend, leads &amp; CPL — every morning</div>
+                <p className={styles.reportBody}>A concise morning briefing that tells you exactly what was spent yesterday, how many leads came in, and whether your CPL is trending in the right direction.</p>
+              </div>
+              <div className={styles.reportCard}>
+                <div className={styles.reportFreq}>Weekly</div>
+                <div className={styles.reportUnit}>Pipeline Movement</div>
+                <div className={styles.reportTitle}>Full funnel — lead to qualified to visited</div>
+                <p className={styles.reportBody}>Every Monday, a stage-by-stage view of your pipeline: how many leads moved from raw to qualified, how many converted to site visits, and where dropout is happening.</p>
+              </div>
+              <div className={styles.reportCard}>
+                <div className={styles.reportFreq}>Monthly</div>
+                <div className={styles.reportUnit}>Full Attribution Report</div>
+                <div className={styles.reportTitle}>Bookings traced back to the originating ad</div>
+                <p className={styles.reportBody}>Every booking attributed to its originating campaign, platform, creative, and audience — with next month&apos;s budget recommendations based on what actually drove closures.</p>
+              </div>
             </div>
           </div>
         </section>
@@ -162,8 +224,8 @@ export default function Home() {
                 <div className={styles.ctaKk}>#IfItDoesntCloseItDoesntCount</div>
                 <div className={styles.ctaBig}>Property Edge</div>
                 <h2 className={styles.ctaH2}>
-                  You Don&apos;t Have a Marketing Problem.<br />
-                  You Have a Funnel That Was Never Built.
+                  Stop Paying for Leads.<br />
+                  Pay for Closures.
                 </h2>
                 <p className={styles.ctaDesc}>
                   Most developers don&apos;t need more leads. They need a system that knows what to do with the ones they already have. Tell us your project — we&apos;ll show you the leak in 72 hours.
@@ -185,6 +247,27 @@ export default function Home() {
                 <div className={styles.ctaBadgeL}>Funnel audit<br />turnaround</div>
                 <div className={styles.ctaBadgeD}>No cost. No lock-in.</div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 10. Trusted By */}
+        <section className={styles.trustedSection}>
+          <div className={styles.secInner}>
+            <div className={styles.kk}>Trusted By</div>
+            <h2 className={styles.sh}>
+              Developers Who Measure<br />
+              <em>Success in Bookings.</em>
+            </h2>
+            <div className={styles.cityRow}>
+              {cities.map((c) => (
+                <span key={c} className={styles.cityTab}>{c}</span>
+              ))}
+            </div>
+            <div className={styles.clientLogos}>
+              {clientLogos.map((logo) => (
+                <div key={logo} className={styles.clientLogo}>{logo}</div>
+              ))}
             </div>
           </div>
         </section>

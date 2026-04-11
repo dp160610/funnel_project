@@ -36,9 +36,9 @@ export default function BuiltForImpactSection() {
   return (
     <section className={styles.section}>
       <div className={styles.inner}>
-        <div className={styles.kk}>Five Disciplines</div>
+        <div className={styles.kk}>Four Disciplines</div>
         <h2 className={styles.sh}>
-          Five Disciplines. Zero Silos.<br /><em>One Project Sold Out.</em>
+          Most agencies hand you leads.<br /><em>We hand you a pipeline.</em>
         </h2>
         <p className={styles.ss}>
           Every service at Property Edge is a spoke in the same wheel. Branding builds the trust that lowers your CPL. Influence builds the credibility that raises your site visit rate. Performance builds the machine that converts both into bookings.

@@ -4,42 +4,52 @@ const stages = [
   {
     id: 'tofu',
     step: '01',
-    label: 'ToFu — Awareness',
-    name: 'Brand Visibility at Scale',
-    desc: 'Build awareness before buyers even start searching. Through hyper-targeted placements and compelling creative, we make your project the obvious first choice.',
-    tags: ['Meta Ads', 'YouTube Pre-Roll', 'Programmatic', 'OOH', 'Influencer'],
-    metric: '₹8–15',
-    metricLabel: 'Avg CPM',
+    label: 'Stage 01 — ToFu',
+    name: 'Demand Generation',
+    desc: 'Building brand salience with in-market buyers before they enter active search. Video, display, and social reach campaigns engineered for maximum relevant impressions.',
+    tags: ['Meta Reach', 'YouTube Pre-Roll', 'Programmatic Display', 'OOH'],
+    metric: '₹18–35',
+    metricLabel: 'Cost Per Click',
   },
   {
     id: 'mofu',
     step: '02',
-    label: 'MoFu — Nurture',
-    name: 'Intent Qualification & Engagement',
-    desc: 'Interested buyers need the right nudge at the right moment. We keep your project top of mind and guide warm leads toward the all-important site visit.',
-    tags: ['Retargeting', 'WhatsApp Sequences', 'Landing Pages', 'Google Maps'],
-    metric: '₹120–280',
-    metricLabel: 'Avg CPL',
+    label: 'Stage 02 — MoFu',
+    name: 'Lead Acquisition',
+    desc: 'Converting warm awareness into captured intent. High-intent lead gen forms, conversion-optimised landing pages, and search campaigns targeting buyers actively comparing options.',
+    tags: ['Google Search', 'Meta Lead Gen', 'Dynamic Landing Pages', 'A/B Testing'],
+    metric: '₹190–800',
+    metricLabel: 'Cost Per Lead',
+  },
+  {
+    id: 'qualify',
+    step: '03',
+    label: 'Stage 03 — Qualification',
+    name: 'Intent Scoring & Filtering',
+    desc: "Not every lead is a buyer. We deploy behavioural scoring models, CRM integrations, and intelligent drip sequences to surface only sales-ready prospects to your team.",
+    tags: ['Lead Scoring', 'CRM Integration', 'Drip Sequences', 'Suppression Logic'],
+    metric: '₹500–1,400',
+    metricLabel: 'Qualified Lead',
   },
   {
     id: 'bofu',
-    step: '03',
-    label: 'BoFu — Conversion',
-    name: 'Lead to Site Visit Conversion',
-    desc: 'This is where strategy meets revenue. We identify the highest-intent prospects and engineer every touchpoint to push them across the finish line.',
-    tags: ['Lead Scoring', 'Priority Calling', 'SMS Nudges', 'Sales Blitz'],
-    metric: '32–48%',
-    metricLabel: 'SV Rate',
+    step: '04',
+    label: 'Stage 04 — BoFu',
+    name: 'Site Visit Conversion',
+    desc: 'Getting a qualified prospect from their screen to your sales floor. Retargeting, WhatsApp automation, personalised offer overlays, and geo-fencing around your site office.',
+    tags: ['Dynamic Retargeting', 'WhatsApp Automation', 'Geo-Fencing', 'Offer Engineering'],
+    metric: '₹1,300–3,500',
+    metricLabel: 'Cost Per Visit',
   },
   {
-    id: 'sv',
-    step: '04',
-    label: 'SV → Closure',
-    name: 'Site Visit to Booking',
-    desc: 'The visit happened. Now we close it. CRM automation, follow-up sequences, and re-targeting keep your project top-of-mind until the booking is signed.',
-    tags: ['CRM Automation', 'WhatsApp Drips', 'Sales Enablement', 'Attribution'],
-    metric: '18–28%',
-    metricLabel: 'Close Rate',
+    id: 'closure',
+    step: '05',
+    label: 'Stage 05 — Closure',
+    name: 'Booking & Revenue',
+    desc: 'The only metric that pays salaries. We track every booking back to its originating ad, audience, creative, and platform — then reinvest only into what actually closes deals.',
+    tags: ['Booking Attribution', 'Closing Loop Tracking', 'Post-Visit Nurture', 'Revenue Analytics'],
+    metric: '₹25K–80K',
+    metricLabel: 'Cost Per Booking',
   },
 ]
 
@@ -47,12 +57,12 @@ export default function ServicesSection() {
   return (
     <section id="services" className={styles.section}>
       <div className={styles.inner}>
-        <div className={styles.kk}>Funnel Engineering</div>
+        <div className={styles.kk}>The Full Funnel Architecture</div>
         <h2 className={styles.sh}>
-          Every Stage Engineered.<br /><em>Every Rupee Accounted For.</em>
+          Five Stages. Every One<br /><em>Engineered &amp; Accountable.</em>
         </h2>
         <p className={styles.ss}>
-          We don&apos;t run campaigns. We build buyer journeys — from anonymous impression to signed booking — as a single connected system where every stage feeds the next.
+          Most budgets die between awareness and closure because no one owns the middle. We map every stage, instrument every handoff, and have a specific strategy — and a specific cost benchmark — for each one.
         </p>
         <div className={styles.pipeline}>
           {stages.map((stage, i) => (
@@ -71,7 +81,6 @@ export default function ServicesSection() {
                 <div className={styles.mVal}>{stage.metric}</div>
                 <div className={styles.mLabel}>{stage.metricLabel}</div>
               </div>
-              {i < stages.length - 1 && <div className={styles.arrow}>↓</div>}
             </div>
           ))}
         </div>

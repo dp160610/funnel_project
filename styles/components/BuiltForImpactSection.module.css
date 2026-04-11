@@ -1,8 +1,8 @@
-/* ===== FIVE DISCIPLINES SECTION ===== */
+/* ===== FOUR DISCIPLINES SECTION ===== */
 
 .section {
-  background: #0A0A0A;
-  border-bottom: 1px solid rgba(255,255,255,0.09);
+  background: #f8f8f8;
+  border-bottom: 1px solid #e5e5e5;
 }
 
 .inner {
@@ -35,7 +35,7 @@
   font-weight: 900;
   letter-spacing: -0.04em;
   line-height: 1.1;
-  color: #fff;
+  color: #0a0a0a;
   margin-bottom: 14px;
 }
 
@@ -46,7 +46,7 @@
 
 .ss {
   font-size: 13px;
-  color: rgba(255,255,255,0.48);
+  color: #666;
   max-width: 560px;
   line-height: 1.82;
   margin-bottom: 32px;
@@ -56,20 +56,22 @@
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2px;
-  background: rgba(255,255,255,0.09);
-  border: 1px solid rgba(255,255,255,0.09);
+  gap: 12px;
+  background: transparent;
 }
 
 .card {
-  background: #131313;
+  background: #fff;
   padding: 28px 22px;
   position: relative;
-  transition: background 0.15s ease;
+  border: 1px solid #e8e8e8;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  transition: box-shadow 0.18s ease, transform 0.18s ease;
 }
 
 .card:hover {
-  background: #1c1c1c;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.09);
+  transform: translateY(-2px);
 }
 
 .cardBar {
@@ -98,14 +100,14 @@
 .cardH {
   font-size: 15px;
   font-weight: 900;
-  color: #fff;
+  color: #0a0a0a;
   margin-bottom: 8px;
   line-height: 1.2;
 }
 
 .cardP {
   font-size: 12px;
-  color: rgba(255,255,255,0.45);
+  color: #666;
   line-height: 1.72;
   margin-bottom: 14px;
 }
