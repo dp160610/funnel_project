@@ -7,7 +7,7 @@ const disciplines = [
     title: 'Funnel Engineering',
     desc: 'The only agency in India that architects your entire buyer journey — from first impression to signed booking — as a single connected, measured, optimised system.',
     link: 'Because a sold-out project isn\'t luck. It\'s what a properly engineered funnel produces →',
-    href: '/performance',
+    href: '/funnelengineering',
   },
   {
     num: '02',
@@ -36,9 +36,9 @@ export default function BuiltForImpactSection() {
   return (
     <section className={styles.section}>
       <div className={styles.inner}>
-        <div className={styles.kk}>Four Disciplines</div>
+        <div className={styles.kk}>Five Disciplines</div>
         <h2 className={styles.sh}>
-          Most agencies hand you leads.<br /><em>We hand you a pipeline.</em>
+          Five Disciplines. Zero Silos.<br /><em>One Project Sold Out.</em>
         </h2>
         <p className={styles.ss}>
           Every service at Property Edge is a spoke in the same wheel. Branding builds the trust that lowers your CPL. Influence builds the credibility that raises your site visit rate. Performance builds the machine that converts both into bookings.

@@ -23,9 +23,10 @@
 }
 
 .container {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 clamp(16px, 3vw, 48px) 80px;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0 clamp(16px, 4vw, 64px) 80px;
 }
 
 .badge {
@@ -62,7 +63,7 @@
   line-height: 1.04;
   letter-spacing: -0.05em;
   color: #0a0a0a;
-  max-width: 720px;
+  max-width: 980px;
   margin-bottom: 14px;
 }
 
@@ -74,7 +75,7 @@
 .sub {
   font-size: clamp(13px, 1.2vw, 15px);
   color: #666;
-  max-width: 600px;
+  max-width: 900px;
   line-height: 1.75;
   margin-bottom: 36px;
 }

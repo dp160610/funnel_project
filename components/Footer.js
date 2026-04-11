@@ -41,7 +41,7 @@ export default function Footer() {
           <h4>Services</h4>
           <Link href="/branding">Branding</Link>
           <Link href="/influence">Influence</Link>
-          <Link href="/performance">Performance</Link>
+          <Link href="/funnelengineering">Funnel Engineering</Link>
           <Link href="/tech">RealTech</Link>
         </div>
 

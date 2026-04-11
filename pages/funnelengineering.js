@@ -30,6 +30,49 @@ const introCards = [
   },
 ]
 
+const funnelStages = [
+  {
+    label: 'Stage 01 - TOFU',
+    title: 'Demand Generation',
+    desc: "Building brand salience with in-market buyers before they have entered active search. Video, display, and social reach campaigns engineered for maximum relevant reach.",
+    tags: ['Meta Reach', 'YouTube Pre-Roll', 'Programmatic Display', 'Keyword Conquesting'],
+    metric: 'Rs 18-35',
+    metricLabel: 'Cost Per Click',
+  },
+  {
+    label: 'Stage 02 - MOFU',
+    title: 'Lead Acquisition',
+    desc: 'Converting warm awareness into captured intent. High-intent lead gen forms, conversion-optimised landing pages, and search campaigns targeting buyers actively comparing options.',
+    tags: ['Google Search', 'Meta Lead Gen', 'Dynamic Landing Pages', 'A/B Testing'],
+    metric: 'Rs 190-800',
+    metricLabel: 'Cost Per Lead',
+  },
+  {
+    label: 'Stage 03 - Lead Qualification',
+    title: 'Intent Scoring & Filtering',
+    desc: 'Not every lead is a buyer. We deploy behavioural scoring models, CRM integrations, and intelligent drip sequences to surface only sales-ready prospects to your team.',
+    tags: ['Lead Scoring', 'CRM Integration', 'Drip Sequences', 'Suppression Logic'],
+    metric: 'Rs 500-1,400',
+    metricLabel: 'Qualified Lead',
+  },
+  {
+    label: 'Stage 04 - BOFU',
+    title: 'Site Visit Conversion',
+    desc: 'Getting a qualified prospect from screen to sales floor. Retargeting, WhatsApp automation, personalised offer overlays, and geo-fencing around your site office.',
+    tags: ['Dynamic Retargeting', 'WhatsApp Automation', 'Geo-Fencing', 'Offer Engineering'],
+    metric: 'Rs 1,300-3,500',
+    metricLabel: 'Cost Per Visit',
+  },
+  {
+    label: 'Stage 05 - Closure',
+    title: 'Booking & Revenue',
+    desc: 'The only metric that pays salaries. We track every booking back to originating ad, audience, creative, and platform, then reinvest into what actually closes deals.',
+    tags: ['Booking Attribution', 'Closing Loop Tracking', 'Post-Visit Nurture', 'Revenue Analytics'],
+    metric: 'Rs 25K-80K',
+    metricLabel: 'Cost Per Booking',
+  },
+]
+
 const services = [
   {
     title: 'Performance Media Planning',
@@ -66,6 +109,7 @@ const services = [
 const platforms = [
   {
     title: 'Meta — Facebook & Instagram',
+    subTitle: 'Where Real Estate Buyers Dream Before They Search',
     desc: 'Meta is where purchase intent is formed, not declared. We reach buyers 30–90 days before they enter active search mode — with hyper-local targeting, lookalike audiences modelled on your past buyers, and creative sequencing that builds purchase desire over time.',
     points: [
       'Micro-geography targeting down to 1km radius',
@@ -78,6 +122,7 @@ const platforms = [
   },
   {
     title: 'Google — Search, Display & YouTube',
+    subTitle: 'Capture Buyers Who Are Already Looking',
     desc: 'Google is where declared intent lives. We dominate your category keywords, conquest competitor searches, and re-engage site visitors with display retargeting that keeps your project top-of-mind throughout a 90-day decision window.',
     points: [
       'High-intent keyword campaigns with negative list management',
@@ -88,6 +133,7 @@ const platforms = [
   },
   {
     title: 'Programmatic, OTT & More',
+    subTitle: 'Surround Your Buyer. Everywhere They Go.',
     desc: 'Premium publishers. Financial news sites. Property portals. OTT platforms. We buy cross-platform inventory that puts your brand in front of the right affluence segment — wherever they consume content. One unified strategy, one cohesive buyer experience.',
     points: [
       'DSP-powered cross-publisher programmatic buying',
@@ -128,18 +174,18 @@ const costRungs = [
 
 const reporting = [
   {
-    title: 'Daily Campaign Pulse',
-    desc: 'Spend, leads & CPL — every morning before you have had your coffee.',
+    title: 'Spend, leads & CPL - every morning',
+    desc: "A concise morning briefing that tells you exactly what was spent yesterday, how many leads came in, and whether your CPL is trending in the right direction - before you've had your coffee.",
     stat: 'Daily',
   },
   {
-    title: 'Weekly Pipeline Movement Report',
-    desc: 'Every Monday you receive a stage-by-stage view of your pipeline, conversion movement, and drop-off diagnostics.',
+    title: 'Full funnel - lead to qualified to visited',
+    desc: 'Every Monday, you receive a stage-by-stage view of your pipeline. How many leads moved from raw to qualified. How many qualified leads converted to site visits. Where the dropout is happening and why.',
     stat: 'Weekly',
   },
   {
-    title: 'Monthly Full Attribution Report',
-    desc: 'Every booking attributed to campaign, platform, creative, and audience, with recommendations for next month allocation.',
+    title: 'Bookings traced back to the originating ad',
+    desc: "Every booking from the month, attributed to its originating campaign, platform, creative, and audience. With recommendations for next month's budget allocation based on what actually drove closures - not impressions.",
     stat: 'Monthly',
   },
 ]
@@ -147,13 +193,13 @@ const reporting = [
 const brandLogoNums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 18, 20, 21, 22, 26, 31, 34, 41, 43, 50, 58, 65]
 const cities = ['Mumbai', 'Pune', 'Delhi NCR', 'Bengaluru', 'Hyderabad', 'Chennai', 'Ahmedabad', 'Jaipur', 'Kolkata', 'Coimbatore']
 
-export default function PerformancePage() {
+export default function FunnelEngineeringPage() {
   return (
     <>
       <NextSeo
         title="Funnel Engineering - Property Edge"
         description="Every rupee, every lead, every handoff engineered. Full-funnel architecture for real estate outcomes."
-        canonical="https://propertyedge.com/performance"
+        canonical="https://propertyedge.com/funnelengineering"
       />
 
       <Header />
@@ -166,7 +212,7 @@ export default function PerformancePage() {
               <span className="white_gradient">Every Rupee. Every Lead.</span>{' '}
               <span className="pink_gradient">Every Step - Engineered.</span>
             </h1>
-            <p className={styles.sectionSub} style={{ maxWidth: '760px', marginBottom: '32px' }}>
+            <p className={styles.sectionSub} style={{ marginBottom: '32px' }}>
               We don't run campaigns. We architect conversion pipelines — from the first impression a stranger sees to the moment they sign a booking cheque. No guesswork. No vanity metrics. No opaque reporting.
             </p>
             <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
@@ -194,6 +240,7 @@ export default function PerformancePage() {
             <div className="title_top_wrap"><span className="top_title">What We Actually Do</span></div>
             <h2 className={styles.sectionHeading}>Other agencies sell campaigns. We sell outcomes.</h2>
             <p className={styles.sectionSub}>Most agencies hand you a leads report and call it a day. We hand you a full-funnel audit - where the money entered, where it got stuck, and what it cost you at every stage of the buyer journey.</p>
+            <p className={styles.sectionSub} style={{ marginTop: '14px' }}>Real estate is not an impulse buy. A buyer journey spans 30-180 days. We engineer every touchpoint of that journey with data, not instinct, so your sales team speaks to people who are already convinced.</p>
             <div className={styles.servicesGrid}>
               {introCards.map((c) => (
                 <div key={c.title} className={styles.serviceCard}>
@@ -203,6 +250,40 @@ export default function PerformancePage() {
                   </div>
                 </div>
               ))}
+            </div>
+            <div style={{ marginTop: '20px' }}>
+              <Link href="/contact" className={styles.heroCta}>Audit My Current Campaigns</Link>
+            </div>
+          </div>
+        </section>
+
+        <section className={styles.caseSection}>
+          <div className={styles.sectionInner}>
+            <div className="title_top_wrap"><span className="top_title">The Full Funnel Architecture</span></div>
+            <h2 className={styles.sectionHeading}>Five Stages. One Accountable System.</h2>
+            <p className={styles.sectionSub}>Most budgets die between awareness and closure because no one owns the middle. We map every stage, instrument every handoff, and assign a specific strategy with a specific benchmark to each one.</p>
+            <div className={styles.servicesGrid}>
+              {funnelStages.map((stage) => (
+                <div key={stage.title} className={styles.serviceCard}>
+                  <div className={styles.serviceCardBody}>
+                    <div className={styles.cardKicker}>{stage.label}</div>
+                    <h3 className={styles.serviceCardTitle}>{stage.title}</h3>
+                    <p className={styles.serviceCardDesc}>{stage.desc}</p>
+                    <div className={styles.cardList}>
+                      {stage.tags.map((tag) => (
+                        <div key={tag} className={styles.cardListItem}>{tag}</div>
+                      ))}
+                    </div>
+                    <div className={styles.cardStat}><strong>{stage.metric}</strong> - {stage.metricLabel}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className={styles.cardStat} style={{ marginTop: '18px' }}>
+              <strong>Want to know your exact cost-per-booking potential?</strong> Share your current CPL and we will reverse-engineer the full funnel benchmark for your project size and ticket value within 72 hours.
+            </div>
+            <div style={{ marginTop: '16px' }}>
+              <Link href="/contact" className={styles.heroCta}>Calculate My Funnel Benchmarks</Link>
             </div>
           </div>
         </section>
@@ -230,12 +311,13 @@ export default function PerformancePage() {
           <div className={styles.sectionInner}>
             <div className="title_top_wrap"><span className="top_title">Platform Expertise</span></div>
             <h2 className={styles.sectionHeading}>Right platform. Right stage. Right spend.</h2>
-            <p className={styles.sectionSub}>Platform selection is strategy. We do not run everything everywhere - we allocate with precision based on where your buyer is in their journey.</p>
+            <p className={styles.sectionSub}>Platform selection is strategy. We do not run everything everywhere - we allocate with surgical precision based on where your specific buyer is in their journey.</p>
             <div className={styles.servicesGrid}>
               {platforms.map((p) => (
                 <div key={p.title} className={styles.serviceCard}>
                   <div className={styles.serviceCardBody}>
-                    <h3 className={styles.serviceCardTitle}>{p.title}</h3>
+                    <div className={styles.cardKicker}>{p.title}</div>
+                    <h3 className={styles.serviceCardTitle}>{p.subTitle}</h3>
                     <p className={styles.serviceCardDesc}>{p.desc}</p>
                     <div className={styles.cardList}>
                       {p.points.map((pt) => (
@@ -253,7 +335,21 @@ export default function PerformancePage() {
           <div className={styles.sectionInner}>
             <div className="title_top_wrap"><span className="top_title">The Full Cost Ladder</span></div>
             <h2 className={styles.sectionHeading}>Nothing hidden. Every number accounted for.</h2>
-            <p className={styles.sectionSub}>We show you the cost at every stage of your pipeline — not just CPL.</p>
+            <p className={styles.sectionSub}>We show you the cost at every stage of your pipeline - not just your CPL. The gap between Rs 350 CPL and Rs 45,000 cost-per-booking is where most budgets disappear without explanation.</p>
+            <div className={styles.servicesGrid} style={{ marginBottom: '18px' }}>
+              <div className={styles.serviceCard}>
+                <div className={styles.serviceCardBody}>
+                  <h3 className={styles.serviceCardTitle}>Why your CPL is misleading you</h3>
+                  <p className={styles.serviceCardDesc}>A Rs 200 CPL means nothing if only 8% of leads are qualified, 30% of qualified leads visit your site, and 12% of visitors close. The real cost of that booking can be Rs 87,000. We show you this math upfront.</p>
+                </div>
+              </div>
+              <div className={styles.serviceCard}>
+                <div className={styles.serviceCardBody}>
+                  <h3 className={styles.serviceCardTitle}>Benchmarks derived from Rs 760Cr+ in managed spend</h3>
+                  <p className={styles.serviceCardDesc}>The ranges below are observed benchmarks across 400+ real estate campaigns across India, segmented by city tier, ticket size, and project type.</p>
+                </div>
+              </div>
+            </div>
             <div className={styles.servicesGrid}>
               {costRungs.map((r) => (
                 <div key={r.title} className={styles.serviceCard}>
@@ -266,6 +362,9 @@ export default function PerformancePage() {
               ))}
             </div>
             <div className={styles.cardStat}>Important: These are category benchmarks across Mumbai, Pune, Bengaluru, Hyderabad, Delhi NCR, and Tier-2 markets. Actual numbers vary by ticket size, project stage, brand recognition, and city.</div>
+            <div style={{ marginTop: '16px' }}>
+              <Link href="/contact" className={styles.heroCta}>Show Me My Full Cost Ladder</Link>
+            </div>
           </div>
         </section>
 
@@ -273,7 +372,7 @@ export default function PerformancePage() {
           <div className={styles.sectionInner}>
             <div className="title_top_wrap"><span className="top_title">Reporting & Transparency</span></div>
             <h2 className={styles.sectionHeading}>Opacity is how agencies hide bad performance.</h2>
-            <p className={styles.sectionSub}>We give you access to every number, at every stage, at every frequency.</p>
+            <p className={styles.sectionSub}>We give you access to every number, at every stage, at every frequency. You never need to ask for a report because it is already in your inbox before you think to ask.</p>
             <div className={styles.servicesGrid}>
               {reporting.map((r) => (
                 <div key={r.title} className={styles.serviceCard}>
@@ -285,29 +384,8 @@ export default function PerformancePage() {
                 </div>
               ))}
             </div>
-          </div>
-        </section>
-
-        <section className={styles.brandsSection}>
-          <div className={styles.sectionInner}>
-            <div className="sec_title_wrap for_white_bg">
-              <div className="title_top_wrap"><span className="top_title">Our Clients</span></div>
-              <h2 className={`${styles.sectionHeading} title black`}>
-                <span className="black_gradient">Developers who stopped counting leads</span>{' '}
-                <span className="pink_gradient">and started counting closures.</span>
-              </h2>
-            </div>
-            <div className={styles.cityTabs}>
-              {cities.map((city) => (
-                <span key={city} className={styles.cityTab}>{city}</span>
-              ))}
-            </div>
-            <div className={styles.brandsGrid}>
-              {brandLogoNums.map((n, i) => (
-                <div key={i} className={styles.brandCard}>
-                  <img src={`https://realatte.com/images/clientslogo/Mumbai/${n}.png`} alt="" className={styles.brandLogo} width={110} height={40} loading="lazy" />
-                </div>
-              ))}
+            <div style={{ marginTop: '16px' }}>
+              <Link href="/contact" className={styles.heroCta}>See a Sample Report</Link>
             </div>
           </div>
         </section>
@@ -316,6 +394,7 @@ export default function PerformancePage() {
           <div className={styles.sectionInner}>
             <div className={styles.ctaBanner}>
               <h2 className={styles.ctaBannerTitle}>Show us your funnel. We'll show you the leak.</h2>
+              <p className={styles.sectionSub} style={{ margin: 0 }}>Bring us your current CPL, your lead-to-visit ratio, and your last 3 months of campaign data. We will return a full pipeline audit within 72 hours.</p>
               <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
                 <Link href="/contact" className={styles.heroCta}>Get My Free Funnel Audit</Link>
                 <Link href="/contact" className={styles.workTab}>Talk to a Strategist</Link>

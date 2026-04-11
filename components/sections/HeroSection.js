@@ -10,7 +10,7 @@ export default function HeroSection() {
           Real Estate Marketing That Answers To One Number. Your Bookings.
         </div>
         <h1 className={styles.h1}>
-          Where Data Turns<br />Leads Into <em>Closures.</em>
+          Sold Units Don&apos;t Come<br />From Better Ads.<br />They Come From a<br /><em>Better Engineered Funnel.</em>
         </h1>
         <p className={styles.sub}>
           Most developers are sitting on ₹30–50L in monthly ad spend with no clear answer to the one question
@@ -18,7 +18,7 @@ export default function HeroSection() {
         </p>
         <div className={styles.hbtns}>
           <Link href="/contact" className={styles.btnR}>Tear My Funnel Apart. I Want to See Where It Bleeds. →</Link>
-          <Link href="/performance" className={styles.btnG}>Show Me What Funnel Engineering Looks Like</Link>
+          <Link href="/funnelengineering" className={styles.btnG}>Show Me What Funnel Engineering Looks Like</Link>
         </div>
         <div className={styles.statsRow}>
           <div className={styles.stat}>

@@ -8,9 +8,10 @@
 
 .heroInner,
 .sectionInner {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 clamp(16px, 3vw, 48px);
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0 clamp(16px, 4vw, 64px);
 }
 
 .heroTag {
@@ -32,7 +33,7 @@
   line-height: 1.08;
   letter-spacing: -0.03em;
   margin-bottom: 22px;
-  max-width: 900px;
+  max-width: 1180px;
   color: #0a0a0a;
 }
 
@@ -115,7 +116,7 @@
 .sectionSub {
   font-size: 15px;
   color: #666;
-  max-width: 760px;
+  max-width: 1080px;
   line-height: 1.75;
   margin-bottom: 0;
 }

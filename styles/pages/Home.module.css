@@ -1,9 +1,10 @@
 /* ===== SHARED SECTION ATOMS ===== */
 
 .secInner {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 80px clamp(16px, 3vw, 48px);
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 80px clamp(16px, 4vw, 64px);
 }
 
 .kk {
@@ -42,7 +43,7 @@
 .ss {
   font-size: 13px;
   color: #666;
-  max-width: 560px;
+  max-width: 860px;
   line-height: 1.82;
   margin-bottom: 32px;
 }
@@ -91,9 +92,10 @@
 }
 
 .hashInner {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 64px clamp(16px, 3vw, 32px);
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 64px clamp(16px, 4vw, 64px);
 }
 
 .hashBlk {
@@ -130,7 +132,7 @@
   font-size: 13px;
   color: #555;
   line-height: 1.85;
-  max-width: 640px;
+  max-width: 980px;
   margin-bottom: 28px;
 }
 
@@ -418,9 +420,10 @@
 
 /* ===== Legacy shared layout (kept for existing selectors) ===== */
 .sectionInner {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 clamp(16px, 3vw, 48px);
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0 clamp(16px, 4vw, 64px);
 }
 
 /* ===== SERVICE GRID ===== */

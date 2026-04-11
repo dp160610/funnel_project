@@ -6,9 +6,10 @@
 }
 
 .inner {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 80px clamp(16px, 3vw, 48px);
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 80px clamp(16px, 4vw, 64px);
 }
 
 .kk {
@@ -47,7 +48,7 @@
 .ss {
   font-size: 13px;
   color: #666;
-  max-width: 560px;
+  max-width: 860px;
   line-height: 1.82;
   margin-bottom: 32px;
 }

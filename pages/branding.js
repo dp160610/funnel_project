@@ -210,7 +210,7 @@ export default function BrandingPage() {
               <span className="white_gradient">A Brand Isn't What You Say.</span>{' '}
               <span className="pink_gradient">It's What They Remember.</span>
             </h1>
-            <p className={styles.sectionSub} style={{ maxWidth: '760px', marginBottom: '32px' }}>
+            <p className={styles.sectionSub} style={{ marginBottom: '32px' }}>
               In real estate, the brand you build today determines the price premium you command tomorrow. We position developers and builders as the only logical choice, not just another option.
             </p>
             <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>

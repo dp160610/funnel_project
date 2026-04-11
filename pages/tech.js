@@ -4,49 +4,45 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import styles from '../styles/pages/ServicePage.module.css'
 
+const stats = [
+  { num: '100%', label: 'Attribution Tracked' },
+  { num: '48hr', label: 'CRM Setup Time' },
+  { num: '3x', label: 'Faster Lead Response' },
+  { num: 'Zero', label: 'Data Black Boxes' },
+]
+
 const services = [
   {
-    title: 'Custom Web Development',
-    desc: 'Scalable frontend & backend architecture, mobile-first development, fast SEO-optimized code, and 3rd-party integrations & API customization.',
-    img: 'https://realatte.com/images/techsolutions/slider/imggs1.jpg',
+    title: 'CRM Integration & Setup',
+    desc: 'Connect lead sources, campaigns, and sales teams into a single real-time pipeline so nothing falls through and every follow-up is triggered automatically.',
+    cta: 'Build a pipeline that closes itself →',
   },
   {
-    title: 'UI/UX Design',
-    desc: 'Research-backed wireframes, mobile-first visual systems, UX audits that remove friction, and design systems built for scale & speed.',
-    img: 'https://realatte.com/images/techsolutions/slider/imggs2.jpg',
+    title: 'Lead Management Dashboard',
+    desc: 'A single view of every lead: source, stage, quality score, last touchpoint, and follow-up status. Your team knows exactly who to call and when.',
+    cta: "Stop guessing who's hot →",
   },
   {
-    title: 'Search Engine Optimisation',
-    desc: 'Strategic keyword mapping, on-page upgrades, high-authority backlink building, and local SEO enhancements to dominate nearby searches.',
-    img: 'https://realatte.com/images/techsolutions/slider/imggs3.jpg',
+    title: 'Automated Nurture Flows',
+    desc: 'Behaviour-triggered WhatsApp, email, and SMS sequences that keep leads warm between sales calls without a single manual touchpoint.',
+    cta: 'Nurture at scale, without the headcount →',
   },
   {
-    title: 'Salesforce CRM',
-    desc: 'End-to-end CRM integration for lead-to-deal flow, smart pipelines with custom automations, and data-driven dashboards for developer insights.',
-    img: 'https://realatte.com/images/techsolutions/A.jpg',
+    title: 'Campaign Attribution Engine',
+    desc: 'Every booking traced back to originating channel, audience, creative, and keyword so you know exactly what drove revenue and where to scale.',
+    cta: 'Attribute every rupee to a result →',
   },
   {
-    title: 'Triplead Automation',
-    desc: 'AI-powered lead scoring, seamless sync across WhatsApp, SMS & email, real-time alerts for hot leads, and drip campaigns tailored by buyer intent.',
-    img: 'https://realatte.com/images/techsolutions/C.jpg',
+    title: 'Lead Scoring & Qualification',
+    desc: 'AI-assisted lead scoring surfaces highest-intent prospects in real time, so sales teams spend time on buyers who are ready, not browsers who are not.',
+    cta: 'Let data pick your next call →',
   },
   {
-    title: 'AI Voice Assistant',
-    desc: '24/7 smart voice assistant for property queries, natural conversations that convert interest into action, and seamless integration with IVR & WhatsApp.',
-    img: 'https://realatte.com/images/techsolutions/slider/imggs4.jpg',
+    title: 'Reporting & Analytics',
+    desc: 'Daily pulse, weekly breakdown, and monthly attribution in dashboards your leadership can read and marketing can act on instantly.',
+    cta: 'Know your numbers before your agency does →',
   },
 ]
-
-const sliderImages = [
-  'https://realatte.com/images/techsolutions/slider/imggs5.jpg',
-  'https://realatte.com/images/techsolutions/slider/imggs1.jpg',
-  'https://realatte.com/images/techsolutions/slider/imggs2.jpg',
-  'https://realatte.com/images/techsolutions/slider/imggs3.jpg',
-  'https://realatte.com/images/techsolutions/slider/imggs4.jpg',
-]
-
-const brandLogoNums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 18, 20, 21, 22, 26, 31, 34, 41, 43, 50, 58, 65]
-const cities = ['Mumbai', 'Pune', 'Delhi', 'Jaipur', 'Kolkata', 'Bengaluru', 'Chennai', 'Hyderabad', 'Coimbatore', 'Ahmedabad']
 
 export default function TechPage() {
   return (
@@ -65,63 +61,45 @@ export default function TechPage() {
           <div className={styles.heroInner}>
             <span className={styles.heroTag}>#SmartTechStacked</span>
             <h1 className={styles.heroTitle}>
-              <span className="white_gradient">Tech That Powers</span>{' '}
-              <span className="pink_gradient">Transactions</span>
+              <span className="white_gradient">Your Data Should Be</span><br />
+              <span className="white_gradient">Your Best Sales Tool.</span><br />
+              <span className="pink_gradient">Right Now It Isn&apos;t.</span>
             </h1>
-            <Link href="/contact" className={styles.heroCta}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="https://realatte.com/images/cta_icon.png" alt="" className={styles.ctaIcon} />
-              Let&apos;s Talk Real Estate
-            </Link>
+            <p className={styles.sectionSub} style={{ marginBottom: '28px' }}>
+              Technology that makes every campaign faster, every lead smarter, and every rupee answerable to a booking.
+            </p>
+            <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+              <Link href="/contact" className={styles.heroCta}>Audit My Tech Stack</Link>
+              <Link href="/tech" className={styles.workTab}>See What&apos;s Possible</Link>
+            </div>
           </div>
         </section>
 
-        {/* Overview */}
-        <section className={styles.overviewSection}>
+        <section className={styles.statsSection}>
           <div className={styles.sectionInner}>
-            <div className="title_top_wrap">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="https://realatte.com/images/headericon.svg" alt="" width={28} height={12} className="logo_gap" />
-              <span className="top_title">Overview</span>
-            </div>
-            <h2 className={styles.sectionHeading}>
-              <span className="white_gradient">Why Tech Matters </span>
-              <span className="pink_gradient">in Real Estate</span>
-            </h2>
-            <div className={styles.overviewGrid}>
-              <p className={styles.overviewDesc}>
-                A strong digital backbone is the difference between scattered leads and streamlined sales. Real estate isn&apos;t just about selling properties — it&apos;s about building ecosystems that nurture, convert, and retain buyers. Our tech solutions ensure that every interaction, every touchpoint, and every digital experience is optimized for performance, engagement, and growth.
-              </p>
-              <div className={styles.overviewImageGrid}>
-                {sliderImages.slice(0, 4).map((src, i) => (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img key={i} src={src} alt="" className={styles.overviewImg} loading="lazy" />
-                ))}
-              </div>
+            <div className={styles.statsRow}>
+              {stats.map((s) => (
+                <div key={s.label} className={styles.statItem}>
+                  <div className={styles.statNum}>{s.num}</div>
+                  <div className={styles.statLabel}>{s.label}</div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* Services */}
         <section className={styles.servicesSection}>
           <div className={styles.sectionInner}>
-            <div className="title_top_wrap">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="https://realatte.com/images/headericon.svg" alt="" width={28} height={12} className="logo_gap" />
-              <span className="top_title">Services</span>
-            </div>
-            <h2 className={styles.sectionHeading}>
-              <span className="white_gradient">Tech Solutions </span>
-              <span className="pink_gradient">We Offer</span>
-            </h2>
+            <div className="title_top_wrap"><span className="top_title">What We Build</span></div>
+            <h2 className={styles.sectionHeading}>Technology That Turns Your Pipeline From a Spreadsheet Into a System.</h2>
             <div className={styles.servicesGrid}>
               {services.map((s, i) => (
                 <div key={i} className={styles.serviceCard}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={s.img} alt={s.title} className={styles.serviceImg} loading="lazy" />
                   <div className={styles.serviceCardBody}>
+                    <div className={styles.cardKicker}>{String(i + 1).padStart(2, '0')}</div>
                     <h3 className={styles.serviceCardTitle}>{s.title}</h3>
                     <p className={styles.serviceCardDesc}>{s.desc}</p>
+                    <div className={styles.cardStat}>{s.cta}</div>
                   </div>
                 </div>
               ))}
@@ -129,32 +107,17 @@ export default function TechPage() {
           </div>
         </section>
 
-        {/* Brands */}
-        <section className={styles.brandsSection}>
+        <section style={{ background: '#fff', padding: '60px 0' }}>
           <div className={styles.sectionInner}>
-            <div className="sec_title_wrap for_white_bg">
-              <div className="title_top_wrap">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="https://realatte.com/images/headericon.svg" alt="" width={28} height={12} className="logo_gap" />
-                <span className="top_title">Our Clients</span>
+            <div className={styles.ctaBanner}>
+              <h2 className={styles.ctaBannerTitle}>Your Next Project Should Run on Data. Not Instinct.</h2>
+              <p className={styles.sectionSub} style={{ margin: 0 }}>
+                Tell us your current setup. We&apos;ll map the gaps, build the integrations, and have your pipeline running on full attribution within 48 hours.
+              </p>
+              <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+                <Link href="/contact" className={styles.heroCta}>Audit My Tech Stack - Free</Link>
+                <Link href="/contact" className={styles.workTab}>Talk to a Tech Strategist</Link>
               </div>
-              <h2 className={`${styles.sectionHeading} title black`}>
-                <span className="black_gradient">Hear from Those </span>
-                <span className="pink_gradient">Who Know Us Best</span>
-              </h2>
-            </div>
-            <div className={styles.cityTabs}>
-              {cities.map((city) => (
-                <span key={city} className={styles.cityTab}>{city}</span>
-              ))}
-            </div>
-            <div className={styles.brandsGrid}>
-              {brandLogoNums.map((n, i) => (
-                <div key={i} className={styles.brandCard}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={`https://realatte.com/images/clientslogo/Mumbai/${n}.png`} alt="" className={styles.brandLogo} width={110} height={40} loading="lazy" />
-                </div>
-              ))}
             </div>
           </div>
         </section>
