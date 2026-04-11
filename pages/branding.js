@@ -147,6 +147,42 @@ const differentiators = [
   },
 ]
 
+const portfolioTabs = ['All Work', 'Brand Identities', 'Ad Films', 'Mainline Ads', 'Social Creatives', 'OOH & Print']
+
+const portfolioItems = [
+  'Brand Identity Case 01',
+  'Ad Film Campaign 01',
+  'OOH Creative Series 01',
+  'Brand Identity Case 02',
+  'Social Creative Series 01',
+  'Mainline Ad Campaign 01',
+  'Brand Identity Case 03',
+  'Ad Film Campaign 02',
+]
+
+const industries = [
+  {
+    title: 'Affordable Housing',
+    desc: 'Rs25L to Rs60L. First-home buyers. Aspiration-led branding that makes the purchase feel like a life milestone.',
+  },
+  {
+    title: 'Mid-Segment Residential',
+    desc: 'Rs60L to Rs1.5Cr. Lifestyle upgraders. Branding that signals quality, community, and a step-up in living standards.',
+  },
+  {
+    title: 'Premium & Luxury',
+    desc: 'Rs1.5Cr to Rs5Cr. Discerning buyers. Positioning built on exclusivity, craft, and the emotional prestige of the address.',
+  },
+  {
+    title: 'Ultra Luxury & HNI',
+    desc: 'Rs5Cr+. Investment-grade buyers. Brand storytelling that justifies pricing through heritage, scarcity, and lifestyle elevation.',
+  },
+  {
+    title: 'Commercial & Plots',
+    desc: 'Office, retail, plotted development. ROI-led brand narratives that speak to investors and owner-occupiers differently.',
+  },
+]
+
 const brandLogoNums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 18, 20, 21, 22, 26, 31, 34, 41, 43, 50, 58, 65]
 const cities = ['Mumbai', 'Pune', 'Delhi NCR', 'Bengaluru', 'Hyderabad', 'Chennai', 'Ahmedabad', 'Jaipur', 'Kolkata', 'Coimbatore']
 
@@ -279,6 +315,51 @@ export default function BrandingPage() {
                   <div className={styles.serviceCardBody}>
                     <h3 className={styles.serviceCardTitle}>{d.title}</h3>
                     <p className={styles.serviceCardDesc}>{d.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className={styles.overviewSection}>
+          <div className={styles.sectionInner}>
+            <div className="title_top_wrap"><span className="top_title">Our Branding Work</span></div>
+            <h2 className={styles.sectionHeading}>Logos, Ad Films & Mainline Creatives</h2>
+            <p className={styles.sectionSub}>From new developer identities to complete project rebrands — across 300+ brands, 18+ cities, and every ticket size from affordable housing to ultra-luxury.</p>
+            <div className={styles.workTabs}>
+              {portfolioTabs.map((tab, i) => (
+                <button key={tab} className={`${styles.workTab} ${i === 0 ? styles.activeTab : ''}`} type="button">
+                  {tab}
+                </button>
+              ))}
+            </div>
+            <div className={styles.workGrid}>
+              {portfolioItems.map((item) => (
+                <div key={item} className={styles.workCard}>
+                  <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#555', fontSize: '11px', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase', textAlign: 'center', padding: '12px', background: '#fff' }}>
+                    {item}
+                  </div>
+                  <div className={styles.workOverlay}>
+                    <span className={styles.workPlay}>View Project</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className={styles.caseSection}>
+          <div className={styles.sectionInner}>
+            <div className="title_top_wrap"><span className="top_title">Segments We Brand</span></div>
+            <h2 className={styles.sectionHeading}>Every segment. Every ticket size.</h2>
+            <p className={styles.sectionSub}>Our brand thinking adapts to the psychological and aspirational context of each buyer segment — from first-home affordable to ultra-luxury.</p>
+            <div className={styles.servicesGrid}>
+              {industries.map((item) => (
+                <div key={item.title} className={styles.serviceCard}>
+                  <div className={styles.serviceCardBody}>
+                    <h3 className={styles.serviceCardTitle}>{item.title}</h3>
+                    <p className={styles.serviceCardDesc}>{item.desc}</p>
                   </div>
                 </div>
               ))}
