@@ -22,13 +22,12 @@ export default function Header() {
           <ul className="nav-links">
             <li><Link href="/branding" className="nav-link">Branding</Link></li>
             <li><Link href="/influence" className="nav-link">Influence</Link></li>
-            <li><Link href="/performance" className="nav-link">Performance</Link></li>
+            <li><Link href="/performance" className="nav-link">Funnel Engineering</Link></li>
             <li><Link href="/tech" className="nav-link">RealTech</Link></li>
             <li><Link href="/gifting" className="nav-link">Gifting</Link></li>
             <li><Link href="/about" className="nav-link">About Us</Link></li>
           </ul>
         </nav>
-        <Link href="/contact" className="header-cta">Let&apos;s Talk</Link>
 
         {/* Hamburger — visible only on mobile */}
         <button
@@ -47,11 +46,10 @@ export default function Header() {
           <ul>
             <li><Link href="/branding" className="nav-link">Branding</Link></li>
             <li><Link href="/influence" className="nav-link">Influence</Link></li>
-            <li><Link href="/performance" className="nav-link">Performance</Link></li>
+            <li><Link href="/performance" className="nav-link">Funnel Engineering</Link></li>
             <li><Link href="/tech" className="nav-link">RealTech</Link></li>
             <li><Link href="/gifting" className="nav-link">Gifting</Link></li>
             <li><Link href="/about" className="nav-link">About Us</Link></li>
-            <li><Link href="/contact" className="nav-link mobile-cta">Let&apos;s Talk</Link></li>
           </ul>
         </div>
       )}
