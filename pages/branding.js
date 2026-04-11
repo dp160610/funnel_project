@@ -11,160 +11,160 @@ const stats = [
   { num: '12x', label: 'Avg Brand Recall Lift' },
 ]
 
-const reasons = [
+const whyCards = [
   {
     title: 'Your brand is your first price negotiation',
-    desc: 'A strong brand can command price premiums over comparable unbranded inventory in the same micro-market. Branding is a pricing strategy, not a decorative exercise.',
+    desc: "A strong brand commands price premiums of 8-22% over comparable unbranded inventory in the same micro-market. Branding is not a cost - it is your highest-leverage pricing strategy.",
   },
   {
     title: 'Brand equity shortens your sales cycle',
-    desc: 'Buyers who already trust your brand arrive at the site office warmer, less defensive, and faster to close than cold prospects.',
+    desc: 'Buyers who already trust your brand arrive at the site office pre-sold. They ask fewer objections, spend less time in due diligence, and close 40% faster than cold prospects.',
   },
   {
-    title: 'A remembered brand costs less to market',
-    desc: 'Every rupee invested in brand equity today lowers future acquisition cost. Recognition reduces the effort required from paid media tomorrow.',
+    title: "A brand that's remembered costs less to market",
+    desc: 'Every rupee you invest in brand equity today lowers your future cost of acquisition. Recognised brands require 30-50% less paid media spend to generate the same volume of qualified leads.',
   },
   {
-    title: 'Your next project should inherit trust',
-    desc: 'Developers with strong brand systems do not start from zero on every launch. Each project compounds the value of the previous one.',
+    title: "Your second project sells itself on your first one's reputation",
+    desc: 'Developers who build brand equity do not start from zero on every launch. Each project compounds the value of the last. We build brands that scale across your entire portfolio — not just the current project.',
   },
   {
-    title: 'Without brand, you compete on price',
-    desc: 'Price-led competition is a race to the bottom. Strategic positioning is the only sustainable way to escape it.',
-  },
-]
-
-const services = [
-  {
-    title: 'Brand Launch & Strategic Repositioning',
-    desc: 'For new developers entering the market and established ones outgrowing their current identity. We define category, differentiator, and voice before taking it to market.',
-    img: 'https://realatte.com/images/branding/logos/1.jpg',
-  },
-  {
-    title: 'Social Media Brand Management',
-    desc: 'Your social presence becomes a trust-building instrument with consistent visual identity, content cadence, and community handling that supports conversion.',
-    img: 'https://realatte.com/images/branding/logos/3.jpg',
-  },
-  {
-    title: 'Strategic Copywriting & Brand Voice',
-    desc: 'Taglines, narratives, brochure copy, landing page messaging, and ad scripts designed to make the right buyer feel the project was built for them.',
-    img: 'https://realatte.com/images/branding/logos/5.jpg',
-  },
-  {
-    title: 'Visual Identity & Graphic Design System',
-    desc: 'Logo, typography, colour system, imagery rules, and collateral built as one coherent identity across digital, print, and on-ground touchpoints.',
-    img: 'https://realatte.com/images/branding/logos/7.jpg',
-  },
-  {
-    title: 'Ad Films, Reels & Motion Brand Content',
-    desc: 'Brand films, walkthroughs, testimonials, Instagram reels, and motion assets that build desire before a buyer ever visits the site.',
-    img: 'https://realatte.com/images/branding/logos/9.jpg',
-  },
-  {
-    title: 'Print, OOH & Mainline Advertising',
-    desc: 'Site hoardings, brochures, jackets, and direct mailers designed to dominate the physical market where your buyers actually live and commute.',
-    img: 'https://realatte.com/images/branding/mainline/1.jpg',
+    title: "Without brand, you're competing on price. Always.",
+    desc: 'Price competition is a race to the bottom. The only sustainable escape from it is a brand so well-positioned that the comparison becomes irrelevant. We build that escape route.',
   },
 ]
 
 const process = [
   {
     title: 'Brand Discovery & Market Audit',
-    desc: 'We map your competitive set, identify white space in the buyer mind, and audit what your current brand communicates versus what it should.',
+    desc: 'We map your competitive set, identify the white space in your buyer mind, and audit what your current brand communicates vs. what it should. This is where the strategy is born — not in a mood board, but in a market analysis.',
   },
   {
     title: 'Positioning & Identity Architecture',
-    desc: 'We define your positioning statement, buyer archetype, emotional territory, and the one feeling your brand must create.',
+    desc: 'We define your brand positioning statement, buyer archetype, emotional territory, and the single most important thing your brand must make people feel. Every creative decision that follows is anchored to this document.',
   },
   {
     title: 'Visual Identity & Brand System',
-    desc: 'Logo, typography, colour palette, imagery style, and collateral rules built as a system instead of a pile of disconnected assets.',
+    desc: 'Logo, typography, colour palette, imagery style, iconography — built as a cohesive system, not a collection of assets. Every element is designed to communicate your positioning without saying a word.',
   },
   {
     title: 'Brand Rollout & Market Activation',
-    desc: 'We launch the brand across digital, OOH, collateral, and sales touchpoints in one coordinated go-to-market rollout.',
+    desc: 'We take the brand live across digital touchpoints, OOH, sales centres, collateral, and performance campaigns in one coordinated market launch.',
+  },
+]
+
+const services = [
+  {
+    title: 'Brand Launch & Strategic Repositioning',
+    desc: 'For new developers entering the market and established ones who have outgrown their current identity. We define your category, your differentiator, and your brand voice — then bring it to life with an identity system built to own mindshare in your specific micro-market.',
+    img: 'https://realatte.com/images/branding/logos/1.jpg',
+  },
+  {
+    title: 'Social Media Brand Management',
+    desc: 'Your social presence is your trust storefront. We manage it as a brand system with strategic cadence, visual consistency, and community handling that supports conversion.',
+    img: 'https://realatte.com/images/branding/logos/3.jpg',
+  },
+  {
+    title: 'Strategic Copywriting & Brand Voice',
+    desc: 'Taglines, narratives, project messaging, and ad scripts that make the right buyer feel the project was built for them.',
+    img: 'https://realatte.com/images/branding/logos/5.jpg',
+  },
+  {
+    title: 'Visual Identity & Graphic Design System',
+    desc: 'Logo, brand guidelines, typography, color architecture, collateral, site hoardings, and sales kit design as one coherent visual system.',
+    img: 'https://realatte.com/images/branding/logos/7.jpg',
+  },
+  {
+    title: 'Ad Films, Reels & Motion Brand Content',
+    desc: 'Brand films, walkthroughs, testimonials, and short-form content that create desire before the site visit.',
+    img: 'https://realatte.com/images/branding/logos/9.jpg',
+  },
+  {
+    title: 'Print, OOH & Mainline Advertising',
+    desc: 'Site hoardings, brochures, jackets, and direct mailers that dominate the physical market where your buyer lives and commutes.',
+    img: 'https://realatte.com/images/branding/mainline/1.jpg',
   },
 ]
 
 const positioning = [
-  'Buyer Archetype Definition',
-  'Competitive White Space Mapping',
-  'Emotional Brand Territory',
-  'Brand Promise & Proof Architecture',
-  'Voice, Tone & Message Hierarchy',
-  'Portfolio Brand Architecture',
+  {
+    title: 'Buyer Archetype Definition',
+    desc: 'We build a precise profile of your ideal buyer - not demographics, but psychographics. What they aspire to. What they are afraid of. What makes them sign.',
+  },
+  {
+    title: 'Competitive White Space Mapping',
+    desc: "We audit every competitor brand in your category and identify the specific positioning territory they have left unoccupied - then plant your flag in it.",
+  },
+  {
+    title: 'Emotional Brand Territory',
+    desc: 'Logic drives shortlisting. Emotion drives booking. We define the precise emotional feeling your brand must create and build every expression around it.',
+  },
+  {
+    title: 'Brand Promise & Proof Architecture',
+    desc: 'Your promise paired with credibility architecture - proof points, testimonials, and trust signals - that makes the promise believable.',
+  },
+  {
+    title: 'Voice, Tone & Message Hierarchy',
+    desc: 'We document exactly how your brand speaks so every communication reinforces the same positioning.',
+  },
+  {
+    title: 'Portfolio Brand Architecture',
+    desc: 'For multi-project developers, we create a hierarchy where each project has distinct identity while compounding master brand equity.',
+  },
 ]
 
 const differentiators = [
   {
-    title: 'Real estate only',
-    desc: 'We build brands around the psychology, decision cycle, and category realities of property buyers, not generic FMCG logic.',
+    title: 'Strategy Before Aesthetics',
+    desc: 'We write your brand strategy before we open a design tool, so every visual decision has a strategic reason behind it.',
   },
   {
-    title: 'Strategy before aesthetics',
-    desc: 'We write the positioning logic before opening a design tool, so every visual choice has a strategic reason behind it.',
+    title: 'End-to-End Execution',
+    desc: 'Strategy, design, copy, video, print, and digital under one roof with one positioning document and one execution rhythm.',
   },
   {
-    title: 'End-to-end execution',
-    desc: 'Strategy, copy, design, film, print, and digital activation stay under one roof and one positioning document.',
+    title: 'Performance-Connected Branding',
+    desc: 'Brand assets are built to perform in paid media from day one, not just look good in a presentation.',
   },
-  {
-    title: 'Performance-connected branding',
-    desc: 'Brand assets are created to perform inside paid media, not just to look good in a presentation.',
-  },
-]
-
-const workImages = [
-  'https://realatte.com/images/branding/logos/1.jpg',
-  'https://realatte.com/images/branding/logos/2.jpg',
-  'https://realatte.com/images/branding/logos/3.jpg',
-  'https://realatte.com/images/branding/logos/4.jpg',
-  'https://realatte.com/images/branding/logos/5.jpg',
-  'https://realatte.com/images/branding/logos/6.jpg',
-  'https://realatte.com/images/branding/mainline/1.jpg',
-  'https://realatte.com/images/branding/mainline/2.jpg',
-  'https://realatte.com/images/branding/mainline/3.jpg',
 ]
 
 const brandLogoNums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 18, 20, 21, 22, 26, 31, 34, 41, 43, 50, 58, 65]
-const cities = ['Mumbai', 'Pune', 'Delhi', 'Jaipur', 'Kolkata', 'Bengaluru', 'Chennai', 'Hyderabad', 'Coimbatore', 'Ahmedabad']
+const cities = ['Mumbai', 'Pune', 'Delhi NCR', 'Bengaluru', 'Hyderabad', 'Chennai', 'Ahmedabad', 'Jaipur', 'Kolkata', 'Coimbatore']
 
 export default function BrandingPage() {
   return (
     <>
       <NextSeo
         title="Branding - Property Edge"
-        description="A brand is not what you say. It is what buyers remember. Strategic real estate branding built to command premium, trust, and faster sales velocity."
+        description="Brand strategy and identity engineered for real estate trust, premium perception, and faster closure timelines."
         canonical="https://propertyedge.com/branding"
       />
 
       <Header />
 
       <main>
-        {/* Hero */}
         <section className={styles.hero}>
           <div className={styles.heroInner}>
-            <span className={styles.heroTag}>#BrandStrategyAndIdentity</span>
+            <span className={styles.heroTag}>Brand Strategy & Identity</span>
             <h1 className={styles.heroTitle}>
-              <span className="white_gradient">A Brand Isn&apos;t What You Say.</span>{' '}
-              <span className="pink_gradient">It&apos;s What They Remember.</span>
+              <span className="white_gradient">A Brand Isn't What You Say.</span>{' '}
+              <span className="pink_gradient">It's What They Remember.</span>
             </h1>
             <p className={styles.sectionSub} style={{ maxWidth: '760px', marginBottom: '32px' }}>
-              In real estate, the brand you build today determines the price premium you command tomorrow. We position developers and builders as the only logical choice in the minds of their buyers.
+              In real estate, the brand you build today determines the price premium you command tomorrow. We position developers and builders as the only logical choice, not just another option.
             </p>
-            <Link href="/contact" className={styles.heroCta}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="https://realatte.com/images/cta_icon.png" alt="" className={styles.ctaIcon} />
-              Position My Brand to Lead the Market
-            </Link>
+            <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+              <Link href="/contact" className={styles.heroCta}>Position My Brand to Lead the Market</Link>
+              <Link href="/portfolio" className={styles.workTab}>See Our Branding Work</Link>
+            </div>
           </div>
         </section>
 
         <section className={styles.statsSection}>
           <div className={styles.sectionInner}>
             <div className={styles.statsRow}>
-              {stats.map((s, i) => (
-                <div key={i} className={styles.statItem}>
+              {stats.map((s) => (
+                <div key={s.label} className={styles.statItem}>
                   <div className={styles.statNum}>{s.num}</div>
                   <div className={styles.statLabel}>{s.label}</div>
                 </div>
@@ -173,77 +173,50 @@ export default function BrandingPage() {
           </div>
         </section>
 
-        {/* Overview */}
         <section className={styles.overviewSection}>
           <div className={styles.sectionInner}>
-            <div className="title_top_wrap">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="https://realatte.com/images/headericon.svg" alt="" width={28} height={12} className="logo_gap" />
-              <span className="top_title">Why Branding Is Non-Negotiable</span>
-            </div>
-            <h2 className={styles.sectionHeading}>
-              <span className="white_gradient">Buyers don&apos;t buy property. </span>
-              <span className="pink_gradient">They buy belief.</span>
-            </h2>
-            <p className={styles.sectionSub}>
-              In a market where two projects can be 500 metres apart at the same price point, the stronger brand wins. Without deliberate positioning, you leave pricing power, buyer quality, and booking velocity entirely to chance.
-            </p>
-            <div className={styles.servicesGrid} style={{ marginTop: '40px' }}>
-              {reasons.map((item) => (
-                <div key={item.title} className={styles.serviceCard}>
-                  <div className={styles.serviceCardBody}>
-                    <div className={styles.cardKicker}>Brand Advantage</div>
-                    <h3 className={styles.serviceCardTitle}>{item.title}</h3>
-                    <p className={styles.serviceCardDesc}>{item.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div className={styles.cardStat}>73% of home buyers shortlist on brand trust alone before a site visit</div>
-          </div>
-        </section>
-
-        <section className={styles.caseSection}>
-          <div className={styles.sectionInner}>
-            <div className="title_top_wrap">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="https://realatte.com/images/headericon.svg" alt="" width={28} height={12} className="logo_gap" />
-              <span className="top_title">Our Branding Process</span>
-            </div>
-            <h2 className={styles.sectionHeading}>
-              <span className="white_gradient">Brand-building isn&apos;t creative. </span>
-              <span className="pink_gradient">It&apos;s strategic.</span>
-            </h2>
+            <div className="title_top_wrap"><span className="top_title">Why Branding is Non-Negotiable</span></div>
+            <h2 className={styles.sectionHeading}>Buyers do not buy property. They buy belief.</h2>
+            <p className={styles.sectionSub}>Without deliberate brand positioning, you are leaving pricing power, buyer quality, and booking velocity to chance.</p>
             <div className={styles.servicesGrid}>
-              {process.map((item, index) => (
+              {whyCards.map((item) => (
                 <div key={item.title} className={styles.serviceCard}>
                   <div className={styles.serviceCardBody}>
-                    <div className={styles.cardKicker}>Stage {String(index + 1).padStart(2, '0')}</div>
                     <h3 className={styles.serviceCardTitle}>{item.title}</h3>
                     <p className={styles.serviceCardDesc}>{item.desc}</p>
                   </div>
                 </div>
               ))}
             </div>
+            <div className={styles.cardStat}>73% of home buyers shortlist on brand trust alone before visiting a site.</div>
           </div>
         </section>
 
-        {/* Services */}
         <section className={styles.servicesSection}>
           <div className={styles.sectionInner}>
-            <div className="title_top_wrap">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="https://realatte.com/images/headericon.svg" alt="" width={28} height={12} className="logo_gap" />
-              <span className="top_title">Branding Solutions We Offer</span>
-            </div>
-            <h2 className={styles.sectionHeading}>
-              <span className="white_gradient">Six disciplines. </span>
-              <span className="pink_gradient">One cohesive brand story.</span>
-            </h2>
+            <div className="title_top_wrap"><span className="top_title">Our Branding Process</span></div>
+            <h2 className={styles.sectionHeading}>Brand-building is not creative. It is strategic.</h2>
             <div className={styles.servicesGrid}>
-              {services.map((s, i) => (
-                <div key={i} className={styles.serviceCard}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
+              {process.map((p, i) => (
+                <div key={p.title} className={styles.serviceCard}>
+                  <div className={styles.serviceCardBody}>
+                    <div className={styles.cardKicker}>Stage {String(i + 1).padStart(2, '0')}</div>
+                    <h3 className={styles.serviceCardTitle}>{p.title}</h3>
+                    <p className={styles.serviceCardDesc}>{p.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className={styles.overviewSection}>
+          <div className={styles.sectionInner}>
+            <div className="title_top_wrap"><span className="top_title">Branding Solutions We Offer</span></div>
+            <h2 className={styles.sectionHeading}>Six disciplines. One cohesive brand story.</h2>
+            <div className={styles.servicesGrid}>
+              {services.map((s) => (
+                <div key={s.title} className={styles.serviceCard}>
                   <img src={s.img} alt={s.title} className={styles.serviceImg} loading="lazy" />
                   <div className={styles.serviceCardBody}>
                     <h3 className={styles.serviceCardTitle}>{s.title}</h3>
@@ -255,48 +228,17 @@ export default function BrandingPage() {
           </div>
         </section>
 
-        <section className={styles.overviewSection}>
-          <div className={styles.sectionInner}>
-            <div className="title_top_wrap">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="https://realatte.com/images/headericon.svg" alt="" width={28} height={12} className="logo_gap" />
-              <span className="top_title">Brand Positioning Framework</span>
-            </div>
-            <h2 className={styles.sectionHeading}>
-              <span className="white_gradient">We don&apos;t design brands. </span>
-              <span className="pink_gradient">We engineer buyer perception.</span>
-            </h2>
-            <div className={styles.servicesGrid}>
-              {positioning.map((item, index) => (
-                <div key={item} className={styles.serviceCard}>
-                  <div className={styles.serviceCardBody}>
-                    <div className={styles.cardKicker}>Layer {String(index + 1).padStart(2, '0')}</div>
-                    <h3 className={styles.serviceCardTitle}>{item}</h3>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         <section className={styles.caseSection}>
           <div className={styles.sectionInner}>
-            <div className="title_top_wrap">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="https://realatte.com/images/headericon.svg" alt="" width={28} height={12} className="logo_gap" />
-              <span className="top_title">Why Property Edge For Branding</span>
-            </div>
-            <h2 className={styles.sectionHeading}>
-              <span className="white_gradient">Every agency says they&apos;re different. </span>
-              <span className="pink_gradient">Here&apos;s our proof.</span>
-            </h2>
+            <div className="title_top_wrap"><span className="top_title">Brand Positioning Framework</span></div>
+            <h2 className={styles.sectionHeading}>We do not design brands. We engineer buyer perception.</h2>
             <div className={styles.servicesGrid}>
-              {differentiators.map((item) => (
-                <div key={item.title} className={styles.serviceCard}>
+              {positioning.map((p, i) => (
+                <div key={p.title} className={styles.serviceCard}>
                   <div className={styles.serviceCardBody}>
-                    <div className={styles.cardKicker}>Differentiator</div>
-                    <h3 className={styles.serviceCardTitle}>{item.title}</h3>
-                    <p className={styles.serviceCardDesc}>{item.desc}</p>
+                    <div className={styles.cardKicker}>0{i + 1}</div>
+                    <h3 className={styles.serviceCardTitle}>{p.title}</h3>
+                    <p className={styles.serviceCardDesc}>{p.desc}</p>
                   </div>
                 </div>
               ))}
@@ -304,25 +246,20 @@ export default function BrandingPage() {
           </div>
         </section>
 
-        {/* Our Work */}
-        <section className={styles.workSection}>
+        <section className={styles.servicesSection}>
           <div className={styles.sectionInner}>
-            <div className="title_top_wrap">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="https://realatte.com/images/headericon.svg" alt="" width={28} height={12} className="logo_gap" />
-              <span className="top_title">Our Branding Work</span>
+            <div className="title_top_wrap"><span className="top_title">Why Property Edge for Branding</span></div>
+            <h2 className={styles.sectionHeading}>Every agency says they are different. Here is proof.</h2>
+            <div className={styles.ctaBanner}>
+              <h3 className={styles.serviceCardTitle}>We only do real estate. Which means we only do what works in real estate.</h3>
+              <p className={styles.serviceCardDesc}>Generic agencies bring FMCG logic into property and wonder why it fails. We build positioning for real estate psychology, sales cycles, and category dynamics.</p>
             </div>
-            <h2 className={styles.sectionHeading}>
-              <span className="white_gradient">Logos, Ad Films </span>
-              <span className="pink_gradient">& Mainline Creatives</span>
-            </h2>
-            <div className={styles.workGrid}>
-              {workImages.map((src, i) => (
-                <div key={i} className={styles.workCard}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={src} alt="" className={styles.workImg} loading="lazy" />
-                  <div className={styles.workOverlay}>
-                    <span className={styles.workPlay}>&#9654; View</span>
+            <div className={styles.servicesGrid}>
+              {differentiators.map((d) => (
+                <div key={d.title} className={styles.serviceCard}>
+                  <div className={styles.serviceCardBody}>
+                    <h3 className={styles.serviceCardTitle}>{d.title}</h3>
+                    <p className={styles.serviceCardDesc}>{d.desc}</p>
                   </div>
                 </div>
               ))}
@@ -330,18 +267,13 @@ export default function BrandingPage() {
           </div>
         </section>
 
-        {/* Brands */}
         <section className={styles.brandsSection}>
           <div className={styles.sectionInner}>
             <div className="sec_title_wrap for_white_bg">
-              <div className="title_top_wrap">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="https://realatte.com/images/headericon.svg" alt="" width={28} height={12} className="logo_gap" />
-                <span className="top_title">Our Clients</span>
-              </div>
+              <div className="title_top_wrap"><span className="top_title">Our Clients</span></div>
               <h2 className={`${styles.sectionHeading} title black`}>
-                <span className="black_gradient">Hear from Those </span>
-                <span className="pink_gradient">Who Know Us Best</span>
+                <span className="black_gradient">Developers who turned their brand into</span>{' '}
+                <span className="pink_gradient">their best sales asset.</span>
               </h2>
             </div>
             <div className={styles.cityTabs}>
@@ -352,10 +284,21 @@ export default function BrandingPage() {
             <div className={styles.brandsGrid}>
               {brandLogoNums.map((n, i) => (
                 <div key={i} className={styles.brandCard}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={`https://realatte.com/images/clientslogo/Mumbai/${n}.png`} alt="" className={styles.brandLogo} width={110} height={40} loading="lazy" />
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        <section style={{ background: '#fff', padding: '60px 0' }}>
+          <div className={styles.sectionInner}>
+            <div className={styles.ctaBanner}>
+              <h2 className={styles.ctaBannerTitle}>Your next project deserves a brand that precedes it.</h2>
+              <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+                <Link href="/contact" className={styles.heroCta}>Start My Brand Strategy Session</Link>
+                <Link href="/about" className={styles.workTab}>See Our Process First</Link>
+              </div>
             </div>
           </div>
         </section>
