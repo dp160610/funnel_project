@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Kolkata City</title>
+  <desc id="desc">Stylized city background for Kolkata</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1f1c2c"/>
+      <stop offset="100%" stop-color="#928dab"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <path d="M80 760h145V550h56v210h110V470h64v290h130V510h52v250h150V420h76v340h120V560h58v200h168V620h66v140H80z" fill="#24182f"/>
+  <rect y="760" width="1600" height="240" fill="#180f21" opacity="0.7"/>
+  <text x="96" y="160" fill="#ffffff" font-family="Segoe UI, Arial, sans-serif" font-size="92" font-weight="700" letter-spacing="4">KOLKATA</text>
+</svg>

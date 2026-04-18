@@ -41,7 +41,7 @@
 
 /* ── Hero Banner ───────────────────────────────────────────── */
 .heroBanner {
-  background: #fff;
+  background: linear-gradient(180deg, #fff 0%, #fbfbfb 100%);
   min-height: 65vh;
   display: flex;
   align-items: center;
@@ -51,6 +51,10 @@
   position: relative;
   overflow: hidden;
   border-bottom: 1px solid #e5e5e5;
+}
+
+.heroBanner::before {
+  content: none;
 }
 
 .heroContent {
@@ -72,6 +76,8 @@
   color: #C8102E;
   letter-spacing: 0.08em;
   margin-bottom: clamp(16px, 1.5vw, 24px);
+  box-shadow: 0 14px 28px rgba(200,16,46,0.08);
+  font-family: var(--font-sora, 'Sora', sans-serif);
 }
 
 .heroTitle {
@@ -97,6 +103,7 @@
   color: #666;
   max-width: 920px;
   margin: 0 auto clamp(28px, 3vw, 44px);
+  font-family: var(--font-poppins, 'Poppins', sans-serif);
 }
 
 /* Hero CTA — primary_cta3 style */
@@ -110,11 +117,14 @@
   padding: 12px 24px;
   text-decoration: none;
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition: background 0.2s ease, transform 0.18s ease, box-shadow 0.18s ease;
+  box-shadow: 0 18px 34px rgba(200,16,46,0.18);
 }
 
 .heroCta:hover {
   background: #9B0015;
+  transform: translateY(-2px);
+  box-shadow: 0 24px 42px rgba(200,16,46,0.24);
 }
 
 .heroCtaInner {
@@ -147,6 +157,66 @@
   border-bottom: 1px solid #e5e5e5;
 }
 
+.signalStrip {
+  background: linear-gradient(90deg, #9B0015 0%, #C8102E 50%, #9B0015 100%);
+  overflow: hidden;
+  padding: 12px 0;
+  position: relative;
+}
+
+.signalStrip::before,
+.signalStrip::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 72px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.signalStrip::before {
+  left: 0;
+  background: linear-gradient(90deg, #9B0015, rgba(155,0,21,0));
+}
+
+.signalStrip::after {
+  right: 0;
+  background: linear-gradient(270deg, #9B0015, rgba(155,0,21,0));
+}
+
+.signalTrack {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: aboutSignal 24s linear infinite;
+}
+
+.signalStrip:hover .signalTrack {
+  animation-play-state: paused;
+}
+
+.signalItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 20px;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  font-family: var(--font-sora, 'Sora', sans-serif);
+}
+
+.signalDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.82);
+}
+
 .overviewTitle {
   font-family: var(--font-sora, Sora, serif);
   font-size: clamp(28px, 3.5vw, 56px);
@@ -175,6 +245,17 @@
 
 .counterBox {
   text-align: center;
+  border: 1px solid rgba(200,16,46,0.1);
+  background: #fff;
+  box-shadow: 0 18px 30px rgba(0,0,0,0.04);
+  padding: 24px 18px;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.counterBox:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 38px rgba(0,0,0,0.08);
+  border-color: rgba(200,16,46,0.24);
 }
 
 .counterNum {
@@ -194,11 +275,12 @@
 
 /* What Drives Us */
 .drivesWrap {
-  border: 1px solid #e5e5e5;
-  background: #fff;
+  border: 1px solid rgba(200,16,46,0.1);
+  background: linear-gradient(180deg, #fff 0%, #fcfcfc 100%);
   backdrop-filter: blur(8px);
   border-radius: 0;
   padding: clamp(24px, 3vw, 48px);
+  box-shadow: 0 24px 42px rgba(0,0,0,0.05);
 }
 
 .drivesTitle {
@@ -227,6 +309,7 @@
 
 .driveCard:hover {
   background: #fafafa;
+  transform: translateY(-3px);
 }
 
 .driveCard:hover .driveLabel,
@@ -300,6 +383,7 @@
   padding: clamp(70px, 7vw, 110px) clamp(20px, 2vw, 30px) clamp(20px, 2vw, 30px);
   position: relative;
   transition: all 0.3s ease;
+  box-shadow: 0 18px 30px rgba(0,0,0,0.04);
 }
 
 .processCard:hover {
@@ -359,8 +443,8 @@
 }
 
 .directorCard:hover {
-  box-shadow: 0 0 24px 0 rgba(121, 80, 255, 0.3);
-  transform: translateY(-3px);
+  box-shadow: 0 24px 42px rgba(0,0,0,0.1);
+  transform: translateY(-6px);
 }
 
 .directorImgWrap {
@@ -455,11 +539,14 @@
   background: #fff;
   border: 1px solid #e5e5e5;
   border-radius: 0;
-  transition: border-color 0.2s ease;
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 16px 28px rgba(0,0,0,0.04);
 }
 
 .teamCard:hover {
   border-color: #C8102E;
+  transform: translateY(-5px);
+  box-shadow: 0 22px 34px rgba(0,0,0,0.08);
 }
 
 .teamAvatar {
@@ -474,6 +561,17 @@
   font-size: clamp(18px, 1.4vw, 26px);
   font-weight: 700;
   color: #fff;
+  box-shadow: 0 14px 24px rgba(200,16,46,0.18);
+}
+
+@keyframes aboutFloat {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, 18px, 0); }
+}
+
+@keyframes aboutSignal {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 .teamName {

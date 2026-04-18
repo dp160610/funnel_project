@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Bengaluru Tech City</title>
+  <desc id="desc">Stylized city background for Bengaluru</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f2027"/>
+      <stop offset="50%" stop-color="#203a43"/>
+      <stop offset="100%" stop-color="#2c5364"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <path d="M80 760h150V510h56v250h120V450h64v310h150V500h58v260h144V390h76v370h120V560h54v200h170V610h64v150H80z" fill="#091820"/>
+  <rect y="760" width="1600" height="240" fill="#041118" opacity="0.72"/>
+  <text x="96" y="160" fill="#ffffff" font-family="Segoe UI, Arial, sans-serif" font-size="88" font-weight="700" letter-spacing="4">BENGALURU</text>
+</svg>

@@ -2,6 +2,8 @@ import Link from 'next/link'
 import { NextSeo } from 'next-seo'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import Reveal from '../components/common/Reveal'
+import CountUp from '../components/common/CountUp'
 import styles from '../styles/pages/ServicePage.module.css'
 
 const stats = [
@@ -147,19 +149,6 @@ const differentiators = [
   },
 ]
 
-const portfolioTabs = ['All Work', 'Brand Identities', 'Ad Films', 'Mainline Ads', 'Social Creatives', 'OOH & Print']
-
-const portfolioItems = [
-  'Brand Identity Case 01',
-  'Ad Film Campaign 01',
-  'OOH Creative Series 01',
-  'Brand Identity Case 02',
-  'Social Creative Series 01',
-  'Mainline Ad Campaign 01',
-  'Brand Identity Case 03',
-  'Ad Film Campaign 02',
-]
-
 const industries = [
   {
     icon: '🏠',
@@ -188,8 +177,37 @@ const industries = [
   },
 ]
 
-const cities = ['Mumbai', 'Pune', 'Delhi NCR', 'Bengaluru', 'Hyderabad', 'Chennai', 'Ahmedabad', 'Jaipur', 'Kolkata', 'Coimbatore']
-const clientPlaceholders = Array.from({ length: 15 }, (_, i) => `CLIENT ${i + 1}`)
+const brandingSignals = [
+  'Positioning Strategy',
+  'Identity Systems',
+  'Brand Films',
+  'OOH & Mainline',
+  'Luxury Narratives',
+  'Sales Kit Design',
+  'Launch Campaigns',
+  'Portfolio Architecture',
+]
+const brandingMedia = [
+  {
+    type: 'video',
+    src: 'https://backend.realatte.com/uploads/Blu_Diamonds_Brand_Video_1_1_b47513009c.mp4',
+    poster: 'https://backend.realatte.com/uploads/Blu_Diamonds_Brand_Video_1_1_1d52d9ae25.png',
+    label: 'Brand Film',
+    title: 'Identity-led storytelling built for premium recall',
+  },
+  {
+    type: 'image',
+    src: 'https://backend.realatte.com/uploads/Bhavisha_Ad_Film_with_Logo_1_6e3014933e.png',
+    label: 'Campaign Visual',
+    title: 'Launch creative systems that feel market-defining',
+  },
+  {
+    type: 'image',
+    src: 'https://backend.realatte.com/uploads/Dosti_Sales_Video_1_1_ce02681275.png',
+    label: 'Brand Asset',
+    title: 'Messaging and design that sharpen buyer memory',
+  },
+]
 
 export default function BrandingPage() {
   return (
@@ -205,29 +223,41 @@ export default function BrandingPage() {
       <main>
         <section className={styles.hero}>
           <div className={styles.heroInner}>
-            <span className={styles.heroTag}>Brand Strategy & Identity</span>
-            <h1 className={styles.heroTitle}>
+            <Reveal as="span" className={styles.heroTag}>Brand Strategy & Identity</Reveal>
+            <Reveal as="h1" className={styles.heroTitle} delay={70}>
               <span className="white_gradient">A Brand Isn't What You Say.</span>{' '}
               <span className="pink_gradient">It's What They Remember.</span>
-            </h1>
-            <p className={styles.sectionSub} style={{ marginBottom: '32px' }}>
+            </Reveal>
+            <Reveal as="p" className={styles.sectionSub} delay={190} style={{ marginBottom: '32px' }}>
               In real estate, the brand you build today determines the price premium you command tomorrow. We position developers and builders as the only logical choice, not just another option.
-            </p>
-            <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+            </Reveal>
+            <Reveal delay={330} style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
               <Link href="/contact" className={styles.heroCta}>Position My Brand to Lead the Market</Link>
-              <Link href="/portfolio" className={styles.workTab}>See Our Branding Work</Link>
-            </div>
+            </Reveal>
           </div>
         </section>
+
+        <section className={styles.signalStrip}>
+          <div className={styles.signalTrack}>
+            {[...brandingSignals, ...brandingSignals].map((item, index) => (
+              <span key={`${item}-${index}`} className={styles.signalItem}>
+                <span className={styles.signalDot} />
+                {item}
+              </span>
+            ))}
+          </div>
+        </section>
+
+
 
         <section className={styles.statsSection}>
           <div className={styles.sectionInner}>
             <div className={styles.statsRow}>
-              {stats.map((s) => (
-                <div key={s.label} className={styles.statItem}>
-                  <div className={styles.statNum}>{s.num}</div>
+              {stats.map((s, index) => (
+                <Reveal key={s.label} className={styles.statItem} delay={160 + index * 100}>
+                  <CountUp value={s.num} className={styles.statNum} />
                   <div className={styles.statLabel}>{s.label}</div>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -239,13 +269,13 @@ export default function BrandingPage() {
             <h2 className={styles.sectionHeading}>Buyers do not buy property. They buy belief.</h2>
             <p className={styles.sectionSub}>Without deliberate brand positioning, you are leaving pricing power, buyer quality, and booking velocity to chance.</p>
             <div className={styles.servicesGrid}>
-              {whyCards.map((item) => (
-                <div key={item.title} className={styles.serviceCard}>
+              {whyCards.map((item, index) => (
+                <Reveal key={item.title} className={styles.serviceCard} delay={180 + index * 90}>
                   <div className={styles.serviceCardBody}>
                     <h3 className={styles.serviceCardTitle}>{item.title}</h3>
                     <p className={styles.serviceCardDesc}>{item.desc}</p>
                   </div>
-                </div>
+                </Reveal>
               ))}
             </div>
             <div className={styles.cardStat}>73% of home buyers shortlist on brand trust alone before visiting a site.</div>
@@ -258,13 +288,13 @@ export default function BrandingPage() {
             <h2 className={styles.sectionHeading}>Brand-building is not creative. It is strategic.</h2>
             <div className={styles.servicesGrid}>
               {process.map((p, i) => (
-                <div key={p.title} className={styles.serviceCard}>
+                <Reveal key={p.title} className={styles.serviceCard} delay={180 + i * 90}>
                   <div className={styles.serviceCardBody}>
                     <div className={styles.cardKicker}>Stage {String(i + 1).padStart(2, '0')}</div>
                     <h3 className={styles.serviceCardTitle}>{p.title}</h3>
                     <p className={styles.serviceCardDesc}>{p.desc}</p>
                   </div>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -275,14 +305,14 @@ export default function BrandingPage() {
             <div className="title_top_wrap"><span className="top_title">Branding Solutions We Offer</span></div>
             <h2 className={styles.sectionHeading}>Six disciplines. One cohesive brand story.</h2>
             <div className={styles.servicesGrid}>
-              {services.map((s) => (
-                <div key={s.title} className={styles.serviceCard}>
+              {services.map((s, index) => (
+                <Reveal key={s.title} className={styles.serviceCard} delay={180 + index * 90}>
                   <div className={styles.serviceCardBody}>
                     <div className={styles.serviceIconBox}>{renderBrandingIcon(s.icon)}</div>
                     <h3 className={styles.serviceCardTitle}>{s.title}</h3>
                     <p className={styles.serviceCardDesc}>{s.desc}</p>
                   </div>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -294,13 +324,13 @@ export default function BrandingPage() {
             <h2 className={styles.sectionHeading}>We do not design brands. We engineer buyer perception.</h2>
             <div className={styles.servicesGrid}>
               {positioning.map((p, i) => (
-                <div key={p.title} className={styles.serviceCard}>
+                <Reveal key={p.title} className={styles.serviceCard} delay={180 + i * 90}>
                   <div className={styles.serviceCardBody}>
                     <div className={styles.cardKicker}>0{i + 1}</div>
                     <h3 className={styles.serviceCardTitle}>{p.title}</h3>
                     <p className={styles.serviceCardDesc}>{p.desc}</p>
                   </div>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -315,40 +345,13 @@ export default function BrandingPage() {
               <p className={styles.serviceCardDesc}>Generic agencies bring FMCG logic into property and wonder why it fails. We build positioning for real estate psychology, sales cycles, and category dynamics.</p>
             </div>
             <div className={styles.servicesGrid}>
-              {differentiators.map((d) => (
-                <div key={d.title} className={styles.serviceCard}>
+              {differentiators.map((d, index) => (
+                <Reveal key={d.title} className={styles.serviceCard} delay={180 + index * 90}>
                   <div className={styles.serviceCardBody}>
                     <h3 className={styles.serviceCardTitle}>{d.title}</h3>
                     <p className={styles.serviceCardDesc}>{d.desc}</p>
                   </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className={styles.overviewSection}>
-          <div className={styles.sectionInner}>
-            <div className="title_top_wrap"><span className="top_title">Our Branding Work</span></div>
-            <h2 className={styles.sectionHeading}>Logos, Ad Films & Mainline Creatives</h2>
-            <p className={styles.sectionSub}>From new developer identities to complete project rebrands — across 300+ brands, 18+ cities, and every ticket size from affordable housing to ultra-luxury.</p>
-            <div className={styles.workTabs}>
-              {portfolioTabs.map((tab, i) => (
-                <button key={tab} className={`${styles.workTab} ${i === 0 ? styles.activeTab : ''}`} type="button">
-                  {tab}
-                </button>
-              ))}
-            </div>
-            <div className={styles.workGrid}>
-              {portfolioItems.map((item) => (
-                <div key={item} className={styles.workCard}>
-                  <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#555', fontSize: '11px', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase', textAlign: 'center', padding: '12px', background: '#fff' }}>
-                    {item}
-                  </div>
-                  <div className={styles.workOverlay}>
-                    <span className={styles.workPlay}>View Project</span>
-                  </div>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -360,38 +363,14 @@ export default function BrandingPage() {
             <h2 className={styles.sectionHeading}>Every segment. Every ticket size.</h2>
             <p className={styles.sectionSub}>Our brand thinking adapts to the psychological and aspirational context of each buyer segment — from first-home affordable to ultra-luxury.</p>
             <div className={styles.servicesGrid}>
-              {industries.map((item) => (
-                <div key={item.title} className={styles.serviceCard}>
+              {industries.map((item, index) => (
+                <Reveal key={item.title} className={styles.serviceCard} delay={180 + index * 90}>
                   <div className={styles.serviceCardBody}>
                     <div style={{ fontSize: '28px', marginBottom: '10px', lineHeight: 1 }}>{item.icon}</div>
                     <h3 className={styles.serviceCardTitle}>{item.title}</h3>
                     <p className={styles.serviceCardDesc}>{item.desc}</p>
                   </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className={styles.brandsSection}>
-          <div className={styles.sectionInner}>
-            <div className="sec_title_wrap for_white_bg">
-              <div className="title_top_wrap"><span className="top_title">Our Clients</span></div>
-              <h2 className={`${styles.sectionHeading} title black`}>
-                <span className="black_gradient">Developers who turned their brand into</span>{' '}
-                <span className="pink_gradient">their best sales asset.</span>
-              </h2>
-            </div>
-            <div className={styles.cityTabs}>
-              {cities.map((city) => (
-                <span key={city} className={styles.cityTab}>{city}</span>
-              ))}
-            </div>
-            <div className={styles.brandsGrid}>
-              {clientPlaceholders.map((label, i) => (
-                <div key={i} className={styles.brandCard}>
-                  <span style={{ fontSize: '9px', fontWeight: 700, color: '#333', letterSpacing: '1px' }}>{label}</span>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>

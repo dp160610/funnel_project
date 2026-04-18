@@ -2,6 +2,8 @@
 import { NextSeo } from 'next-seo'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import Reveal from '../components/common/Reveal'
+import CountUp from '../components/common/CountUp'
 import {
   HeroSection,
   BuiltForImpactSection,
@@ -39,8 +41,17 @@ const truths = [
   },
 ]
 
-const cities = ['Mumbai', 'Pune', 'Delhi NCR', 'Bengaluru', 'Hyderabad', 'Chennai', 'Jaipur', 'Kolkata']
-const clientLogos = ['Lodha', 'Godrej', 'Rustomjee', 'Runwal', 'Piramal', 'Oberoi', 'Mahindra', 'Kalpataru', 'Hiranandani', 'Dosti', 'Ashvin Sheth', 'Esbee']
+const cities = [
+  { name: 'Mumbai', image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Panoramic_view_of_Taj_Palace_Hotel_and_Taj_Tower_with_the_iconic_Gateway_of_India_in_the_background_%28cropped%29.jpg' },
+  { name: 'Pune', image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Shaniwar_Wada_during_sunset.jpg' },
+  { name: 'Delhi NCR', image: 'https://commons.wikimedia.org/wiki/Special:FilePath/India_Gate_from_Rajpath.jpg' },
+  { name: 'Bengaluru', image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Lighting_of_Vidhana_Soudha.jpg' },
+  { name: 'Hyderabad', image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Charminar_-_May_2023.jpg' },
+  { name: 'Chennai', image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Marina-Beach-Light-House-Chennai.jpg' },
+  { name: 'Jaipur', image: 'https://commons.wikimedia.org/wiki/Special:FilePath/East_facade_Hawa_Mahal_Jaipur_from_ground_level_%28July_2022%29_-_img_03.jpg' },
+  { name: 'Kolkata', image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Howrah_Bridge_02.jpg' },
+  { name: 'Ahmedabad', image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Panoramic_view_of_Sabarmati_Riverfront_June_2015%2C_Ahmedabad.jpg' },
+]
 
 const tickerItems = ['Funnel Engineering', 'Branding', 'Influence', 'RealTech', 'Performance Media', 'Lead Nurture', 'Site Visit Campaigns', 'Booking Attribution', 'OOH & Mainline', 'Video Production', 'Creator Marketing', 'CRM & Automation']
 
@@ -80,7 +91,7 @@ export default function Home() {
         {/* 3. Boardroom silence hash section */}
         <section className={styles.hashSection}>
           <div className={styles.hashInner}>
-            <div className={styles.hashBlk}>
+            <Reveal className={styles.hashBlk} distance="42px">
               <div className={styles.hashTag}>#TheAgencyThatStopsAtBookings</div>
               <h2 className={styles.hashH}>
                 Your Campaigns Are Live.<br />
@@ -93,7 +104,7 @@ export default function Home() {
                 That silence in the room - when your MD asks which campaign produced which booking and nobody has a clean answer - is not a data problem. It is a funnel problem. It means every stage of your buyer&apos;s journey is running disconnected, unmeasured, and unaccountable. We fix the structure. We engineer the stages. We close the loop. And we make sure the next time that question gets asked in a boardroom, the answer is sitting in a dashboard - sharp, sourced, and indisputable.
               </p>
               <Link href="/contact" className={styles.hashCta}>End the Boardroom Silence. Build My Funnel. →</Link>
-            </div>
+            </Reveal>
           </div>
         </section>
 
@@ -103,24 +114,26 @@ export default function Home() {
         {/* 5. The Uncomfortable Truth */}
         <section className={styles.truthSection}>
           <div className={styles.secInner}>
-            <div className={styles.kk}>The Uncomfortable Truth</div>
-            <h2 className={styles.sh}>
+            <Reveal as="div" className={styles.kk}>The Uncomfortable Truth</Reveal>
+            <Reveal as="h2" className={styles.sh} delay={80}>
               Your Funnel Isn&apos;t Leaking<br />
               Because the Market Is Hard.<br />
               <em>It&apos;s Leaking Because Nobody Built It.</em>
-            </h2>
-            <p className={styles.ss}>
+            </Reveal>
+            <Reveal as="p" className={styles.ss} delay={160}>
               Most real estate marketing isn&apos;t engineered — it&apos;s assembled. Here&apos;s what&apos;s actually happening in your acquisition pipeline right now.
-            </p>
+            </Reveal>
             <div className={styles.truthGrid}>
-              {truths.map((t) => (
-                <div key={t.num} className={styles.truthItem}>
+              {truths.map((t, index) => (
+                <Reveal key={t.num} className={styles.truthItemWrap} delay={220 + (index * 70)}>
+                  <div className={styles.truthItem}>
                   <div className={styles.truthN}>{t.num}</div>
                   <div className={styles.truthH}>{t.heading}</div>
                   <p className={styles.truthP}>{t.body}</p>
                   <div className={styles.truthItalic}>{t.italic}</div>
                   <div className={styles.truthNum}>{t.stat}</div>
-                </div>
+                  </div>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -129,28 +142,30 @@ export default function Home() {
         {/* 6. Trusted By */}
         <section className={styles.trustedSection}>
           <div className={styles.secInner}>
-            <div className={styles.kk}>Trusted By</div>
-            <h2 className={styles.sh}>
-              Developers Across 18 Cities<br />
+            <Reveal as="div" className={styles.kk}>Trusted By</Reveal>
+            <Reveal as="h2" className={styles.sh} delay={80}>
+              Developers Across 9 Cities<br />
               <em>Who Stopped Counting Leads.</em>
-            </h2>
-            <div className={styles.cityRow}>
-              {cities.map((c) => (
-                <span key={c} className={styles.cityTab}>{c}</span>
+            </Reveal>
+            <Reveal className={styles.cityGallery} delay={140}>
+              {cities.map((c, index) => (
+                <article key={c.name} className={styles.cityCard} style={{ '--city-delay': `${index * 90}ms` }}>
+                  <div className={styles.cityMedia}>
+                    <img src={c.image} alt={c.name} className={styles.cityImage} loading="lazy" />
+                    <div className={styles.cityShade} aria-hidden="true" />
+                    <span className={styles.cityPulse} aria-hidden="true" />
+                  </div>
+                  <div className={styles.cityName}>{c.name}</div>
+                </article>
               ))}
-            </div>
-            <div className={styles.clientLogos}>
-              {clientLogos.map((logo) => (
-                <div key={logo} className={styles.clientLogo}>{logo}</div>
-              ))}
-            </div>
+            </Reveal>
           </div>
         </section>
 
         {/* 7. CTA Block */}
         <section className={styles.ctaSection}>
           <div className={styles.secInner}>
-            <div className={styles.ctaBlk}>
+            <Reveal className={styles.ctaBlk} distance="38px">
               <div className={styles.ctaLeft}>
                 <div className={styles.ctaKk}>#IfItDoesntCloseItDoesntCount</div>
                 <div className={styles.ctaBig}>Property Edge</div>
@@ -174,11 +189,11 @@ export default function Home() {
                 </p>
               </div>
               <div className={styles.ctaBadge}>
-                <div className={styles.ctaBadgeN}>72hr</div>
+                <CountUp value="72hr" className={styles.ctaBadgeN} />
                 <div className={styles.ctaBadgeL}>Funnel audit<br />turnaround</div>
                 <div className={styles.ctaBadgeD}>No cost. No lock-in.</div>
               </div>
-            </div>
+            </Reveal>
           </div>
         </section>
       </main>
@@ -187,4 +202,3 @@ export default function Home() {
     </>
   )
 }
-

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Jaipur Heritage City</title>
+  <desc id="desc">Stylized city background for Jaipur</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#614385"/>
+      <stop offset="100%" stop-color="#516395"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <path d="M110 760h128V560h50v200h120V500h64v260h132V520h48v240h142V430h76v330h110V590h58v170h176V620h58v140H110z" fill="#352145"/>
+  <rect y="760" width="1600" height="240" fill="#2a1838" opacity="0.64"/>
+  <text x="96" y="160" fill="#ffffff" font-family="Segoe UI, Arial, sans-serif" font-size="96" font-weight="700" letter-spacing="4">JAIPUR</text>
+</svg>

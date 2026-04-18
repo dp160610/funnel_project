@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Pune Cityscape</title>
+  <desc id="desc">Stylized city background for Pune</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#243b55"/>
+      <stop offset="100%" stop-color="#141e30"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <circle cx="1320" cy="180" r="78" fill="#fff" opacity="0.2"/>
+  <path d="M90 760h130V540h60v220h120V470h70v290h160V510h48v250h130V430h74v330h130V570h55v190h180V620h60v140H90z" fill="#0c1526"/>
+  <rect y="760" width="1600" height="240" fill="#08101c" opacity="0.7"/>
+  <text x="96" y="160" fill="#ffffff" font-family="Segoe UI, Arial, sans-serif" font-size="96" font-weight="700" letter-spacing="4">PUNE</text>
+</svg>

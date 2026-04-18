@@ -4,26 +4,44 @@
   justify-content: center;
   padding: 12px 28px;
   border: 1px solid transparent;
-  border-radius: 6px;
+  border-radius: 8px;
   font-size: 15px;
   font-weight: 600;
   text-decoration: none;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   text-align: center;
   white-space: nowrap;
   font-family: inherit;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 100%);
+  opacity: 0;
+  transition: opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .primary {
-  background-color: #ff6b35;
+  background: linear-gradient(135deg, #ff6b35 0%, #ff5722 100%);
   color: #fff;
   border-color: #ff6b35;
 }
 
 .primary:hover {
-  background-color: #e55d27;
+  background: linear-gradient(135deg, #e55d27 0%, #d84315 100%);
   border-color: #e55d27;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 107, 53, 0.25);
+}
+
+.primary:hover::before {
+  opacity: 1;
 }
 
 .secondary {
@@ -34,17 +52,21 @@
 
 .secondary:hover {
   border-color: #fff;
-  background-color: rgba(255,255,255,0.05);
+  background-color: rgba(255,255,255,0.08);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255,255,255,0.12);
 }
 
 .tertiary {
-  background-color: #1a1a1a;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
   color: #fff;
   border-color: #2e2e2e;
 }
 
 .tertiary:hover {
-  background-color: #222;
+  background: linear-gradient(135deg, #222 0%, #333 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
 @media (max-width: 768px) {

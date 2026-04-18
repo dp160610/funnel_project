@@ -2,14 +2,8 @@ import Link from 'next/link'
 import { NextSeo } from 'next-seo'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import Reveal from '../components/common/Reveal'
 import styles from '../styles/pages/ServicePage.module.css'
-
-const stats = [
-  { num: '₹760Cr+', label: 'Ad Spend Managed' },
-  { num: '86L+', label: 'Leads Delivered' },
-  { num: '415Cr+', label: 'Qualified Revenue Tracked' },
-  { num: '25%', label: 'Avg CPL Reduction' },
-]
 
 const introCards = [
   {
@@ -52,7 +46,7 @@ const funnelStages = [
     title: 'Intent Scoring & Filtering',
     desc: 'Not every lead is a buyer. We deploy behavioural scoring models, CRM integrations, and intelligent drip sequences to surface only sales-ready prospects to your team.',
     tags: ['Lead Scoring', 'CRM Integration', 'Drip Sequences', 'Suppression Logic'],
-    metric: 'Rs 500-1,400',
+    metric: 'Rs 500-2,500',
     metricLabel: 'Qualified Lead',
   },
   {
@@ -60,7 +54,7 @@ const funnelStages = [
     title: 'Site Visit Conversion',
     desc: 'Getting a qualified prospect from screen to sales floor. Retargeting, WhatsApp automation, personalised offer overlays, and geo-fencing around your site office.',
     tags: ['Dynamic Retargeting', 'WhatsApp Automation', 'Geo-Fencing', 'Offer Engineering'],
-    metric: 'Rs 1,300-3,500',
+    metric: 'Rs 6,000',
     metricLabel: 'Cost Per Visit',
   },
   {
@@ -153,12 +147,12 @@ const costRungs = [
   {
     title: 'Qualified Lead (Scored & Verified)',
     desc: 'A buyer within budget range, relevant geography, and an active purchase timeline. Phone-verified and intent-scored. This is where your sales team\'s time should start.',
-    stat: '₹500–1,400 / Qualified Lead',
+    stat: '₹500–2,500 / Qualified Lead',
   },
   {
     title: 'Cost Per Site Visit',
     desc: 'The moment a qualified prospect physically arrives at your site office or model flat. The most expensive and most valuable conversion event before the booking.',
-    stat: '₹1,300–3,500 / Per Site Visit',
+    stat: '₹6,000 / Per Site Visit',
   },
   {
     title: 'Media Planning Retainer',
@@ -190,8 +184,38 @@ const reporting = [
   },
 ]
 
-const brandLogoNums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 18, 20, 21, 22, 26, 31, 34, 41, 43, 50, 58, 65]
-const cities = ['Mumbai', 'Pune', 'Delhi NCR', 'Bengaluru', 'Hyderabad', 'Chennai', 'Ahmedabad', 'Jaipur', 'Kolkata', 'Coimbatore']
+const funnelSignals = [
+  'Demand Generation',
+  'Lead Capture',
+  'Scoring Logic',
+  'CRM Sync',
+  'Visit Conversion',
+  'Booking Attribution',
+  'Cost Ladder',
+  'Revenue Analytics',
+]
+const funnelMedia = [
+  {
+    type: 'video',
+    src: 'https://backend.realatte.com/uploads/videobanner2_603c643007.mp4',
+    poster: 'https://realatte.com/images/videobg.png',
+    label: 'Funnel Film',
+    title: 'A system-wide growth story with motion and commercial clarity',
+  },
+  {
+    type: 'video',
+    src: 'https://backend.realatte.com/uploads/top_funnel_b6cbf4d0e3.mp4',
+    poster: 'https://realatte.com/images/thumb1.jpg',
+    label: 'Top Funnel',
+    title: 'Awareness media designed to create intent before search begins',
+  },
+  {
+    type: 'image',
+    src: 'https://backend.realatte.com/uploads/BLU_Banner_Video_1_1_b8532e3fdc.png',
+    label: 'Performance Creative',
+    title: 'Ad systems built to scale from click to booking',
+  },
+]
 
 export default function FunnelEngineeringPage() {
   return (
@@ -207,31 +231,29 @@ export default function FunnelEngineeringPage() {
       <main>
         <section className={styles.hero}>
           <div className={styles.heroInner}>
-            <span className={styles.heroTag}>Performance Marketing</span>
-            <h1 className={styles.heroTitle}>
+            <Reveal as="span" className={styles.heroTag}>Performance Marketing</Reveal>
+            <Reveal as="h1" className={styles.heroTitle} delay={70}>
               <span className="white_gradient">Every Rupee. Every Lead.</span>{' '}
               <span className="pink_gradient">Every Step - Engineered.</span>
-            </h1>
-            <p className={styles.sectionSub} style={{ marginBottom: '32px' }}>
+            </Reveal>
+            <Reveal as="p" className={styles.sectionSub} delay={190} style={{ marginBottom: '32px' }}>
               We don't run campaigns. We architect conversion pipelines — from the first impression a stranger sees to the moment they sign a booking cheque. No guesswork. No vanity metrics. No opaque reporting.
-            </p>
-            <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+            </Reveal>
+            <Reveal delay={330} style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
               <Link href="/contact" className={styles.heroCta}>Show Me Where My Budget Leaks</Link>
               <Link href="/" className={styles.workTab}>See Full Pipeline</Link>
-            </div>
+            </Reveal>
           </div>
         </section>
 
-        <section className={styles.statsSection}>
-          <div className={styles.sectionInner}>
-            <div className={styles.statsRow}>
-              {stats.map((s) => (
-                <div key={s.label} className={styles.statItem}>
-                  <div className={styles.statNum}>{s.num}</div>
-                  <div className={styles.statLabel}>{s.label}</div>
-                </div>
-              ))}
-            </div>
+        <section className={styles.signalStrip}>
+          <div className={styles.signalTrack}>
+            {[...funnelSignals, ...funnelSignals].map((item, index) => (
+              <span key={`${item}-${index}`} className={styles.signalItem}>
+                <span className={styles.signalDot} />
+                {item}
+              </span>
+            ))}
           </div>
         </section>
 
@@ -242,13 +264,13 @@ export default function FunnelEngineeringPage() {
             <p className={styles.sectionSub}>Most agencies hand you a leads report and call it a day. We hand you a full-funnel audit - where the money entered, where it got stuck, and what it cost you at every stage of the buyer journey.</p>
             <p className={styles.sectionSub} style={{ marginTop: '14px' }}>Real estate is not an impulse buy. A buyer journey spans 30-180 days. We engineer every touchpoint of that journey with data, not instinct, so your sales team speaks to people who are already convinced.</p>
             <div className={styles.servicesGrid}>
-              {introCards.map((c) => (
-                <div key={c.title} className={styles.serviceCard}>
+              {introCards.map((c, index) => (
+                <Reveal key={c.title} className={styles.serviceCard} delay={180 + index * 90}>
                   <div className={styles.serviceCardBody}>
                     <h3 className={styles.serviceCardTitle}>{c.title}</h3>
                     <p className={styles.serviceCardDesc}>{c.desc}</p>
                   </div>
-                </div>
+                </Reveal>
               ))}
             </div>
             <div style={{ marginTop: '20px' }}>
@@ -263,8 +285,8 @@ export default function FunnelEngineeringPage() {
             <h2 className={styles.sectionHeading}>Five Stages. One Accountable System.</h2>
             <p className={styles.sectionSub}>Most budgets die between awareness and closure because no one owns the middle. We map every stage, instrument every handoff, and assign a specific strategy with a specific benchmark to each one.</p>
             <div className={styles.servicesGrid}>
-              {funnelStages.map((stage) => (
-                <div key={stage.title} className={styles.serviceCard}>
+              {funnelStages.map((stage, index) => (
+                <Reveal key={stage.title} className={styles.serviceCard} delay={180 + index * 90}>
                   <div className={styles.serviceCardBody}>
                     <div className={styles.cardKicker}>{stage.label}</div>
                     <h3 className={styles.serviceCardTitle}>{stage.title}</h3>
@@ -276,7 +298,7 @@ export default function FunnelEngineeringPage() {
                     </div>
                     <div className={styles.cardStat}><strong>{stage.metric}</strong> - {stage.metricLabel}</div>
                   </div>
-                </div>
+                </Reveal>
               ))}
             </div>
             <div className={styles.cardStat} style={{ marginTop: '18px' }}>
@@ -294,14 +316,14 @@ export default function FunnelEngineeringPage() {
             <h2 className={styles.sectionHeading}>Built to move one thing: your cost-per-booking.</h2>
             <p className={styles.sectionSub}>Six specialised disciplines. One unified strategy. Every service connects directly to a stage of your pipeline — and a number on your P&L.</p>
             <div className={styles.servicesGrid}>
-              {services.map((s) => (
-                <div key={s.title} className={styles.serviceCard}>
+              {services.map((s, index) => (
+                <Reveal key={s.title} className={styles.serviceCard} delay={180 + index * 90}>
                   <img src={s.img} alt={s.title} className={styles.serviceImg} loading="lazy" />
                   <div className={styles.serviceCardBody}>
                     <h3 className={styles.serviceCardTitle}>{s.title}</h3>
                     <p className={styles.serviceCardDesc}>{s.desc}</p>
                   </div>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -313,8 +335,8 @@ export default function FunnelEngineeringPage() {
             <h2 className={styles.sectionHeading}>Right platform. Right stage. Right spend.</h2>
             <p className={styles.sectionSub}>Platform selection is strategy. We do not run everything everywhere - we allocate with surgical precision based on where your specific buyer is in their journey.</p>
             <div className={styles.servicesGrid}>
-              {platforms.map((p) => (
-                <div key={p.title} className={styles.serviceCard}>
+              {platforms.map((p, index) => (
+                <Reveal key={p.title} className={styles.serviceCard} delay={180 + index * 90}>
                   <div className={styles.serviceCardBody}>
                     <div className={styles.cardKicker}>{p.title}</div>
                     <h3 className={styles.serviceCardTitle}>{p.subTitle}</h3>
@@ -325,7 +347,7 @@ export default function FunnelEngineeringPage() {
                       ))}
                     </div>
                   </div>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -337,28 +359,28 @@ export default function FunnelEngineeringPage() {
             <h2 className={styles.sectionHeading}>Nothing hidden. Every number accounted for.</h2>
             <p className={styles.sectionSub}>We show you the cost at every stage of your pipeline - not just your CPL. The gap between Rs 350 CPL and Rs 45,000 cost-per-booking is where most budgets disappear without explanation.</p>
             <div className={styles.servicesGrid} style={{ marginBottom: '18px' }}>
-              <div className={styles.serviceCard}>
+              <Reveal className={styles.serviceCard} delay={180}>
                 <div className={styles.serviceCardBody}>
                   <h3 className={styles.serviceCardTitle}>Why your CPL is misleading you</h3>
                   <p className={styles.serviceCardDesc}>A Rs 200 CPL means nothing if only 8% of leads are qualified, 30% of qualified leads visit your site, and 12% of visitors close. The real cost of that booking can be Rs 87,000. We show you this math upfront.</p>
                 </div>
-              </div>
-              <div className={styles.serviceCard}>
+              </Reveal>
+              <Reveal className={styles.serviceCard} delay={270}>
                 <div className={styles.serviceCardBody}>
                   <h3 className={styles.serviceCardTitle}>Benchmarks derived from Rs 760Cr+ in managed spend</h3>
                   <p className={styles.serviceCardDesc}>The ranges below are observed benchmarks across 400+ real estate campaigns across India, segmented by city tier, ticket size, and project type.</p>
                 </div>
-              </div>
+              </Reveal>
             </div>
             <div className={styles.servicesGrid}>
-              {costRungs.map((r) => (
-                <div key={r.title} className={styles.serviceCard}>
+              {costRungs.map((r, index) => (
+                <Reveal key={r.title} className={styles.serviceCard} delay={180 + index * 90}>
                   <div className={styles.serviceCardBody}>
                     <div className={styles.cardKicker}>{r.stat}</div>
                     <h3 className={styles.serviceCardTitle}>{r.title}</h3>
                     <p className={styles.serviceCardDesc}>{r.desc}</p>
                   </div>
-                </div>
+                </Reveal>
               ))}
             </div>
             <div className={styles.cardStat}>Important: These are category benchmarks across Mumbai, Pune, Bengaluru, Hyderabad, Delhi NCR, and Tier-2 markets. Actual numbers vary by ticket size, project stage, brand recognition, and city.</div>
@@ -374,14 +396,14 @@ export default function FunnelEngineeringPage() {
             <h2 className={styles.sectionHeading}>Opacity is how agencies hide bad performance.</h2>
             <p className={styles.sectionSub}>We give you access to every number, at every stage, at every frequency. You never need to ask for a report because it is already in your inbox before you think to ask.</p>
             <div className={styles.servicesGrid}>
-              {reporting.map((r) => (
-                <div key={r.title} className={styles.serviceCard}>
+              {reporting.map((r, index) => (
+                <Reveal key={r.title} className={styles.serviceCard} delay={180 + index * 90}>
                   <div className={styles.serviceCardBody}>
                     <div className={styles.cardKicker}>{r.stat}</div>
                     <h3 className={styles.serviceCardTitle}>{r.title}</h3>
                     <p className={styles.serviceCardDesc}>{r.desc}</p>
                   </div>
-                </div>
+                </Reveal>
               ))}
             </div>
             <div style={{ marginTop: '16px' }}>

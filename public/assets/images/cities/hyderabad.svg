@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Hyderabad City</title>
+  <desc id="desc">Stylized city background for Hyderabad</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#42275a"/>
+      <stop offset="100%" stop-color="#734b6d"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <circle cx="1240" cy="200" r="86" fill="#ffffff" opacity="0.16"/>
+  <path d="M110 760h130V550h50v210h110V470h66v290h130V520h50v240h150V430h78v330h118V560h58v200h170V620h54v140H110z" fill="#2b1a34"/>
+  <rect y="760" width="1600" height="240" fill="#1e1126" opacity="0.68"/>
+  <text x="96" y="160" fill="#ffffff" font-family="Segoe UI, Arial, sans-serif" font-size="90" font-weight="700" letter-spacing="4">HYDERABAD</text>
+</svg>

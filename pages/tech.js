@@ -2,6 +2,8 @@ import Link from 'next/link'
 import { NextSeo } from 'next-seo'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import Reveal from '../components/common/Reveal'
+import CountUp from '../components/common/CountUp'
 import styles from '../styles/pages/ServicePage.module.css'
 
 const stats = [
@@ -43,6 +45,37 @@ const services = [
     cta: 'Know your numbers before your agency does →',
   },
 ]
+const techSignals = [
+  'CRM Integration',
+  'Automation Flows',
+  'Response Speed',
+  'Lead Scoring',
+  'Dashboards',
+  'Attribution Engine',
+  'WhatsApp Journeys',
+  'Daily Reporting',
+]
+const techMedia = [
+  {
+    type: 'image',
+    src: 'https://realatte.com/images/performance/offers/Media-Planning.jpg',
+    label: 'Dashboard Layer',
+    title: 'Operational clarity that turns scattered lead data into one system',
+  },
+  {
+    type: 'image',
+    src: 'https://realatte.com/images/performance/offers/hands-holding-smartphone-social-media-concept.jpg',
+    label: 'Automation Layer',
+    title: 'Lead journeys and response workflows engineered around buyer behavior',
+  },
+  {
+    type: 'video',
+    src: 'https://backend.realatte.com/uploads/Esbee_Credai_Video_1_d427a1c2a8.mp4',
+    poster: 'https://backend.realatte.com/uploads/Esbee_Credai_Video_1_1c10ddc3fb.png',
+    label: 'Reporting Layer',
+    title: 'A richer operations experience with visible movement and control',
+  },
+]
 
 export default function TechPage() {
   return (
@@ -59,30 +92,41 @@ export default function TechPage() {
         {/* Hero */}
         <section className={styles.hero}>
           <div className={styles.heroInner}>
-            <span className={styles.heroTag}>#SmartTechStacked</span>
-            <h1 className={styles.heroTitle}>
+            <Reveal as="span" className={styles.heroTag}>#SmartTechStacked</Reveal>
+            <Reveal as="h1" className={styles.heroTitle} delay={70}>
               <span className="white_gradient">Your Data Should Be</span><br />
               <span className="white_gradient">Your Best Sales Tool.</span><br />
               <span className="pink_gradient">Right Now It Isn&apos;t.</span>
-            </h1>
-            <p className={styles.sectionSub} style={{ marginBottom: '28px' }}>
+            </Reveal>
+            <Reveal as="p" className={styles.sectionSub} delay={190} style={{ marginBottom: '28px' }}>
               Technology that makes every campaign faster, every lead smarter, and every rupee answerable to a booking.
-            </p>
-            <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+            </Reveal>
+            <Reveal delay={330} style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
               <Link href="/contact" className={styles.heroCta}>Audit My Tech Stack</Link>
               <Link href="/tech" className={styles.workTab}>See What&apos;s Possible</Link>
-            </div>
+            </Reveal>
+          </div>
+        </section>
+
+        <section className={styles.signalStrip}>
+          <div className={styles.signalTrack}>
+            {[...techSignals, ...techSignals].map((item, index) => (
+              <span key={`${item}-${index}`} className={styles.signalItem}>
+                <span className={styles.signalDot} />
+                {item}
+              </span>
+            ))}
           </div>
         </section>
 
         <section className={styles.statsSection}>
           <div className={styles.sectionInner}>
             <div className={styles.statsRow}>
-              {stats.map((s) => (
-                <div key={s.label} className={styles.statItem}>
-                  <div className={styles.statNum}>{s.num}</div>
+              {stats.map((s, index) => (
+                <Reveal key={s.label} className={styles.statItem} delay={160 + index * 100}>
+                  <CountUp value={s.num} className={styles.statNum} />
                   <div className={styles.statLabel}>{s.label}</div>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -94,14 +138,14 @@ export default function TechPage() {
             <h2 className={styles.sectionHeading}>Technology That Turns Your Pipeline From a Spreadsheet Into a System.</h2>
             <div className={styles.servicesGrid}>
               {services.map((s, i) => (
-                <div key={i} className={styles.serviceCard}>
+                <Reveal key={i} className={styles.serviceCard} delay={180 + i * 90}>
                   <div className={styles.serviceCardBody}>
                     <div className={styles.cardKicker}>{String(i + 1).padStart(2, '0')}</div>
                     <h3 className={styles.serviceCardTitle}>{s.title}</h3>
                     <p className={styles.serviceCardDesc}>{s.desc}</p>
                     <div className={styles.cardStat}>{s.cta}</div>
                   </div>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>

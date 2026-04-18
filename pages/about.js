@@ -2,6 +2,8 @@ import Link from 'next/link'
 import { NextSeo } from 'next-seo'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import Reveal from '../components/common/Reveal'
+import CountUp from '../components/common/CountUp'
 import styles from '../styles/pages/About.module.css'
 
 const directors = [
@@ -65,6 +67,37 @@ const teamMembers = [
   { name: 'Rahul Mehta', role: 'Head of Branding' },
   { name: 'Neha Patel', role: 'Head of Influence & Content' }
 ]
+const aboutSignals = [
+  'Real Estate Only',
+  '120+ Developer Partners',
+  '18+ Cities',
+  'Brand + Influence + Tech',
+  'Transparent Reporting',
+  'Outcome-Led Thinking',
+  'Creative + Performance',
+  'Booking-Focused Strategy',
+]
+const aboutMedia = [
+  {
+    type: 'video',
+    src: 'https://backend.realatte.com/uploads/Sky_I_Corporate_Film_Final_1_296b9c94b8.mp4',
+    poster: 'https://backend.realatte.com/uploads/Sky_I_Corporate_Film_Final_1_aadd8493f2.png',
+    label: 'Agency Film',
+    title: 'A sharper sense of who Property Edge is and how it shows up',
+  },
+  {
+    type: 'image',
+    src: 'https://backend.realatte.com/uploads/Blu_Diamonds_Brand_Video_1_1_1d52d9ae25.png',
+    label: 'Brand Story',
+    title: 'Visual momentum that makes the team page feel more premium',
+  },
+  {
+    type: 'image',
+    src: 'https://backend.realatte.com/uploads/hiranandani_video_new_2_1_ce5772998e.png',
+    label: 'Campaign Lens',
+    title: 'Real estate depth shown through work that already feels high stakes',
+  },
+]
 
 export default function About() {
   return (
@@ -81,16 +114,17 @@ export default function About() {
         {/* ── Hero ─────────────────────────────────────────── */}
         <section className={styles.heroBanner}>
           <div className={styles.heroContent}>
-            <span className={styles.heroTag}>About Us</span>
-            <h1 className={styles.heroTitle}>
+            <Reveal as="span" className={styles.heroTag}>About Us</Reveal>
+            <Reveal as="h1" className={styles.heroTitle} delay={70}>
               We Were Built for{' '}
               <span className={styles.heroTitleLine}>One Industry.</span>
               <br />
               <span className={styles.heroPink}>This One.</span>
-            </h1>
-            <p className={styles.heroDesc}>
+            </Reveal>
+            <Reveal as="p" className={styles.heroDesc} delay={190}>
               No generalist agency playbook. No borrowed frameworks. Every insight earned in real estate, over a decade of closures.
-            </p>
+            </Reveal>
+            <Reveal delay={330}>
             <Link href="/contact" className={styles.heroCta}>
               <span className={styles.heroCtaInner}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -98,10 +132,22 @@ export default function About() {
                 <span className={styles.heroCtaTxt}>Work With Us</span>
               </span>
             </Link>
+            </Reveal>
           </div>
         </section>
 
         {/* ── Overview ─────────────────────────────────────── */}
+        <section className={styles.signalStrip}>
+          <div className={styles.signalTrack}>
+            {[...aboutSignals, ...aboutSignals].map((item, index) => (
+              <span key={`${item}-${index}`} className={styles.signalItem}>
+                <span className={styles.signalDot} />
+                {item}
+              </span>
+            ))}
+          </div>
+        </section>
+
         <section className={styles.overviewSec}>
           <div className={styles.container}>
             <div className={styles.secTitleWrap}>
@@ -127,22 +173,22 @@ export default function About() {
 
             {/* Counters */}
             <div className={styles.counterRow}>
-              <div className={styles.counterBox}>
-                <h3 className={styles.counterNum}>550+</h3>
+              <Reveal className={styles.counterBox}>
+                <CountUp value="550+" className={styles.counterNum} />
                 <p className={styles.counterLbl}>Team Members</p>
-              </div>
-              <div className={styles.counterBox}>
-                <h3 className={styles.counterNum}>120+</h3>
+              </Reveal>
+              <Reveal className={styles.counterBox} delay={160}>
+                <CountUp value="120+" className={styles.counterNum} />
                 <p className={styles.counterLbl}>Developer Partners</p>
-              </div>
-              <div className={styles.counterBox}>
-                <h3 className={styles.counterNum}>18+</h3>
+              </Reveal>
+              <Reveal className={styles.counterBox} delay={260}>
+                <CountUp value="18+" className={styles.counterNum} />
                 <p className={styles.counterLbl}>Cities</p>
-              </div>
-              <div className={styles.counterBox}>
-                <h3 className={styles.counterNum}>100%</h3>
+              </Reveal>
+              <Reveal className={styles.counterBox} delay={360}>
+                <CountUp value="100%" className={styles.counterNum} />
                 <p className={styles.counterLbl}>Real Estate Focus</p>
-              </div>
+              </Reveal>
             </div>
 
             {/* What Drives Us */}
@@ -150,14 +196,14 @@ export default function About() {
               <h3 className={styles.drivesTitle}>Three Things We Never Compromise On</h3>
               <div className={styles.drivesGrid}>
                 {drivesUs.map((item, i) => (
-                  <div key={i} className={styles.driveCard}>
+                  <Reveal key={i} className={styles.driveCard} delay={180 + i * 90}>
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={item.icon} alt={item.label} className={styles.driveIcon} onError={e => { e.currentTarget.style.display = 'none' }} />
                     <div>
                       <strong className={styles.driveLabel}>{item.label}</strong>
                       <p className={styles.driveDesc}>{item.desc}</p>
                     </div>
-                  </div>
+                  </Reveal>
                 ))}
               </div>
             </div>
@@ -178,14 +224,14 @@ export default function About() {
 
             <div className={styles.processRow}>
               {workflow.map((step, i) => (
-                <div key={i} className={styles.processCard}>
+                <Reveal key={i} className={styles.processCard} delay={180 + i * 90}>
                   <div className={styles.processIconWrap}>
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={step.icon} alt={step.title} className={styles.processIcon} onError={e => { e.currentTarget.style.display = 'none' }} />
                   </div>
-                  <h3 className={styles.processTitle}>{step.title}</h3>
+                  <CountUp value={step.title} className={styles.processTitle} />
                   <p className={styles.processDesc}>{step.desc}</p>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -205,7 +251,7 @@ export default function About() {
 
             <div className={styles.directorsGrid}>
               {directors.map((d, i) => (
-                <div key={i} className={styles.directorCard}>
+                <Reveal key={i} className={styles.directorCard} delay={180 + i * 90}>
                   <div className={styles.directorImgWrap}>
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={d.img} alt={d.name} className={styles.directorImg} />
@@ -221,7 +267,7 @@ export default function About() {
                       Profile
                     </a>
                   </div>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -244,18 +290,18 @@ export default function About() {
 
             <div className={styles.teamGrid}>
               {teamMembers.map((m, i) => (
-                <div key={i} className={styles.teamCard}>
+                <Reveal key={i} className={styles.teamCard} delay={180 + i * 90}>
                   <div className={styles.teamAvatar}>
                     <span>{m.name.charAt(0)}</span>
                   </div>
                   <h4 className={styles.teamName}>{m.name}</h4>
                   <p className={styles.teamRole}>{m.role}</p>
-                </div>
+                </Reveal>
               ))}
             </div>
             <div style={{ marginTop: '20px', display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
               <Link href="/contact" className={styles.heroCta}>Start the Conversation</Link>
-              <Link href="/branding" className={styles.heroCta}>See Our Work First</Link>
+              <Link href="/branding" className={styles.heroCta}>See Our Process First</Link>
             </div>
           </div>
         </section>

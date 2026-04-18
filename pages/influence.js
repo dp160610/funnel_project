@@ -2,6 +2,8 @@ import Link from 'next/link'
 import { NextSeo } from 'next-seo'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import Reveal from '../components/common/Reveal'
+import CountUp from '../components/common/CountUp'
 import styles from '../styles/pages/ServicePage.module.css'
 
 const stats = [
@@ -202,8 +204,38 @@ const formats = [
   },
 ]
 
-const brandLogoNums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 18, 20, 21, 22, 26, 31, 34, 41, 43, 50, 58, 65]
-const cities = ['Mumbai', 'Pune', 'Delhi NCR', 'Bengaluru', 'Hyderabad', 'Chennai', 'Ahmedabad', 'Jaipur', 'Kolkata', 'Coimbatore']
+const influenceSignals = [
+  'Creator Partnerships',
+  'Launch Buzz',
+  'Hyperlocal Reels',
+  'Social Proof',
+  'NRI Discovery',
+  'Lifestyle Content',
+  'Digital PR',
+  'Search Visibility',
+]
+const influenceMedia = [
+  {
+    type: 'video',
+    src: 'https://backend.realatte.com/uploads/hiranandani_video_new_2_1_fae209948e.mp4',
+    poster: 'https://backend.realatte.com/uploads/hiranandani_video_new_2_1_ce5772998e.png',
+    label: 'Influence Film',
+    title: 'Creator-led storytelling that builds trust before the site visit',
+  },
+  {
+    type: 'video',
+    src: 'https://backend.realatte.com/uploads/Dosti_Sales_Video_1_1_620ce95488.mp4',
+    poster: 'https://backend.realatte.com/uploads/Dosti_Sales_Video_1_1_ce02681275.png',
+    label: 'Social Reel',
+    title: 'Short-form visual proof designed to travel organically',
+  },
+  {
+    type: 'image',
+    src: 'https://backend.realatte.com/uploads/i_stay_thum_b9eadfd2a4.png',
+    label: 'Launch Content',
+    title: 'Content systems that create buzz across search and social',
+  },
+]
 
 export default function InfluencePage() {
   return (
@@ -219,29 +251,42 @@ export default function InfluencePage() {
       <main>
         <section className={styles.hero}>
           <div className={styles.heroInner}>
-            <span className={styles.heroTag}>#CredibilityAtScale</span>
-            <h1 className={styles.heroTitle}>
+            <Reveal as="span" className={styles.heroTag}>#CredibilityAtScale</Reveal>
+            <Reveal as="h1" className={styles.heroTitle} delay={70}>
               <span className="white_gradient">Real Estate Doesn't Get Sold.</span>{' '}
               <span className="pink_gradient">It Gets Believed.</span>
-            </h1>
-            <p className={styles.sectionSub} style={{ marginBottom: '32px' }}>
+            </Reveal>
+            <Reveal as="p" className={styles.sectionSub} delay={190} style={{ marginBottom: '32px' }}>
               Buyers do not trust ads anymore. They trust people. We build influence ecosystems that put your project in front of the right audiences through the voices they already follow, the content they already consume, and the stories that make them act.
-            </p>
-            <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+            </Reveal>
+            <Reveal delay={330} style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
               <Link href="/contact" className={styles.heroCta}>Build My Influence Strategy</Link>
               <a href="#why" className={styles.workTab}>See why it works</a>
-            </div>
+            </Reveal>
           </div>
         </section>
+
+        <section className={styles.signalStrip}>
+          <div className={styles.signalTrack}>
+            {[...influenceSignals, ...influenceSignals].map((item, index) => (
+              <span key={`${item}-${index}`} className={styles.signalItem}>
+                <span className={styles.signalDot} />
+                {item}
+              </span>
+            ))}
+          </div>
+        </section>
+
+
 
         <section className={styles.statsSection}>
           <div className={styles.sectionInner}>
             <div className={styles.statsRow}>
-              {stats.map((s) => (
-                <div key={s.label} className={styles.statItem}>
-                  <div className={styles.statNum}>{s.num}</div>
+              {stats.map((s, index) => (
+                <Reveal key={s.label} className={styles.statItem} delay={160 + index * 100}>
+                  <CountUp value={s.num} className={styles.statNum} />
                   <div className={styles.statLabel}>{s.label}</div>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -253,7 +298,7 @@ export default function InfluencePage() {
             <h2 className={styles.sectionHeading}>Buyers Have Learned to Ignore Your Ads. They Have Not Learned to Ignore People They Trust.</h2>
             <p className={styles.sectionSub}>Real estate is a high-stakes, high-emotion category. The higher the ticket size, the more social proof and emotional conviction a buyer needs before even making a call. Paid ads can reach them. Influence convinces them.</p>
             <div className={styles.servicesGrid}>
-              <div className={styles.serviceCard}>
+              <Reveal className={styles.serviceCard}>
                 <div className={styles.serviceCardBody}>
                   <h3 className={styles.serviceCardTitle}>The Trust Deficit in Real Estate Marketing</h3>
                   <p className={styles.serviceCardDesc}>Average banner blindness in digital advertising is now above 86%. Buyers in the Rs 50L-5Cr bracket consume 11+ pieces of third-party content before visiting a site. Ad spend gets them to scroll, but not to believe.</p>
@@ -263,8 +308,8 @@ export default function InfluencePage() {
                     <span style={{ fontSize: '11px' }}>Actual buyer feedback, Hyderabad, 2024</span>
                   </div>
                 </div>
-              </div>
-              <div className={styles.serviceCard}>
+              </Reveal>
+              <Reveal className={styles.serviceCard} delay={180}>
                 <div className={styles.serviceCardBody}>
                   <h3 className={styles.serviceCardTitle}>What Influence Marketing Actually Solves</h3>
                   <p className={styles.serviceCardDesc}>Influence marketing closes the credibility gap. When a respected voice endorses your project, it feels less like an ad and more like a recommendation.</p>
@@ -274,7 +319,7 @@ export default function InfluencePage() {
                     ))}
                   </div>
                 </div>
-              </div>
+              </Reveal>
             </div>
           </div>
         </section>
@@ -286,14 +331,14 @@ export default function InfluencePage() {
             <p className={styles.sectionSub}>In a category where trust is the primary purchase trigger, influence marketing is not supplementary. It is foundational.</p>
             <div className={styles.servicesGrid}>
               {reasons.map((r, idx) => (
-                <div key={r.title} className={styles.serviceCard}>
+                <Reveal key={r.title} className={styles.serviceCard} delay={idx * 60}>
                   <div className={styles.serviceCardBody}>
                     <div className={styles.cardKicker}>Reason {String(idx + 1).padStart(2, '0')}</div>
                     <h3 className={styles.serviceCardTitle}>{r.title}</h3>
                     <p className={styles.serviceCardDesc}>{r.desc}</p>
                     <div className={styles.cardStat}>{r.stat}</div>
                   </div>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -346,13 +391,13 @@ export default function InfluencePage() {
               </div>
             </div>
             <div className={styles.servicesGrid} style={{ marginTop: '16px' }}>
-              {smoMetrics.map((item) => (
-                <div key={item.label} className={styles.serviceCard}>
+              {smoMetrics.map((item, index) => (
+                <Reveal key={item.label} className={styles.serviceCard} delay={180 + index * 90}>
                   <div className={styles.serviceCardBody} style={{ textAlign: 'center' }}>
-                    <div className={styles.statNum} style={{ marginBottom: '8px' }}>{item.value}</div>
+                    <CountUp value={item.value} className={styles.statNum} style={{ marginBottom: '8px', display: 'block' }} />
                     <div className={styles.serviceCardDesc}>{item.label}</div>
                   </div>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -365,13 +410,13 @@ export default function InfluencePage() {
             <p className={styles.sectionSub}>Every service is designed for one outcome: making a buyer believe in your project before your sales team ever makes contact.</p>
             <div className={styles.servicesGrid}>
               {services.map((s, i) => (
-                <div key={s.title} className={styles.serviceCard}>
+                <Reveal key={s.title} className={styles.serviceCard} delay={180 + i * 90}>
                   <div className={styles.serviceCardBody}>
                     <div className={styles.cardKicker}>{String(i + 1).padStart(2, '0')} - Service</div>
                     <h3 className={styles.serviceCardTitle}>{s.title}</h3>
                     <p className={styles.serviceCardDesc}>{s.desc}</p>
                   </div>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -383,15 +428,15 @@ export default function InfluencePage() {
             <h2 className={styles.sectionHeading}>Not Every Creator is Right for Every Project. We Know the Difference.</h2>
             <p className={styles.sectionSub}>We match creator tier, audience profile, and format to your project price point, location, and segment. Reach without relevance is noise.</p>
             <div className={styles.servicesGrid}>
-              {tiers.map((tier) => (
-                <div key={tier.title} className={styles.serviceCard}>
+              {tiers.map((tier, index) => (
+                <Reveal key={tier.title} className={styles.serviceCard} delay={180 + index * 90}>
                   <div className={styles.serviceCardBody}>
                     <h3 className={styles.serviceCardTitle}>{tier.title}</h3>
                     <div className={styles.cardKicker}>{tier.range}</div>
                     <p className={styles.serviceCardDesc}>{tier.desc}</p>
                     <div className={styles.cardStat}>{tier.bestFor}</div>
                   </div>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -404,14 +449,14 @@ export default function InfluencePage() {
             <p className={styles.sectionSub}>Five stages from brief to booking. Each with a defined output, clear owner, and measurable outcome.</p>
             <div className={styles.servicesGrid}>
               {process.map((p, i) => (
-                <div key={p.title} className={styles.serviceCard}>
+                <Reveal key={p.title} className={styles.serviceCard} delay={180 + i * 90}>
                   <div className={styles.serviceCardBody}>
                     <div className={styles.cardKicker}>Stage {String(i + 1).padStart(2, '0')}</div>
                     <h3 className={styles.serviceCardTitle}>{p.title}</h3>
                     <p className={styles.serviceCardDesc}>{p.desc}</p>
                     <div className={styles.cardStat}>{p.output}</div>
                   </div>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -423,14 +468,14 @@ export default function InfluencePage() {
             <h2 className={styles.sectionHeading}>Every Format Has a Job in the Funnel. We Know Which Does What.</h2>
             <p className={styles.sectionSub}>We do not produce content for volume. Every format is assigned a funnel role: awareness, trust-building, or conversion.</p>
             <div className={styles.servicesGrid}>
-              {formats.map((f) => (
-                <div key={f.title} className={styles.serviceCard}>
+              {formats.map((f, index) => (
+                <Reveal key={f.title} className={styles.serviceCard} delay={180 + index * 90}>
                   <div className={styles.serviceCardBody}>
                     <h3 className={styles.serviceCardTitle}>{f.title}</h3>
                     <p className={styles.serviceCardDesc}>{f.desc}</p>
                     <div className={styles.cardStat}>{f.role}</div>
                   </div>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>

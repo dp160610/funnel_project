@@ -3,7 +3,40 @@ import { useState } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import { Container, Button } from '../components/common'
+import Reveal from '../components/common/Reveal'
 import styles from '../styles/pages/Contact.module.css'
+
+const contactSignals = [
+  'Project Launches',
+  'Brand Positioning',
+  'Lead Generation',
+  'Influence Campaigns',
+  'CRM & Automation',
+  'Funnel Audits',
+  'Performance Media',
+  'Real Estate Only',
+]
+const contactMedia = [
+  {
+    type: 'image',
+    src: 'https://backend.realatte.com/uploads/Dosti_Sales_Video_1_1_ce02681275.png',
+    label: 'Project Launch',
+    title: 'Bring us your project brief and we will map the highest-impact growth path',
+  },
+  {
+    type: 'video',
+    src: 'https://backend.realatte.com/uploads/bhuj_0a5743369b.mp4',
+    poster: 'https://backend.realatte.com/uploads/bhuj_39c0ed50e3.png',
+    label: 'Campaign Energy',
+    title: 'A contact page that feels like the start of a launch, not a dead end form',
+  },
+  {
+    type: 'image',
+    src: 'https://backend.realatte.com/uploads/i_stay_thum_b9eadfd2a4.png',
+    label: 'Strategy Call',
+    title: 'Context-rich visuals that make the enquiry experience feel more premium',
+  },
+]
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -67,15 +100,26 @@ export default function ContactPage() {
       <main>
         <section className={styles.hero}>
           <Container>
-            <h1 className={styles.title}>Let's Talk</h1>
-            <p className={styles.subtitle}>Discuss your project and let's create a winning strategy together</p>
+            <Reveal as="h1" className={styles.title}>Let's Talk</Reveal>
+            <Reveal as="p" className={styles.subtitle} delay={90}>Discuss your project and let's create a winning strategy together</Reveal>
           </Container>
+        </section>
+
+        <section className={styles.signalStrip}>
+          <div className={styles.signalTrack}>
+            {[...contactSignals, ...contactSignals].map((item, index) => (
+              <span key={`${item}-${index}`} className={styles.signalItem}>
+                <span className={styles.signalDot} />
+                {item}
+              </span>
+            ))}
+          </div>
         </section>
 
         <section className={styles.contactSection}>
           <Container>
             <div className={styles.content}>
-              <div className={styles.form}>
+              <Reveal className={styles.form}>
                 <h2>Send us a Message</h2>
                 
                 {status === 'success' && (
@@ -172,9 +216,9 @@ export default function ContactPage() {
                     {status === 'loading' ? 'Sending...' : 'Send Message'}
                   </Button>
                 </form>
-              </div>
+              </Reveal>
 
-              <div className={styles.info}>
+              <Reveal className={styles.info} delay={120}>
                 <h2>Other Ways to Reach Us</h2>
                 
                 <div className={styles.infoItem}>
@@ -207,7 +251,7 @@ export default function ContactPage() {
                     <a href="#" target="_blank" rel="noopener noreferrer">Instagram</a>
                   </div>
                 </div>
-              </div>
+              </Reveal>
             </div>
           </Container>
         </section>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Chennai Coastline City</title>
+  <desc id="desc">Stylized city background for Chennai</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1d4350"/>
+      <stop offset="100%" stop-color="#a43931"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#sky)"/>
+  <rect y="790" width="1600" height="210" fill="#0d1d27" opacity="0.62"/>
+  <path d="M90 760h120V560h54v200h120V470h66v290h130V530h48v230h146V430h78v330h110V590h58v170h180V640h64v120H90z" fill="#152531"/>
+  <text x="96" y="160" fill="#ffffff" font-family="Segoe UI, Arial, sans-serif" font-size="92" font-weight="700" letter-spacing="4">CHENNAI</text>
+</svg>

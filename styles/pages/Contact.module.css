@@ -1,13 +1,30 @@
 .hero {
-  padding: 80px 0;
-  background: linear-gradient(135deg, #fff 0%, #f9f9f9 100%);
+  padding: clamp(72px, 9vw, 120px) 0;
+  background:
+    radial-gradient(circle at top right, rgba(200,16,46,0.12), rgba(200,16,46,0) 34%),
+    linear-gradient(135deg, #fff 0%, #f9f9f9 100%);
   border-bottom: 1px solid #e0e0e0;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  right: -60px;
+  top: 10px;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(200,16,46,0.08) 0%, rgba(200,16,46,0) 72%);
+  animation: contactFloat 11s ease-in-out infinite;
 }
 
 .title {
   font-size: 64px;
   margin-bottom: 16px;
+  font-family: var(--font-sora, 'Sora', sans-serif);
 }
 
 .subtitle {
@@ -15,11 +32,72 @@
   color: #666;
   max-width: 600px;
   margin: 0 auto;
+  font-family: var(--font-poppins, 'Poppins', sans-serif);
 }
 
 .contactSection {
   padding: 80px 0;
   background: #fff;
+}
+
+.signalStrip {
+  background: linear-gradient(90deg, #9B0015 0%, #C8102E 50%, #9B0015 100%);
+  overflow: hidden;
+  padding: 12px 0;
+  position: relative;
+}
+
+.signalStrip::before,
+.signalStrip::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 72px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.signalStrip::before {
+  left: 0;
+  background: linear-gradient(90deg, #9B0015, rgba(155,0,21,0));
+}
+
+.signalStrip::after {
+  right: 0;
+  background: linear-gradient(270deg, #9B0015, rgba(155,0,21,0));
+}
+
+.signalTrack {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: contactSignal 22s linear infinite;
+}
+
+.signalStrip:hover .signalTrack {
+  animation-play-state: paused;
+}
+
+.signalItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 20px;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  font-family: var(--font-sora, 'Sora', sans-serif);
+}
+
+.signalDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.82);
 }
 
 .content {
@@ -33,6 +111,23 @@
   font-size: 32px;
   margin-bottom: 32px;
   color: #000;
+  font-family: var(--font-sora, 'Sora', sans-serif);
+}
+
+.form,
+.info {
+  background: linear-gradient(180deg, #fff 0%, #fcfcfc 100%);
+  border: 1px solid rgba(200,16,46,0.1);
+  box-shadow: 0 24px 42px rgba(0,0,0,0.06);
+  padding: 32px;
+  transition: transform 0.24s ease, box-shadow 0.24s ease, border-color 0.24s ease;
+}
+
+.form:hover,
+.info:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 50px rgba(0,0,0,0.1);
+  border-color: rgba(200,16,46,0.22);
 }
 
 .formGroup {
@@ -53,17 +148,20 @@
   width: 100%;
   padding: 12px;
   border: 1px solid #e0e0e0;
-  border-radius: 6px;
+  border-radius: 0;
   font-size: 14px;
   font-family: inherit;
-  transition: border-color 0.3s;
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+  background: #fff;
 }
 
 .formGroup input:focus,
 .formGroup textarea:focus,
 .formGroup select:focus {
   outline: none;
-  border-color: #000;
+  border-color: #C8102E;
+  box-shadow: 0 0 0 4px rgba(200,16,46,0.08);
+  transform: translateY(-1px);
 }
 
 .formRow {
@@ -139,13 +237,25 @@
 .socialLinks a {
   background: #f0f0f0;
   padding: 8px 16px;
-  border-radius: 4px;
+  border-radius: 0;
   font-size: 14px;
-  transition: background 0.3s;
+  transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
 }
 
 .socialLinks a:hover {
   background: #e0e0e0;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 22px rgba(0,0,0,0.08);
+}
+
+@keyframes contactFloat {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, 16px, 0); }
+}
+
+@keyframes contactSignal {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 @media (max-width: 1024px) {
@@ -170,6 +280,11 @@
   .content {
     grid-template-columns: 1fr;
     gap: 48px;
+  }
+
+  .form,
+  .info {
+    padding: 24px;
   }
 
   .formRow {
