@@ -1,12 +1,8 @@
-export default function PortfolioPage() {
-  return null
-}
+import { useEffect } from 'react'
+import { useRouter } from 'next/router'
 
-export async function getServerSideProps() {
-  return {
-    redirect: {
-      destination: '/',
-      permanent: false,
-    },
-  }
+export default function PortfolioPage() {
+  const router = useRouter()
+  useEffect(() => { router.replace('/') }, [router])
+  return null
 }
