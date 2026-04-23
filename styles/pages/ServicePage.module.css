@@ -8,6 +8,11 @@
   overflow: hidden;
 }
 
+.hero {
+  background: linear-gradient(180deg, #0A1428 0%, #0F1D35 100%);
+  border-bottom: 1px solid rgba(201, 166, 107, 0.15);
+}
+
 .hero::before {
   content: none;
 }

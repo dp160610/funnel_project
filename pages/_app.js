@@ -1,5 +1,5 @@
 import '../styles/globals.css'
-import { Poppins, Sora, DM_Sans, Space_Grotesk } from 'next/font/google'
+import { Poppins, Sora, DM_Sans, Space_Grotesk, Playfair_Display } from 'next/font/google'
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -29,10 +29,17 @@ const spaceGrotesk = Space_Grotesk({
   display: 'swap',
 })
 
+const playfairDisplay = Playfair_Display({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800'],
+  variable: '--font-playfair',
+  display: 'swap',
+})
+
 export default function App({ Component, pageProps }) {
   return (
     <div 
-      className={`${poppins.variable} ${sora.variable} ${dmSans.variable} ${spaceGrotesk.variable}`} 
+      className={`${poppins.variable} ${sora.variable} ${dmSans.variable} ${spaceGrotesk.variable} ${playfairDisplay.variable}`} 
       style={{ minHeight: '100%' }}
     >
       <Component {...pageProps} />
