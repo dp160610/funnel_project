@@ -140,7 +140,7 @@ export default function Home() {
         </section>
 
         {/* 6. Trusted By */}
-        <section className={styles.trustedSection}>
+        {/* <section className={styles.trustedSection}>
           <div className={styles.secInner}>
             <Reveal as="div" className={styles.kk}>Trusted By</Reveal>
             <Reveal as="h2" className={styles.sh} delay={80}>
@@ -160,7 +160,7 @@ export default function Home() {
               ))}
             </Reveal>
           </div>
-        </section>
+        </section> */}
 
         {/* 7. CTA Block */}
         <section className={styles.ctaSection}>
