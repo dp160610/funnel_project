@@ -4,6 +4,7 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import Reveal from '../components/common/Reveal'
 import CountUp from '../components/common/CountUp'
+import MediaShowcase from '../components/common/MediaShowcase'
 import styles from '../styles/pages/ServicePage.module.css'
 
 const stats = [
@@ -222,6 +223,9 @@ export default function BrandingPage() {
 
       <main>
         <section className={styles.hero}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="" className={styles.heroBgImg} />
+          <div className={styles.heroBgOverlay} />
           <div className={styles.heroInner}>
             <Reveal as="span" className={styles.heroTag}>Brand Strategy & Identity</Reveal>
             <Reveal as="h1" className={styles.heroTitle} delay={70}>
@@ -263,7 +267,7 @@ export default function BrandingPage() {
           </div>
         </section>
 
-        <section className={styles.overviewSection}>
+        <section className={`${styles.overviewSection} ${styles.lightSection}`}>
           <div className={styles.sectionInner}>
             <div className="title_top_wrap"><span className="top_title">Why Branding is Non-Negotiable</span></div>
             <h2 className={styles.sectionHeading}>Buyers do not buy property. They buy belief.</h2>
@@ -282,17 +286,21 @@ export default function BrandingPage() {
           </div>
         </section>
 
-        <section className={styles.servicesSection}>
+        <section className={styles.processSection}>
           <div className={styles.sectionInner}>
-            <div className="title_top_wrap"><span className="top_title">Our Branding Process</span></div>
-            <h2 className={styles.sectionHeading}>Brand-building is not creative. It is strategic.</h2>
-            <div className={styles.servicesGrid}>
+            <div className={styles.processHeader}>
+              <div className="title_top_wrap"><span className="top_title">Our Branding Process</span></div>
+              <h2 className={styles.sectionHeading}>Brand-building is not creative.<br />It is strategic.</h2>
+            </div>
+            <div className={styles.processSteps}>
               {process.map((p, i) => (
-                <Reveal key={p.title} className={styles.serviceCard} delay={180 + i * 90}>
-                  <div className={styles.serviceCardBody}>
-                    <div className={styles.cardKicker}>Stage {String(i + 1).padStart(2, '0')}</div>
-                    <h3 className={styles.serviceCardTitle}>{p.title}</h3>
-                    <p className={styles.serviceCardDesc}>{p.desc}</p>
+                <Reveal key={p.title} className={styles.processStep} delay={140 + i * 100}>
+                  <div className={styles.processStepNum}>0{i + 1}</div>
+                  <div className={styles.processStepLine} />
+                  <div className={styles.processStepBody}>
+                    <div className={styles.processStepTag}>Stage {String(i + 1).padStart(2, '0')}</div>
+                    <h3 className={styles.processStepTitle}>{p.title}</h3>
+                    <p className={styles.processStepDesc}>{p.desc}</p>
                   </div>
                 </Reveal>
               ))}
@@ -300,7 +308,7 @@ export default function BrandingPage() {
           </div>
         </section>
 
-        <section className={styles.overviewSection}>
+        <section className={`${styles.overviewSection} ${styles.lightSection}`}>
           <div className={styles.sectionInner}>
             <div className="title_top_wrap"><span className="top_title">Branding Solutions We Offer</span></div>
             <h2 className={styles.sectionHeading}>Six disciplines. One cohesive brand story.</h2>
@@ -336,7 +344,7 @@ export default function BrandingPage() {
           </div>
         </section>
 
-        <section className={styles.servicesSection}>
+        <section className={`${styles.servicesSection} ${styles.lightSection}`}>
           <div className={styles.sectionInner}>
             <div className="title_top_wrap"><span className="top_title">Why Property Edge for Branding</span></div>
             <h2 className={styles.sectionHeading}>Every agency says they are different. Here is proof.</h2>
@@ -376,14 +384,33 @@ export default function BrandingPage() {
           </div>
         </section>
 
-        <section style={{ background: '#fff', padding: '60px 0' }}>
-          <div className={styles.sectionInner}>
-            <div className={styles.ctaBanner}>
-              <h2 className={styles.ctaBannerTitle}>Your next project deserves a brand that precedes it.</h2>
-              <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
-                <Link href="/contact" className={styles.heroCta}>Start My Brand Strategy Session</Link>
-                <Link href="/about" className={styles.workTab}>See Our Process First</Link>
+        <MediaShowcase
+          title="Brand Work That Closed Markets"
+          subtitle="Films, campaigns, and identity systems built for India's fastest-growing real estate developers."
+          items={brandingMedia}
+        />
+
+        <section className={styles.pageFinalCta}>
+          <div className={styles.pageFinalInner}>
+            <div className={styles.pageFinalLeft}>
+              <div className={styles.pageFinalKk}>#YourBrandIsYourPricePremium</div>
+              <div className={styles.pageFinalBig}>Property Edge</div>
+              <h2 className={styles.pageFinalH2}>
+                Your next project deserves a brand that precedes it.
+              </h2>
+              <p className={styles.pageFinalDesc}>
+                Every project launch is a chance to own a category, command a premium, and close faster. Let&apos;s build the brand identity that makes that happen.
+              </p>
+              <div className={styles.pageFinalBtns}>
+                <Link href="/contact" className={styles.pageFinalBtnW}>Start My Brand Strategy Session →</Link>
+                <Link href="/about" className={styles.pageFinalBtnO}>See Our Process First</Link>
               </div>
+              <p className={styles.pageFinalFine}>We work exclusively in real estate. Every brand we build is engineered to close.</p>
+            </div>
+            <div className={styles.pageFinalBadge}>
+              <span className={styles.pageFinalBadgeN}>12x</span>
+              <div className={styles.pageFinalBadgeL}>Avg brand<br />recall lift</div>
+              <div className={styles.pageFinalBadgeD}>Measured across 300+ brands</div>
             </div>
           </div>
         </section>

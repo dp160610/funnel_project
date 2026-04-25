@@ -1,5 +1,5 @@
 import '../styles/globals.css'
-import { Poppins, Sora, DM_Sans, Space_Grotesk, Playfair_Display } from 'next/font/google'
+import { Poppins, Sora, DM_Sans, Space_Grotesk, Playfair_Display, Cormorant_Garamond } from 'next/font/google'
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -36,10 +36,18 @@ const playfairDisplay = Playfair_Display({
   display: 'swap',
 })
 
+const cormorantGaramond = Cormorant_Garamond({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  style: ['normal', 'italic'],
+  variable: '--font-cormorant-garamond',
+  display: 'swap',
+})
+
 export default function App({ Component, pageProps }) {
   return (
     <div 
-      className={`${poppins.variable} ${sora.variable} ${dmSans.variable} ${spaceGrotesk.variable} ${playfairDisplay.variable}`} 
+      className={`${poppins.variable} ${sora.variable} ${dmSans.variable} ${spaceGrotesk.variable} ${playfairDisplay.variable} ${cormorantGaramond.variable}`} 
       style={{ minHeight: '100%' }}
     >
       <Component {...pageProps} />

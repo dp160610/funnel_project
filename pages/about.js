@@ -4,6 +4,7 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import Reveal from '../components/common/Reveal'
 import CountUp from '../components/common/CountUp'
+import MediaShowcase from '../components/common/MediaShowcase'
 import styles from '../styles/pages/About.module.css'
 
 const directors = [
@@ -113,6 +114,9 @@ export default function About() {
 
         {/* ── Hero ─────────────────────────────────────────── */}
         <section className={styles.heroBanner}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="" className={styles.heroBgImg} />
+          <div className={styles.heroBgOverlay} />
           <div className={styles.heroContent}>
             <Reveal as="span" className={styles.heroTag}>About Us</Reveal>
             <Reveal as="h1" className={styles.heroTitle} delay={70}>
@@ -272,6 +276,12 @@ export default function About() {
             </div>
           </div>
         </section>
+
+        <MediaShowcase
+          title="The Work Behind the Team"
+          subtitle="Films, campaigns, and launch moments that show how Property Edge thinks, builds, and executes for real estate brands."
+          items={aboutMedia}
+        />
 
         {/* ── Meet The Team ────────────────────────────────── */}
         <section className={styles.teamSec}>

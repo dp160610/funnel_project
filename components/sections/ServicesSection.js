@@ -67,7 +67,11 @@ export default function ServicesSection() {
         <div className={styles.pipeline}>
           {stages.map((stage, i) => (
             <div key={stage.id} className={styles.stage}>
-              <div className={styles.stageLeft}>
+              <div className={styles.stageNumWrap}>
+                <span className={styles.stageGhostNum} aria-hidden="true">{stage.step}</span>
+                <span className={styles.stageNum}>{stage.step}</span>
+              </div>
+              <div className={styles.stageContent}>
                 <div className={styles.stageLabel}>{stage.label}</div>
                 <div className={styles.stageName}>{stage.name}</div>
                 <div className={styles.stageDesc}>{stage.desc}</div>

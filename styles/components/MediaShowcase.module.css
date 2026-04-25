@@ -1,7 +1,7 @@
 .section {
-  background: linear-gradient(180deg, #fff 0%, #fbfbfb 100%);
-  padding: 28px 0 12px;
-  border-bottom: 1px solid rgba(200,16,46,0.08);
+  background: linear-gradient(180deg, #130304 0%, #1f0508 100%);
+  padding: 80px 0 60px;
+  border-bottom: 1px solid rgba(200,16,46,0.30);
   overflow: hidden;
 }
 
@@ -17,7 +17,7 @@
   align-items: end;
   justify-content: space-between;
   gap: 16px;
-  margin-bottom: 18px;
+  margin-bottom: 32px;
   flex-wrap: wrap;
 }
 
@@ -27,13 +27,24 @@
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: #C8102E;
+  margin-bottom: 8px;
+  font-family: var(--font-sora, 'Sora', sans-serif);
+}
+
+.heading {
+  font-size: clamp(22px, 2.8vw, 40px);
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 8px;
   font-family: var(--font-sora, 'Sora', sans-serif);
 }
 
 .subtitle {
   font-size: 13px;
   line-height: 1.7;
-  color: #666;
+  color: #a0a0a0;
   max-width: 720px;
 }
 
@@ -55,12 +66,12 @@
 
 .viewport::before {
   left: 0;
-  background: linear-gradient(90deg, #fff, rgba(255,255,255,0));
+  background: linear-gradient(90deg, #130304, rgba(19,3,4,0));
 }
 
 .viewport::after {
   right: 0;
-  background: linear-gradient(270deg, #fff, rgba(255,255,255,0));
+  background: linear-gradient(270deg, #130304, rgba(19,3,4,0));
 }
 
 .track {
@@ -77,24 +88,24 @@
 
 .card {
   width: min(420px, 72vw);
-  background: #fff;
-  border: 1px solid rgba(200,16,46,0.1);
-  box-shadow: 0 24px 42px rgba(0,0,0,0.06);
+  background: linear-gradient(135deg, #2d1014, #220d10);
+  border: 1px solid rgba(200,16,46,0.35);
+  box-shadow: 0 24px 42px rgba(0,0,0,0.36);
   overflow: hidden;
   transition: transform 0.24s ease, box-shadow 0.24s ease, border-color 0.24s ease;
 }
 
 .card:hover {
   transform: translateY(-8px);
-  border-color: rgba(200,16,46,0.24);
-  box-shadow: 0 30px 50px rgba(0,0,0,0.12);
+  border-color: rgba(200,16,46,0.4);
+  box-shadow: 0 30px 50px rgba(200,16,46,0.14);
 }
 
 .mediaWrap {
   position: relative;
   aspect-ratio: 16 / 9;
   overflow: hidden;
-  background: #0a0a0a;
+  background: #0c0202;
 }
 
 .media {
@@ -126,7 +137,7 @@
 .metaTitle {
   font-size: 17px;
   line-height: 1.25;
-  color: #0a0a0a;
+  color: #ffffff;
   margin: 0;
   font-family: var(--font-sora, 'Sora', sans-serif);
 }

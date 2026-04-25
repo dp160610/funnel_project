@@ -250,8 +250,10 @@ export default function InfluencePage() {
 
       <main>
         <section className={styles.hero}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="https://images.pexels.com/photos/3178818/pexels-photo-3178818.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="" className={styles.heroBgImg} />
+          <div className={styles.heroBgOverlay} />
           <div className={styles.heroInner}>
-            <Reveal as="span" className={styles.heroTag}>#CredibilityAtScale</Reveal>
             <Reveal as="h1" className={styles.heroTitle} delay={70}>
               <span className="white_gradient">Real Estate Doesn't Get Sold.</span>{' '}
               <span className="pink_gradient">It Gets Believed.</span>
@@ -292,7 +294,7 @@ export default function InfluencePage() {
           </div>
         </section>
 
-        <section id="why" className={styles.overviewSection}>
+        <section id="why" className={`${styles.overviewSection} ${styles.lightSection}`}>
           <div className={styles.sectionInner}>
             <div className="title_top_wrap"><span className="top_title">The problem with ads alone</span></div>
             <h2 className={styles.sectionHeading}>Buyers Have Learned to Ignore Your Ads. They Have Not Learned to Ignore People They Trust.</h2>
@@ -344,22 +346,22 @@ export default function InfluencePage() {
           </div>
         </section>
 
-        <section className={styles.overviewSection}>
+        <section className={`${styles.overviewSection} ${styles.lightSection}`}>
           <div className={styles.sectionInner}>
             <div className="title_top_wrap"><span className="top_title">The comparison</span></div>
             <h2 className={styles.sectionHeading}>Influence Marketing vs. Traditional Paid Ads</h2>
             <p className={styles.sectionSub}>Understanding where influence fits and why smart builders run both in combination.</p>
-            <div style={{ marginTop: '30px', border: '1px solid #e5e5e5' }}>
-              <div style={{ display: 'grid', gridTemplateColumns: '1.1fr 1fr 1fr', background: '#fafafa', borderBottom: '1px solid #e5e5e5' }}>
-                <div style={{ padding: '12px 14px', fontWeight: 800, fontSize: '12px' }}>What You&apos;re Measuring</div>
-                <div style={{ padding: '12px 14px', fontWeight: 800, fontSize: '12px', borderLeft: '1px solid #e5e5e5' }}>Paid Ads Only</div>
-                <div style={{ padding: '12px 14px', fontWeight: 800, fontSize: '12px', borderLeft: '1px solid #e5e5e5' }}>Influence + Paid</div>
+            <div style={{ marginTop: '30px', border: '1px solid rgba(200,16,46,0.25)' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: '1.1fr 1fr 1fr', background: 'rgba(200,16,46,0.08)', borderBottom: '1px solid rgba(200,16,46,0.25)' }}>
+                <div style={{ padding: '12px 14px', fontWeight: 800, fontSize: '12px', color: '#111111', textTransform: 'uppercase', letterSpacing: '0.08em' }}>What You&apos;re Measuring</div>
+                <div style={{ padding: '12px 14px', fontWeight: 800, fontSize: '12px', color: '#111111', textTransform: 'uppercase', letterSpacing: '0.08em', borderLeft: '1px solid rgba(200,16,46,0.2)' }}>Paid Ads Only</div>
+                <div style={{ padding: '12px 14px', fontWeight: 800, fontSize: '12px', color: '#C8102E', textTransform: 'uppercase', letterSpacing: '0.08em', borderLeft: '1px solid rgba(200,16,46,0.2)' }}>Influence + Paid</div>
               </div>
-              {comparisonRows.map((row) => (
-                <div key={row.metric} style={{ display: 'grid', gridTemplateColumns: '1.1fr 1fr 1fr', borderBottom: '1px solid #eee' }}>
-                  <div style={{ padding: '11px 14px', fontSize: '13px', color: '#0a0a0a' }}>{row.metric}</div>
-                  <div style={{ padding: '11px 14px', fontSize: '13px', color: '#666', borderLeft: '1px solid #eee' }}>{row.paid}</div>
-                  <div style={{ padding: '11px 14px', fontSize: '13px', color: '#0a0a0a', borderLeft: '1px solid #eee' }}>{row.influence}</div>
+              {comparisonRows.map((row, i) => (
+                <div key={row.metric} style={{ display: 'grid', gridTemplateColumns: '1.1fr 1fr 1fr', borderBottom: '1px solid rgba(0,0,0,0.08)', background: i % 2 === 0 ? 'rgba(0,0,0,0.03)' : 'transparent' }}>
+                  <div style={{ padding: '11px 14px', fontSize: '13px', color: '#111111', fontWeight: 600 }}>{row.metric}</div>
+                  <div style={{ padding: '11px 14px', fontSize: '13px', color: 'rgba(17,17,17,0.55)', borderLeft: '1px solid rgba(0,0,0,0.08)' }}>{row.paid}</div>
+                  <div style={{ padding: '11px 14px', fontSize: '13px', color: '#C8102E', borderLeft: '1px solid rgba(0,0,0,0.08)', fontWeight: 500 }}>{row.influence}</div>
                 </div>
               ))}
             </div>
@@ -371,39 +373,46 @@ export default function InfluencePage() {
             <div className="title_top_wrap"><span className="top_title">Social media optimisation</span></div>
             <h2 className={styles.sectionHeading}>Your Social Presence is a Sales Channel. We Treat It Like One.</h2>
             <p className={styles.sectionSub}>Social media optimisation is not about posting consistently. It is about building a presence that pre-qualifies, pre-convinces, and pre-warms buyers before sales even engage.</p>
-            <div className={styles.servicesGrid}>
-              <div className={styles.serviceCard}>
-                <div className={styles.serviceCardBody}>
-                  <h3 className={styles.serviceCardTitle}>Optimised Engagement for Real Buyer Behaviour</h3>
-                  <p className={styles.serviceCardDesc}>We approach SMO as conversion architecture. Every piece of content, story, and caption is designed to move buyers one step closer to a site visit. Not just followers. Buyer pipeline.</p>
-                  <p className={styles.serviceCardDesc}>Our framework combines content strategy, profile authority building, algorithm intelligence, and paid amplification calibrated to the real estate decision cycle: awareness, consideration, intent, action.</p>
-                </div>
+
+            {/* SMO two-column: intro copy left, pillars grid right */}
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '40px', marginTop: '48px', alignItems: 'start' }}>
+              {/* Left: intro copy */}
+              <div>
+                <h3 style={{ color: '#ffffff', fontFamily: 'Cormorant Garamond, Cormorant, Georgia, serif', fontSize: 'clamp(20px,2.2vw,28px)', fontWeight: 600, lineHeight: 1.3, marginBottom: '20px' }}>
+                  Optimised Engagement for Real Buyer Behaviour
+                </h3>
+                <p style={{ color: 'rgba(255,255,255,0.58)', fontSize: '13px', lineHeight: 1.85, margin: '0 0 16px' }}>
+                  We approach SMO as conversion architecture. Every piece of content, story, and caption is designed to move buyers one step closer to a site visit. Not just followers. Buyer pipeline.
+                </p>
+                <p style={{ color: 'rgba(255,255,255,0.58)', fontSize: '13px', lineHeight: 1.85, margin: 0 }}>
+                  Our framework combines content strategy, profile authority building, algorithm intelligence, and paid amplification calibrated to the real estate decision cycle: awareness, consideration, intent, action.
+                </p>
               </div>
-              <div className={styles.serviceCard}>
-                <div className={styles.serviceCardBody}>
-                  {smoPillars.map((pillar) => (
-                    <div key={pillar.title} style={{ marginBottom: '14px' }}>
-                      <h4 style={{ fontSize: '13px', margin: '0 0 6px', color: '#0a0a0a' }}>{pillar.title}</h4>
-                      <p style={{ margin: 0, fontSize: '12px', lineHeight: 1.7, color: '#666' }}>{pillar.desc}</p>
-                    </div>
-                  ))}
-                </div>
+
+              {/* Right: 2×2 pillars grid */}
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+                {smoPillars.map((pillar) => (
+                  <div key={pillar.title} style={{ background: 'rgba(200,16,46,0.05)', border: '1px solid rgba(200,16,46,0.18)', padding: '22px 18px' }}>
+                    <h4 style={{ color: '#ffffff', fontSize: '13px', fontWeight: 700, margin: '0 0 10px', lineHeight: 1.4 }}>{pillar.title}</h4>
+                    <p style={{ color: 'rgba(255,255,255,0.52)', fontSize: '12px', lineHeight: 1.75, margin: 0 }}>{pillar.desc}</p>
+                  </div>
+                ))}
               </div>
             </div>
-            <div className={styles.servicesGrid} style={{ marginTop: '16px' }}>
+
+            {/* Metrics row */}
+            <div className={styles.statsRow} style={{ marginTop: '40px' }}>
               {smoMetrics.map((item, index) => (
-                <Reveal key={item.label} className={styles.serviceCard} delay={180 + index * 90}>
-                  <div className={styles.serviceCardBody} style={{ textAlign: 'center' }}>
-                    <CountUp value={item.value} className={styles.statNum} style={{ marginBottom: '8px', display: 'block' }} />
-                    <div className={styles.serviceCardDesc}>{item.label}</div>
-                  </div>
+                <Reveal key={item.label} className={styles.statItem} delay={180 + index * 90}>
+                  <CountUp value={item.value} className={styles.statNum} />
+                  <div className={styles.statLabel}>{item.label}</div>
                 </Reveal>
               ))}
             </div>
           </div>
         </section>
 
-        <section className={styles.overviewSection}>
+        <section className={`${styles.overviewSection} ${styles.lightSection}`}>
           <div className={styles.sectionInner}>
             <div className="title_top_wrap"><span className="top_title">Influence services</span></div>
             <h2 className={styles.sectionHeading}>The Complete Influence Stack for Real Estate</h2>
@@ -442,7 +451,7 @@ export default function InfluencePage() {
           </div>
         </section>
 
-        <section className={styles.servicesSection}>
+        <section className={`${styles.servicesSection} ${styles.lightSection}`}>
           <div className={styles.sectionInner}>
             <div className="title_top_wrap"><span className="top_title">Our process</span></div>
             <h2 className={styles.sectionHeading}>How We Build an Influence Campaign That Actually Converts</h2>
@@ -481,14 +490,23 @@ export default function InfluencePage() {
           </div>
         </section>
 
-        <section style={{ background: '#fff', padding: '60px 0' }}>
-          <div className={styles.sectionInner}>
-            <div className={styles.ctaBanner}>
-              <h2 className={styles.ctaBannerTitle}>Make Your Project the One Everyone Is Talking About.</h2>
-              <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
-                <Link href="/contact" className={styles.heroCta}>Start My Influence Campaign</Link>
-                <Link href="/about" className={styles.workTab}>See how we work</Link>
+        <section className={styles.pageFinalCta}>
+          <div className={styles.pageFinalInner}>
+            <div className={styles.pageFinalLeft}>
+              <div className={styles.pageFinalKk}>#CredibilityAtScale</div>
+              <div className={styles.pageFinalBig}>Property Edge</div>
+              <h2 className={styles.pageFinalH2}>Make Your Project the One Everyone Is Talking About.</h2>
+              <p className={styles.pageFinalDesc}>We connect your project with the right voices — creators, critics, and community leaders who move audiences from scroll to site visit.</p>
+              <div className={styles.pageFinalBtns}>
+                <Link href="/contact" className={styles.pageFinalBtnW}>Start My Influence Campaign →</Link>
+                <Link href="/about" className={styles.pageFinalBtnO}>See How We Work</Link>
               </div>
+              <p className={styles.pageFinalFine}>Campaign strategy delivered within 72 hours of brief submission.</p>
+            </div>
+            <div className={styles.pageFinalBadge}>
+              <span className={styles.pageFinalBadgeN}>180+</span>
+              <div className={styles.pageFinalBadgeL}>Influencer<br />Collaborations</div>
+              <div className={styles.pageFinalBadgeD}>Across real estate verticals</div>
             </div>
           </div>
         </section>

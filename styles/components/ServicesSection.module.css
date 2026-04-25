@@ -1,8 +1,20 @@
 /* ===== FUNNEL PIPELINE SECTION ===== */
 
 .section {
-  background: #fff;
-  border-bottom: 1px solid #e5e5e5;
+  background: #0d0203;
+  border-top: 1px solid rgba(200,16,46,0.28);
+  border-bottom: 1px solid rgba(200,16,46,0.28);
+  position: relative;
+}
+
+.sh {
+  font-size: clamp(42px, 5.5vw, 68px);
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  line-height: 0.98;
+  margin-bottom: 16px;
+  font-family: var(--font-cormorant, 'Cormorant Garamond', 'Playfair Display', serif);
 }
 
 .inner {
@@ -30,16 +42,6 @@
   height: 2px;
   background: #C8102E;
 }
-
-.sh {
-  font-size: clamp(24px, 3.5vw, 36px);
-  font-weight: 900;
-  letter-spacing: -0.04em;
-  line-height: 1.1;
-  color: #0a0a0a;
-  margin-bottom: 14px;
-}
-
 .sh em {
   color: #C8102E;
   font-style: normal;
@@ -47,7 +49,7 @@
 
 .ss {
   font-size: 13px;
-  color: #666;
+  color: #a0a0a0;
   max-width: 860px;
   line-height: 1.82;
   margin-bottom: 36px;
@@ -55,27 +57,107 @@
 
 /* Pipeline */
 .pipeline {
-  display: grid;
-  gap: 3px;
+  display: flex;
+  flex-direction: column;
   position: relative;
+  border-top: 1px solid rgba(200,16,46,0.22);
+}
+
+/* Thin red timeline connector */
+.pipeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, rgba(200,16,46,0.6) 0%, rgba(200,16,46,0.12) 100%);
 }
 
 .stage {
   display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: center;
-  gap: 24px;
-  padding: 26px 24px;
-  background: #fff;
-  border: 1px solid #e8e8e8;
-  border-left: 3px solid #C8102E;
+  grid-template-columns: 96px 1fr auto;
+  gap: 0 clamp(32px, 5vw, 72px);
+  padding: clamp(36px, 5vw, 56px) 0 clamp(36px, 5vw, 56px) 24px;
+  border-bottom: 1px solid rgba(200,16,46,0.18);
   position: relative;
-  transition: box-shadow 0.15s ease, background 0.15s ease;
+  overflow: hidden;
+  transition: background 0.3s ease, padding-left 0.3s ease;
+}
+
+.stage::after {
+  /* left-edge red bar on hover */
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  background: #C8102E;
+  transition: width 0.3s ease;
 }
 
 .stage:hover {
-  background: #fafafa;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  background: rgba(200,16,46,0.02);
+  padding-left: 36px;
+}
+
+.stage:hover::after {
+  width: 3px;
+}
+
+/* Stage number wrapper */
+.stageNumWrap {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  padding-top: 6px;
+}
+
+/* Massive ghost number in background */
+.stageGhostNum {
+  position: absolute;
+  top: -10px;
+  left: -12px;
+  font-size: clamp(80px, 10vw, 130px);
+  font-weight: 900;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(200,16,46,0.12);
+  letter-spacing: -6px;
+  line-height: 1;
+  pointer-events: none;
+  font-family: var(--font-cormorant, 'Cormorant Garamond', serif);
+  transition: -webkit-text-stroke-color 0.3s ease;
+}
+
+.stage:hover .stageGhostNum {
+  -webkit-text-stroke-color: rgba(200,16,46,0.22);
+}
+
+/* Visible stage number */
+.stageNum {
+  font-size: clamp(36px, 4.5vw, 56px);
+  font-weight: 900;
+  -webkit-text-stroke: 1.5px rgba(200,16,46,0.35);
+  color: transparent;
+  letter-spacing: -3px;
+  line-height: 1;
+  font-family: var(--font-cormorant, 'Cormorant Garamond', serif);
+  transition: color 0.3s ease, -webkit-text-stroke-color 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.stage:hover .stageNum {
+  color: rgba(200,16,46,0.18);
+  -webkit-text-stroke-color: rgba(200,16,46,0.8);
+}
+
+/* Content column */
+.stageContent {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .stageLeft {
@@ -93,17 +175,19 @@
 }
 
 .stageName {
-  font-size: 16px;
-  font-weight: 900;
-  color: #0a0a0a;
-  letter-spacing: -0.03em;
+  font-size: clamp(18px, 2.2vw, 28px);
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  font-family: var(--font-cormorant, 'Cormorant Garamond', serif);
 }
 
 .stageDesc {
-  font-size: 12px;
-  color: #666;
-  line-height: 1.65;
-  max-width: 520px;
+  font-size: 12.5px;
+  color: #9a9a9a;
+  line-height: 1.75;
+  max-width: 600px;
 }
 
 .tags {
@@ -116,47 +200,75 @@
 .tag {
   background: rgba(200,16,46,0.06);
   border: 1px solid rgba(200,16,46,0.18);
-  color: #C8102E;
+  color: rgba(200,16,46,0.85);
   font-size: 10px;
   font-weight: 700;
   padding: 3px 9px;
   letter-spacing: 0.4px;
   text-transform: uppercase;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.stage:hover .tag {
+  background: rgba(200,16,46,0.1);
+  color: #C8102E;
 }
 
 /* Metric column */
 .stageMetric {
   text-align: right;
   flex-shrink: 0;
-  min-width: 80px;
+  min-width: 100px;
+  padding-top: 6px;
 }
 
 .mVal {
-  font-size: 22px;
+  font-size: clamp(22px, 2.8vw, 34px);
   font-weight: 900;
   color: #C8102E;
-  letter-spacing: -1px;
+  letter-spacing: -1.5px;
   line-height: 1;
+  font-family: var(--font-cormorant, 'Cormorant Garamond', serif);
 }
 
 .mLabel {
   font-size: 9px;
-  color: #999;
+  color: #666;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-top: 4px;
+  letter-spacing: 1.2px;
+  margin-top: 5px;
 }
 
-/* Connector arrow */
+/* Connector arrow — hidden */
 .arrow {
   display: none;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 760px) {
+  .stage {
+    grid-template-columns: 70px 1fr;
+    grid-template-rows: auto auto;
+    gap: 0 20px;
+  }
+
+  .stageMetric {
+    grid-column: 2;
+    text-align: left;
+    margin-top: 12px;
+  }
+
+  .pipeline::before {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
   .stage {
     grid-template-columns: 1fr;
+    padding-left: 16px;
   }
-  .stageMetric {
-    text-align: left;
+
+  .stageNumWrap {
+    margin-bottom: 4px;
   }
 }

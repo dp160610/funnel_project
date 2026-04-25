@@ -59,13 +59,15 @@ export default function GiftingPage() {
       <main>
         {/* Hero */}
         <section className={styles.hero}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="https://images.pexels.com/photos/1666065/pexels-photo-1666065.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="" className={styles.heroBgImg} />
+          <div className={styles.heroBgOverlay} />
           <div className={styles.heroInner}>
-            <span className={styles.heroTag}>#GiftsbyPropertyEdge</span>
             <h1 className={styles.heroTitle}>
               <span className="white_gradient">Beyond Being</span>{' '}
               <span className="pink_gradient">Just a Gift</span>
             </h1>
-            <p style={{ color: '#666', fontSize: '18px', marginBottom: '32px', maxWidth: '600px', lineHeight: '1.7' }}>
+            <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '18px', marginBottom: '32px', maxWidth: '600px', lineHeight: '1.7' }}>
               Beyond just a gift, it&apos;s a statement of appreciation and excellence. Thoughtfully curated hampers that celebrate new beginnings and strengthen valuable partnerships.
             </p>
             <Link href="/contact" className={styles.heroCta}>
@@ -77,7 +79,7 @@ export default function GiftingPage() {
         </section>
 
         {/* Overview */}
-        <section className={styles.overviewSection}>
+        <section className={`${styles.overviewSection} ${styles.lightSection}`}>
           <div className={styles.sectionInner}>
             <div className="title_top_wrap">
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -142,19 +144,23 @@ export default function GiftingPage() {
           </div>
         </section>
 
-        {/* Customize CTA */}
-        <section style={{ background: '#fff', borderTop: '1px solid #e5e5e5', padding: 'clamp(40px, 5vw, 60px) 0' }}>
-          <div className={styles.sectionInner}>
-            <div className={styles.ctaBanner}>
-              <h2 className={styles.ctaBannerTitle}>
-                <span className="white_gradient">Craft Your </span>
-                <span className="pink_gradient">Signature Hamper</span>
-              </h2>
-              <Link href="/contact" className={styles.heroCta}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="https://realatte.com/images/cta_icon.png" alt="" className={styles.ctaIcon} />
-                Contact Us
-              </Link>
+        <section className={styles.pageFinalCta}>
+          <div className={styles.pageFinalInner}>
+            <div className={styles.pageFinalLeft}>
+              <div className={styles.pageFinalKk}>#GiftsByPropertyEdge</div>
+              <div className={styles.pageFinalBig}>Property Edge</div>
+              <h2 className={styles.pageFinalH2}>Craft Your Signature Hamper.</h2>
+              <p className={styles.pageFinalDesc}>From intimate site visits to landmark launches — every occasion deserves a gift that tells your story. Let us curate it for you.</p>
+              <div className={styles.pageFinalBtns}>
+                <Link href="/contact" className={styles.pageFinalBtnW}>Order a Custom Hamper →</Link>
+                <Link href="/contact" className={styles.pageFinalBtnO}>Browse Collections</Link>
+              </div>
+              <p className={styles.pageFinalFine}>Bulk orders welcome. Delivered pan-India with bespoke packaging.</p>
+            </div>
+            <div className={styles.pageFinalBadge}>
+              <span className={styles.pageFinalBadgeN}>500+</span>
+              <div className={styles.pageFinalBadgeL}>Hampers<br />Delivered</div>
+              <div className={styles.pageFinalBadgeD}>Across property events pan-India</div>
             </div>
           </div>
         </section>

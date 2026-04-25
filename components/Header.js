@@ -32,8 +32,8 @@ export default function Header() {
           <Image
             src={`${basePath}/assets/images/logo.png`}
             alt="Property Edge"
-            width={195}
-            height={60}
+            width={160}
+            height={49}
             priority
           />
         </Link>

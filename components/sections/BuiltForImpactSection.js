@@ -46,43 +46,26 @@ export default function BuiltForImpactSection() {
       <div className={styles.sectionAura} aria-hidden="true" />
       <div className={styles.inner}>
         <Reveal as="div" className={styles.kk}>Five Disciplines</Reveal>
-        <Reveal as="h2" className={styles.sh} delay={90}>
+        <h2 className={styles.sh}>
           One Vision. Four Levers.<br /><em>Every Launch Sold Out.</em>
-        </Reveal>
+        </h2>
         <Reveal as="p" className={styles.ss} delay={170}>
           Every service at Property Edge is a spoke in the same wheel. Branding builds the trust that lowers your CPL. Influence builds the credibility that raises your site visit rate. Performance builds the machine that converts both into bookings.
         </Reveal>
-        <div className={styles.carouselShell}>
-          <div className={styles.carousel}>
-            <div className={styles.track}>
-              <div className={styles.group}>
-                {disciplines.map((d) => (
-                  <div key={d.num} className={styles.slide}>
-                    <div className={styles.card}>
-                      <div className={styles.cardBar} />
-                      <div className={styles.cardN}>{d.num}</div>
-                      <h3 className={styles.cardH}>{d.title}</h3>
-                      <p className={styles.cardP}>{d.desc}</p>
-                      <Link href={d.href} className={styles.cardL}>{d.link}</Link>
-                    </div>
-                  </div>
-                ))}
+        <div className={styles.manifestoList}>
+          {disciplines.map((d, i) => (
+            <Reveal key={d.num} as="div" className={styles.manifestoRow} delay={i * 70}>
+              <span className={styles.manifestoNum}>{d.num}</span>
+              <div className={styles.manifestoCenter}>
+                <h3 className={styles.manifestoTitle}>{d.title}</h3>
+                <div className={styles.manifestoLine} />
               </div>
-              <div className={styles.group} aria-hidden="true">
-                {disciplines.map((d) => (
-                  <div key={`${d.num}-clone`} className={styles.slide}>
-                    <div className={styles.card}>
-                      <div className={styles.cardBar} />
-                      <div className={styles.cardN}>{d.num}</div>
-                      <h3 className={styles.cardH}>{d.title}</h3>
-                      <p className={styles.cardP}>{d.desc}</p>
-                      <Link href={d.href} className={styles.cardL}>{d.link}</Link>
-                    </div>
-                  </div>
-                ))}
+              <div className={styles.manifestoBody}>
+                <p className={styles.manifestoDesc}>{d.desc}</p>
+                <Link href={d.href} className={styles.manifestoLink}>{d.link}</Link>
               </div>
-            </div>
-          </div>
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>

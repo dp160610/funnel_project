@@ -3,6 +3,7 @@ import { NextSeo } from 'next-seo'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import Reveal from '../components/common/Reveal'
+import MediaShowcase from '../components/common/MediaShowcase'
 import styles from '../styles/pages/ServicePage.module.css'
 
 const introCards = [
@@ -232,8 +233,10 @@ export default function FunnelEngineeringPage() {
 
       <main>
         <section className={styles.hero}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="" className={styles.heroBgImg} />
+          <div className={styles.heroBgOverlay} />
           <div className={styles.heroInner}>
-            <Reveal as="span" className={styles.heroTag}>Performance Marketing</Reveal>
             <Reveal as="h1" className={styles.heroTitle} delay={70}>
               <span className="white_gradient">Every Rupee. Every Lead.</span>{' '}
               <span className="pink_gradient">Every Step - Engineered.</span>
@@ -259,7 +262,7 @@ export default function FunnelEngineeringPage() {
           </div>
         </section>
 
-        <section className={styles.overviewSection}>
+        <section className={`${styles.overviewSection} ${styles.lightSection}`}>
           <div className={styles.sectionInner}>
             <div className="title_top_wrap"><span className="top_title">What We Actually Do</span></div>
             <h2 className={styles.sectionHeading}>Other agencies sell campaigns. We sell outcomes.</h2>
@@ -312,18 +315,19 @@ export default function FunnelEngineeringPage() {
           </div>
         </section>
 
-        <section className={styles.servicesSection}>
+        <section className={styles.deploySection}>
           <div className={styles.sectionInner}>
             <div className="title_top_wrap"><span className="top_title">What We Deploy</span></div>
             <h2 className={styles.sectionHeading}>Built to move one thing: your cost-per-booking.</h2>
             <p className={styles.sectionSub}>Six specialised disciplines. One unified strategy. Every service connects directly to a stage of your pipeline — and a number on your P&L.</p>
-            <div className={styles.servicesGrid}>
+            <div className={styles.deployGrid}>
               {services.map((s, index) => (
-                <Reveal key={s.title} className={styles.serviceCard} delay={180 + index * 90}>
-                  <img src={s.img} alt={s.title} className={styles.serviceImg} loading="lazy" />
-                  <div className={styles.serviceCardBody}>
-                    <h3 className={styles.serviceCardTitle}>{s.title}</h3>
-                    <p className={styles.serviceCardDesc}>{s.desc}</p>
+                <Reveal key={s.title} className={styles.deployCard} delay={180 + index * 90}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={s.img} alt={s.title} className={styles.deployCardImg} loading="lazy" />
+                  <div className={styles.deployCardBody}>
+                    <h3 className={styles.deployCardTitle}>{s.title}</h3>
+                    <p className={styles.deployCardDesc}>{s.desc}</p>
                   </div>
                 </Reveal>
               ))}
@@ -331,10 +335,15 @@ export default function FunnelEngineeringPage() {
           </div>
         </section>
 
-        <section className={styles.overviewSection}>
+        <MediaShowcase
+          title="Funnel Engineering in Action"
+          subtitle="Real campaigns. Real data. Real estate outcomes — documented at every stage."
+          items={funnelMedia}
+        />
+
+        <section className={`${styles.overviewSection} ${styles.lightSection}`}>
           <div className={styles.sectionInner}>
-            <div className="title_top_wrap"><span className="top_title">Platform Expertise</span></div>
-            <h2 className={styles.sectionHeading}>Right platform. Right stage. Right spend.</h2>
+            <div className="title_top_wrap"><span className="top_title">Platform Expertise</span></div>            <h2 className={styles.sectionHeading}>Right platform. Right stage. Right spend.</h2>
             <p className={styles.sectionSub}>Platform selection is strategy. We do not run everything everywhere - we allocate with surgical precision based on where your specific buyer is in their journey.</p>
             <div className={styles.servicesGrid}>
               {platforms.map((p, index) => (
@@ -392,7 +401,7 @@ export default function FunnelEngineeringPage() {
           </div>
         </section>
 
-        <section className={styles.servicesSection}>
+        <section className={`${styles.servicesSection} ${styles.lightSection}`}>
           <div className={styles.sectionInner}>
             <div className="title_top_wrap"><span className="top_title">Reporting & Transparency</span></div>
             <h2 className={styles.sectionHeading}>Opacity is how agencies hide bad performance.</h2>
@@ -414,15 +423,27 @@ export default function FunnelEngineeringPage() {
           </div>
         </section>
 
-        <section style={{ background: '#fff', padding: '60px 0' }}>
-          <div className={styles.sectionInner}>
-            <div className={styles.ctaBanner}>
-              <h2 className={styles.ctaBannerTitle}>Show us your funnel. We'll show you the leak.</h2>
-              <p className={styles.sectionSub} style={{ margin: 0 }}>Bring us your current CPL, your lead-to-visit ratio, and your last 3 months of campaign data. We will return a full pipeline audit within 72 hours.</p>
-              <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
-                <Link href="/contact" className={styles.heroCta}>Get My Free Funnel Audit</Link>
-                <Link href="/contact" className={styles.workTab}>Talk to a Strategist</Link>
+        <section className={styles.pageFinalCta}>
+          <div className={styles.pageFinalInner}>
+            <div className={styles.pageFinalLeft}>
+              <div className={styles.pageFinalKk}>#ShowMeWhereMyBudgetLeaks</div>
+              <div className={styles.pageFinalBig}>Property Edge</div>
+              <h2 className={styles.pageFinalH2}>
+                Show us your funnel.<br />We&apos;ll show you the leak.
+              </h2>
+              <p className={styles.pageFinalDesc}>
+                Bring us your current CPL, your lead-to-visit ratio, and your last 3 months of campaign data. We will return a full pipeline audit within 72 hours.
+              </p>
+              <div className={styles.pageFinalBtns}>
+                <Link href="/contact" className={styles.pageFinalBtnW}>Get My Free Funnel Audit →</Link>
+                <Link href="/about" className={styles.pageFinalBtnO}>See how we work</Link>
               </div>
+              <p className={styles.pageFinalFine}>No cost. No lock-in. No agency fluff. Just the truth about your funnel.</p>
+            </div>
+            <div className={styles.pageFinalBadge}>
+              <span className={styles.pageFinalBadgeN}>72hr</span>
+              <div className={styles.pageFinalBadgeL}>Funnel audit<br />turnaround</div>
+              <div className={styles.pageFinalBadgeD}>No cost. No lock-in.</div>
             </div>
           </div>
         </section>

@@ -101,6 +101,11 @@ const cases = [
 ]
 
 export default function CaseStudiesSection() {
+  const featured = cases[0]
+  const stackPair = cases.slice(1, 3)
+  const tileRow = cases.slice(3, 7)
+  const filmReel = cases.slice(7)
+
   return (
     <section id="cases" className={styles.section}>
       <div className={styles.inner}>
@@ -122,20 +127,62 @@ export default function CaseStudiesSection() {
           <p className={styles.subheading}>Real campaigns. Real numbers. Real developers who trusted us and sold out.</p>
         </div>
 
-        <div className={styles.grid}>
-          {cases.map((c) => (
-            <Link key={c.id} href={`/portfolio/${c.slug}`} className={styles.card}>
-              <div className={styles.imgPlaceholder}>
-                <img src={c.img} alt={c.title} />
-                <div className={styles.playBtn}>&#9654; View</div>
-              </div>
-              <div className={styles.cardBody}>
-                <p className={styles.cardTag}>{c.tag}</p>
-                <h3 className={styles.cardTitle}>{c.title}</h3>
-                <p className={styles.cardBrand}>{c.brand}</p>
+        {/* Editorial Top: Featured (large) + 2 stacked */}
+        <div className={styles.editorialTop}>
+          <Link href={`/portfolio/${featured.slug}`} className={styles.featureHero}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={featured.img} alt={featured.title} className={styles.heroImg} />
+            <div className={styles.heroOverlay}>
+              <span className={styles.heroCaseTag}>{featured.tag}</span>
+              <h3 className={styles.heroCaseTitle}>{featured.title}</h3>
+              <span className={styles.heroCaseBrand}>{featured.brand}</span>
+            </div>
+          </Link>
+          <div className={styles.stackCol}>
+            {stackPair.map((c) => (
+              <Link key={c.id} href={`/portfolio/${c.slug}`} className={styles.stackCase}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={c.img} alt={c.title} className={styles.stackImg} />
+                <div className={styles.stackOverlay}>
+                  <span className={styles.stackTag}>{c.tag}</span>
+                  <h4 className={styles.stackTitle}>{c.title}</h4>
+                  <span className={styles.stackBrand}>{c.brand}</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {/* Tile row: 4 equal tiles */}
+        <div className={styles.tileRow}>
+          {tileRow.map((c) => (
+            <Link key={c.id} href={`/portfolio/${c.slug}`} className={styles.tile}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={c.img} alt={c.title} className={styles.tileImg} />
+              <div className={styles.tileOverlay}>
+                <span className={styles.tileTag}>{c.tag}</span>
+                <h4 className={styles.tileTitle}>{c.title}</h4>
+                <span className={styles.tileBrand}>{c.brand}</span>
               </div>
             </Link>
           ))}
+        </div>
+
+        {/* Film reel: horizontal scroll for remaining */}
+        <div className={styles.reelWrap}>
+          <div className={styles.reelTrack}>
+            {filmReel.map((c) => (
+              <Link key={c.id} href={`/portfolio/${c.slug}`} className={styles.reelCase}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={c.img} alt={c.title} className={styles.reelImg} />
+                <div className={styles.reelOverlay}>
+                  <span className={styles.reelTag}>{c.tag}</span>
+                  <h4 className={styles.reelTitle}>{c.title}</h4>
+                  <span className={styles.reelBrand}>{c.brand}</span>
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </section>

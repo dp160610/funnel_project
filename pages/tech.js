@@ -91,6 +91,9 @@ export default function TechPage() {
       <main>
         {/* Hero */}
         <section className={styles.hero}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="" className={styles.heroBgImg} />
+          <div className={styles.heroBgOverlay} />
           <div className={styles.heroInner}>
             <Reveal as="span" className={styles.heroTag}>#SmartTechStacked</Reveal>
             <Reveal as="h1" className={styles.heroTitle} delay={70}>
@@ -132,7 +135,7 @@ export default function TechPage() {
           </div>
         </section>
 
-        <section className={styles.servicesSection}>
+        <section className={`${styles.servicesSection} ${styles.lightSection}`}>
           <div className={styles.sectionInner}>
             <div className="title_top_wrap"><span className="top_title">What We Build</span></div>
             <h2 className={styles.sectionHeading}>Technology That Turns Your Pipeline From a Spreadsheet Into a System.</h2>
@@ -151,17 +154,23 @@ export default function TechPage() {
           </div>
         </section>
 
-        <section style={{ background: '#fff', padding: '60px 0' }}>
-          <div className={styles.sectionInner}>
-            <div className={styles.ctaBanner}>
-              <h2 className={styles.ctaBannerTitle}>Your Next Project Should Run on Data. Not Instinct.</h2>
-              <p className={styles.sectionSub} style={{ margin: 0 }}>
-                Tell us your current setup. We&apos;ll map the gaps, build the integrations, and have your pipeline running on full attribution within 48 hours.
-              </p>
-              <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
-                <Link href="/contact" className={styles.heroCta}>Audit My Tech Stack - Free</Link>
-                <Link href="/contact" className={styles.workTab}>Talk to a Tech Strategist</Link>
+        <section className={styles.pageFinalCta}>
+          <div className={styles.pageFinalInner}>
+            <div className={styles.pageFinalLeft}>
+              <div className={styles.pageFinalKk}>#YourDataShouldCloseDeals</div>
+              <div className={styles.pageFinalBig}>Property Edge</div>
+              <h2 className={styles.pageFinalH2}>Your Next Project Should Run on Data. Not Instinct.</h2>
+              <p className={styles.pageFinalDesc}>Tell us your current setup. We&apos;ll map the gaps, build the integrations, and have your pipeline running on full attribution within 48 hours.</p>
+              <div className={styles.pageFinalBtns}>
+                <Link href="/contact" className={styles.pageFinalBtnW}>Audit My Tech Stack &#8212; Free →</Link>
+                <Link href="/contact" className={styles.pageFinalBtnO}>Talk to a Tech Strategist</Link>
               </div>
+              <p className={styles.pageFinalFine}>No lock-in. No long contracts. Results in 48 hours or we work for free.</p>
+            </div>
+            <div className={styles.pageFinalBadge}>
+              <span className={styles.pageFinalBadgeN}>48hr</span>
+              <div className={styles.pageFinalBadgeL}>CRM Setup<br />Time</div>
+              <div className={styles.pageFinalBadgeD}>From kickoff to live pipeline</div>
             </div>
           </div>
         </section>

@@ -83,8 +83,8 @@ export default function Reveal({
         }
       },
       {
-        threshold: 0.16,
-        rootMargin: '0px 0px -10% 0px',
+        threshold: 0.02,
+        rootMargin: '0px 0px -4% 0px',
       }
     )
 
@@ -106,7 +106,7 @@ export default function Reveal({
         '--reveal-distance': distance,
         '--reveal-x': '0px',
         transition:
-          'opacity 0.95s var(--ease-premium) var(--reveal-delay, 0ms), transform 0.95s var(--ease-premium) var(--reveal-delay, 0ms)',
+          'opacity 0.6s var(--ease-premium) var(--reveal-delay, 0ms), transform 0.6s var(--ease-premium) var(--reveal-delay, 0ms)',
         ...style,
       }}
       {...props}
