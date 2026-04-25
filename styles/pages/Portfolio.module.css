@@ -1,5 +1,5 @@
 .hero {
-  padding: clamp(110px, 14vw, 180px) 0 clamp(80px, 10vw, 120px);
+  padding: clamp(72px, 9vw, 120px) 0 clamp(64px, 8vw, 104px);
   background: #130304;
   border-bottom: 1px solid rgba(200,16,46,0.2);
   text-align: center;

@@ -65,8 +65,8 @@
 }
 
 .heroInner {
-  padding-top: clamp(80px, 10vw, 130px);
-  padding-bottom: clamp(80px, 10vw, 130px);
+  padding-top: clamp(56px, 7vw, 96px);
+  padding-bottom: clamp(64px, 8vw, 108px);
 }
 
 .heroTitle {
