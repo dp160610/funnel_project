@@ -1863,6 +1863,12 @@
   font-family: var(--font-ui, 'Space Grotesk', sans-serif);
 }
 
+/* ── FUNNEL VISUAL TAPER — each stage narrows to show volume compression ─ */
+.funnelDiagram > div:nth-child(2) { max-width: 91% !important; margin-left: auto !important; margin-right: auto !important; }
+.funnelDiagram > div:nth-child(3) { max-width: 80% !important; margin-left: auto !important; margin-right: auto !important; }
+.funnelDiagram > div:nth-child(4) { max-width: 67% !important; margin-left: auto !important; margin-right: auto !important; }
+.funnelDiagram > div:nth-child(5) { max-width: 52% !important; margin-left: auto !important; margin-right: auto !important; }
+
 /* ── COST LADDER VISUAL ───────────────────────────────────────────── */
 .costLadder {
   display: flex;
@@ -1950,7 +1956,12 @@
   top: 0;
   height: 100%;
   background: linear-gradient(90deg, rgba(200,16,46,0.4), #C8102E);
-  transition: width 1s ease 0.3s;
+  animation: costBarFill 1.6s cubic-bezier(0.22, 1, 0.36, 1) 0.5s both;
+}
+
+@keyframes costBarFill {
+  from { width: 0; }
+  to   { width: var(--fill-w, 100%); }
 }
 
 /* ── VISUAL COMPARISON TABLE (dark) ────────────────────────────────── */
@@ -2085,11 +2096,33 @@
 /* ── MOCK DASHBOARD WIDGET ────────────────────────────────────────── */
 .mockDash {
   background: #4C1221;
-  border: 1px solid rgba(200,16,46,0.20);
+  border: 1px solid rgba(200,16,46,0.28);
   padding: 24px;
   margin-top: 40px;
   position: relative;
   overflow: hidden;
+  box-shadow:
+    0 0 0 1px rgba(200,16,46,0.10),
+    0 24px 64px rgba(0,0,0,0.55),
+    0 0 80px rgba(200,16,46,0.07),
+    inset 0 1px 0 rgba(255,255,255,0.04);
+}
+
+.mockDash::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #C8102E 40%, rgba(200,16,46,0.5) 70%, transparent);
+  animation: dashScan 4s ease-in-out infinite;
+  opacity: 0.7;
+}
+
+@keyframes dashScan {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
 }
 
 .mockDashHeader {
@@ -2134,7 +2167,20 @@
 .mockDashStat {
   background: #541526;
   padding: 16px;
-  border: 1px solid rgba(200,16,46,0.10);
+  border: 1px solid rgba(200,16,46,0.15);
+  position: relative;
+  overflow: hidden;
+  transition: background 0.25s ease;
+}
+
+.mockDashStat::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(200,16,46,0.35), transparent);
 }
 
 .mockDashStatVal {
@@ -2192,6 +2238,13 @@
   height: 100%;
   background: linear-gradient(90deg, rgba(200,16,46,0.5), #C8102E);
   border-radius: 3px;
+  animation: dashRowFill 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: inherit;
+}
+
+@keyframes dashRowFill {
+  from { width: 0 !important; }
+  to   { /* set by inline style */ }
 }
 
 .mockDashRowScore {
@@ -2443,10 +2496,18 @@
 
 .tierCard {
   background: #4E1222;
-  padding: 28px 22px;
+  padding: 0 0 28px;
   position: relative;
   overflow: hidden;
   transition: background 0.3s ease;
+}
+
+.tierCardTitle,
+.tierCardRange,
+.tierCardDesc,
+.tierCardBestFor {
+  padding-left: 22px;
+  padding-right: 22px;
 }
 
 .tierCard::before {
@@ -2500,6 +2561,21 @@
   border-top: 1px solid rgba(200,16,46,0.10);
 }
 
+.tierCardImg {
+  width: 100%;
+  aspect-ratio: 3/2;
+  object-fit: cover;
+  display: block;
+  opacity: 0.68;
+  transition: opacity 0.4s ease, transform 0.5s ease;
+  margin-bottom: 18px;
+}
+
+.tierCard:hover .tierCardImg {
+  opacity: 0.88;
+  transform: scale(1.02);
+}
+
 @media (max-width: 900px) {
   .tierGrid { grid-template-columns: repeat(2, 1fr); }
 }
@@ -2548,6 +2624,124 @@
 
 @media (max-width: 640px) {
   .smoMetrics { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ── SERVICE CARD IMAGE THUMBNAIL (reused across all pages) ─────── */
+.serviceCardImgWrap {
+  overflow: hidden;
+  position: relative;
+  line-height: 0;
+}
+
+.serviceCardImg {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  display: block;
+  opacity: 0.72;
+  transition: opacity 0.45s ease, transform 0.55s ease;
+}
+
+.serviceCard:hover .serviceCardImg {
+  opacity: 0.94;
+  transform: scale(1.04);
+}
+
+.lightSection .serviceCard:hover .serviceCardImg {
+  opacity: 0.94;
+  transform: scale(1.04);
+}
+
+/* ── FORMAT REEL GRID (Influence page) ───────────────────────────── */
+.formatReelGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  margin-top: 40px;
+  background: rgba(200,16,46,0.08);
+  border: 1px solid rgba(200,16,46,0.12);
+}
+
+.formatReelCard {
+  background: #4E1222;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: background 0.3s ease;
+}
+
+.formatReelCard:hover { background: #581728; }
+
+.formatReelThumb {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  opacity: 0.70;
+  transition: opacity 0.4s ease, transform 0.55s ease;
+  display: block;
+}
+
+.formatReelCard:hover .formatReelThumb {
+  opacity: 0.92;
+  transform: scale(1.04);
+}
+
+.formatReelBody {
+  padding: 18px 20px 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.formatReelTitle {
+  font-size: clamp(14px, 1.4vw, 17px);
+  font-weight: 600;
+  color: #ffffff;
+  font-family: var(--font-cormorant, 'Cormorant Garamond', serif);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.formatReelDesc {
+  font-size: 11px;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.75;
+  flex: 1;
+}
+
+.formatReelRole {
+  font-size: 9px;
+  font-weight: 700;
+  color: #C8102E;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-family: var(--font-ui, 'Space Grotesk', sans-serif);
+  padding-top: 10px;
+  border-top: 1px solid rgba(200,16,46,0.12);
+}
+
+.formatReelBadge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(200,16,46,0.88);
+  color: #ffffff;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  font-family: var(--font-ui, 'Space Grotesk', sans-serif);
+}
+
+@media (max-width: 900px) {
+  .formatReelGrid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 560px) {
+  .formatReelGrid { grid-template-columns: 1fr; }
 }
 
 /* ── CONTACT PAGE — DARK THEME ────────────────────────────────────── */

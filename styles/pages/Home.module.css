@@ -147,6 +147,43 @@
   max-width: none;
   margin: 0;
   padding: clamp(80px, 11vw, 140px) clamp(16px, 4vw, 64px);
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: clamp(40px, 6vw, 100px);
+  align-items: center;
+}
+
+.hashInnerText {
+  /* holds all the copy/cta — flex column by default from parent grid */
+  min-width: 0;
+}
+
+.hashInnerImg {
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.hashInnerImg img {
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  display: block;
+  filter: saturate(0.82) brightness(0.78);
+  transition: transform 0.7s ease, filter 0.5s ease;
+}
+
+.hashSection:hover .hashInnerImg img {
+  transform: scale(1.03);
+  filter: saturate(0.95) brightness(0.88);
+}
+
+.hashInnerImg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 55%, rgba(82,20,36,0.72) 100%), linear-gradient(90deg, rgba(82,20,36,0.45) 0%, transparent 40%);
+  pointer-events: none;
 }
 
 .hashBlk {
@@ -280,7 +317,7 @@
 /* Horizontal 3-column row layout */
 .truthItem {
   display: grid;
-  grid-template-columns: 100px 1fr 1fr;
+  grid-template-columns: 100px 1fr 1fr 220px;
   grid-template-rows: auto auto auto;
   gap: 0 52px;
   align-items: start;
@@ -402,7 +439,31 @@
   z-index: 2;
 }
 
-/* ===== TRUSTED BY — Magazine masonry ===== */
+/* Image column — col 4, all rows */
+.truthImg {
+  grid-column: 4;
+  grid-row: 1 / 4;
+  align-self: center;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+}
+
+.truthImg img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  display: block;
+  opacity: 0.55;
+  filter: saturate(0.70);
+  transition: opacity 0.45s ease, transform 0.55s ease, filter 0.45s ease;
+}
+
+.truthItemWrap:hover .truthImg img {
+  opacity: 0.78;
+  transform: scale(1.04);
+  filter: saturate(0.90);
+}
 
 .trustedSection {
   background: #4A1120;
@@ -821,11 +882,23 @@
 /* ===== Mobile ===== */
 
 @media (max-width: 900px) {
+  .hashInner {
+    grid-template-columns: 1fr;
+  }
+
+  .hashInnerImg {
+    display: none;
+  }
+
   /* Truth rows collapse to 2-col (number + content stacked) */
   .truthItem {
     grid-template-columns: 70px 1fr;
     grid-template-rows: auto auto auto auto;
     gap: 0 28px;
+  }
+
+  .truthImg {
+    display: none;
   }
 
   .truthN {

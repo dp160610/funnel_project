@@ -122,24 +122,28 @@ const tiers = [
     range: '5K-50K followers',
     desc: 'Neighbourhood community leaders and local trusted voices with high engagement and authenticity.',
     bestFor: 'Best for: Affordable and mid-segment',
+    img: 'https://images.pexels.com/photos/3184398/pexels-photo-3184398.jpeg?auto=compress&cs=tinysrgb&w=600',
   },
   {
     title: 'Micro',
     range: '50K-500K followers',
     desc: 'Niche authority creators with strong category relevance and engaged purchase-intent audiences.',
     bestFor: 'Best for: Most residential projects',
+    img: 'https://images.pexels.com/photos/5721979/pexels-photo-5721979.jpeg?auto=compress&cs=tinysrgb&w=600',
   },
   {
     title: 'Macro',
     range: '500K-5M followers',
     desc: 'Mass reach creators for launch windows and broad salience when visibility must scale quickly.',
     bestFor: 'Best for: Premium and launch campaigns',
+    img: 'https://images.pexels.com/photos/3832684/pexels-photo-3832684.jpeg?auto=compress&cs=tinysrgb&w=600',
   },
   {
     title: 'Celebrity',
     range: '5M+ followers',
     desc: 'National personalities delivering maximum credibility and awareness for premium inventory.',
     bestFor: 'Best for: Luxury and township launches',
+    img: 'https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=600',
   },
 ]
 
@@ -176,31 +180,37 @@ const formats = [
     title: 'Project Walkthrough Reels',
     desc: '90-second to 3-minute immersive project tours with voiceover, lifestyle context, and location cues.',
     role: 'Funnel role: Awareness -> Intent',
+    img: 'https://images.pexels.com/photos/1546168/pexels-photo-1546168.jpeg?auto=compress&cs=tinysrgb&w=800',
   },
   {
     title: 'Talking-Head Expert Reviews',
     desc: 'Creator-led analysis on location investment potential, amenity breakdowns, and value benchmarks.',
     role: 'Funnel role: Trust Building -> Conviction',
+    img: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800',
   },
   {
     title: 'Model & Lifestyle Reels',
     desc: 'Aspirational moments that sell the lived experience, not just inventory and specifications.',
     role: 'Funnel role: Emotional Connect -> Desire',
+    img: 'https://images.pexels.com/photos/1743229/pexels-photo-1743229.jpeg?auto=compress&cs=tinysrgb&w=800',
   },
   {
     title: 'Cinematic Project Films',
     desc: 'Flagship 3-5 minute narratives with premium production quality to establish authority quickly.',
     role: 'Funnel role: Brand Authority -> Premium Perception',
+    img: 'https://images.pexels.com/photos/7578529/pexels-photo-7578529.jpeg?auto=compress&cs=tinysrgb&w=800',
   },
   {
     title: 'Resident Testimonial Content',
     desc: 'Authentic resident perspectives covering trust, build quality, and daily living confidence.',
     role: 'Funnel role: Objection Resolution -> Close',
+    img: 'https://images.pexels.com/photos/3831796/pexels-photo-3831796.jpeg?auto=compress&cs=tinysrgb&w=800',
   },
   {
     title: 'Site Visit Vlogs & Location Reviews',
     desc: 'First-person realism that helps remote and NRI buyers evaluate with confidence before visiting.',
     role: 'Funnel role: Consideration -> Site Visit Decision',
+    img: 'https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=800',
   },
 ]
 
@@ -439,6 +449,8 @@ export default function InfluencePage() {
             <div className={styles.tierGrid}>
               {tiers.map((tier, index) => (
                 <Reveal key={tier.title} className={styles.tierCard} delay={160 + index * 80}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={tier.img} alt={tier.title} className={styles.tierCardImg} />
                   <div className={styles.tierCardTitle}>{tier.title}</div>
                   <div className={styles.tierCardRange}>{tier.range}</div>
                   <div className={styles.tierCardDesc}>{tier.desc}</div>
@@ -474,13 +486,16 @@ export default function InfluencePage() {
             <div className="title_top_wrap"><span className="top_title">Content formats</span></div>
             <h2 className={styles.sectionHeading}>Every Format Has a Job in the Funnel. We Know Which Does What.</h2>
             <p className={styles.sectionSub}>We do not produce content for volume. Every format is assigned a funnel role: awareness, trust-building, or conversion.</p>
-            <div className={styles.servicesGrid}>
+            <div className={styles.formatReelGrid}>
               {formats.map((f, index) => (
-                <Reveal key={f.title} className={styles.serviceCard} delay={180 + index * 90}>
-                  <div className={styles.serviceCardBody}>
-                    <h3 className={styles.serviceCardTitle}>{f.title}</h3>
-                    <p className={styles.serviceCardDesc}>{f.desc}</p>
-                    <div className={styles.cardStat}>{f.role}</div>
+                <Reveal key={f.title} className={styles.formatReelCard} delay={180 + index * 90}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={f.img} alt={f.title} className={styles.formatReelThumb} />
+                  <div className={styles.formatReelBadge}>Reel</div>
+                  <div className={styles.formatReelBody}>
+                    <h3 className={styles.formatReelTitle}>{f.title}</h3>
+                    <p className={styles.formatReelDesc}>{f.desc}</p>
+                    <div className={styles.formatReelRole}>{f.role}</div>
                   </div>
                 </Reveal>
               ))}

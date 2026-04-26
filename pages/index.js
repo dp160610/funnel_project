@@ -21,6 +21,7 @@ const truths = [
     body: 'Without lead scoring, your top sales executives spend 70% of their day chasing people who are curious, not committed. Funnel engineering ends this by filtering intent before a lead ever reaches the floor.',
     italic: 'Your sales team\'s time is your most expensive resource. We stop wasting it.',
     stat: 'Lead scoring consistently doubles average close rates.',
+    img: 'https://images.pexels.com/photos/3184357/pexels-photo-3184357.jpeg?auto=compress&cs=tinysrgb&w=600',
   },
   {
     num: '02',
@@ -28,6 +29,7 @@ const truths = [
     body: 'A ₹400 CPL feels like a win. It isn\'t — not when only 1 in 80 leads produces a booking. Your real cost of sale is your CPB. Most developers have never calculated it. We put it on a dashboard on day one.',
     italic: 'The metric you track determines the outcome you get. You\'re tracking the wrong one.',
     stat: 'Industry CPB averages 80–150× CPL.',
+    img: 'https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=600',
   },
   {
     num: '03',
@@ -35,6 +37,7 @@ const truths = [
     body: 'Real estate decisions take 6–12 weeks. Without structured nurturing, an interested buyer goes cold and your CPL becomes a write-off. The funnel keeps them warm while your team focuses on closures.',
     italic: 'You didn\'t lose that lead to a competitor. You lost them to silence.',
     stat: 'Average real estate decision cycle: 6–12 weeks.',
+    img: 'https://images.pexels.com/photos/1591062/pexels-photo-1591062.jpeg?auto=compress&cs=tinysrgb&w=600',
   },
   {
     num: '04',
@@ -42,6 +45,7 @@ const truths = [
     body: 'If you cannot trace a booking back to the campaign that produced it, you are funding three things: what works, what doesn\'t, and what you have no idea about. Attribution alone reduces effective CPB by 20–35%.',
     italic: 'Unattributed marketing isn\'t a strategy. It\'s a donation with a logo on it.',
     stat: 'Closed-loop attribution reduces CPB by 20–35%.',
+    img: 'https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&cs=tinysrgb&w=600',
   },
 ]
 
@@ -95,7 +99,7 @@ export default function Home() {
         {/* 3. Boardroom silence hash section */}
         <section className={styles.hashSection}>
           <div className={styles.hashInner}>
-            <Reveal className={styles.hashBlk} distance="42px">
+            <Reveal className={`${styles.hashBlk} ${styles.hashInnerText}`} distance="42px">
               <div className={styles.hashTag}>#TheAgencyThatStopsAtBookings</div>
               <h2 className={styles.hashH}>
                 Your Campaigns Are Live.<br />
@@ -109,6 +113,10 @@ export default function Home() {
               </p>
               <Link href="/contact" className={styles.hashCta}>End the Boardroom Silence. Build My Funnel. →</Link>
             </Reveal>
+            <div className={styles.hashInnerImg}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg?auto=compress&cs=tinysrgb&w=900" alt="" />
+            </div>
           </div>
         </section>
 
@@ -140,6 +148,10 @@ export default function Home() {
                   <div className={styles.truthN}>{t.num}</div>
                   <div className={styles.truthH}>{t.heading}</div>
                   <p className={styles.truthP}>{t.body}</p>
+                  <div className={styles.truthImg}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={t.img} alt="" />
+                  </div>
                   <div className={styles.truthItalic}>{t.italic}</div>
                   <div className={styles.truthNum}>{t.stat}</div>
                   </div>

@@ -152,27 +152,27 @@ const differentiators = [
 
 const industries = [
   {
-    icon: '🏠',
+    img: 'https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=600',
     title: 'Affordable Housing',
     desc: 'Rs25L to Rs60L. First-home buyers. Aspiration-led branding that makes the purchase feel like a life milestone.',
   },
   {
-    icon: '🏢',
+    img: 'https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=600',
     title: 'Mid-Segment Residential',
     desc: 'Rs60L to Rs1.5Cr. Lifestyle upgraders. Branding that signals quality, community, and a step-up in living standards.',
   },
   {
-    icon: '🌆',
+    img: 'https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=600',
     title: 'Premium & Luxury',
     desc: 'Rs1.5Cr to Rs5Cr. Discerning buyers. Positioning built on exclusivity, craft, and the emotional prestige of the address.',
   },
   {
-    icon: '💎',
+    img: 'https://images.pexels.com/photos/1029599/pexels-photo-1029599.jpeg?auto=compress&cs=tinysrgb&w=600',
     title: 'Ultra Luxury & HNI',
     desc: 'Rs5Cr+. Investment-grade buyers. Brand storytelling that justifies pricing through heritage, scarcity, and lifestyle elevation.',
   },
   {
-    icon: '🏗️',
+    img: 'https://images.pexels.com/photos/380769/pexels-photo-380769.jpeg?auto=compress&cs=tinysrgb&w=600',
     title: 'Commercial & Plots',
     desc: 'Office, retail, plotted development. ROI-led brand narratives that speak to investors and owner-occupiers differently.',
   },
@@ -371,8 +371,11 @@ export default function BrandingPage() {
             <div className={styles.servicesGrid}>
               {industries.map((item, index) => (
                 <Reveal key={item.title} className={styles.serviceCard} delay={180 + index * 90}>
+                  <div className={styles.serviceCardImgWrap}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={item.img} alt={item.title} className={styles.serviceCardImg} loading="lazy" />
+                  </div>
                   <div className={styles.serviceCardBody}>
-                    <div style={{ fontSize: '28px', marginBottom: '10px', lineHeight: 1 }}>{item.icon}</div>
                     <h3 className={styles.serviceCardTitle}>{item.title}</h3>
                     <p className={styles.serviceCardDesc}>{item.desc}</p>
                   </div>

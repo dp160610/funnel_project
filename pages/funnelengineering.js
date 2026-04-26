@@ -106,6 +106,7 @@ const platforms = [
     title: 'Meta — Facebook & Instagram',
     subTitle: 'Where Real Estate Buyers Dream Before They Search',
     desc: 'Meta is where purchase intent is formed, not declared. We reach buyers 30–90 days before they enter active search mode — with hyper-local targeting, lookalike audiences modelled on your past buyers, and creative sequencing that builds purchase desire over time.',
+    img: 'https://images.pexels.com/photos/3178818/pexels-photo-3178818.jpeg?auto=compress&cs=tinysrgb&w=700',
     points: [
       'Micro-geography targeting down to 1km radius',
       'Custom audiences from site visitors, CRM data & portal traffic',
@@ -119,6 +120,7 @@ const platforms = [
     title: 'Google — Search, Display & YouTube',
     subTitle: 'Capture Buyers Who Are Already Looking',
     desc: 'Google is where declared intent lives. We dominate your category keywords, conquest competitor searches, and re-engage site visitors with display retargeting that keeps your project top-of-mind throughout a 90-day decision window.',
+    img: 'https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=700',
     points: [
       'High-intent keyword campaigns with negative list management',
       'Competitor conquest campaigns for category capture',
@@ -130,6 +132,7 @@ const platforms = [
     title: 'Programmatic, OTT & More',
     subTitle: 'Surround Your Buyer. Everywhere They Go.',
     desc: 'Premium publishers. Financial news sites. Property portals. OTT platforms. We buy cross-platform inventory that puts your brand in front of the right affluence segment — wherever they consume content. One unified strategy, one cohesive buyer experience.',
+    img: 'https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=700',
     points: [
       'DSP-powered cross-publisher programmatic buying',
       'OTT & connected TV for premium segment reach',
@@ -172,16 +175,19 @@ const reporting = [
     title: 'Spend, leads & CPL - every morning',
     desc: "A concise morning briefing that tells you exactly what was spent yesterday, how many leads came in, and whether your CPL is trending in the right direction - before you've had your coffee.",
     stat: 'Daily',
+    img: 'https://images.pexels.com/photos/669610/pexels-photo-669610.jpeg?auto=compress&cs=tinysrgb&w=600',
   },
   {
     title: 'Full funnel - lead to qualified to visited',
     desc: 'Every Monday, you receive a stage-by-stage view of your pipeline. How many leads moved from raw to qualified. How many qualified leads converted to site visits. Where the dropout is happening and why.',
     stat: 'Weekly',
+    img: 'https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg?auto=compress&cs=tinysrgb&w=600',
   },
   {
     title: 'Bookings traced back to the originating ad',
     desc: "Every booking from the month, attributed to its originating campaign, platform, creative, and audience. With recommendations for next month's budget allocation based on what actually drove closures - not impressions.",
     stat: 'Monthly',
+    img: 'https://images.pexels.com/photos/590020/pexels-photo-590020.jpeg?auto=compress&cs=tinysrgb&w=600',
   },
 ]
 
@@ -310,6 +316,22 @@ export default function FunnelEngineeringPage() {
             <div className="title_top_wrap"><span className="top_title">The Full Funnel Architecture</span></div>
             <h2 className={styles.sectionHeading}>Five Stages. One Accountable System.</h2>
             <p className={styles.sectionSub}>Most budgets die between awareness and closure because no one owns the middle. We map every stage, instrument every handoff, and assign a specific strategy with a specific benchmark to each one.</p>
+
+            {/* Funnel overview — visual tapering bars showing all 5 stages at a glance */}
+            <Reveal delay={80}>
+              <div className={styles.funnelOverview}>
+                {funnelStages.map((stage, i) => {
+                  const pcts = ['100%', '80%', '62%', '46%', '32%']
+                  return (
+                    <div key={stage.label} className={styles.funnelOverviewBar} style={{ width: pcts[i] }}>
+                      <span className={styles.funnelOverviewLabel}>{stage.label}</span>
+                      <span className={styles.funnelOverviewMetric}>{stage.metric}</span>
+                    </div>
+                  )
+                })}
+              </div>
+            </Reveal>
+
             <div className={styles.funnelDiagram}>
               {funnelStages.map((stage, index) => (
                 <Reveal key={stage.title} style={{ width: '100%' }} delay={160 + index * 70}>
@@ -382,6 +404,10 @@ export default function FunnelEngineeringPage() {
             <div className={styles.servicesGrid}>
               {platforms.map((p, index) => (
                 <Reveal key={p.title} className={styles.serviceCard} delay={180 + index * 90}>
+                  <div className={styles.serviceCardImgWrap}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={p.img} alt={p.title} className={styles.serviceCardImg} loading="lazy" />
+                  </div>
                   <div className={styles.serviceCardBody}>
                     <div className={styles.cardKicker}>{p.title}</div>
                     <h3 className={styles.serviceCardTitle}>{p.subTitle}</h3>
@@ -416,7 +442,7 @@ export default function FunnelEngineeringPage() {
                       <div className={styles.costRungDesc}>{r.desc}</div>
                       <div className={styles.costRungBar}>
                         <div className={styles.costRungTrack}>
-                          <div className={styles.costRungFill} style={{ width: fillWidths[index] }} />
+                          <div className={styles.costRungFill} style={{ '--fill-w': fillWidths[index] }} />
                         </div>
                       </div>
                     </div>
@@ -439,6 +465,10 @@ export default function FunnelEngineeringPage() {
             <div className={styles.servicesGrid}>
               {reporting.map((r, index) => (
                 <Reveal key={r.title} className={styles.serviceCard} delay={180 + index * 90}>
+                  <div className={styles.serviceCardImgWrap}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={r.img} alt={r.title} className={styles.serviceCardImg} loading="lazy" />
+                  </div>
                   <div className={styles.serviceCardBody}>
                     <div className={styles.cardKicker}>{r.stat}</div>
                     <h3 className={styles.serviceCardTitle}>{r.title}</h3>
