@@ -1,7 +1,7 @@
 /* ===== BEFORE / AFTER SECTION ===== */
 
 .section {
-  background: #060101;
+  background: #070E1E;
   border-bottom: 1px solid rgba(200,16,46,0.10);
   position: relative;
   overflow: hidden;
@@ -118,7 +118,7 @@
   height: 52px;
   border-radius: 50%;
   border: 1px solid rgba(200,16,46,0.35);
-  background: radial-gradient(circle at center, rgba(200,16,46,0.10) 0%, #0a0101 100%);
+  background: radial-gradient(circle at center, rgba(200,16,46,0.10) 0%, #46101E 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -146,12 +146,49 @@
   border: 1px solid rgba(200,16,46,0.14);
   border-right: none;
   background: rgba(8, 2, 2, 0.75);
+  overflow: hidden;
 }
 
 .afterCol {
   border: 1px solid rgba(37,211,102,0.12);
   border-left: none;
   background: rgba(2, 8, 4, 0.70);
+  overflow: hidden;
+}
+
+/* ── Column hero images ── */
+.colImgWrap {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.colImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(0.30) brightness(0.50);
+  transition: transform 0.6s var(--ease-premium, cubic-bezier(0.22, 0.61, 0.36, 1));
+}
+
+.beforeCol:hover .colImg,
+.afterCol:hover .colImg {
+  transform: scale(1.04);
+}
+
+.colImgOverlayBefore {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(40, 5, 8, 0) 30%, rgba(8, 2, 2, 0.95) 100%);
+}
+
+.colImgOverlayAfter {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(5, 20, 8, 0) 30%, rgba(2, 8, 4, 0.95) 100%);
 }
 
 .afterCol:hover {

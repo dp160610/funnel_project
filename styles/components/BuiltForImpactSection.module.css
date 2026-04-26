@@ -1,7 +1,7 @@
-/* ===== FOUR DISCIPLINES SECTION ===== */
+/* ===== BUILT FOR IMPACT - CARD GRID ===== */
 
 .section {
-  background: #0e0303;
+  background: #46101E;
   border-bottom: 1px solid rgba(200,16,46,0.15);
   position: relative;
   overflow: hidden;
@@ -21,7 +21,7 @@
   width: 700px;
   height: 700px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(200,16,46,0.11) 0%, transparent 68%);
+  background: radial-gradient(circle, rgba(200,16,46,0.13) 0%, transparent 68%);
   top: -200px;
   left: -150px;
   filter: blur(80px);
@@ -35,7 +35,7 @@
   width: 450px;
   height: 450px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(155,0,21,0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(155,0,21,0.10) 0%, transparent 70%);
   bottom: -80px;
   right: 8%;
   filter: blur(80px);
@@ -71,7 +71,6 @@
   font-family: var(--font-ui, 'Space Grotesk', sans-serif);
 }
 
-
 .kk::before {
   content: '';
   width: 28px;
@@ -101,157 +100,173 @@
   color: rgba(255,255,255,0.6);
   max-width: 860px;
   line-height: 1.82;
-  margin-bottom: 32px;
+  margin-bottom: 60px;
 }
 
-/* ===== MANIFESTO ROW LAYOUT ===== */
+/* ===== CARD GRID ===== */
 
-.manifestoList {
-  margin-top: 64px;
-  border-top: 1px solid rgba(200,16,46,0.18);
-}
-
-.manifestoRow {
+.cardsGrid {
   display: grid;
-  grid-template-columns: 90px 1fr 1.1fr;
-  gap: 0 clamp(28px, 4vw, 64px);
-  align-items: start;
-  padding: 48px 0;
-  border-bottom: 1px solid rgba(200,16,46,0.10);
+  grid-template-columns: repeat(5, 1fr);
+  gap: clamp(16px, 2vw, 24px);
+}
+
+.card {
   position: relative;
-  transition:
-    background 0.35s ease,
-    padding-left 0.35s var(--ease-premium),
-    box-shadow 0.35s ease;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #2C0A12;
+  border: 1px solid rgba(200,16,46,0.15);
+  transition: transform 0.4s var(--ease-premium), box-shadow 0.4s ease, border-color 0.4s ease;
+  will-change: transform;
 }
 
-.manifestoRow::before {
-  content: '';
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.55), 0 0 0 1px rgba(200,16,46,0.35);
+  border-color: rgba(200,16,46,0.40);
+}
+
+.cardInner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* --- Image header --- */
+.cardImgWrap {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.cardImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(0.45) brightness(0.60);
+  transition: transform 0.55s var(--ease-premium), filter 0.45s ease;
+}
+
+.card:hover .cardImg {
+  transform: scale(1.07);
+  filter: saturate(0.65) brightness(0.75);
+}
+
+.cardImgOverlay {
   position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 0;
-  background: linear-gradient(180deg, #C8102E 0%, #9b0015 100%);
-  transition: width 0.35s ease;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(20,4,9,0.15) 0%, rgba(20,4,9,0.75) 100%);
 }
 
-.manifestoRow:hover {
-  background: rgba(200,16,46,0.03);
-  padding-left: 22px;
-  box-shadow: inset 0 1px 0 rgba(200,16,46,0.06), inset 0 -1px 0 rgba(200,16,46,0.06), 0 8px 32px rgba(200,16,46,0.04);
-}
-
-.manifestoRow:hover::before {
-  width: 3px;
-}
-
-.manifestoNum {
-  font-size: clamp(44px, 5.5vw, 72px);
+.cardNum {
+  position: absolute;
+  bottom: 12px;
+  right: 14px;
+  font-size: 44px;
   font-weight: 900;
   line-height: 1;
-  -webkit-text-stroke: 1.5px rgba(200,16,46,0.40);
-  color: transparent;
-  letter-spacing: -3px;
-  transition:
-    -webkit-text-stroke-color 0.35s ease,
-    color 0.35s ease,
-    text-shadow 0.35s ease;
   font-family: var(--font-cormorant, 'Cormorant Garamond', serif);
-  padding-top: 10px;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(255,255,255,0.25);
+  letter-spacing: -2px;
+  pointer-events: none;
   user-select: none;
+  transition: -webkit-text-stroke-color 0.35s ease;
 }
 
-.manifestoRow:hover .manifestoNum {
-  color: rgba(200,16,46,0.15);
-  -webkit-text-stroke-color: rgba(200,16,46,0.92);
-  text-shadow: 0 0 60px rgba(200,16,46,0.30);
+.card:hover .cardNum {
+  -webkit-text-stroke-color: rgba(200,16,46,0.70);
 }
 
-.manifestoCenter {
-  padding-top: 10px;
+/* --- Card body --- */
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: clamp(20px, 2.5vw, 28px);
 }
 
-.manifestoTitle {
-  font-size: clamp(24px, 2.8vw, 42px);
+.cardTitle {
+  font-size: clamp(18px, 1.6vw, 22px);
   font-weight: 600;
   color: #F5F0F1;
-  letter-spacing: -0.025em;
-  line-height: 1.05;
-  margin-bottom: 18px;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: 14px;
   font-family: var(--font-cormorant, 'Cormorant Garamond', serif);
 }
 
-.manifestoLine {
-  width: 36px;
+.cardDivider {
+  width: 28px;
   height: 2px;
-  background: linear-gradient(90deg, #C8102E, rgba(200,16,46,0.20));
+  background: linear-gradient(90deg, #C8102E, rgba(200,16,46,0.25));
+  margin-bottom: 14px;
   transition: width 0.4s var(--ease-premium);
 }
 
-.manifestoRow:hover .manifestoLine {
-  width: 96px;
+.card:hover .cardDivider {
+  width: 56px;
 }
 
-.manifestoBody {
-  padding-top: 10px;
-}
-
-.manifestoDesc {
-  font-size: 13px;
+.cardDesc {
+  font-size: 12.5px;
   color: rgba(255,255,255,0.55);
-  line-height: 1.82;
+  line-height: 1.75;
+  flex: 1;
   margin-bottom: 20px;
-  max-width: 500px;
 }
 
-.manifestoLink {
-  font-size: 11.5px;
-  font-weight: 700;
-  color: #C8102E;
-  letter-spacing: 0.04em;
-  text-decoration: none;
+.cardCta {
   display: inline-flex;
   align-items: center;
-  opacity: 0.6;
-  transition: opacity 0.22s ease, letter-spacing 0.22s ease;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #C8102E;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  transition: opacity 0.25s ease, gap 0.25s ease;
+  font-family: var(--font-ui, 'Space Grotesk', sans-serif);
+  margin-top: auto;
 }
 
-.manifestoLink:hover {
+.card:hover .cardCta {
   opacity: 1;
-  letter-spacing: 0.08em;
+  gap: 10px;
 }
 
-@media (max-width: 900px) {
-  .manifestoRow {
-    grid-template-columns: 64px 1fr;
-    grid-template-rows: auto auto;
-  }
+/* ===== RESPONSIVE ===== */
 
-  .manifestoCenter {
-    grid-column: 2;
-  }
-
-  .manifestoBody {
-    grid-column: 1 / -1;
-    padding-top: 0;
-    padding-bottom: 8px;
+@media (max-width: 1200px) {
+  .cardsGrid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
-@media (max-width: 600px) {
-  .manifestoRow {
-    grid-template-columns: 1fr;
-    gap: 12px;
-    padding: 32px 0;
+@media (max-width: 768px) {
+  .cardsGrid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  .manifestoNum {
-    font-size: 40px;
+  .cardImgWrap {
+    height: 160px;
   }
 
   .inner {
     padding-top: 72px;
     padding-bottom: 72px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cardsGrid {
+    grid-template-columns: 1fr;
   }
 }

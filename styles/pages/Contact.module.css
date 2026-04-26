@@ -112,19 +112,19 @@
 }
 
 .contactSection {
-  background: #f9f8f7;
+  background: #ffffff;
   padding: clamp(60px, 8vw, 100px) 0;
-  border-top: 1px solid rgba(200,16,46,0.1);
+  border-top: 1px solid rgba(200,16,46,0.12);
 }
 
 .form h2,
 .info h2 {
   font-size: clamp(28px, 3vw, 42px);
   margin-bottom: 32px;
-  color: #111111;
+  color: #1a0509;
   font-family: var(--font-cormorant, 'Cormorant Garamond', 'Playfair Display', serif);
   font-weight: 600;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
   line-height: 1.05;
 }
 
@@ -132,16 +132,16 @@
 .info {
   background: #ffffff;
   border: 1px solid rgba(200,16,46,0.15);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.07);
-  padding: 32px;
-  transition: transform 0.24s ease, box-shadow 0.24s ease, border-color 0.24s ease;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  padding: 36px;
+  transition: transform 0.3s var(--ease-premium), box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .form:hover,
 .info:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 48px rgba(0,0,0,0.1);
-  border-color: rgba(200,16,46,0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.10), 0 0 0 1px rgba(200,16,46,0.18);
+  border-color: rgba(200,16,46,0.30);
 }
 
 .formGroup {
@@ -150,33 +150,46 @@
 
 .formGroup label {
   display: block;
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 11px;
+  font-weight: 700;
   margin-bottom: 8px;
-  color: #333333;
+  color: rgba(26,5,9,0.55);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-family: var(--font-ui, 'Space Grotesk', sans-serif);
 }
 
 .formGroup input,
 .formGroup textarea,
 .formGroup select {
   width: 100%;
-  padding: 12px;
-  border: 1px solid rgba(200,16,46,0.2);
+  padding: 14px 16px;
+  border: 1px solid rgba(200,16,46,0.22);
   border-radius: 0;
   font-size: 14px;
   font-family: inherit;
-  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
   background: #fafafa;
-  color: #111111;
+  color: #1a0509;
+}
+
+.formGroup input::placeholder,
+.formGroup textarea::placeholder {
+  color: rgba(26,5,9,0.35);
+}
+
+.formGroup select option {
+  background: #ffffff;
+  color: #1a0509;
 }
 
 .formGroup input:focus,
 .formGroup textarea:focus,
 .formGroup select:focus {
   outline: none;
-  border-color: #C8102E;
-  box-shadow: 0 0 0 4px rgba(200,16,46,0.12);
-  transform: translateY(-1px);
+  border-color: rgba(200,16,46,0.60);
+  box-shadow: 0 0 0 3px rgba(200,16,46,0.08);
+  background: #ffffff;
 }
 
 .formRow {
@@ -212,9 +225,13 @@
 }
 
 .info h4 {
-  font-size: 16px;
+  font-size: 13px;
+  font-weight: 700;
   margin-bottom: 12px;
-  color: #111111;
+  color: #C8102E;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-family: var(--font-ui, 'Space Grotesk', sans-serif);
 }
 
 .infoItem {
@@ -222,26 +239,27 @@
 }
 
 .infoItem p {
-  color: #666666;
+  color: rgba(26,5,9,0.45);
   margin-bottom: 4px;
 }
 
 .infoItem a {
-  color: #111111;
-  font-weight: 500;
+  color: #1a0509;
+  font-weight: 600;
   text-decoration: none;
   display: block;
   margin-bottom: 4px;
+  transition: color 0.2s ease;
 }
 
 .infoItem a:hover {
-  text-decoration: underline;
+  color: #C8102E;
 }
 
 .social {
   margin-top: 48px;
   padding-top: 32px;
-  border-top: 1px solid rgba(200,16,46,0.15);
+  border-top: 1px solid rgba(200,16,46,0.12);
 }
 
 .socialLinks {
@@ -250,18 +268,20 @@
 }
 
 .socialLinks a {
-  background: rgba(200,16,46,0.08);
+  background: rgba(200,16,46,0.05);
   padding: 8px 16px;
   border-radius: 0;
-  font-size: 14px;
-  border: 1px solid rgba(200,16,46,0.2);
-  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  font-size: 13px;
+  color: rgba(26,5,9,0.70);
+  border: 1px solid rgba(200,16,46,0.18);
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
 }
 
 .socialLinks a:hover {
-  background: rgba(200,16,46,0.18);
+  background: #C8102E;
+  color: #ffffff;
   transform: translateY(-2px);
-  box-shadow: 0 14px 22px rgba(200,16,46,0.12);
+  box-shadow: 0 14px 28px rgba(200,16,46,0.22);
 }
 
 @keyframes contactFloat {

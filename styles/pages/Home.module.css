@@ -120,7 +120,7 @@
 /* ===== HASH BLOCK — Full-width statement ===== */
 
 .hashSection {
-  background: #0b0202;
+  background: #521424;
   border-bottom: 1px solid rgba(200,16,46,0.18);
   position: relative;
   overflow: hidden;
@@ -236,7 +236,7 @@
 /* ===== UNCOMFORTABLE TRUTH — Horizontal Manifest Rows ===== */
 
 .truthSection {
-  background: #080101;
+  background: #080F1E;
   border-bottom: 1px solid rgba(200,16,46,0.22);
   position: relative;
 }
@@ -405,7 +405,7 @@
 /* ===== TRUSTED BY — Magazine masonry ===== */
 
 .trustedSection {
-  background: #0c0202;
+  background: #4A1120;
   border-bottom: 1px solid rgba(200,16,46,0.15);
 }
 
@@ -559,12 +559,12 @@
 
 .logoCarousel::before {
   left: 0;
-  background: linear-gradient(90deg, #0c0202, rgba(12,2,2,0));
+  background: linear-gradient(90deg, #4A1120, rgba(78,18,30,0));
 }
 
 .logoCarousel::after {
   right: 0;
-  background: linear-gradient(270deg, #0c0202, rgba(12,2,2,0));
+  background: linear-gradient(270deg, #4A1120, rgba(78,18,30,0));
 }
 
 .logoTrack {
@@ -624,13 +624,13 @@
 /* ===== CTA BLOCK — Full Red Inversion ===== */
 
 .ctaSection {
-  background: #C8102E;
+  background: #ffffff;
   position: relative;
   overflow: hidden;
   border-bottom: none;
 }
 
-/* Large watermark "PE" in dark on red bg */
+/* Large watermark "PE" on white bg */
 .ctaSection::before {
   content: 'PE';
   position: absolute;
@@ -638,7 +638,7 @@
   bottom: -80px;
   font-size: clamp(320px, 38vw, 560px);
   font-weight: 900;
-  color: rgba(0,0,0,0.12);
+  color: rgba(200,16,46,0.05);
   letter-spacing: -20px;
   line-height: 1;
   pointer-events: none;
@@ -674,7 +674,7 @@
 .ctaKk {
   font-size: 11px;
   font-weight: 800;
-  color: rgba(255,255,255,0.7);
+  color: #C8102E;
   letter-spacing: 1px;
   margin-bottom: 14px;
   text-transform: uppercase;
@@ -683,7 +683,7 @@
 .ctaBig {
   font-size: 12px;
   font-weight: 900;
-  color: rgba(255,255,255,0.25);
+  color: rgba(200,16,46,0.22);
   letter-spacing: 3px;
   text-transform: uppercase;
   margin-bottom: 20px;
@@ -692,7 +692,7 @@
 .ctaH2 {
   font-size: clamp(44px, 5.5vw, 76px);
   font-weight: 600;
-  color: #ffffff;
+  color: #1a0509;
   letter-spacing: -0.02em;
   line-height: 0.98;
   margin-bottom: 28px;
@@ -701,7 +701,7 @@
 
 .ctaDesc {
   font-size: clamp(13px, 1.1vw, 16px);
-  color: rgba(255,255,255,0.82);
+  color: rgba(26,5,9,0.68);
   line-height: 1.82;
   max-width: 580px;
   margin-bottom: 32px;
@@ -715,8 +715,8 @@
 }
 
 .ctaBtnR {
-  background: #ffffff;
-  color: #C8102E;
+  background: #C8102E;
+  color: #ffffff;
   padding: 15px 26px;
   font-size: 13px;
   font-weight: 800;
@@ -725,20 +725,20 @@
   display: inline-flex;
   align-items: center;
   transition: background 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
-  box-shadow: 0 18px 32px rgba(0,0,0,0.2);
+  box-shadow: 0 18px 32px rgba(200,16,46,0.28);
 }
 
 .ctaBtnR:hover {
-  background: rgba(255,255,255,0.9);
+  background: #A50D26;
   transform: translateY(-2px);
-  box-shadow: 0 22px 36px rgba(0,0,0,0.25);
-  color: #C8102E;
+  box-shadow: 0 22px 36px rgba(200,16,46,0.36);
+  color: #ffffff;
 }
 
 .ctaBtnG {
   background: transparent;
-  color: #ffffff;
-  border: 1px solid rgba(255,255,255,0.5);
+  color: #C8102E;
+  border: 1px solid rgba(200,16,46,0.45);
   padding: 14px 22px;
   font-size: 13px;
   font-weight: 700;
@@ -749,19 +749,20 @@
 }
 
 .ctaBtnG:hover {
-  border-color: #ffffff;
-  background: rgba(255,255,255,0.1);
-  color: #ffffff;
+  border-color: #C8102E;
+  background: rgba(200,16,46,0.06);
+  color: #C8102E;
 }
 
 .ctaFine {
   font-size: 11px;
-  color: rgba(255,255,255,0.55);
+  color: rgba(26,5,9,0.45);
   line-height: 1.65;
 }
 
 .ctaBadge {
-  background: rgba(0,0,0,0.18);
+  background: rgba(200,16,46,0.06);
+  border: 1px solid rgba(200,16,46,0.15);
   padding: 28px 24px;
   text-align: center;
   flex-shrink: 0;
@@ -777,7 +778,7 @@
 .ctaBadgeN {
   font-size: 32px;
   font-weight: 900;
-  color: #fff;
+  color: #C8102E;
   letter-spacing: -2px;
   line-height: 1;
   margin-bottom: 6px;
@@ -787,7 +788,7 @@
 
 .ctaBadgeL {
   font-size: 11px;
-  color: rgba(255,255,255,0.75);
+  color: rgba(26,5,9,0.65);
   line-height: 1.4;
   margin-bottom: 8px;
   position: relative;
@@ -797,7 +798,7 @@
 .ctaBadgeD {
   font-size: 9px;
   font-weight: 700;
-  color: rgba(255,255,255,0.5);
+  color: rgba(26,5,9,0.40);
   letter-spacing: 0.8px;
   text-transform: uppercase;
   position: relative;
@@ -951,7 +952,7 @@
    LEAKY FUNNEL VISUAL SECTION
    ══════════════════════════════════════════════ */
 .funnelVizSection {
-  background: #0a0102;
+  background: #46101E;
   position: relative;
   overflow: hidden;
 }

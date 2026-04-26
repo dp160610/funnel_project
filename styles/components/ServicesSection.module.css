@@ -1,7 +1,7 @@
 /* ===== FUNNEL PIPELINE SECTION ===== */
 
 .section {
-  background: #0a0101;
+  background: #070E1E;
   border-top: 1px solid rgba(200,16,46,0.22);
   border-bottom: 1px solid rgba(200,16,46,0.22);
   position: relative;
@@ -55,6 +55,88 @@
   max-width: 860px;
   line-height: 1.82;
   margin-bottom: 36px;
+}
+
+/* ── Section visual banner ── */
+.sectionVis {
+  position: relative;
+  width: 100%;
+  height: clamp(180px, 22vw, 320px);
+  overflow: hidden;
+  margin-bottom: 48px;
+  border: 1px solid rgba(200,16,46,0.14);
+}
+
+.sectionVisImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(0.35) brightness(0.45);
+}
+
+.sectionVisOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(22, 5, 10, 0.88) 0%,
+    rgba(78, 18, 30, 0.55) 50%,
+    rgba(78, 18, 30, 0.78) 100%
+  );
+}
+
+.sectionVisContent {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+}
+
+.visLabel {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(200,16,46,0.75);
+  font-family: var(--font-ui, 'Space Grotesk', sans-serif);
+}
+
+.visPipeline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.visStage {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.visStageNode {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #C8102E;
+  box-shadow: 0 0 12px rgba(200,16,46,0.60);
+}
+
+.visStageName {
+  font-size: 11px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.70);
+  letter-spacing: 0.06em;
+  font-family: var(--font-ui, 'Space Grotesk', sans-serif);
+}
+
+.visArrow {
+  color: rgba(200,16,46,0.45);
+  font-size: 14px;
+  margin-left: 4px;
 }
 
 /* Pipeline */

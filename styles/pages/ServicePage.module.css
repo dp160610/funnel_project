@@ -2,8 +2,8 @@
 
 
 .hero {
-  background-color: #130304;
-  border-bottom: 1px solid rgba(200,16,46,0.2);
+  background-color: #3E0E1A;
+  border-bottom: 1px solid rgba(200,16,46,0.18);
   min-height: calc(100vh - 72px);
   display: flex;
   flex-direction: column;
@@ -36,7 +36,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: center 30%;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -48,10 +48,29 @@
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(160deg, rgba(19,3,4,0.76) 0%, rgba(19,3,4,0.58) 100%),
-    radial-gradient(circle at 72% 30%, rgba(19,3,4,0.12) 0%, rgba(19,3,4,0.52) 62%);
+    linear-gradient(160deg, rgba(6,1,1,0.88) 0%, rgba(6,1,1,0.68) 100%),
+    radial-gradient(circle at 72% 30%, rgba(13,2,3,0.18) 0%, rgba(13,2,3,0.62) 62%);
   z-index: 1;
   pointer-events: none;
+}
+
+/* Dot grid layer */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(200,16,46,0.10) 1px, transparent 1px);
+  background-size: 40px 40px;
+  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 30%, transparent 100%);
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 30%, transparent 100%);
+  z-index: 1;
+  pointer-events: none;
+  animation: dotDrift 20s ease-in-out infinite;
+}
+
+@keyframes dotDrift {
+  0%, 100% { background-position: 0 0; }
+  50% { background-position: 8px 12px; }
 }
 
 .heroInner,
@@ -70,19 +89,20 @@
 }
 
 .heroTitle {
-  font-size: clamp(52px, 7vw, 96px);
+  font-size: clamp(52px, 7.5vw, 108px);
   font-weight: 600;
-  line-height: 0.96;
-  letter-spacing: -0.02em;
-  color: #ffffff;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  color: #F5F0F1;
   margin-bottom: clamp(20px, 2vw, 36px);
   max-width: 900px;
   font-family: var(--font-cormorant, 'Cormorant Garamond', 'Playfair Display', serif);
 }
 
 .heroTitle em {
-  color: #C8102E;
+  color: #E8102E;
   font-style: italic;
+  text-shadow: 0 0 60px rgba(200,16,46,0.40), 0 0 120px rgba(200,16,46,0.18);
 }
 
 .heroSub {
@@ -96,39 +116,63 @@
 }
 
 .heroTag {
-  display: inline-block;
-  font-size: 11px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 9px;
   font-weight: 800;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #C8102E;
+  color: #E8102E;
   background: rgba(200,16,46,0.08);
-  border: 1px solid rgba(200,16,46,0.2);
-  padding: 7px 14px;
-  margin-bottom: 24px;
-  box-shadow: 0 14px 28px rgba(200,16,46,0.08);
-  font-family: var(--font-sora, 'Sora', sans-serif);
+  border: 1px solid rgba(200,16,46,0.25);
+  padding: 8px 16px;
+  margin-bottom: 28px;
+  box-shadow: 0 4px 20px rgba(200,16,46,0.10), inset 0 1px 0 rgba(255,255,255,0.05);
+  font-family: var(--font-ui, 'Space Grotesk', sans-serif);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .heroCta {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: #C8102E;
-  padding: 13px 24px;
+  background: linear-gradient(135deg, #E8102E 0%, #9B0015 100%);
+  padding: 16px 32px;
   color: #fff;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 800;
   text-decoration: none;
-  transition: background-color 0.2s ease, transform 0.16s ease, box-shadow 0.16s ease;
-  box-shadow: 0 18px 34px rgba(200,16,46,0.18);
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  transition: background 0.3s ease, transform 0.3s var(--ease-premium), box-shadow 0.3s ease;
+  box-shadow: 0 8px 40px rgba(200,16,46,0.40), inset 0 1px 0 rgba(255,255,255,0.12);
   font-family: var(--font-sora, 'Sora', sans-serif);
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.heroCta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 20%, rgba(255,255,255,0.18) 50%, transparent 78%);
+  transform: translateX(-130%);
+  transition: transform 0.6s ease;
+  z-index: -1;
 }
 
 .heroCta:hover {
-  background: #9B0015;
-  transform: translateY(-2px);
-  box-shadow: 0 24px 42px rgba(200,16,46,0.24);
+  background: linear-gradient(135deg, #FF1A3C 0%, #C8102E 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 20px 56px rgba(200,16,46,0.55), inset 0 1px 0 rgba(255,255,255,0.14);
+}
+
+.heroCta:hover::before {
+  transform: translateX(130%);
 }
 
 .ctaIcon {
@@ -203,7 +247,7 @@
 }
 
 .statsSection {
-  background: #0a0202;
+  background: #46101E;
   border-top: 1px solid rgba(200,16,46,0.15);
   border-bottom: 1px solid rgba(200,16,46,0.15);
   padding: clamp(32px, 4vw, 48px) 0;
@@ -274,13 +318,13 @@
 
 /* Each section in service pages alternates bg */
 .sectionInner + .sectionInner {
-  background: #0c0202;
+  background: #4A1120;
 }
 
 /* ===== PROCESS SECTION — Timeline Steps ===== */
 
 .processSection {
-  background: #0e0303;
+  background: #501323;
   border-bottom: 1px solid rgba(200,16,46,0.12);
   padding: clamp(60px, 7vw, 96px) 0;
 }
@@ -304,12 +348,17 @@
 
 .processStep {
   position: relative;
-  background: #0e0303;
+  background: rgba(22, 5, 10, 0.85);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
   padding: clamp(32px, 4vw, 52px) clamp(24px, 3.5vw, 48px);
   display: flex;
   flex-direction: column;
   gap: 16px;
-  transition: background 0.28s ease;
+  transition:
+    background 0.35s ease,
+    box-shadow 0.35s ease,
+    transform 0.35s var(--ease-premium);
   overflow: hidden;
 }
 
@@ -320,14 +369,16 @@
   left: 0;
   right: 0;
   height: 2px;
-  background: linear-gradient(90deg, #C8102E 0%, rgba(200,16,46,0.2) 100%);
+  background: linear-gradient(90deg, #E8102E 0%, rgba(200,16,46,0.2) 100%);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.4s ease;
 }
 
 .processStep:hover {
-  background: #160405;
+  background: rgba(22, 5, 10, 0.95);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.50), 0 0 0 1px rgba(200,16,46,0.12);
+  transform: translateY(-3px);
 }
 
 .processStep:hover::before {
@@ -445,10 +496,12 @@
 
 /* Case card keeps image-dominant style */
 .caseCard {
-  background: linear-gradient(135deg, #2d1014, #240d10);
-  border: 1px solid rgba(200,16,46,0.35);
-  box-shadow: 0 16px 32px rgba(0,0,0,0.32);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  background: rgba(22, 5, 10, 0.88);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  border: 1px solid rgba(200,16,46,0.22);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.45);
+  transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s var(--ease-premium);
   position: relative;
   overflow: hidden;
 }
@@ -711,7 +764,7 @@
 
 .statItem {
   text-align: center;
-  background: #1a0507;
+  background: #5C1828;
   border-right: 1px solid rgba(200,16,46,0.18);
   box-shadow: none;
   padding: clamp(32px, 4vw, 52px) clamp(16px, 2vw, 28px);
@@ -792,7 +845,7 @@
 
 .cityTab {
   padding: 6px 12px;
-  background: #1f0508;
+  background: #621B2B;
   border: 1px solid rgba(200,16,46,0.2);
   font-size: 11px;
   font-weight: 700;
@@ -840,12 +893,12 @@
 
 .brandsViewport::before {
   left: 0;
-  background: linear-gradient(90deg, #130304, rgba(19,3,4,0));
+  background: linear-gradient(90deg, #541526, rgba(19,3,4,0));
 }
 
 .brandsViewport::after {
   right: 0;
-  background: linear-gradient(270deg, #130304, rgba(19,3,4,0));
+  background: linear-gradient(270deg, #541526, rgba(19,3,4,0));
 }
 
 .brandCard {
@@ -853,7 +906,7 @@
   align-items: center;
   justify-content: center;
   padding: 16px 18px;
-  background: linear-gradient(135deg, #2d1014, #220d10);
+  background: linear-gradient(135deg, #761F38, #681E2E);
   border: 1px solid rgba(200,16,46,0.35);
   min-width: 170px;
   box-shadow: 0 16px 30px rgba(0,0,0,0.32);
@@ -891,7 +944,7 @@
 }
 
 .ctaBanner {
-  background: linear-gradient(135deg, #2d1014, #220d10);
+  background: linear-gradient(135deg, #761F38, #681E2E);
   border: 1px solid rgba(200,16,46,0.35);
   border-top: 3px solid #C8102E;
   margin: 36px 0;
@@ -958,7 +1011,7 @@
 /* Sections used across all service pages that lacked background definitions */
 
 .overviewSection {
-  background: #130304;
+  background: #541526;
   padding: clamp(60px, 8vw, 100px) 0;
   border-bottom: 1px solid rgba(200,16,46,0.1);
   position: relative;
@@ -966,11 +1019,11 @@
 
 /* Alternate for back-to-back overviewSection */
 .overviewSection + .overviewSection {
-  background: #0c0202;
+  background: #4A1120;
 }
 
 .servicesSection {
-  background: #0c0202;
+  background: #4A1120;
   padding: clamp(60px, 8vw, 100px) 0;
   border-bottom: 1px solid rgba(200,16,46,0.1);
   position: relative;
@@ -1067,7 +1120,7 @@
 }
 
 .caseSection {
-  background: #130304;
+  background: #541526;
   padding: clamp(60px, 8vw, 100px) 0;
   border-bottom: 1px solid rgba(200,16,46,0.1);
   position: relative;
@@ -1531,7 +1584,7 @@
 
 /* ctaBanner inside a light section stays dark — nice contrast */
 .lightSection .ctaBanner {
-  background: linear-gradient(135deg, #2d1014, #220d10);
+  background: linear-gradient(135deg, #761F38, #681E2E);
   border-color: rgba(200,16,46,0.35);
 }
 
@@ -1680,7 +1733,7 @@
 
 .funnelStageBar {
   position: relative;
-  background: #1a0507;
+  background: #5C1828;
   border: 1px solid rgba(200,16,46,0.22);
   border-left: 3px solid #C8102E;
   padding: 20px 28px;
@@ -1823,7 +1876,7 @@
   display: grid;
   grid-template-columns: 200px 1fr auto;
   gap: 0;
-  background: #0e0202;
+  background: #4E1222;
   border-bottom: 1px solid rgba(200,16,46,0.08);
   align-items: stretch;
   transition: background 0.25s ease;
@@ -1835,7 +1888,7 @@
 }
 
 .costRung:hover {
-  background: #160405;
+  background: #581728;
 }
 
 .costRungLabel {
@@ -2031,7 +2084,7 @@
 
 /* ── MOCK DASHBOARD WIDGET ────────────────────────────────────────── */
 .mockDash {
-  background: #0d0202;
+  background: #4C1221;
   border: 1px solid rgba(200,16,46,0.20);
   padding: 24px;
   margin-top: 40px;
@@ -2079,7 +2132,7 @@
 }
 
 .mockDashStat {
-  background: #130304;
+  background: #541526;
   padding: 16px;
   border: 1px solid rgba(200,16,46,0.10);
 }
@@ -2168,7 +2221,7 @@
 }
 
 .featureCard {
-  background: #0e0202;
+  background: #4E1222;
   padding: clamp(28px, 3vw, 44px);
   display: flex;
   flex-direction: column;
@@ -2192,7 +2245,7 @@
 }
 
 .featureCard:hover {
-  background: #130304;
+  background: #541526;
 }
 
 .featureCard:hover::after {
@@ -2306,7 +2359,7 @@
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: #0e0202;
+  background: #4E1222;
   border: 2px solid rgba(200,16,46,0.35);
   display: flex;
   align-items: center;
@@ -2389,7 +2442,7 @@
 }
 
 .tierCard {
-  background: #0e0202;
+  background: #4E1222;
   padding: 28px 22px;
   position: relative;
   overflow: hidden;
@@ -2409,7 +2462,7 @@
   transition: transform 0.4s ease;
 }
 
-.tierCard:hover { background: #130304; }
+.tierCard:hover { background: #541526; }
 .tierCard:hover::before { transform: scaleX(1); }
 
 .tierCardTitle {
@@ -2466,13 +2519,13 @@
 }
 
 .smoMetricItem {
-  background: #0e0202;
+  background: #4E1222;
   padding: 24px 18px;
   text-align: center;
   transition: background 0.3s ease;
 }
 
-.smoMetricItem:hover { background: #130304; }
+.smoMetricItem:hover { background: #541526; }
 
 .smoMetricVal {
   font-size: clamp(28px, 3.5vw, 44px);
@@ -2499,7 +2552,7 @@
 
 /* ── CONTACT PAGE — DARK THEME ────────────────────────────────────── */
 .contactDark {
-  background: #0a0202;
+  background: #ffffff;
   border-bottom: 1px solid rgba(200,16,46,0.12);
   padding: clamp(72px, 9vw, 120px) 0;
 }
@@ -2512,7 +2565,7 @@
 }
 
 .contactFormWrap {
-  background: #0e0202;
+  background: #ffffff;
   border: 1px solid rgba(200,16,46,0.18);
   padding: 40px clamp(24px, 3vw, 48px);
 }
@@ -2524,7 +2577,7 @@
 .contactFormTitle {
   font-size: clamp(28px, 3.5vw, 44px);
   font-weight: 600;
-  color: #ffffff;
+  color: #1a0509;
   font-family: var(--font-cormorant, 'Cormorant Garamond', serif);
   letter-spacing: -0.02em;
   line-height: 1.05;
@@ -2533,7 +2586,7 @@
 
 .contactFormSub {
   font-size: 13px;
-  color: rgba(255,255,255,0.42);
+  color: rgba(26,5,9,0.50);
   line-height: 1.75;
 }
 
@@ -2547,7 +2600,7 @@
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.45);
+  color: rgba(26,5,9,0.50);
   margin-bottom: 8px;
   font-family: var(--font-ui, 'Space Grotesk', sans-serif);
 }
@@ -2557,9 +2610,9 @@
 .darkFormGroup select {
   width: 100%;
   padding: 13px 16px;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(200,16,46,0.20);
-  color: #ffffff;
+  background: #fafafa;
+  border: 1px solid rgba(200,16,46,0.22);
+  color: #1a0509;
   font-size: 14px;
   font-family: var(--font-body, 'DM Sans', sans-serif);
   outline: none;
@@ -2573,18 +2626,18 @@
 .darkFormGroup textarea:focus,
 .darkFormGroup select:focus {
   border-color: #C8102E;
-  background: rgba(200,16,46,0.04);
+  background: #ffffff;
   box-shadow: 0 0 0 3px rgba(200,16,46,0.08);
 }
 
 .darkFormGroup input::placeholder,
 .darkFormGroup textarea::placeholder {
-  color: rgba(255,255,255,0.20);
+  color: rgba(26,5,9,0.30);
 }
 
 .darkFormGroup select option {
-  background: #130304;
-  color: #ffffff;
+  background: #ffffff;
+  color: #1a0509;
 }
 
 .darkFormRow {
@@ -2651,8 +2704,8 @@
 }
 
 .contactInfoBlock {
-  border: 1px solid rgba(200,16,46,0.12);
-  background: #0e0202;
+  border: 1px solid rgba(200,16,46,0.15);
+  background: #ffffff;
   padding: 28px;
   display: flex;
   flex-direction: column;
@@ -2662,7 +2715,7 @@
 .contactInfoTitle {
   font-size: clamp(20px, 2.2vw, 28px);
   font-weight: 600;
-  color: #ffffff;
+  color: #1a0509;
   font-family: var(--font-cormorant, 'Cormorant Garamond', serif);
   letter-spacing: -0.01em;
   line-height: 1.2;
@@ -2705,18 +2758,18 @@
 
 .contactInfoValue {
   font-size: 13px;
-  color: rgba(255,255,255,0.70);
+  color: rgba(26,5,9,0.70);
   font-family: var(--font-body, 'DM Sans', sans-serif);
   text-decoration: none;
   line-height: 1.55;
   transition: color 0.2s ease;
 }
 
-.contactInfoValue:hover { color: #ffffff; }
+.contactInfoValue:hover { color: #C8102E; }
 
 .contactGuarantee {
-  background: rgba(200,16,46,0.06);
-  border: 1px solid rgba(200,16,46,0.22);
+  background: rgba(200,16,46,0.04);
+  border: 1px solid rgba(200,16,46,0.20);
   border-left: 3px solid #C8102E;
   padding: 20px 22px;
 }
@@ -2724,14 +2777,14 @@
 .contactGuaranteeTitle {
   font-size: 13px;
   font-weight: 700;
-  color: #ffffff;
+  color: #1a0509;
   margin-bottom: 6px;
   font-family: var(--font-ui, 'Space Grotesk', sans-serif);
 }
 
 .contactGuaranteeText {
   font-size: 12px;
-  color: rgba(255,255,255,0.45);
+  color: rgba(26,5,9,0.52);
   line-height: 1.75;
 }
 
@@ -2746,9 +2799,9 @@
   align-items: center;
   gap: 8px;
   padding: 9px 14px;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.10);
-  color: rgba(255,255,255,0.55);
+  background: rgba(200,16,46,0.04);
+  border: 1px solid rgba(200,16,46,0.15);
+  color: rgba(26,5,9,0.60);
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.06em;
@@ -2760,7 +2813,7 @@
 .contactSocialBtn:hover {
   color: #ffffff;
   border-color: #C8102E;
-  background: rgba(200,16,46,0.08);
+  background: #C8102E;
 }
 
 .calendlyBtn {

@@ -64,6 +64,7 @@ export default function ServicesSection() {
         <p className={styles.ss}>
           Most budgets die between awareness and closure because no one owns the middle. We map every stage, instrument every handoff, and have a specific strategy — and a specific cost benchmark — for each one.
         </p>
+
         <div className={styles.pipeline}>
           {stages.map((stage, i) => (
             <div key={stage.id} className={styles.stage}>

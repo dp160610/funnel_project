@@ -39,6 +39,12 @@ export default function BeforeAfterSection() {
         <div className={styles.compareGrid}>
           {/* BEFORE */}
           <Reveal className={styles.beforeCol} delay={240}>
+            {/* Column hero image */}
+            <div className={styles.colImgWrap} aria-hidden="true">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="https://images.pexels.com/photos/3760809/pexels-photo-3760809.jpeg?auto=compress&cs=tinysrgb&w=800" alt="" className={styles.colImg} />
+              <div className={styles.colImgOverlayBefore} />
+            </div>
             <div className={styles.colHeader}>
               <div className={styles.colBadgeBefore}>
                 <svg viewBox="0 0 24 24" fill="none" width="16" height="16">
@@ -80,6 +86,12 @@ export default function BeforeAfterSection() {
 
           {/* AFTER */}
           <Reveal className={styles.afterCol} delay={360}>
+            {/* Column hero image */}
+            <div className={styles.colImgWrap} aria-hidden="true">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=800" alt="" className={styles.colImg} />
+              <div className={styles.colImgOverlayAfter} />
+            </div>
             <div className={styles.colHeader}>
               <div className={styles.colBadgeAfter}>
                 <svg viewBox="0 0 24 24" fill="none" width="16" height="16">

@@ -1,6 +1,6 @@
 /* .section styles */
 .section {
-  background: linear-gradient(180deg, #0a0101 0%, #130304 100%);
+  background: linear-gradient(180deg, #541526 0%, #601A2A 100%);
   padding: clamp(80px, 10vw, 120px) 0;
   position: relative;
   border-bottom: 1px solid rgba(200,16,46,0.18);

@@ -1,6 +1,6 @@
 .card {
   position: relative;
-  background: linear-gradient(135deg, #2d1014, #220d10);
+  background: linear-gradient(135deg, #601A2A, #581728);
   border: 1px solid rgba(200,16,46,0.35);
   overflow: hidden;
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;

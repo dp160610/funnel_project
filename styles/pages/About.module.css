@@ -43,7 +43,7 @@
 /* ── Hero Banner ───────────────────────────────────────────── */
 
 .heroBanner {
-  background-color: #130304;
+  background-color: #581728;
   background-size: cover;
   background-position: center;
   position: relative;
@@ -407,7 +407,7 @@
 
 /* ── Workflow Section ──────────────────────────────────────── */
 .workflowSec {
-  background: #2a0a0e;
+  background: #601A2A;
   padding: clamp(60px, 8vw, 110px) 0;
   border-bottom: 1px solid rgba(200,16,46,0.12);
 }
@@ -428,7 +428,7 @@
 }
 
 .processCard {
-  background: linear-gradient(135deg, #2d1014, #220d10);
+  background: linear-gradient(135deg, #601A2A, #581728);
   border: 1px solid rgba(200,16,46,0.35);
   border-radius: 0;
   padding: clamp(70px, 7vw, 110px) clamp(20px, 2vw, 30px) clamp(20px, 2vw, 30px);
@@ -760,7 +760,7 @@
 
 .ctaSection {
   padding: 100px 0;
-  background: linear-gradient(135deg, #1f0508, #130304);
+  background: linear-gradient(135deg, #601A2A, #581728);
   color: #ffffff;
   text-align: center;
   border-top: 1px solid rgba(200,16,46,0.2);

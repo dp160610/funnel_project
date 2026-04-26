@@ -1,5 +1,5 @@
 .section {
-  background: #080101;
+  background: #521424;
   padding: clamp(80px, 10vw, 120px) 0;
   position: relative;
   border-bottom: 1px solid rgba(200,16,46,0.12);
@@ -39,7 +39,7 @@
 .formCard {
   border-radius: 0;
   border: 1px solid rgba(200,16,46,0.28);
-  background: rgba(12, 3, 4, 0.88);
+  background: rgba(7, 14, 30, 0.90);
   backdrop-filter: blur(24px) saturate(140%);
   -webkit-backdrop-filter: blur(24px) saturate(140%);
   padding: 36px;
@@ -80,7 +80,7 @@
 
 .formGroup select {
   padding: 10px 14px;
-  background: #1f0508;
+  background: #601A2A;
   border: 1px solid rgba(200, 16, 46, 0.3);
   border-radius: 6px;
   font-size: 14px;

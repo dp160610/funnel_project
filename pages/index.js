@@ -115,110 +115,6 @@ export default function Home() {
         {/* 4. Before vs After */}
         <BeforeAfterSection />
 
-        {/* 4b. Leaky Funnel Visual */}
-        <section className={styles.funnelVizSection}>
-          <div className={styles.funnelVizInner}>
-            <Reveal as="div" className={styles.kk}>The Leaky Funnel Problem</Reveal>
-            <Reveal as="h2" className={styles.sh} delay={80}>
-              Every Stage Your Funnel Skips<br />
-              <em>Is Money You'll Never See Again</em>
-            </Reveal>
-            <Reveal as="p" className={styles.ss} delay={160}>
-              A broken pipeline vs. an engineered one — the difference at the booking end is not 10%. It's 10×.
-            </Reveal>
-            <div className={styles.funnelVizGrid}>
-              {/* BROKEN FUNNEL */}
-              <Reveal className={styles.funnelVizCol} delay={240}>
-                <div className={`${styles.funnelVizColLabel} ${styles.broken}`}>
-                  <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2L1 21h22L12 2zm1 13h-2v-4h2v4zm0 4h-2v-2h2v2z"/></svg>
-                  Typical Agency Setup
-                </div>
-                <div className={styles.funnelStageViz}>
-                  {[
-                    { name: 'Ad Impressions', count: '100,000', width: '100%' },
-                    { name: 'Clicks', count: '3,200', width: '78%' },
-                    { name: 'Leads Captured', count: '420', width: '55%' },
-                    { name: 'Leads Contacted', count: '180', width: '36%' },
-                    { name: 'Site Visits', count: '28', width: '20%' },
-                    { name: 'Bookings', count: '3', width: '8%' },
-                  ].map((s, i) => (
-                    <div key={s.name} className={styles.funnelStageRow}>
-                      <div className={`${styles.funnelStageBar} ${styles.broken}`} style={{ width: s.width, minWidth: 80 }}>
-                        <span className={styles.funnelStageName}>{s.name}</span>
-                        <span className={`${styles.funnelStageCount} ${i > 0 ? styles.leaking : ''}`}>{s.count}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <div className={`${styles.funnelVizResult} ${styles.broken}`}>
-                  <span>₹28.3L spend → 3 bookings</span>
-                  Cost Per Booking: ₹9,43,000+
-                </div>
-              </Reveal>
-
-              {/* ENGINEERED FUNNEL */}
-              <Reveal className={styles.funnelVizCol} delay={320}>
-                <div className={`${styles.funnelVizColLabel} ${styles.engineered}`}>
-                  <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
-                  Property Edge Funnel
-                </div>
-                <div className={styles.funnelStageViz}>
-                  {[
-                    { name: 'Ad Impressions', count: '100,000', width: '100%' },
-                    { name: 'Clicks (Intent-Targeted)', count: '4,800', width: '88%' },
-                    { name: 'Leads Captured', count: '890', width: '76%' },
-                    { name: 'AI-Scored (≥7/10)', count: '310', width: '62%' },
-                    { name: 'Site Visits', count: '94', width: '52%' },
-                    { name: 'Bookings', count: '19', width: '44%' },
-                  ].map((s) => (
-                    <div key={s.name} className={styles.funnelStageRow}>
-                      <div className={`${styles.funnelStageBar} ${styles.engineered}`} style={{ width: s.width, minWidth: 80 }}>
-                        <span className={styles.funnelStageName}>{s.name}</span>
-                        <span className={`${styles.funnelStageCount} ${styles.optimised}`}>{s.count}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <div className={`${styles.funnelVizResult} ${styles.engineered}`}>
-                  <span>₹28.3L spend → 19 bookings</span>
-                  Cost Per Booking: ₹1,49,000 — −84% CPB
-                </div>
-              </Reveal>
-            </div>
-          </div>
-        </section>
-
-        {/* 4c. Client Results Proof */}
-        <section className={styles.clientResultsSection}>
-          <div className={styles.secInner}>
-            <Reveal as="div" className={styles.kk}>Verified Client Outcomes</Reveal>
-            <Reveal as="h2" className={styles.sh} delay={80}>
-              Numbers From Real Engagements.<br />
-              <em>Not Projections. Not Estimates.</em>
-            </Reveal>
-            <div className={styles.clientResultsGrid}>
-              <Reveal className={styles.clientResultCard} delay={220}>
-                <div className={styles.clientResultMetric}>−31%</div>
-                <div className={styles.clientResultMetricSub}>CPB Reduction</div>
-                <div className={styles.clientResultDesc}>Cost-per-booking cut in 90 days through closed-loop attribution and funnel restructuring.</div>
-                <div className={styles.clientResultContext}>Lodha Palava, Mumbai — Residential Township</div>
-              </Reveal>
-              <Reveal className={styles.clientResultCard} delay={300}>
-                <div className={styles.clientResultMetric}>2.4×</div>
-                <div className={styles.clientResultMetricSub}>Close Rate Improvement</div>
-                <div className={styles.clientResultDesc}>Sales team close rate doubled after AI lead scoring eliminated unqualified walk-ins.</div>
-                <div className={styles.clientResultContext}>Prestige Estates, Bengaluru — Luxury High-rise</div>
-              </Reveal>
-              <Reveal className={styles.clientResultCard} delay={380}>
-                <div className={styles.clientResultMetric}>3.8×</div>
-                <div className={styles.clientResultMetricSub}>Site Visit Volume</div>
-                <div className={styles.clientResultDesc}>Engineered site visit campaigns produced 3.8× more qualified walk-ins in a single quarter.</div>
-                <div className={styles.clientResultContext}>Godrej Horizon, Pune — Integrated Township</div>
-              </Reveal>
-            </div>
-          </div>
-        </section>
-
         {/* 5. Five Disciplines */}
         <BuiltForImpactSection />
 
@@ -276,11 +172,8 @@ export default function Home() {
           </div>
         </section> */}
 
-        {/* 8. Testimonials */}
-        <TestimonialsSection />
-
-        {/* 9. Case Study Proof Strip */}
-        <CaseStudyStrip />
+        {/* 8. Testimonials — removed */}
+        {/* 9. Case Study Proof Strip — removed */}
 
         {/* 10. CTA Block */}
         <section className={styles.ctaSection}>

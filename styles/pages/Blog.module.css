@@ -1,6 +1,6 @@
 
 .hero {
-  background: #130304;
+  background: #581728;
   position: relative;
   overflow: hidden;
   padding: clamp(72px, 9vw, 120px) 0 clamp(64px, 8vw, 104px);
@@ -37,12 +37,12 @@
 
 .postsSection {
   padding: 80px 0;
-  background: #0c0202;
+  background: #4A1120;
   border-top: 1px solid rgba(200,16,46,0.1);
 }
 
 .postCard {
-  background: linear-gradient(135deg, #2d1014, #220d10);
+  background: linear-gradient(135deg, #601A2A, #581728);
   border: 1px solid rgba(200,16,46,0.35);
   padding: 24px;
   display: flex;

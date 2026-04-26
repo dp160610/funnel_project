@@ -1,7 +1,7 @@
 .section {
-  background: linear-gradient(180deg, #130304 0%, #1f0508 100%);
+  background: #521424;
   padding: 80px 0;
-  border-bottom: 1px solid rgba(200,16,46,0.28);
+  border-bottom: 1px solid rgba(200,16,46,0.12);
 }
 
 .inner {
@@ -56,9 +56,11 @@
 }
 
 .copy {
-  background: linear-gradient(135deg, #2d1014, #220d10);
-  border: 1px solid rgba(200,16,46,0.38);
-  box-shadow: 0 30px 50px rgba(0,0,0,0.48);
+  background: rgba(22, 5, 10, 0.90);
+  backdrop-filter: blur(24px) saturate(140%);
+  -webkit-backdrop-filter: blur(24px) saturate(140%);
+  border: 1px solid rgba(200,16,46,0.22);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.04);
   padding: clamp(28px, 3vw, 40px);
   display: flex;
   flex-direction: column;
@@ -133,7 +135,7 @@
   width: 46px;
   height: 46px;
   border: 1px solid rgba(200,16,46,0.25);
-  background: #1f0508;
+  background: #621B2B;
   color: #C8102E;
   font-size: 18px;
   cursor: pointer;
@@ -158,7 +160,7 @@
   overflow: hidden;
   border: 1px solid rgba(200,16,46,0.12);
   box-shadow: 0 30px 50px rgba(0,0,0,0.08);
-  background: #0c0202;
+  background: #4A1120;
 }
 
 .media {
@@ -177,7 +179,7 @@
 
 .thumb {
   border: 1px solid rgba(200,16,46,0.12);
-  background: #1f0508;
+  background: #621B2B;
   padding: 8px;
   cursor: pointer;
   text-align: left;

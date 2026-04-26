@@ -1,7 +1,7 @@
 /* ===== CASE STUDY STRIP ===== */
 
 .section {
-  background: #0c0101;
+  background: #080F1E;
   border-bottom: 1px solid rgba(200,16,46,0.12);
   border-top: 1px solid rgba(200,16,46,0.08);
 }
@@ -64,13 +64,18 @@
 
 /* Card */
 .caseCard {
-  background: #0e0202;
+  background: rgba(22, 5, 10, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   padding: clamp(22px, 2.5vw, 36px) clamp(20px, 2.5vw, 32px);
   display: flex;
   flex-direction: column;
   position: relative;
   overflow: hidden;
-  transition: background 0.3s ease;
+  transition:
+    background 0.35s ease,
+    box-shadow 0.35s ease,
+    transform 0.35s var(--ease-premium);
 }
 
 .caseCard::before {
@@ -79,15 +84,17 @@
   bottom: 0;
   left: 0;
   right: 0;
-  height: 3px;
-  background: #C8102E;
+  height: 2px;
+  background: linear-gradient(90deg, #E8102E, rgba(200,16,46,0.30));
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.4s var(--ease-premium, cubic-bezier(0.22, 0.61, 0.36, 1));
 }
 
 .caseCard:hover {
-  background: #130304;
+  background: rgba(22, 5, 10, 0.95);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.50), 0 0 0 1px rgba(200,16,46,0.12);
+  transform: translateY(-3px);
 }
 
 .caseCard:hover::before {

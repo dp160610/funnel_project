@@ -1,7 +1,7 @@
 /* ===== VIDEO BACKGROUND SECTION ===== */
 
 .section {
-  background: linear-gradient(180deg, #130304 0%, #1f0508 100%);
+  background: linear-gradient(180deg, #541526 0%, #621B2B 100%);
   padding: 0 0 clamp(40px, 6vw, 80px);
   position: relative;
   overflow: hidden;

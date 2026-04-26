@@ -1,7 +1,7 @@
 /* ===== HOW IT WORKS SECTION ===== */
 
 .section {
-  background: #0a0202;
+  background: #070E1E;
   border-bottom: 1px solid rgba(200,16,46,0.14);
   position: relative;
   overflow: hidden;
@@ -106,23 +106,69 @@
 .stepsGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: rgba(200,16,46,0.10);
-  border: 1px solid rgba(200,16,46,0.12);
+  gap: clamp(14px, 2vw, 22px);
   margin-bottom: 64px;
 }
 
 .stepCard {
-  background: rgba(12, 2, 2, 0.80);
+  background: rgba(12, 4, 8, 0.82);
   backdrop-filter: blur(20px) saturate(150%);
   -webkit-backdrop-filter: blur(20px) saturate(150%);
-  padding: clamp(28px, 3.5vw, 48px);
+  padding: 0;
   position: relative;
   overflow: hidden;
   transition:
     background 0.4s ease,
     box-shadow 0.4s ease,
     transform 0.4s var(--ease-premium);
+}
+
+/* ── Step image ── */
+.stepImgWrap {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.stepImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(0.55) brightness(0.65);
+  transition: transform 0.6s var(--ease-premium), filter 0.4s ease;
+}
+
+.stepImgOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(16, 2, 2, 0) 20%, rgba(16, 2, 2, 0.92) 100%);
+  pointer-events: none;
+}
+
+.stepCard:hover .stepImg {
+  transform: scale(1.06);
+  filter: saturate(0.75) brightness(0.7);
+}
+
+/* Inner content padding */
+.stepCard > .stepTop,
+.stepCard > .stepTitle,
+.stepCard > .stepDesc,
+.stepCard > .stepMetric,
+.stepCard > .stepConnector {
+  padding-left: clamp(24px, 3vw, 40px);
+  padding-right: clamp(24px, 3vw, 40px);
+}
+
+.stepCard > .stepTop {
+  padding-top: clamp(24px, 3vw, 36px);
+}
+
+.stepCard > .stepMetric {
+  padding-bottom: clamp(24px, 3vw, 36px);
 }
 
 .stepCard::before {
@@ -136,7 +182,7 @@
 }
 
 .stepCard:hover {
-  background: rgba(16, 3, 4, 0.92);
+  background: rgba(18, 6, 10, 0.94);
   box-shadow: 0 24px 60px rgba(0,0,0,0.50), 0 0 0 1px rgba(200,16,46,0.12);
   transform: translateY(-3px);
   z-index: 2;

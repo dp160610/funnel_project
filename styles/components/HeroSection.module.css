@@ -1,7 +1,7 @@
 /* ===== HERO SECTION ===== */
 
 .hero {
-  background-color: #0d0203;
+  background-color: #521424;
   background-size: cover;
   background-position: center;
   position: relative;
@@ -17,7 +17,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(rgba(200,16,46,0.10) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(100,160,255,0.08) 1px, transparent 1px);
   background-size: 40px 40px;
   z-index: 1;
   pointer-events: none;

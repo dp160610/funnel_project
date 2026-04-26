@@ -9,6 +9,7 @@ const testimonials = [
     city: 'Mumbai',
     initials: 'DM',
     accentColor: '#1a4dc7',
+    propertyImg: 'https://images.pexels.com/photos/1486785/pexels-photo-1486785.jpeg?auto=compress&cs=tinysrgb&w=800',
     result: '−31% CPB',
     resultDetail: 'Cost-per-booking reduction in 90 days',
     quote: 'We had three agencies before Property Edge. The difference is attribution — they can tell you exactly which creative sold which flat. Our MD stopped asking "is marketing working?" within the first month.',
@@ -25,6 +26,7 @@ const testimonials = [
     city: 'Bengaluru',
     initials: 'PN',
     accentColor: '#9B0015',
+    propertyImg: 'https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?auto=compress&cs=tinysrgb&w=800',
     result: '2× Close Rate',
     resultDetail: 'After AI lead scoring implementation',
     quote: 'Lead scoring changed everything for my team. We stopped wasting site visits on window shoppers. Every lead that comes to us now has already been ranked, profiled, and pre-qualified. Our closers only talk to buyers.',
@@ -41,6 +43,7 @@ const testimonials = [
     city: 'Pune',
     initials: 'RA',
     accentColor: '#1e7e34',
+    propertyImg: 'https://images.pexels.com/photos/1732414/pexels-photo-1732414.jpeg?auto=compress&cs=tinysrgb&w=800',
     result: '3.8× Site Visits',
     resultDetail: 'From engineered site visit campaigns',
     quote: 'The 72-hour audit they gave us was more insightful than six months of internal review. Within a week we had a full funnel plan. Three months later, our site visit volume was almost four times what it was — with better quality buyers.',
@@ -69,6 +72,14 @@ export default function TestimonialsSection() {
         <div className={styles.cardsGrid}>
           {testimonials.map((t, i) => (
             <Reveal key={t.name} className={styles.card} delay={260 + i * 100}>
+              {/* Property photo header */}
+              <div className={styles.cardImgWrap} aria-hidden="true">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={t.propertyImg} alt="" className={styles.cardImg} />
+                <div className={styles.cardImgOverlay} />
+                <div className={styles.cardCity}>{t.city}</div>
+              </div>
+
               {/* Result badge */}
               <div className={styles.resultBadge}>
                 <span className={styles.resultValue}>{t.result}</span>
