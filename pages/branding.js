@@ -18,22 +18,27 @@ const whyCards = [
   {
     title: 'Your brand is your first price negotiation',
     desc: "A strong brand commands price premiums of 8-22% over comparable unbranded inventory in the same micro-market. Branding is not a cost - it is your highest-leverage pricing strategy.",
+    img: 'https://images.pexels.com/photos/1546168/pexels-photo-1546168.jpeg?auto=compress&cs=tinysrgb&w=700',
   },
   {
     title: 'Brand equity shortens your sales cycle',
     desc: 'Buyers who already trust your brand arrive at the site office pre-sold. They ask fewer objections, spend less time in due diligence, and close 40% faster than cold prospects.',
+    img: 'https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=700',
   },
   {
     title: "A brand that's remembered costs less to market",
     desc: 'Every rupee you invest in brand equity today lowers your future cost of acquisition. Recognised brands require 30-50% less paid media spend to generate the same volume of qualified leads.',
+    img: 'https://images.pexels.com/photos/6802042/pexels-photo-6802042.jpeg?auto=compress&cs=tinysrgb&w=700',
   },
   {
     title: "Your second project sells itself on your first one's reputation",
     desc: 'Developers who build brand equity do not start from zero on every launch. Each project compounds the value of the last. We build brands that scale across your entire portfolio — not just the current project.',
+    img: 'https://images.pexels.com/photos/2102587/pexels-photo-2102587.jpeg?auto=compress&cs=tinysrgb&w=700',
   },
   {
     title: "Without brand, you're competing on price. Always.",
     desc: 'Price competition is a race to the bottom. The only sustainable escape from it is a brand so well-positioned that the comparison becomes irrelevant. We build that escape route.',
+    img: 'https://images.pexels.com/photos/1560932/pexels-photo-1560932.jpeg?auto=compress&cs=tinysrgb&w=700',
   },
 ]
 
@@ -61,31 +66,37 @@ const services = [
     title: 'Brand Launch & Strategic Repositioning',
     desc: 'For new developers entering the market and established ones who have outgrown their current identity. We define your category, your differentiator, and your brand voice — then bring it to life with an identity system built to own mindshare in your specific micro-market.',
     icon: 'launch',
+    img: 'https://images.pexels.com/photos/3184286/pexels-photo-3184286.jpeg?auto=compress&cs=tinysrgb&w=700',
   },
   {
     title: 'Social Media Brand Management',
     desc: 'Your social presence is your trust storefront. We manage it as a brand system with strategic cadence, visual consistency, and community handling that supports conversion.',
     icon: 'social',
+    img: 'https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg?auto=compress&cs=tinysrgb&w=700',
   },
   {
     title: 'Strategic Copywriting & Brand Voice',
     desc: 'Taglines, narratives, project messaging, and ad scripts that make the right buyer feel the project was built for them.',
     icon: 'copy',
+    img: 'https://images.pexels.com/photos/4348401/pexels-photo-4348401.jpeg?auto=compress&cs=tinysrgb&w=700',
   },
   {
     title: 'Visual Identity & Graphic Design System',
     desc: 'Logo, brand guidelines, typography, color architecture, collateral, site hoardings, and sales kit design as one coherent visual system.',
     icon: 'identity',
+    img: 'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=700',
   },
   {
     title: 'Ad Films, Reels & Motion Brand Content',
     desc: 'Brand films, walkthroughs, testimonials, and short-form content that create desire before the site visit.',
     icon: 'video',
+    img: 'https://images.pexels.com/photos/66134/pexels-photo-66134.jpeg?auto=compress&cs=tinysrgb&w=700',
   },
   {
     title: 'Print, OOH & Mainline Advertising',
     desc: 'Site hoardings, brochures, jackets, and direct mailers that dominate the physical market where your buyer lives and commutes.',
     icon: 'mainline',
+    img: 'https://images.pexels.com/photos/1435975/pexels-photo-1435975.jpeg?auto=compress&cs=tinysrgb&w=700',
   },
 ]
 
@@ -275,6 +286,10 @@ export default function BrandingPage() {
             <div className={styles.servicesGrid}>
               {whyCards.map((item, index) => (
                 <Reveal key={item.title} className={styles.serviceCard} delay={180 + index * 90}>
+                  <div className={styles.serviceCardImgWrap}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={item.img} alt={item.title} className={styles.serviceCardImg} loading="lazy" />
+                  </div>
                   <div className={styles.serviceCardBody}>
                     <h3 className={styles.serviceCardTitle}>{item.title}</h3>
                     <p className={styles.serviceCardDesc}>{item.desc}</p>
@@ -314,10 +329,16 @@ export default function BrandingPage() {
             <div className={styles.featureGrid}>
               {services.map((s, index) => (
                 <Reveal key={s.title} className={styles.featureCard} delay={160 + index * 80}>
-                  <div className={styles.featureIconBox}>{renderBrandingIcon(s.icon)}</div>
-                  <div className={styles.featureCardNum}>{String(index + 1).padStart(2, '0')}</div>
-                  <div className={styles.featureCardTitle}>{s.title}</div>
-                  <p className={styles.featureCardDesc}>{s.desc}</p>
+                  <div className={styles.featureCardImgWrap}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={s.img} alt={s.title} className={styles.featureCardImg} loading="lazy" />
+                  </div>
+                  <div className={styles.featureCardContent}>
+                    <div className={styles.featureIconBox}>{renderBrandingIcon(s.icon)}</div>
+                    <div className={styles.featureCardNum}>{String(index + 1).padStart(2, '0')}</div>
+                    <div className={styles.featureCardTitle}>{s.title}</div>
+                    <p className={styles.featureCardDesc}>{s.desc}</p>
+                  </div>
                 </Reveal>
               ))}
             </div>

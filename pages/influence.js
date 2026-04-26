@@ -93,26 +93,32 @@ const services = [
   {
     title: 'Influencer Marketing & Creator Partnerships',
     desc: "We build and manage end-to-end influencer campaigns from creator identification and briefing to production oversight and reporting. We work across macro, micro, and hyperlocal creator tiers and map each creator's audience profile to your project's buyer persona.",
+    img: 'https://images.pexels.com/photos/3760778/pexels-photo-3760778.jpeg?auto=compress&cs=tinysrgb&w=700',
   },
   {
     title: 'Film Production, AVs & Cinematic Photography',
     desc: 'From full-length project films and cinematic aerial walkthroughs to high-conversion property photography, we produce content that creates emotional resonance and intent, not just information.',
+    img: 'https://images.pexels.com/photos/3062541/pexels-photo-3062541.jpeg?auto=compress&cs=tinysrgb&w=700',
   },
   {
     title: 'Model-Based Reels & Lifestyle Content',
     desc: 'Aspirational short-form narratives featuring professional models that bring your project to life as lived experience. Scripted and produced for Instagram and YouTube Shorts with conversion hooks built in.',
+    img: 'https://images.pexels.com/photos/1426851/pexels-photo-1426851.jpeg?auto=compress&cs=tinysrgb&w=700',
   },
   {
     title: 'Real Estate SEO & Content Visibility',
     desc: 'Hyperlocal and category SEO that helps your project dominate search when buyers look for location, builder, or project terms. Includes landing pages, blog content, YouTube SEO, and GBP optimisation.',
+    img: 'https://images.pexels.com/photos/270637/pexels-photo-270637.jpeg?auto=compress&cs=tinysrgb&w=700',
   },
   {
     title: 'Social Media Management & Community Building',
     desc: 'Full-service management of builder and project social channels: content calendars, community engagement, DM response protocols, and brand voice consistency.',
+    img: 'https://images.pexels.com/photos/4549415/pexels-photo-4549415.jpeg?auto=compress&cs=tinysrgb&w=700',
   },
   {
     title: 'Digital PR & Thought Leadership',
     desc: 'Media placements, builder profile stories, project launch coverage, and thought leadership that establish authority and create a credibility halo that paid media cannot replicate.',
+    img: 'https://images.pexels.com/photos/3944405/pexels-photo-3944405.jpeg?auto=compress&cs=tinysrgb&w=700',
   },
 ]
 
@@ -430,6 +436,10 @@ export default function InfluencePage() {
             <div className={styles.servicesGrid}>
               {services.map((s, i) => (
                 <Reveal key={s.title} className={styles.serviceCard} delay={180 + i * 90}>
+                  <div className={styles.serviceCardImgWrap}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={s.img} alt={s.title} className={styles.serviceCardImg} loading="lazy" />
+                  </div>
                   <div className={styles.serviceCardBody}>
                     <div className={styles.cardKicker}>{String(i + 1).padStart(2, '0')} - Service</div>
                     <h3 className={styles.serviceCardTitle}>{s.title}</h3>

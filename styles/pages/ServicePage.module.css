@@ -294,10 +294,10 @@
 }
 
 .sectionSub {
-  font-size: 15px;
+  font-size: 16px;
   color: #a0a0a0;
   max-width: 1080px;
-  line-height: 1.75;
+  line-height: 1.82;
   margin-bottom: 0;
   font-family: var(--font-poppins, 'Poppins', sans-serif);
 }
@@ -1709,6 +1709,52 @@
   font-family: var(--font-ui, 'Space Grotesk', sans-serif);
 }
 
+/* ── FUNNEL OVERVIEW — tapering pyramid bars above the diagram ──── */
+.funnelOverview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  margin: 40px 0 0;
+  width: 100%;
+}
+
+.funnelOverviewBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(90deg, rgba(200,16,46,0.22) 0%, rgba(200,16,46,0.10) 100%);
+  border: 1px solid rgba(200,16,46,0.28);
+  border-left: 3px solid #C8102E;
+  padding: 10px 20px;
+  min-width: 180px;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.funnelOverviewBar:hover {
+  background: linear-gradient(90deg, rgba(200,16,46,0.32) 0%, rgba(200,16,46,0.16) 100%);
+  border-color: rgba(200,16,46,0.55);
+}
+
+.funnelOverviewLabel {
+  font-size: 11px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.75);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-family: var(--font-ui, 'Space Grotesk', sans-serif);
+  white-space: nowrap;
+}
+
+.funnelOverviewMetric {
+  font-size: 12px;
+  font-weight: 800;
+  color: #C8102E;
+  font-family: var(--font-ui, 'Space Grotesk', sans-serif);
+  white-space: nowrap;
+  margin-left: 16px;
+}
+
 /* ── VISUAL FUNNEL DIAGRAM ────────────────────────────────────────── */
 .funnelDiagram {
   display: flex;
@@ -2275,13 +2321,44 @@
 
 .featureCard {
   background: #4E1222;
-  padding: clamp(28px, 3vw, 44px);
+  padding: 0 0 clamp(28px, 3vw, 44px);
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 0;
   position: relative;
   overflow: hidden;
   transition: background 0.3s ease;
+}
+
+/* Image wrapper at top of feature card */
+.featureCardImgWrap {
+  overflow: hidden;
+  position: relative;
+  line-height: 0;
+  flex-shrink: 0;
+}
+
+.featureCardImg {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  display: block;
+  opacity: 0.65;
+  transition: opacity 0.45s ease, transform 0.55s ease;
+}
+
+.featureCard:hover .featureCardImg {
+  opacity: 0.92;
+  transform: scale(1.05);
+}
+
+/* Content wrapper under the image */
+.featureCardContent {
+  padding: clamp(18px, 2.2vw, 30px) clamp(28px, 3vw, 44px) 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex: 1;
 }
 
 .featureCard::after {
@@ -2299,6 +2376,8 @@
 
 .featureCard:hover {
   background: #541526;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.40);
 }
 
 .featureCard:hover::after {
@@ -2351,8 +2430,8 @@
 
 .featureCardDesc {
   font-size: 13px;
-  color: rgba(255,255,255,0.48);
-  line-height: 1.78;
+  color: rgba(255,255,255,0.58);
+  line-height: 1.82;
   margin: 0;
   flex: 1;
 }
