@@ -346,22 +346,22 @@ export default function InfluencePage() {
           </div>
         </section>
 
-        <section className={`${styles.overviewSection} ${styles.lightSection}`}>
+        <section className={styles.overviewSection}>
           <div className={styles.sectionInner}>
             <div className="title_top_wrap"><span className="top_title">The comparison</span></div>
             <h2 className={styles.sectionHeading}>Influence Marketing vs. Traditional Paid Ads</h2>
             <p className={styles.sectionSub}>Understanding where influence fits and why smart builders run both in combination.</p>
-            <div style={{ marginTop: '30px', border: '1px solid rgba(200,16,46,0.25)' }}>
-              <div style={{ display: 'grid', gridTemplateColumns: '1.1fr 1fr 1fr', background: 'rgba(200,16,46,0.08)', borderBottom: '1px solid rgba(200,16,46,0.25)' }}>
-                <div style={{ padding: '12px 14px', fontWeight: 800, fontSize: '12px', color: '#111111', textTransform: 'uppercase', letterSpacing: '0.08em' }}>What You&apos;re Measuring</div>
-                <div style={{ padding: '12px 14px', fontWeight: 800, fontSize: '12px', color: '#111111', textTransform: 'uppercase', letterSpacing: '0.08em', borderLeft: '1px solid rgba(200,16,46,0.2)' }}>Paid Ads Only</div>
-                <div style={{ padding: '12px 14px', fontWeight: 800, fontSize: '12px', color: '#C8102E', textTransform: 'uppercase', letterSpacing: '0.08em', borderLeft: '1px solid rgba(200,16,46,0.2)' }}>Influence + Paid</div>
+            <div className={styles.compareWrap}>
+              <div className={styles.compareHead}>
+                <div className={styles.compareHeadCell}>What You&apos;re Measuring</div>
+                <div className={styles.compareHeadCell}>Paid Ads Only</div>
+                <div className={styles.compareHeadCell}>Influence + Paid</div>
               </div>
-              {comparisonRows.map((row, i) => (
-                <div key={row.metric} style={{ display: 'grid', gridTemplateColumns: '1.1fr 1fr 1fr', borderBottom: '1px solid rgba(0,0,0,0.08)', background: i % 2 === 0 ? 'rgba(0,0,0,0.03)' : 'transparent' }}>
-                  <div style={{ padding: '11px 14px', fontSize: '13px', color: '#111111', fontWeight: 600 }}>{row.metric}</div>
-                  <div style={{ padding: '11px 14px', fontSize: '13px', color: 'rgba(17,17,17,0.55)', borderLeft: '1px solid rgba(0,0,0,0.08)' }}>{row.paid}</div>
-                  <div style={{ padding: '11px 14px', fontSize: '13px', color: '#C8102E', borderLeft: '1px solid rgba(0,0,0,0.08)', fontWeight: 500 }}>{row.influence}</div>
+              {comparisonRows.map((row) => (
+                <div key={row.metric} className={styles.compareRow}>
+                  <div className={styles.compareCell}>{row.metric}</div>
+                  <div className={styles.compareCell}>{row.paid}</div>
+                  <div className={styles.compareCell}>{row.influence}</div>
                 </div>
               ))}
             </div>
@@ -401,11 +401,11 @@ export default function InfluencePage() {
             </div>
 
             {/* Metrics row */}
-            <div className={styles.statsRow} style={{ marginTop: '40px' }}>
+            <div className={styles.smoMetrics} style={{ marginTop: '40px' }}>
               {smoMetrics.map((item, index) => (
-                <Reveal key={item.label} className={styles.statItem} delay={180 + index * 90}>
-                  <CountUp value={item.value} className={styles.statNum} />
-                  <div className={styles.statLabel}>{item.label}</div>
+                <Reveal key={item.label} className={styles.smoMetricItem} delay={180 + index * 80}>
+                  <div className={styles.smoMetricVal}>{item.value}</div>
+                  <div className={styles.smoMetricLabel}>{item.label}</div>
                 </Reveal>
               ))}
             </div>
@@ -436,15 +436,13 @@ export default function InfluencePage() {
             <div className="title_top_wrap"><span className="top_title">Creator selection framework</span></div>
             <h2 className={styles.sectionHeading}>Not Every Creator is Right for Every Project. We Know the Difference.</h2>
             <p className={styles.sectionSub}>We match creator tier, audience profile, and format to your project price point, location, and segment. Reach without relevance is noise.</p>
-            <div className={styles.servicesGrid}>
+            <div className={styles.tierGrid}>
               {tiers.map((tier, index) => (
-                <Reveal key={tier.title} className={styles.serviceCard} delay={180 + index * 90}>
-                  <div className={styles.serviceCardBody}>
-                    <h3 className={styles.serviceCardTitle}>{tier.title}</h3>
-                    <div className={styles.cardKicker}>{tier.range}</div>
-                    <p className={styles.serviceCardDesc}>{tier.desc}</p>
-                    <div className={styles.cardStat}>{tier.bestFor}</div>
-                  </div>
+                <Reveal key={tier.title} className={styles.tierCard} delay={160 + index * 80}>
+                  <div className={styles.tierCardTitle}>{tier.title}</div>
+                  <div className={styles.tierCardRange}>{tier.range}</div>
+                  <div className={styles.tierCardDesc}>{tier.desc}</div>
+                  <div className={styles.tierCardBestFor}>{tier.bestFor}</div>
                 </Reveal>
               ))}
             </div>

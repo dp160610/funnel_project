@@ -8,7 +8,45 @@
 }
 
 .sectionAura {
-  display: none;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.sectionAura::before {
+  content: '';
+  position: absolute;
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(200,16,46,0.11) 0%, transparent 68%);
+  top: -200px;
+  left: -150px;
+  filter: blur(80px);
+  animation: auraFloat 14s ease-in-out infinite;
+  will-change: transform;
+}
+
+.sectionAura::after {
+  content: '';
+  position: absolute;
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(155,0,21,0.08) 0%, transparent 70%);
+  bottom: -80px;
+  right: 8%;
+  filter: blur(80px);
+  animation: auraFloat 18s ease-in-out infinite reverse;
+  will-change: transform;
+}
+
+@keyframes auraFloat {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  40% { transform: translate(40px, -50px) scale(1.06); }
+  70% { transform: translate(-20px, 30px) scale(0.97); }
 }
 
 .inner {
@@ -94,8 +132,9 @@
 }
 
 .manifestoRow:hover {
-  background: rgba(200,16,46,0.04);
+  background: rgba(200,16,46,0.045);
   padding-left: 20px;
+  box-shadow: inset 0 1px 0 rgba(200,16,46,0.08), inset 0 -1px 0 rgba(200,16,46,0.08), 0 4px 20px rgba(200,16,46,0.04);
 }
 
 .manifestoRow:hover::before {
@@ -116,8 +155,9 @@
 }
 
 .manifestoRow:hover .manifestoNum {
-  color: rgba(200,16,46,0.12);
-  -webkit-text-stroke-color: rgba(200,16,46,0.8);
+  color: rgba(200,16,46,0.18);
+  -webkit-text-stroke-color: rgba(200,16,46,0.85);
+  text-shadow: 0 0 40px rgba(200,16,46,0.20);
 }
 
 .manifestoCenter {

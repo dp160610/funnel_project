@@ -237,6 +237,7 @@ export default function FunnelEngineeringPage() {
           <img src="https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="" className={styles.heroBgImg} />
           <div className={styles.heroBgOverlay} />
           <div className={styles.heroInner}>
+            <Reveal as="span" className={styles.heroTag}>#FunnelEngineering</Reveal>
             <Reveal as="h1" className={styles.heroTitle} delay={70}>
               <span className="white_gradient">Every Rupee. Every Lead.</span>{' '}
               <span className="pink_gradient">Every Step - Engineered.</span>
@@ -246,7 +247,27 @@ export default function FunnelEngineeringPage() {
             </Reveal>
             <Reveal delay={330} style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
               <Link href="/contact" className={styles.heroCta}>Show Me Where My Budget Leaks</Link>
-              <Link href="/" className={styles.workTab}>See Full Pipeline</Link>
+              <Link href="#funnel" className={styles.workTab}>See Full Pipeline</Link>
+            </Reveal>
+            <Reveal delay={420}>
+              <div className={styles.heroMetrics}>
+                <div className={styles.heroMetric}>
+                  <span className={styles.heroMetricVal}>₹760Cr+</span>
+                  <span className={styles.heroMetricLabel}>Managed Ad Spend</span>
+                </div>
+                <div className={styles.heroMetric}>
+                  <span className={styles.heroMetricVal}>400+</span>
+                  <span className={styles.heroMetricLabel}>Campaigns Tracked</span>
+                </div>
+                <div className={styles.heroMetric}>
+                  <span className={styles.heroMetricVal}>20–35%</span>
+                  <span className={styles.heroMetricLabel}>Avg CPB Reduction</span>
+                </div>
+                <div className={styles.heroMetric}>
+                  <span className={styles.heroMetricVal}>72hr</span>
+                  <span className={styles.heroMetricLabel}>Free Funnel Audit</span>
+                </div>
+              </div>
             </Reveal>
           </div>
         </section>
@@ -284,25 +305,38 @@ export default function FunnelEngineeringPage() {
           </div>
         </section>
 
-        <section className={styles.caseSection}>
+        <section id="funnel" className={styles.caseSection}>
           <div className={styles.sectionInner}>
             <div className="title_top_wrap"><span className="top_title">The Full Funnel Architecture</span></div>
             <h2 className={styles.sectionHeading}>Five Stages. One Accountable System.</h2>
             <p className={styles.sectionSub}>Most budgets die between awareness and closure because no one owns the middle. We map every stage, instrument every handoff, and assign a specific strategy with a specific benchmark to each one.</p>
-            <div className={styles.servicesGrid}>
+            <div className={styles.funnelDiagram}>
               {funnelStages.map((stage, index) => (
-                <Reveal key={stage.title} className={styles.serviceCard} delay={180 + index * 90}>
-                  <div className={styles.serviceCardBody}>
-                    <div className={styles.cardKicker}>{stage.label}</div>
-                    <h3 className={styles.serviceCardTitle}>{stage.title}</h3>
-                    <p className={styles.serviceCardDesc}>{stage.desc}</p>
-                    <div className={styles.cardList}>
-                      {stage.tags.map((tag) => (
-                        <div key={tag} className={styles.cardListItem}>{tag}</div>
-                      ))}
+                <Reveal key={stage.title} style={{ width: '100%' }} delay={160 + index * 70}>
+                  <div className={styles.funnelStageBar}>
+                    <div className={styles.funnelStageNum}>{String(index + 1).padStart(2, '0')}</div>
+                    <div className={styles.funnelStageBody}>
+                      <div className={styles.funnelStageName}>{stage.label}</div>
+                      <div className={styles.funnelStageTitle}>{stage.title}</div>
+                      <div className={styles.funnelStageDesc}>{stage.desc}</div>
+                      <div className={styles.funnelTagRow}>
+                        {stage.tags.map((tag) => (
+                          <span key={tag} className={styles.funnelTag}>{tag}</span>
+                        ))}
+                      </div>
                     </div>
-                    <div className={styles.cardStat}><strong>{stage.metric}</strong> - {stage.metricLabel}</div>
+                    <div className={styles.funnelStageCost}>
+                      <span className={styles.funnelStageCostVal}>{stage.metric}</span>
+                      <span className={styles.funnelStageCostLabel}>{stage.metricLabel}</span>
+                    </div>
                   </div>
+                  {index < funnelStages.length - 1 && (
+                    <div className={styles.funnelArrow}>
+                      <svg viewBox="0 0 24 24" fill="none" width="20" height="20">
+                        <path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </div>
+                  )}
                 </Reveal>
               ))}
             </div>
@@ -369,32 +403,28 @@ export default function FunnelEngineeringPage() {
             <div className="title_top_wrap"><span className="top_title">The Full Cost Ladder</span></div>
             <h2 className={styles.sectionHeading}>Nothing hidden. Every number accounted for.</h2>
             <p className={styles.sectionSub}>We show you the cost at every stage of your pipeline - not just your CPL. The gap between Rs 350 CPL and Rs 45,000 cost-per-booking is where most budgets disappear without explanation.</p>
-            <div className={styles.servicesGrid} style={{ marginBottom: '18px' }}>
-              <Reveal className={styles.serviceCard} delay={180}>
-                <div className={styles.serviceCardBody}>
-                  <h3 className={styles.serviceCardTitle}>Why your CPL is misleading you</h3>
-                  <p className={styles.serviceCardDesc}>A Rs 200 CPL means nothing if only 8% of leads are qualified, 30% of qualified leads visit your site, and 12% of visitors close. The real cost of that booking can be Rs 87,000. We show you this math upfront.</p>
-                </div>
-              </Reveal>
-              <Reveal className={styles.serviceCard} delay={270}>
-                <div className={styles.serviceCardBody}>
-                  <h3 className={styles.serviceCardTitle}>Benchmarks derived from Rs 760Cr+ in managed spend</h3>
-                  <p className={styles.serviceCardDesc}>The ranges below are observed benchmarks across 400+ real estate campaigns across India, segmented by city tier, ticket size, and project type.</p>
-                </div>
-              </Reveal>
-            </div>
-            <div className={styles.servicesGrid}>
-              {costRungs.map((r, index) => (
-                <Reveal key={r.title} className={styles.serviceCard} delay={180 + index * 90}>
-                  <div className={styles.serviceCardBody}>
-                    <div className={styles.cardKicker}>{r.stat}</div>
-                    <h3 className={styles.serviceCardTitle}>{r.title}</h3>
-                    <p className={styles.serviceCardDesc}>{r.desc}</p>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-            <div className={styles.cardStat}>Important: These are category benchmarks across Mumbai, Pune, Bengaluru, Hyderabad, Delhi NCR, and Tier-2 markets. Actual numbers vary by ticket size, project stage, brand recognition, and city.</div>
+            <Reveal delay={160}>
+              <div className={styles.costLadder}>
+                {costRungs.map((r, index) => {
+                  const fillWidths = ['10%', '25%', '40%', '60%', '100%']
+                  return (
+                    <div key={r.title} className={styles.costRung}>
+                      <div className={styles.costRungLabel}>
+                        <span className={styles.costRungStat}>{r.stat}</span>
+                        <span className={styles.costRungName}>{r.title}</span>
+                      </div>
+                      <div className={styles.costRungDesc}>{r.desc}</div>
+                      <div className={styles.costRungBar}>
+                        <div className={styles.costRungTrack}>
+                          <div className={styles.costRungFill} style={{ width: fillWidths[index] }} />
+                        </div>
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
+            </Reveal>
+            <div className={styles.cardStat} style={{ marginTop: '16px' }}>Important: These are category benchmarks across Mumbai, Pune, Bengaluru, Hyderabad, Delhi NCR, and Tier-2 markets. Actual numbers vary by ticket size, project stage, brand recognition, and city.</div>
             <div style={{ marginTop: '16px' }}>
               <Link href="/contact" className={styles.heroCta}>Show Me My Full Cost Ladder</Link>
             </div>

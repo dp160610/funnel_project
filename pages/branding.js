@@ -91,21 +91,21 @@ const services = [
 
 function renderBrandingIcon(icon) {
   if (icon === 'launch') {
-    return <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" /><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" /></svg>
+    return <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.6"><circle cx="12" cy="12" r="3" /><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" /></svg>
   }
   if (icon === 'social') {
-    return <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" /><path d="M8 21h8M12 17v4" /></svg>
+    return <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.6"><rect x="2" y="3" width="20" height="14" rx="2" /><path d="M8 21h8M12 17v4" /></svg>
   }
   if (icon === 'copy') {
-    return <svg viewBox="0 0 24 24"><path d="M12 20h9" /><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z" /></svg>
+    return <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.6"><path d="M12 20h9" /><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z" /></svg>
   }
   if (icon === 'identity') {
-    return <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
+    return <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.6"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
   }
   if (icon === 'video') {
-    return <svg viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7" /><rect x="1" y="5" width="15" height="14" rx="2" /></svg>
+    return <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.6"><polygon points="23 7 16 12 23 17 23 7" /><rect x="1" y="5" width="15" height="14" rx="2" /></svg>
   }
-  return <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" /><polyline points="9 22 9 12 15 12 15 22" /></svg>
+  return <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.6"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" /><polyline points="9 22 9 12 15 12 15 22" /></svg>
 }
 
 const positioning = [
@@ -292,16 +292,15 @@ export default function BrandingPage() {
               <div className="title_top_wrap"><span className="top_title">Our Branding Process</span></div>
               <h2 className={styles.sectionHeading}>Brand-building is not creative.<br />It is strategic.</h2>
             </div>
-            <div className={styles.processSteps}>
+            <div className={styles.timeline}>
               {process.map((p, i) => (
-                <Reveal key={p.title} className={styles.processStep} delay={140 + i * 100}>
-                  <div className={styles.processStepNum}>0{i + 1}</div>
-                  <div className={styles.processStepLine} />
-                  <div className={styles.processStepBody}>
-                    <div className={styles.processStepTag}>Stage {String(i + 1).padStart(2, '0')}</div>
-                    <h3 className={styles.processStepTitle}>{p.title}</h3>
-                    <p className={styles.processStepDesc}>{p.desc}</p>
+                <Reveal key={p.title} className={styles.timelineStep} delay={140 + i * 100}>
+                  <div className={styles.timelineDot}>
+                    <span className={styles.timelineDotNum}>{String(i + 1).padStart(2, '0')}</span>
                   </div>
+                  <div className={styles.timelineStepTag}>Stage {String(i + 1).padStart(2, '0')}</div>
+                  <div className={styles.timelineStepTitle}>{p.title}</div>
+                  <div className={styles.timelineStepDesc}>{p.desc}</div>
                 </Reveal>
               ))}
             </div>
@@ -312,14 +311,13 @@ export default function BrandingPage() {
           <div className={styles.sectionInner}>
             <div className="title_top_wrap"><span className="top_title">Branding Solutions We Offer</span></div>
             <h2 className={styles.sectionHeading}>Six disciplines. One cohesive brand story.</h2>
-            <div className={styles.servicesGrid}>
+            <div className={styles.featureGrid}>
               {services.map((s, index) => (
-                <Reveal key={s.title} className={styles.serviceCard} delay={180 + index * 90}>
-                  <div className={styles.serviceCardBody}>
-                    <div className={styles.serviceIconBox}>{renderBrandingIcon(s.icon)}</div>
-                    <h3 className={styles.serviceCardTitle}>{s.title}</h3>
-                    <p className={styles.serviceCardDesc}>{s.desc}</p>
-                  </div>
+                <Reveal key={s.title} className={styles.featureCard} delay={160 + index * 80}>
+                  <div className={styles.featureIconBox}>{renderBrandingIcon(s.icon)}</div>
+                  <div className={styles.featureCardNum}>{String(index + 1).padStart(2, '0')}</div>
+                  <div className={styles.featureCardTitle}>{s.title}</div>
+                  <p className={styles.featureCardDesc}>{s.desc}</p>
                 </Reveal>
               ))}
             </div>

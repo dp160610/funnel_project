@@ -7,6 +7,10 @@ import CountUp from '../components/common/CountUp'
 import {
   HeroSection,
   BuiltForImpactSection,
+  HowItWorksSection,
+  TestimonialsSection,
+  BeforeAfterSection,
+  CaseStudyStrip,
 } from '../components/sections'
 import styles from '../styles/pages/Home.module.css'
 
@@ -108,10 +112,16 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 4. Five Disciplines */}
+        {/* 4. Before vs After */}
+        <BeforeAfterSection />
+
+        {/* 5. Five Disciplines */}
         <BuiltForImpactSection />
 
-        {/* 5. The Uncomfortable Truth */}
+        {/* 6. How It Works */}
+        <HowItWorksSection />
+
+        {/* 7. The Uncomfortable Truth */}
         <section className={styles.truthSection}>
           <div className={styles.secInner}>
             <Reveal as="div" className={styles.kk}>The Uncomfortable Truth</Reveal>
@@ -162,7 +172,13 @@ export default function Home() {
           </div>
         </section> */}
 
-        {/* 7. CTA Block */}
+        {/* 8. Testimonials */}
+        <TestimonialsSection />
+
+        {/* 9. Case Study Proof Strip */}
+        <CaseStudyStrip />
+
+        {/* 10. CTA Block */}
         <section className={styles.ctaSection}>
           <div className={styles.secInner}>
             <Reveal className={styles.ctaBlk} distance="38px">

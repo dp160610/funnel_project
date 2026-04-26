@@ -38,6 +38,34 @@ export default function HeroSection() {
                 Show Me What Funnel Engineering Looks Like
               </Link>
             </Reveal>
+
+            {/* ── Floating metric chips ─── */}
+            <Reveal className={styles.statsRow} delay={480}>
+              <div className={styles.stat}>
+                <div className={styles.statGlow} aria-hidden="true" />
+                <span className={styles.sn}>72hr</span>
+                <span className={styles.sl}>Funnel audit<br />turnaround</span>
+                <span className={styles.sbar} style={{ width: '100%' }} />
+              </div>
+              <div className={styles.stat}>
+                <div className={styles.statGlow} aria-hidden="true" />
+                <span className={styles.sn}>80–150×</span>
+                <span className={styles.sl}>Industry avg<br />CPB vs CPL</span>
+                <span className={styles.sbar} style={{ width: '78%' }} />
+              </div>
+              <div className={styles.stat}>
+                <div className={styles.statGlow} aria-hidden="true" />
+                <span className={styles.sn}>20–35%</span>
+                <span className={styles.sl}>CPB reduction<br />with attribution</span>
+                <span className={styles.sbar} style={{ width: '62%' }} />
+              </div>
+              <div className={styles.stat}>
+                <div className={styles.statGlow} aria-hidden="true" />
+                <span className={styles.sn}>2×</span>
+                <span className={styles.sl}>Close rate with<br />lead scoring</span>
+                <span className={styles.sbar} style={{ width: '50%' }} />
+              </div>
+            </Reveal>
           </div>
 
         </div>
