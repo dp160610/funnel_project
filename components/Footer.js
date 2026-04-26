@@ -19,6 +19,24 @@ export default function Footer() {
   return (
     <footer className="site-footer">
 
+      {/* ── Trust Strip ──────────────────────────────────────── */}
+      <div className="footer-trust-strip">
+        <div className="footer-trust-inner">
+          <span className="footer-trust-badge">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            Real Estate Only
+          </span>
+          <span className="footer-trust-sep">|</span>
+          <span className="footer-trust-stat"><strong>₹760Cr+</strong> Ad Spend Managed</span>
+          <span className="footer-trust-sep">|</span>
+          <span className="footer-trust-stat"><strong>50+</strong> Projects Delivered</span>
+          <span className="footer-trust-sep">|</span>
+          <span className="footer-trust-stat"><strong>12</strong> Cities Active</span>
+          <span className="footer-trust-sep">|</span>
+          <span className="footer-trust-stat"><strong>4.9/5</strong> Client NPS</span>
+        </div>
+      </div>
+
       {/* ── Main grid ────────────────────────────────────────── */}
       <div className="footer-main">
 
@@ -28,6 +46,10 @@ export default function Footer() {
           <p className="footer-tagline">
             We fill booking pipelines,<br />not just ad reports.
           </p>
+          <div className="footer-re-badge">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            Real Estate Only Agency
+          </div>
 
           <div>
             <div className="footer-address-label">Head Office · Mumbai</div>

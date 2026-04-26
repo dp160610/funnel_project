@@ -1413,3 +1413,163 @@ main [class*="modal-bg"] {
     justify-content: center;
   }
 }
+
+/* ══════════════════════════════════════════════════
+   SITE-WIDE TRUST BAR
+   ══════════════════════════════════════════════════ */
+.trust-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 900;
+  background: rgba(10, 2, 2, 0.96);
+  border-top: 1px solid rgba(200, 16, 46, 0.22);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.trust-bar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.trust-bar-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-right: 1px solid rgba(200, 16, 46, 0.14);
+}
+
+.trust-bar-item:last-of-type {
+  border-right: none;
+}
+
+.trust-bar-val {
+  font-size: 13px;
+  font-weight: 800;
+  color: #ffffff;
+  font-family: var(--font-space-grotesk, 'Space Grotesk', sans-serif);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.trust-bar-label {
+  font-size: 10px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.38);
+  font-family: var(--font-space-grotesk, 'Space Grotesk', sans-serif);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+.trust-bar-badge {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 14px;
+  background: rgba(200, 16, 46, 0.12);
+  border: 1px solid rgba(200, 16, 46, 0.30);
+  margin-left: 16px;
+  font-size: 10px;
+  font-weight: 800;
+  color: #C8102E;
+  text-transform: uppercase;
+  letter-spacing: 0.10em;
+  font-family: var(--font-space-grotesk, 'Space Grotesk', sans-serif);
+  white-space: nowrap;
+}
+
+/* push page content up so trust bar doesn't cover it */
+body {
+  padding-bottom: 44px;
+}
+
+/* ── Footer Trust Strip ── */
+.footer-trust-strip {
+  border-bottom: 1px solid rgba(200, 16, 46, 0.12);
+  padding: 14px clamp(16px, 4vw, 64px);
+}
+
+.footer-trust-inner {
+  max-width: 1260px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.footer-trust-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  background: rgba(200, 16, 46, 0.08);
+  border: 1px solid rgba(200, 16, 46, 0.25);
+  color: #C8102E;
+  font-size: 9px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-family: var(--font-space-grotesk, 'Space Grotesk', sans-serif);
+}
+
+.footer-trust-stat {
+  font-size: 11px;
+  color: rgba(255,255,255,0.4);
+  font-family: var(--font-space-grotesk, 'Space Grotesk', sans-serif);
+}
+
+.footer-trust-stat strong {
+  color: rgba(255,255,255,0.85);
+  font-weight: 700;
+}
+
+.footer-trust-sep {
+  color: rgba(200, 16, 46, 0.2);
+  font-size: 12px;
+}
+
+/* Footer Real Estate Only badge */
+.footer-re-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  background: rgba(200, 16, 46, 0.07);
+  border: 1px solid rgba(200, 16, 46, 0.20);
+  color: rgba(200, 16, 46, 0.85);
+  font-size: 9px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-family: var(--font-space-grotesk, 'Space Grotesk', sans-serif);
+  margin-top: 14px;
+  margin-bottom: 4px;
+}
+
+@media (max-width: 768px) {
+  .trust-bar-inner {
+    gap: 0;
+    overflow-x: auto;
+    justify-content: flex-start;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .trust-bar-inner::-webkit-scrollbar { display: none; }
+  .trust-bar-item {
+    padding: 9px 14px;
+    flex-shrink: 0;
+  }
+  .trust-bar-badge {
+    flex-shrink: 0;
+  }
+}

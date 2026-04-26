@@ -944,3 +944,250 @@
     transition: none;
   }
 }
+
+/* ══════════════════════════════════════════════
+   LEAKY FUNNEL VISUAL SECTION
+   ══════════════════════════════════════════════ */
+.funnelVizSection {
+  background: #0a0102;
+  position: relative;
+  overflow: hidden;
+}
+
+.funnelVizInner {
+  padding: 88px clamp(16px, 4vw, 64px);
+  max-width: 1260px;
+  margin: 0 auto;
+}
+
+.funnelVizGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+  margin-top: 56px;
+}
+
+.funnelVizCol {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.funnelVizColLabel {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 24px;
+  padding: 6px 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 2px;
+  align-self: flex-start;
+}
+
+.funnelVizColLabel.broken {
+  color: #ff6b6b;
+  background: rgba(255, 107, 107, 0.08);
+  border: 1px solid rgba(255, 107, 107, 0.2);
+}
+
+.funnelVizColLabel.engineered {
+  color: #48bb78;
+  background: rgba(72, 187, 120, 0.08);
+  border: 1px solid rgba(72, 187, 120, 0.2);
+}
+
+.funnelStageViz {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.funnelStageRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.funnelStageBar {
+  height: 44px;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  position: relative;
+  transition: width 0.6s ease;
+}
+
+.funnelStageBar.broken {
+  background: rgba(255, 107, 107, 0.08);
+  border-left: 2px solid rgba(255, 107, 107, 0.3);
+}
+
+.funnelStageBar.engineered {
+  background: rgba(72, 187, 120, 0.08);
+  border-left: 2px solid rgba(72, 187, 120, 0.3);
+}
+
+.funnelStageName {
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+  font-family: var(--font-space-grotesk, 'Space Grotesk', sans-serif);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+.funnelStageCount {
+  font-size: 12px;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: var(--font-space-grotesk, 'Space Grotesk', sans-serif);
+  white-space: nowrap;
+  margin-left: auto;
+}
+
+.funnelStageCount.leaking {
+  color: #ff6b6b;
+}
+
+.funnelStageCount.optimised {
+  color: #48bb78;
+}
+
+.funnelLeakArrow {
+  position: absolute;
+  right: -28px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 9px;
+  color: #ff6b6b;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.7;
+  white-space: nowrap;
+}
+
+.funnelVizResult {
+  margin-top: 24px;
+  padding: 14px 18px;
+  border-radius: 2px;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.funnelVizResult.broken {
+  background: rgba(255, 107, 107, 0.06);
+  border: 1px solid rgba(255, 107, 107, 0.18);
+  color: #ff6b6b;
+}
+
+.funnelVizResult.engineered {
+  background: rgba(72, 187, 120, 0.06);
+  border: 1px solid rgba(72, 187, 120, 0.18);
+  color: #48bb78;
+}
+
+.funnelVizResult span {
+  font-size: 22px;
+  font-weight: 900;
+  display: block;
+  margin-bottom: 4px;
+  font-family: var(--font-space-grotesk, 'Space Grotesk', sans-serif);
+}
+
+/* animation pulse for broken bars */
+@keyframes leakPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.45; }
+}
+
+.funnelStageBar.broken {
+  animation: leakPulse 3s ease-in-out infinite;
+}
+
+/* Client Results Carousel */
+.clientResultsSection {
+  background: var(--primary-bg);
+  position: relative;
+}
+
+.clientResultsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 48px;
+}
+
+.clientResultCard {
+  padding: 28px 24px;
+  background: rgba(45, 16, 20, 0.5);
+  border: 1px solid rgba(200, 16, 46, 0.14);
+  position: relative;
+  overflow: hidden;
+}
+
+.clientResultCard::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--accent-red);
+  opacity: 0.6;
+}
+
+.clientResultMetric {
+  font-size: 42px;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  font-family: var(--font-space-grotesk, 'Space Grotesk', sans-serif);
+  margin-bottom: 6px;
+}
+
+.clientResultMetricSub {
+  font-size: 11px;
+  font-weight: 600;
+  color: #C8102E;
+  text-transform: uppercase;
+  letter-spacing: 0.10em;
+  margin-bottom: 12px;
+  font-family: var(--font-space-grotesk, 'Space Grotesk', sans-serif);
+}
+
+.clientResultDesc {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.55;
+}
+
+.clientResultContext {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  font-size: 10px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.28);
+  text-transform: uppercase;
+  letter-spacing: 0.10em;
+}
+
+@media (max-width: 900px) {
+  .funnelVizGrid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .clientResultsGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+

@@ -53,6 +53,28 @@ export default function App({ Component, pageProps }) {
     >
       <Component {...pageProps} />
 
+      {/* ── Site-wide Trust Bar ── */}
+      <div className="trust-bar" aria-label="Agency credentials">
+        <div className="trust-bar-inner">
+          {[
+            { val: '₹760Cr+', label: 'Ad Spend Managed' },
+            { val: '50+', label: 'Projects Delivered' },
+            { val: '12', label: 'Cities Active' },
+            { val: '4.9/5', label: 'Client NPS' },
+            { val: '72hr', label: 'Free Funnel Audit' },
+          ].map((item) => (
+            <div key={item.label} className="trust-bar-item">
+              <span className="trust-bar-val">{item.val}</span>
+              <span className="trust-bar-label">{item.label}</span>
+            </div>
+          ))}
+          <div className="trust-bar-badge">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            Real Estate Only
+          </div>
+        </div>
+      </div>
+
       {/* ── WhatsApp Floating Button ── */}
       <a
         href="https://wa.me/919987130371?text=Hi%20Property%20Edge%2C%20I%27d%20like%20a%2072-hour%20free%20funnel%20audit%20for%20my%20project."
