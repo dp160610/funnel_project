@@ -32,13 +32,14 @@
   background: linear-gradient(135deg, #C8102E 0%, #9B0015 100%);
   color: #fff;
   border-color: #C8102E;
+  box-shadow: 0 4px 20px rgba(200,16,46,0.28);
 }
 
 .primary:hover {
   background: linear-gradient(135deg, #D90429 0%, #C8102E 100%);
   border-color: #D90429;
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(200, 16, 46, 0.35);
+  box-shadow: 0 12px 32px rgba(200, 16, 46, 0.48), inset 0 1px 0 rgba(255,255,255,0.12);
 }
 
 .primary:hover::before {

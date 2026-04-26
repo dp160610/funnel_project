@@ -51,38 +51,39 @@
   width: 100%;
   max-width: none;
   margin: 0;
-  padding: 96px clamp(16px, 4vw, 64px);
+  padding: 104px clamp(20px, 5vw, 80px);
   position: relative;
   z-index: 1;
 }
 
 .kk {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 3.5px;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 4px;
   text-transform: uppercase;
-  color: #C8102E;
-  margin-bottom: 16px;
+  color: #E8102E;
+  margin-bottom: 18px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   font-family: var(--font-ui, 'Space Grotesk', sans-serif);
 }
 
 .kk::before {
   content: '';
-  width: 20px;
+  width: 28px;
   height: 2px;
-  background: #C8102E;
+  background: linear-gradient(90deg, #C8102E, rgba(200,16,46,0.3));
+  flex-shrink: 0;
 }
 
 .sh {
-  font-size: clamp(44px, 5.5vw, 76px);
+  font-size: clamp(46px, 6vw, 84px);
   font-weight: 600;
-  letter-spacing: -0.02em;
-  line-height: 0.98;
-  color: #ffffff;
-  margin-bottom: 20px;
+  letter-spacing: -0.03em;
+  line-height: 0.96;
+  color: #F5F0F1;
+  margin-bottom: 22px;
   font-family: var(--font-cormorant, 'Cormorant Garamond', 'Playfair Display', serif);
 }
 
@@ -112,11 +113,16 @@
 }
 
 .stepCard {
-  background: #0e0202;
-  padding: clamp(28px, 3vw, 40px);
+  background: rgba(12, 2, 2, 0.80);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  padding: clamp(28px, 3.5vw, 48px);
   position: relative;
   overflow: hidden;
-  transition: background 0.35s ease, transform 0.35s ease;
+  transition:
+    background 0.4s ease,
+    box-shadow 0.4s ease,
+    transform 0.4s var(--ease-premium);
 }
 
 .stepCard::before {
@@ -125,12 +131,14 @@
   inset: 0;
   background: linear-gradient(135deg, rgba(200,16,46,0.06) 0%, transparent 55%);
   opacity: 0;
-  transition: opacity 0.35s ease;
+  transition: opacity 0.4s ease;
   pointer-events: none;
 }
 
 .stepCard:hover {
-  background: #130304;
+  background: rgba(16, 3, 4, 0.92);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.50), 0 0 0 1px rgba(200,16,46,0.12);
+  transform: translateY(-3px);
   z-index: 2;
 }
 

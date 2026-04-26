@@ -53,45 +53,47 @@
   width: 100%;
   max-width: none;
   margin: 0;
-  padding: 88px clamp(16px, 4vw, 64px);
+  padding: 104px clamp(20px, 5vw, 80px);
   position: relative;
   z-index: 1;
 }
 
 .kk {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 3.5px;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 4px;
   text-transform: uppercase;
-  color: #C8102E;
-  margin-bottom: 16px;
+  color: #E8102E;
+  margin-bottom: 18px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   font-family: var(--font-ui, 'Space Grotesk', sans-serif);
 }
 
 
 .kk::before {
   content: '';
-  width: 20px;
+  width: 28px;
   height: 2px;
-  background: #C8102E;
+  background: linear-gradient(90deg, #C8102E, rgba(200,16,46,0.3));
+  flex-shrink: 0;
 }
 
 .sh {
-  font-size: clamp(44px, 5.5vw, 76px);
+  font-size: clamp(46px, 6vw, 84px);
   font-weight: 600;
-  letter-spacing: -0.02em;
-  line-height: 0.98;
-  color: #ffffff;
+  letter-spacing: -0.03em;
+  line-height: 0.96;
+  color: #F5F0F1;
   margin-bottom: 24px;
   font-family: var(--font-cormorant, 'Cormorant Garamond', 'Playfair Display', serif);
 }
 
 .sh em {
-  color: #C8102E;
-  font-style: normal;
+  color: #E8102E;
+  font-style: italic;
+  text-shadow: 0 0 60px rgba(200,16,46,0.35);
 }
 
 .ss {
@@ -114,10 +116,13 @@
   grid-template-columns: 90px 1fr 1.1fr;
   gap: 0 clamp(28px, 4vw, 64px);
   align-items: start;
-  padding: 42px 0;
-  border-bottom: 1px solid rgba(200,16,46,0.12);
+  padding: 48px 0;
+  border-bottom: 1px solid rgba(200,16,46,0.10);
   position: relative;
-  transition: background 0.3s ease, padding-left 0.3s ease;
+  transition:
+    background 0.35s ease,
+    padding-left 0.35s var(--ease-premium),
+    box-shadow 0.35s ease;
 }
 
 .manifestoRow::before {
@@ -127,14 +132,14 @@
   top: 0;
   bottom: 0;
   width: 0;
-  background: #C8102E;
-  transition: width 0.3s ease;
+  background: linear-gradient(180deg, #C8102E 0%, #9b0015 100%);
+  transition: width 0.35s ease;
 }
 
 .manifestoRow:hover {
-  background: rgba(200,16,46,0.045);
-  padding-left: 20px;
-  box-shadow: inset 0 1px 0 rgba(200,16,46,0.08), inset 0 -1px 0 rgba(200,16,46,0.08), 0 4px 20px rgba(200,16,46,0.04);
+  background: rgba(200,16,46,0.03);
+  padding-left: 22px;
+  box-shadow: inset 0 1px 0 rgba(200,16,46,0.06), inset 0 -1px 0 rgba(200,16,46,0.06), 0 8px 32px rgba(200,16,46,0.04);
 }
 
 .manifestoRow:hover::before {
@@ -142,22 +147,25 @@
 }
 
 .manifestoNum {
-  font-size: clamp(42px, 5vw, 64px);
+  font-size: clamp(44px, 5.5vw, 72px);
   font-weight: 900;
   line-height: 1;
-  -webkit-text-stroke: 1.5px rgba(200,16,46,0.45);
+  -webkit-text-stroke: 1.5px rgba(200,16,46,0.40);
   color: transparent;
   letter-spacing: -3px;
-  transition: -webkit-text-stroke-color 0.3s ease, color 0.3s ease;
+  transition:
+    -webkit-text-stroke-color 0.35s ease,
+    color 0.35s ease,
+    text-shadow 0.35s ease;
   font-family: var(--font-cormorant, 'Cormorant Garamond', serif);
   padding-top: 10px;
   user-select: none;
 }
 
 .manifestoRow:hover .manifestoNum {
-  color: rgba(200,16,46,0.18);
-  -webkit-text-stroke-color: rgba(200,16,46,0.85);
-  text-shadow: 0 0 40px rgba(200,16,46,0.20);
+  color: rgba(200,16,46,0.15);
+  -webkit-text-stroke-color: rgba(200,16,46,0.92);
+  text-shadow: 0 0 60px rgba(200,16,46,0.30);
 }
 
 .manifestoCenter {
@@ -165,11 +173,11 @@
 }
 
 .manifestoTitle {
-  font-size: clamp(22px, 2.6vw, 38px);
+  font-size: clamp(24px, 2.8vw, 42px);
   font-weight: 600;
-  color: #ffffff;
-  letter-spacing: -0.02em;
-  line-height: 1.1;
+  color: #F5F0F1;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
   margin-bottom: 18px;
   font-family: var(--font-cormorant, 'Cormorant Garamond', serif);
 }
@@ -177,12 +185,12 @@
 .manifestoLine {
   width: 36px;
   height: 2px;
-  background: linear-gradient(90deg, #C8102E, rgba(200,16,46,0.25));
-  transition: width 0.35s ease;
+  background: linear-gradient(90deg, #C8102E, rgba(200,16,46,0.20));
+  transition: width 0.4s var(--ease-premium);
 }
 
 .manifestoRow:hover .manifestoLine {
-  width: 80px;
+  width: 96px;
 }
 
 .manifestoBody {
