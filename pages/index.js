@@ -6,6 +6,7 @@ import Reveal from '../components/common/Reveal'
 import CountUp from '../components/common/CountUp'
 import {
   HeroSection,
+  LogoSliderSection,
   BuiltForImpactSection,
   HowItWorksSection,
   TestimonialsSection,
@@ -96,7 +97,10 @@ export default function Home() {
           </div>
         </div>
 
-        {/* 3. Boardroom silence hash section */}
+        {/* 3. Client proof rail */}
+        <LogoSliderSection />
+
+        {/* 4. Boardroom silence hash section */}
         <section className={styles.hashSection}>
           <div className={styles.hashInner}>
             <Reveal className={`${styles.hashBlk} ${styles.hashInnerText}`} distance="42px">
@@ -120,16 +124,16 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 4. Before vs After */}
+        {/* 5. Before vs After */}
         <BeforeAfterSection />
 
-        {/* 5. Five Disciplines */}
+        {/* 6. Five Disciplines */}
         <BuiltForImpactSection />
 
-        {/* 6. How It Works */}
+        {/* 7. How It Works */}
         <HowItWorksSection />
 
-        {/* 7. The Uncomfortable Truth */}
+        {/* 8. The Uncomfortable Truth */}
         <section className={styles.truthSection}>
           <div className={styles.secInner}>
             <Reveal as="div" className={styles.kk}>The Uncomfortable Truth</Reveal>
@@ -161,7 +165,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 6. Trusted By */}
+        {/* 9. Trusted By */}
         {/* <section className={styles.trustedSection}>
           <div className={styles.secInner}>
             <Reveal as="div" className={styles.kk}>Trusted By</Reveal>
@@ -184,10 +188,10 @@ export default function Home() {
           </div>
         </section> */}
 
-        {/* 8. Testimonials — removed */}
-        {/* 9. Case Study Proof Strip — removed */}
+        {/* 10. Testimonials */}
+        <TestimonialsSection />
 
-        {/* 10. CTA Block */}
+        {/* 11. CTA Block */}
         <section className={styles.ctaSection}>
           <div className={styles.secInner}>
             <Reveal className={styles.ctaBlk} distance="38px">
