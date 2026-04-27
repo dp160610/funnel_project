@@ -1,21 +1,25 @@
 {
-  "name": "funnel-website",
+  "name": "property-edge",
   "version": "1.0.0",
   "private": true,
-  "description": "A Next.js funnel engineering website with a modern landing page design.",
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3000 -H 0.0.0.0",
+    "start": "next dev -p 3000 -H 0.0.0.0",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "serve": "next start -p 3000 -H 0.0.0.0",
+    "export": "next build"
   },
   "dependencies": {
-    "next": "^16.2.2",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "next-seo": "^6.5.0"
+    "next": "14.2.13",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "framer-motion": "11.5.4",
+    "lucide-react": "0.441.0",
+    "clsx": "2.1.1"
   },
   "devDependencies": {
-    "eslint": "^8.57.0"
+    "autoprefixer": "10.4.20",
+    "postcss": "8.4.47",
+    "tailwindcss": "3.4.13"
   }
 }
