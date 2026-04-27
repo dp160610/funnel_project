@@ -5,6 +5,9 @@ import Marquee from '../components/Marquee';
 import LogoWall from '../components/LogoWall';
 import { Reveal, Stagger, itemVariant } from '../components/Reveal';
 import AnimatedCounter from '../components/AnimatedCounter';
+import ParallaxImage from '../components/ParallaxImage';
+import FAQ from '../components/FAQ';
+import TrustStrip from '../components/TrustStrip';
 import { motion } from 'framer-motion';
 
 const services = [
@@ -130,6 +133,9 @@ export default function Home() {
 
       {/* LOGOS */}
       <LogoWall />
+
+      {/* TRUST STRIP — featured-in + credibility tiles */}
+      <TrustStrip />
 
       {/* Boardroom Silence */}
       <section data-testid="boardroom-section" className="py-28 md:py-40 bg-ink">
@@ -356,6 +362,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* FAQ */}
+      <FAQ />
 
       {/* FINAL CTA */}
       <section data-testid="final-cta" className="relative overflow-hidden bg-ink py-24 md:py-32 border-t border-line">

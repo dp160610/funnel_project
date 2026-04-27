@@ -172,3 +172,20 @@ html, body {
   transition: gap .4s cubic-bezier(.2,.8,.2,1), color .4s;
 }
 .arrow-cta:hover { gap: 14px; color: var(--accent); }
+
+/* Magnetic cursor */
+@media (pointer: fine) {
+  body, a, button, input, textarea, select { cursor: none; }
+}
+.cursor-ring.cursor-active {
+  width: 64px;
+  height: 64px;
+  border-color: var(--accent);
+  background: rgba(217,35,35,0.08);
+  margin-left: -14px;
+  margin-top: -14px;
+  mix-blend-mode: difference;
+}
+
+/* Section heading utility */
+.text-balance { text-wrap: balance; }

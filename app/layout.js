@@ -3,6 +3,9 @@ import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 import StickyStats from '../components/StickyStats';
 import WhatsAppCTA from '../components/WhatsAppCTA';
+import ScrollProgress from '../components/ScrollProgress';
+import PageTransition from '../components/PageTransition';
+import MagneticCursor from '../components/MagneticCursor';
 
 export const metadata = {
   title: 'Property Edge Consulting — Real Estate Marketing That Earns Trust First',
@@ -25,8 +28,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="grain min-h-screen bg-ink text-bone antialiased">
+        <ScrollProgress />
+        <MagneticCursor />
         <Nav />
-        <main className="relative z-[2]">{children}</main>
+        <PageTransition>
+          <main className="relative z-[2]">{children}</main>
+        </PageTransition>
         <Footer />
         <StickyStats />
         <WhatsAppCTA />
