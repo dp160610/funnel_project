@@ -24,7 +24,7 @@ export default function Nav() {
   return (
     <header data-testid="site-nav" className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${scrolled ? 'bg-ink/85 backdrop-blur-xl border-b border-line' : 'bg-transparent'}`}>
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 h-[88px] flex items-center justify-between">
-        <Link href="/" data-testid="logo-link" className="flex items-center group">
+        <Link href="/" data-testid="logo-link" className="flex items-center gap-3 group">
           <span
             className="bg-white inline-block transition-transform duration-500 group-hover:scale-[1.03] shadow-sm"
             style={{
@@ -38,6 +38,10 @@ export default function Nav() {
             role="img"
             aria-label="Property Edge Consulting Pvt Ltd"
           />
+          <span className="hidden xl:flex flex-col leading-tight ml-1 border-l border-line/70 pl-3">
+            <span className="font-tech text-[9px] uppercase tracking-wider2 text-gold">Real Estate Only</span>
+            <span className="font-tech text-[9px] uppercase tracking-wider2 text-bone/55">Engineered for Bookings</span>
+          </span>
         </Link>
         <nav className="hidden lg:flex items-center gap-9">
           {links.slice(1).map(l => (

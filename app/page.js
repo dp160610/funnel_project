@@ -8,6 +8,9 @@ import AnimatedCounter from '../components/AnimatedCounter';
 import ParallaxImage from '../components/ParallaxImage';
 import FAQ from '../components/FAQ';
 import TrustStrip from '../components/TrustStrip';
+import CinematicBreak from '../components/CinematicBreak';
+import CitiesGallery from '../components/CitiesGallery';
+import FeaturedProjects from '../components/FeaturedProjects';
 import { motion } from 'framer-motion';
 
 const services = [
@@ -278,6 +281,15 @@ export default function Home() {
         </div>
       </section>
 
+      {/* CINEMATIC BREAK — emotional anchor between systems and outcomes */}
+      <CinematicBreak
+        src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1920"
+        eyebrow="What We're Really Marketing"
+        headline="A home is the largest emotional decision most families ever make. Our job is to make sure the right one"
+        accentWord="finds the right buyer."
+        attribution="Property Edge Founding Note"
+      />
+
       {/* TRUTH SECTION */}
       <section data-testid="truth-section" className="py-24 md:py-32 bg-ink">
         <div className="max-w-[1400px] mx-auto px-6 md:px-10">
@@ -365,6 +377,16 @@ export default function Home() {
 
       {/* FAQ */}
       <FAQ />
+
+      {/* LUXURY CINEMATIC BREAK before final CTA */}
+      <CinematicBreak
+        src="https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=1920"
+        eyebrow="The Brief"
+        headline="Tell us about your project. We'll tell you what your funnel is actually"
+        accentWord="costing you."
+        attribution="72-Hour Free Audit"
+        height="h-[70vh]"
+      />
 
       {/* FINAL CTA */}
       <section data-testid="final-cta" className="relative overflow-hidden bg-ink py-24 md:py-32 border-t border-line">

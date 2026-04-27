@@ -13,6 +13,7 @@ module.exports = {
         muted: '#A1A1AA',
         accent: '#D92323',
         accenthover: '#B91C1C',
+        gold: '#C9A961',
         line: '#27272A',
       },
       fontFamily: {
