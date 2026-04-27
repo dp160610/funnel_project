@@ -114,12 +114,27 @@ html, body {
   text-shadow: 0 4px 32px rgba(0,0,0,0.55), 0 2px 6px rgba(0,0,0,0.45);
 }
 .hero-title em {
-  text-shadow: 0 4px 32px rgba(0,0,0,0.85), 0 2px 8px rgba(0,0,0,0.7);
+  color: #E8272A;
+  font-family: 'Cabinet Grotesk', system-ui, sans-serif;
+  font-weight: 800;
+  text-shadow: 0 2px 16px rgba(0,0,0,0.6);
+}
+
+/* Global rule: all accent-coloured em tags site-wide */
+em.text-accent {
+  font-family: 'Cabinet Grotesk', system-ui, sans-serif;
+  font-weight: 800;
 }
 .hero-overlay {
   background:
-    linear-gradient(180deg, rgba(10,10,10,0.55) 0%, rgba(10,10,10,0.45) 35%, rgba(10,10,10,0.78) 75%, #0A0A0A 100%),
-    radial-gradient(ellipse at 25% 60%, rgba(10,10,10,0.55) 0%, transparent 60%);
+    linear-gradient(180deg,
+      rgba(10,10,10,0.45) 0%,
+      rgba(10,10,10,0.50) 30%,
+      rgba(10,10,10,0.82) 55%,
+      rgba(10,10,10,0.92) 70%,
+      #0A0A0A 100%
+    ),
+    radial-gradient(ellipse at 30% 65%, rgba(10,10,10,0.75) 0%, transparent 55%);
 }
 
 /* Magnetic-feel buttons */
