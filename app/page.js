@@ -11,6 +11,10 @@ import TrustStrip from '../components/TrustStrip';
 import CinematicBreak from '../components/CinematicBreak';
 import CitiesGallery from '../components/CitiesGallery';
 import FeaturedProjects from '../components/FeaturedProjects';
+import PinnedShowcase from '../components/PinnedShowcase';
+import AwardsRecognition from '../components/AwardsRecognition';
+import PrincipalCard from '../components/PrincipalCard';
+import MonogramDivider from '../components/MonogramDivider';
 import { motion } from 'framer-motion';
 
 const services = [
@@ -290,6 +294,9 @@ export default function Home() {
         attribution="Property Edge Founding Note"
       />
 
+      {/* PINNED CINEMATIC SHOWCASE — sticky scroll-driven 4-stage reveal */}
+      <PinnedShowcase />
+
       {/* TRUTH SECTION */}
       <section data-testid="truth-section" className="py-24 md:py-32 bg-ink">
         <div className="max-w-[1400px] mx-auto px-6 md:px-10">
@@ -377,6 +384,21 @@ export default function Home() {
 
       {/* FAQ */}
       <FAQ />
+
+      {/* FEATURED PROJECTS — luxury work showcase */}
+      <FeaturedProjects />
+
+      {/* CITIES — markets we operate in */}
+      <CitiesGallery />
+
+      {/* MONOGRAM DIVIDER */}
+      <MonogramDivider />
+
+      {/* PRINCIPAL — founder-led trust */}
+      <PrincipalCard />
+
+      {/* AWARDS & RECOGNITION */}
+      <AwardsRecognition />
 
       {/* LUXURY CINEMATIC BREAK before final CTA */}
       <CinematicBreak
